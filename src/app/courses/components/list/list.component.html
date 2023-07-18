@@ -1,0 +1,341 @@
+<section
+  class="bg-dark align-items-center d-flex"
+  style="
+    background: url(assets/images/pattern/04.png) no-repeat center center;
+    background-size: cover;
+  "
+>
+  <!-- Main banner background image -->
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <!-- Title -->
+        <h1 class="text-white">Course List Classic</h1>
+        <!-- Breadcrumb -->
+        <div class="d-flex">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb breadcrumb-dark breadcrumb-dots mb-0">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">
+                Courses
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pb-0 py-sm-5">
+  <div class="container">
+    <!-- Title and select START -->
+    <div class="row g-3 align-items-center mb-4">
+      <!-- Content -->
+
+      <!-- Select option -->
+      <div class="col-md-8">
+        <div class="row g-3 align-items-center justify-content-md-end me-auto">
+          <select class="form-select" aria-label="Default select example">
+            <option selected>Sort by</option>
+            <option value="1">Free</option>
+            <option value="2">Most popular</option>
+            <option value="3">Newest</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <!-- Title and select END -->
+
+    <div class="row">
+      <!-- Main content START -->
+      <div class="col-xl-9 col-xxl-8">
+        <!-- Course list START -->
+        <div class="row g-4">
+          <app-course-grid-card></app-course-grid-card>
+        </div>
+      </div>
+      <!-- Main content END -->
+
+      <!-- Right sidebar START -->
+      <div class="col-lg-3 col-xxl-4">
+        <!-- Responsive offcanvas body START -->
+        <div
+          class="offcanvas-xl offcanvas-end"
+          tabindex="-1"
+          id="offcanvasSidebar"
+        >
+          <div class="offcanvas-header bg-light">
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+              Advance Filter
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="offcanvas"
+              data-bs-target="#offcanvasSidebar"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="offcanvas-body p-3 p-xl-0">
+            <form>
+              <!-- Category START -->
+              <div class="card card-body shadow p-4 mb-4">
+                <!-- Title -->
+                <h4 class="mb-4">Category</h4>
+                <div class="row">
+                  <!-- Category group -->
+                  <div class="col-xxl-6">
+                    <!-- Checkbox -->
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        value=""
+                        id="flexCheckDefault9"
+                      />
+                      <label class="form-check-label" for="flexCheckDefault9"
+                        >All</label
+                      >
+                    </div>
+                    <!-- Checkbox -->
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        value=""
+                        id="flexCheckDefault10"
+                      />
+                      <label class="form-check-label" for="flexCheckDefault10"
+                        >Development</label
+                      >
+                    </div>
+                    <!-- Checkbox -->
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        value=""
+                        id="flexCheckDefault11"
+                      />
+                      <label class="form-check-label" for="flexCheckDefault11"
+                        >Design</label
+                      >
+                    </div>
+                    <!-- Checkbox -->
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        value=""
+                        id="flexCheckDefault12"
+                      />
+                      <label class="form-check-label" for="flexCheckDefault12"
+                        >Accounting</label
+                      >
+                    </div>
+                    <!-- Checkbox -->
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        value=""
+                        id="flexCheckDefault17"
+                      />
+                      <label class="form-check-label" for="flexCheckDefault17"
+                        >Translation</label
+                      >
+                    </div>
+                  </div>
+
+                  <!-- Category group -->
+                  <div class="col-xxl-6">
+                    <!-- Checkbox -->
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        value=""
+                        id="flexCheckDefault13"
+                      />
+                      <label class="form-check-label" for="flexCheckDefault13"
+                        >Finance</label
+                      >
+                    </div>
+                    <!-- Checkbox -->
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        value=""
+                        id="flexCheckDefault14"
+                      />
+                      <label class="form-check-label" for="flexCheckDefault14"
+                        >Legal</label
+                      >
+                    </div>
+                    <!-- Checkbox -->
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        value=""
+                        id="flexCheckDefault15"
+                      />
+                      <label class="form-check-label" for="flexCheckDefault15"
+                        >Photography</label
+                      >
+                    </div>
+                    <!-- Checkbox -->
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        value=""
+                        id="flexCheckDefault16"
+                      />
+                      <label class="form-check-label" for="flexCheckDefault16"
+                        >Writing</label
+                      >
+                    </div>
+                    <!-- Checkbox -->
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        value=""
+                        id="flexCheckDefault18"
+                      />
+                      <label class="form-check-label" for="flexCheckDefault18"
+                        >Marketing</label
+                      >
+                    </div>
+                  </div>
+                </div>
+                <!-- Row END -->
+              </div>
+              <!-- Category END -->
+
+              <!-- Price START -->
+              <div class="card card-body shadow p-4 mb-4">
+                <!-- Title -->
+                <h4 class="mb-3">Price Level</h4>
+                <ul class="list-inline mb-0">
+                  <!-- Price item -->
+                  <li class="list-inline-item">
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="options"
+                      id="option1"
+                    />
+                    <label
+                      class="btn btn-light btn-primary-soft-check"
+                      for="option1"
+                      >All</label
+                    >
+                  </li>
+                  <!-- Price item -->
+                  <li class="list-inline-item">
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="options"
+                      id="option2"
+                    />
+                    <label
+                      class="btn btn-light btn-primary-soft-check"
+                      for="option2"
+                      >Free</label
+                    >
+                  </li>
+                  <!-- Price item -->
+                  <li class="list-inline-item">
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="options"
+                      id="option3"
+                    />
+                    <label
+                      class="btn btn-light btn-primary-soft-check"
+                      for="option3"
+                      >Paid</label
+                    >
+                  </li>
+                </ul>
+              </div>
+              <!-- Price END -->
+
+              <!-- Skill level START -->
+              <div class="card card-body shadow p-4 mb-4">
+                <!-- Title -->
+                <h4 class="mb-3">Skill level</h4>
+                <ul class="list-inline mb-0">
+                  <!-- Item -->
+                  <li class="list-inline-item mb-2">
+                    <input
+                      type="checkbox"
+                      class="btn-check"
+                      id="btn-check-12"
+                    />
+                    <label
+                      class="btn btn-light btn-primary-soft-check"
+                      for="btn-check-12"
+                      >All levels</label
+                    >
+                  </li>
+                  <!-- Item -->
+                  <li class="list-inline-item mb-2">
+                    <input type="checkbox" class="btn-check" id="btn-check-9" />
+                    <label
+                      class="btn btn-light btn-primary-soft-check"
+                      for="btn-check-9"
+                      >Beginner</label
+                    >
+                  </li>
+                  <!-- Item -->
+                  <li class="list-inline-item mb-2">
+                    <input
+                      type="checkbox"
+                      class="btn-check"
+                      id="btn-check-10"
+                    />
+                    <label
+                      class="btn btn-light btn-primary-soft-check"
+                      for="btn-check-10"
+                      >Intermediate</label
+                    >
+                  </li>
+                  <!-- Item -->
+                  <li class="list-inline-item mb-2">
+                    <input
+                      type="checkbox"
+                      class="btn-check"
+                      id="btn-check-11"
+                    />
+                    <label
+                      class="btn btn-light btn-primary-soft-check"
+                      for="btn-check-11"
+                      >Advanced</label
+                    >
+                  </li>
+                </ul>
+              </div>
+              <!-- Skill level END -->
+            </form>
+            <!-- Form End -->
+          </div>
+
+          <!-- Button -->
+          <div class="d-grid p-2 p-xl-0 bg-body text-center">
+            <button class="btn btn-primary mb-0">Filter Results</button>
+          </div>
+        </div>
+        <!-- Responsive offcanvas body END -->
+      </div>
+      <!-- Right sidebar END -->
+    </div>
+    <!-- Row END -->
+  </div>
+</section>
