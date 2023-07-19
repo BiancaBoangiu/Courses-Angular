@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
-import { Course } from '../list/course';
-import { CoursesService } from '../list/services/courses.service';
+import { Component, Input } from '@angular/core';
+import { Course } from '../../models/course.interface';
 
 @Component({
   selector: 'app-course-grid-card',
@@ -8,13 +7,5 @@ import { CoursesService } from '../list/services/courses.service';
   styleUrls: ['./course-grid-card.component.scss'],
 })
 export class CourseGridCardComponent {
-  courses: Course[] = [];
-
-  constructor(private courseService: CoursesService) {}
-
-  ngOnInit() {
-    this.courseService
-      .getCourses()
-      .subscribe((courses) => (this.courses = courses));
-  }
+  @Input() course!: Course;
 }

@@ -9,4 +9,5 @@ export interface Course {
   image: string;
   authorImage: string;
   rating: number;
+  views: number;
 }
