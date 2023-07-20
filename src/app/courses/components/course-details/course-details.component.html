@@ -12,23 +12,21 @@
             Digital Marketing
           </h6>
           <!-- Title -->
-          <h1>The Complete Digital Marketing Course - 12 Courses in 1</h1>
+          <h1>{{ course.name }}</h1>
           <p>
-            Satisfied conveying a dependent contented he gentleman agreeable do
-            be. Warrant private blushes removed an in equally totally if.
-            Delivered dejection necessary objection do Mr prevailed. Mr feeling
-            does chiefly cordial in do.
+            {{ course.description }}
           </p>
           <!-- Content -->
           <ul class="list-inline mb-0">
             <li class="list-inline-item h6 me-3 mb-1 mb-sm-0">
-              <i class="fas fa-star text-warning me-2"></i>4.5/5.0
+              <i class="fas fa-star text-warning me-2"></i
+              >{{ course.rating }}/5.0
             </li>
             <li class="list-inline-item h6 me-3 mb-1 mb-sm-0">
               <i class="fas fa-user-graduate text-orange me-2"></i>12k Enrolled
             </li>
             <li class="list-inline-item h6 me-3 mb-1 mb-sm-0">
-              <i class="fas fa-signal text-success me-2"></i>Beginner
+              <i class="fas fa-signal text-success me-2"></i>{{ course.level }}
             </li>
             <li class="list-inline-item h6 me-3 mb-1 mb-sm-0">
               <i class="fas fa-signal text-success me-2"></i
@@ -106,10 +104,7 @@
                   <h5 class="mb-3">Course Description</h5>
                   <p class="mb-3">
                     Welcome to the
-                    <strong>
-                      Digital Marketing Ultimate Course Bundle - 12 Courses in 1
-                      (Over 36 hours of content)</strong
-                    >
+                    <strong> {{ course.name }}</strong>
                   </p>
                   <p class="mb-3">
                     In this practical hands-on training, you’re going to learn
@@ -118,28 +113,6 @@
                       ultimate course bundle that includes 12 digital marketing
                       courses in 1!</strong
                     >
-                  </p>
-                  <p class="mb-3">
-                    If you wish to find out the skills that should be covered in
-                    a basic digital marketing course syllabus in India or
-                    anywhere around the world, then reading this blog will help.
-                    Before we delve into the advanced
-                    <strong
-                      ><a href="#" class="text-reset text-decoration-underline"
-                        >digital marketing course</a
-                      ></strong
-                    >
-                    syllabus, let’s look at the scope of digital marketing and
-                    what the future holds.
-                  </p>
-                  <p class="mb-0">
-                    We focus a great deal on the understanding of behavioral
-                    psychology and influence triggers which are crucial for
-                    becoming a well rounded Digital Marketer. We understand that
-                    theory is important to build a solid foundation, we
-                    understand that theory alone isn’t going to get the job done
-                    so that’s why this course is packed with practical hands-on
-                    examples that you can follow step by step.
                   </p>
 
                   <!-- List content -->
@@ -1671,7 +1644,7 @@
                 <div class="avatar avatar-xl me-4 flex-shrink-0">
                   <img
                     class="avatar-img rounded-circle"
-                    src="assets/images/avatar/09.jpg"
+                    src="assets/publisher.jpg"
                     alt="avatar"
                   />
                 </div>
@@ -1743,12 +1716,12 @@
               </div>
 
               <!-- Comment children level 1 -->
-              <div class="d-md-flex mb-4 ps-4 ps-md-5">
+              <div class="d-md-flex">
                 <!-- Avatar -->
-                <div class="avatar avatar-lg me-4 flex-shrink-0">
+                <div class="avatar avatar-xl me-4 flex-shrink-0">
                   <img
                     class="avatar-img rounded-circle"
-                    src="assets/images/avatar/02.jpg"
+                    src="assets/publisher.jpg"
                     alt="avatar"
                   />
                 </div>
@@ -1778,7 +1751,7 @@
                 <div class="avatar avatar-xl me-4 flex-shrink-0">
                   <img
                     class="avatar-img rounded-circle"
-                    src="assets/images/avatar/07.jpg"
+                    src="assets/publisher.jpg"
                     alt="avatar"
                   />
                 </div>
@@ -1877,124 +1850,17 @@
                 </div>
                 <!-- Rating -->
                 <div class="col-12 bg-light-input">
-                  <div
-                    class="choices"
-                    data-type="select-one"
-                    tabindex="0"
-                    role="combobox"
-                    aria-autocomplete="list"
-                    aria-haspopup="true"
-                    aria-expanded="false"
+                  <select
+                    class="form-select"
+                    aria-label="Default select example"
                   >
-                    <div class="choices__inner">
-                      <select
-                        id="inputState2"
-                        class="form-select js-choice choices__input"
-                        hidden=""
-                        tabindex="-1"
-                        data-choice="active"
-                      >
-                        <option
-                          value="★★★★★ (5/5)"
-                          data-custom-properties="[object Object]"
-                        >
-                          ★★★★★ (5/5)
-                        </option>
-                      </select>
-                      <div class="choices__list choices__list--single">
-                        <div
-                          class="choices__item choices__item--selectable"
-                          data-item=""
-                          data-id="1"
-                          data-value="★★★★★ (5/5)"
-                          data-custom-properties="[object Object]"
-                          aria-selected="true"
-                        >
-                          ★★★★★ (5/5)
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="choices__list choices__list--dropdown"
-                      aria-expanded="false"
-                    >
-                      <input
-                        type="search"
-                        name="search_terms"
-                        class="choices__input choices__input--cloned"
-                        autocomplete="off"
-                        autocapitalize="off"
-                        spellcheck="false"
-                        role="textbox"
-                        aria-autocomplete="list"
-                        aria-label="Type and hit enter"
-                        placeholder=""
-                      />
-                      <div class="choices__list" role="listbox">
-                        <div
-                          id="choices--inputState2-item-choice-1"
-                          class="choices__item choices__item--choice is-selected choices__item--selectable is-highlighted"
-                          role="option"
-                          data-choice=""
-                          data-id="1"
-                          data-value="★★★★★ (5/5)"
-                          data-select-text="Press to select"
-                          data-choice-selectable=""
-                          aria-selected="true"
-                        >
-                          ★★★★★ (5/5)
-                        </div>
-                        <div
-                          id="choices--inputState2-item-choice-2"
-                          class="choices__item choices__item--choice choices__item--selectable"
-                          role="option"
-                          data-choice=""
-                          data-id="2"
-                          data-value="★★★★☆ (4/5)"
-                          data-select-text="Press to select"
-                          data-choice-selectable=""
-                        >
-                          ★★★★☆ (4/5)
-                        </div>
-                        <div
-                          id="choices--inputState2-item-choice-3"
-                          class="choices__item choices__item--choice choices__item--selectable"
-                          role="option"
-                          data-choice=""
-                          data-id="3"
-                          data-value="★★★☆☆ (3/5)"
-                          data-select-text="Press to select"
-                          data-choice-selectable=""
-                        >
-                          ★★★☆☆ (3/5)
-                        </div>
-                        <div
-                          id="choices--inputState2-item-choice-4"
-                          class="choices__item choices__item--choice choices__item--selectable"
-                          role="option"
-                          data-choice=""
-                          data-id="4"
-                          data-value="★★☆☆☆ (2/5)"
-                          data-select-text="Press to select"
-                          data-choice-selectable=""
-                        >
-                          ★★☆☆☆ (2/5)
-                        </div>
-                        <div
-                          id="choices--inputState2-item-choice-5"
-                          class="choices__item choices__item--choice choices__item--selectable"
-                          role="option"
-                          data-choice=""
-                          data-id="5"
-                          data-value="★☆☆☆☆ (1/5)"
-                          data-select-text="Press to select"
-                          data-choice-selectable=""
-                        >
-                          ★☆☆☆☆ (1/5)
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                    <option selected>Open this select menu</option>
+                    <option value="★★★★★ (5/5)">★★★★★ (5/5)</option>
+                    <option value="★★★★☆ (4/5)">★★★★☆ (4/5)</option>
+                    <option value="★★★☆☆ (3/5)">★★★☆☆ (3/5)</option>
+                    <option value="★★☆☆☆ (2/5)">★★☆☆☆ (2/5)</option>
+                    <option value="★☆☆☆☆ (1/5)">★☆☆☆☆ (1/5)</option>
+                  </select>
                 </div>
                 <!-- Message -->
                 <div class="col-12 bg-light-input">
@@ -2027,7 +1893,7 @@
               <div class="card shadow p-2 mb-4 z-index-9">
                 <div class="overflow-hidden rounded-3">
                   <img
-                    src="assets/images/courses/4by3/01.jpg"
+                    src="{{ course.image }}"
                     class="card-img"
                     alt="course image"
                   />

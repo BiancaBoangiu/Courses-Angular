@@ -55,6 +55,8 @@
                     class="form-control border-0 bg-light rounded-end ps-1"
                     placeholder="E-mail"
                     id="exampleInputEmail1"
+                    [(ngModel)]="emailValue"
+                    [ngModelOptions]="{ standalone: true }"
                   />
                 </div>
               </div>
@@ -73,6 +75,8 @@
                     class="form-control border-0 bg-light rounded-end ps-1"
                     placeholder="*********"
                     id="inputPassword5"
+                    [(ngModel)]="passwordValue"
+                    [ngModelOptions]="{ standalone: true }"
                   />
                 </div>
               </div>
@@ -91,8 +95,23 @@
                     class="form-control border-0 bg-light rounded-end ps-1"
                     placeholder="*********"
                     id="inputPassword6"
+                    [(ngModel)]="confirmedPasswordValue"
+                    [ngModelOptions]="{ standalone: true }"
                   />
                 </div>
+              </div>
+              <div class="mb-4">
+                <p>Select an option</p>
+                <select
+                  class="form-select"
+                  aria-label="Default select example"
+                  [(ngModel)]="userType"
+                  [ngModelOptions]="{ standalone: true }"
+                >
+                  <option value="" selected>Choose a type:</option>
+                  <option value="instructor">Instructor</option>
+                  <option value="student">Student</option>
+                </select>
               </div>
               <!-- Check box -->
               <div class="mb-4">
@@ -101,6 +120,8 @@
                     type="checkbox"
                     class="form-check-input"
                     id="checkbox-1"
+                    [(ngModel)]="isCheckboxChecked"
+                    [ngModelOptions]="{ standalone: true }"
                   />
                   <label class="form-check-label" for="checkbox-1"
                     >By signing up, you agree to the<a href="#">
@@ -112,7 +133,11 @@
               <!-- Button -->
               <div class="align-items-center mt-0">
                 <div class="d-grid">
-                  <button class="btn btn-primary mb-0" type="button">
+                  <button
+                    class="btn btn-primary mb-0"
+                    type="button"
+                    (click)="registerUser()"
+                  >
                     Sign Up
                   </button>
                 </div>

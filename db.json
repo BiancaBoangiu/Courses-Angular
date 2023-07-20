@@ -20,7 +20,7 @@
         }
       ],
       "authorId": 1,
-      "views": 12,
+      "views": 13,
       "rating": 4.5,
       "participants": [],
       "hasCertificate": true,
@@ -39,51 +39,67 @@
     },
     {
       "id": 2,
-      "image": "assets/html.jpg",
       "name": "Web Development",
+      "image": "assets/html.jpg",
       "description": "Master web development skills with HTML, CSS, and JavaScript.",
       "time": 10,
       "level": "Intermediate",
-      "amount": 40,
-      "author": "Jane Doe",
-      "authorImage": "assets/publisher.jpg",
-      "rating": 4
+      "curriculum": [],
+      "authorId": 0,
+      "views": 0,
+      "rating": 4,
+      "participants": [],
+      "hasCertificate": true,
+      "price": 0,
+      "reviews": []
     },
     {
       "id": 3,
-      "image": "assets/figma.jpg",
       "name": "Advanced Data Science",
+      "image": "assets/figma.jpg",
       "description": "Dive into advanced data analysis and machine learning techniques.",
       "time": 12,
       "level": "Advanced",
-      "amount": 30,
-      "author": "Michael Johnson",
-      "authorImage": "assets/publisher.jpg",
-      "rating": 4.5
+      "curriculum": [],
+      "authorId": 0,
+      "views": 0,
+      "rating": 4.5,
+      "participants": [],
+      "hasCertificate": true,
+      "price": 0,
+      "reviews": []
     },
     {
       "id": 4,
-      "image": "assets/course1.jpg",
       "name": "Python for Data Science",
+      "image": "assets/course1.jpg",
       "description": "Learn Python programming for data analysis and visualization.",
       "time": 8,
       "level": "Intermediate",
-      "amount": 35,
-      "author": "Sarah Williams",
-      "authorImage": "assets/publisher.jpg",
-      "rating": 4.3
+      "curriculum": [],
+      "authorId": 0,
+      "views": 26,
+      "rating": 4.3,
+      "participants": [],
+      "hasCertificate": false,
+      "price": 0,
+      "reviews": []
     },
     {
       "id": 5,
-      "image": "assets/react.jpg",
       "name": "Mobile App Development",
+      "image": "assets/react.jpg",
       "description": "Create mobile apps for iOS and Android platforms.",
       "time": 10,
       "level": "Advanced",
-      "amount": 50,
-      "author": "Robert Johnson",
-      "authorImage": "assets/publisher.jpg",
-      "rating": 4.2
+      "curriculum": [],
+      "authorId": 0,
+      "views": 0,
+      "rating": 4.2,
+      "participants": [],
+      "hasCertificate": true,
+      "price": 0,
+      "reviews": []
     },
     {
       "id": 6,
@@ -92,10 +108,14 @@
       "description": "Explore the fundamentals of AI and machine learning.",
       "time": 6,
       "level": "Beginner",
-      "amount": 20,
-      "author": "Emily Anderson",
-      "authorImage": "assets/publisher.jpg",
-      "rating": 4.6
+      "curriculum": [],
+      "authorId": 0,
+      "views": 0,
+      "rating": 4.6,
+      "participants": [],
+      "hasCertificate": true,
+      "price": 0,
+      "reviews": []
     },
     {
       "id": 7,
@@ -104,10 +124,14 @@
       "description": "Become a full-stack web developer with front-end and back-end skills.",
       "time": 12,
       "level": "Intermediate",
-      "amount": 45,
-      "author": "Michael Brown",
-      "authorImage": "assets/publisher.jpg",
-      "rating": 4.7
+      "curriculum": [],
+      "authorId": 0,
+      "views": 0,
+      "rating": 4.7,
+      "participants": [],
+      "hasCertificate": false,
+      "price": 0,
+      "reviews": []
     },
     {
       "id": 8,
@@ -116,10 +140,14 @@
       "description": "Learn how to secure computer systems and networks from cyber threats.",
       "time": 8,
       "level": "Advanced",
-      "amount": 30,
-      "author": "Alex Turner",
-      "authorImage": "assets/publisher.jpg",
-      "rating": 4
+      "curriculum": [],
+      "authorId": 0,
+      "views": 0,
+      "rating": 4,
+      "participants": [],
+      "hasCertificate": true,
+      "price": 0,
+      "reviews": []
     },
     {
       "id": 9,
@@ -128,10 +156,14 @@
       "description": "Master the basics of JavaScript programming language.",
       "time": 4,
       "level": "Beginner",
-      "amount": 15,
-      "author": "David Lee",
-      "authorImage": "assets/publisher.jpg",
-      "rating": 4.8
+      "curriculum": [],
+      "authorId": 0,
+      "views": 0,
+      "rating": 4.8,
+      "participants": [],
+      "hasCertificate": true,
+      "price": 0,
+      "reviews": []
     },
     {
       "id": 10,
@@ -140,10 +172,14 @@
       "description": "Learn how to create interactive data visualizations using D3.js.",
       "time": 6,
       "level": "Intermediate",
-      "amount": 25,
-      "author": "Jennifer Garcia",
-      "authorImage": "assets/publisher.jpg",
-      "rating": 5
+      "curriculum": [],
+      "authorId": 0,
+      "views": 0,
+      "rating": 5,
+      "participants": [],
+      "hasCertificate": true,
+      "price": 0,
+      "reviews": []
     },
     {
       "id": 11,
@@ -152,10 +188,14 @@
       "description": "Build dynamic and responsive web applications with React.js.",
       "time": 8,
       "level": "Intermediate",
-      "amount": 30,
-      "author": "Andrew Wilson",
-      "authorImage": "assets/publisher.jpg",
-      "rating": 4
+      "curriculum": [],
+      "authorId": 0,
+      "views": 0,
+      "rating": 4,
+      "participants": [],
+      "hasCertificate": false,
+      "price": 0,
+      "reviews": []
     },
     {
       "id": 12,
@@ -164,10 +204,14 @@
       "description": "Create server-side applications with Node.js and Express.js.",
       "time": 6,
       "level": "Intermediate",
-      "amount": 25,
-      "author": "Jessica Martinez",
-      "authorImage": "assets/publisher.jpg",
-      "rating": 4.5
+      "curriculum": [],
+      "authorId": 0,
+      "views": 0,
+      "rating": 4.5,
+      "participants": [],
+      "hasCertificate": true,
+      "price": 0,
+      "reviews": []
     },
     {
       "id": 13,
@@ -176,10 +220,14 @@
       "description": "Explore various machine learning algorithms and their applications.",
       "time": 10,
       "level": "Advanced",
-      "amount": 40,
-      "author": "Chris Evans",
-      "authorImage": "assets/publisher.jpg",
-      "rating": 5
+      "curriculum": [],
+      "authorId": 0,
+      "views": 0,
+      "rating": 5,
+      "participants": [],
+      "hasCertificate": true,
+      "price": 0,
+      "reviews": []
     },
     {
       "id": 14,
@@ -188,10 +236,14 @@
       "description": "Learn how to build iOS apps using the Swift programming language.",
       "time": 8,
       "level": "Intermediate",
-      "amount": 35,
-      "author": "Emma Turner",
-      "authorImage": "assets/publisher.jpg",
-      "rating": 4.5
+      "curriculum": [],
+      "authorId": 0,
+      "views": 0,
+      "rating": 4.5,
+      "participants": [],
+      "hasCertificate": false,
+      "price": 0,
+      "reviews": []
     },
     {
       "id": 15,
@@ -200,10 +252,14 @@
       "description": "Create Android apps using the Kotlin programming language.",
       "time": 8,
       "level": "Intermediate",
-      "amount": 35,
-      "author": "William Clark",
-      "authorImage": "assets/publisher.jpg",
-      "rating": 4.2
+      "curriculum": [],
+      "authorId": 0,
+      "views": 0,
+      "rating": 4.2,
+      "participants": [],
+      "hasCertificate": true,
+      "price": 0,
+      "reviews": []
     },
     {
       "id": 16,
@@ -212,10 +268,14 @@
       "description": "Understand the fundamentals of cloud computing and cloud services.",
       "time": 6,
       "level": "Beginner",
-      "amount": 20,
-      "author": "Sophia Baker",
-      "authorImage": "assets/publisher.jpg",
-      "rating": 4
+      "curriculum": [],
+      "authorId": 0,
+      "views": 0,
+      "rating": 4,
+      "participants": [],
+      "hasCertificate": false,
+      "price": 0,
+      "reviews": []
     },
     {
       "id": 17,
@@ -224,10 +284,14 @@
       "description": "Utilize Python for various machine learning tasks and projects.",
       "time": 10,
       "level": "Intermediate",
-      "amount": 35,
-      "author": "Daniel Lee",
-      "authorImage": "assets/publisher.jpg",
-      "rating": 4.7
+      "curriculum": [],
+      "authorId": 0,
+      "views": 0,
+      "rating": 4.7,
+      "participants": [],
+      "hasCertificate": true,
+      "price": 0,
+      "reviews": []
     },
     {
       "id": 18,
@@ -236,10 +300,46 @@
       "description": "Learn the basics of cybersecurity and common security threats.",
       "time": 4,
       "level": "Beginner",
-      "amount": 15,
-      "author": "Olivia Johnson",
-      "authorImage": "assets/publisher.jpg",
-      "rating": 4.8
+      "curriculum": [],
+      "authorId": 0,
+      "views": 0,
+      "rating": 4.8,
+      "participants": [],
+      "hasCertificate": false,
+      "price": 0,
+      "reviews": []
+    }
+  ],
+  "users": [
+    {
+      "email": "sdfsdfsdf",
+      "password": "aaaa",
+      "userType": "instructor",
+      "id": 1
+    },
+    {
+      "email": "tttt",
+      "password": "tt",
+      "userType": "instructor",
+      "id": 2
+    },
+    {
+      "email": "sdadasd",
+      "password": "a",
+      "userType": "instructor",
+      "id": 3
+    },
+    {
+      "email": "sadsda",
+      "password": "aaaa",
+      "userType": "instructor",
+      "id": 4
+    },
+    {
+      "email": "fsdfsd",
+      "password": "aaaa",
+      "userType": "instructor",
+      "id": 5
     }
   ]
 }
