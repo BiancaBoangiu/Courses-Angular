@@ -9,8 +9,12 @@ import { catchError, throwError } from 'rxjs';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-  loginEmailValue!: string;
-  loginPasswordValue!: string;
+  loginEmailValue: string = '';
+  loginPasswordValue: string = '';
+  emailError: boolean = false;
+  passwordError: boolean = false;
+  accountError: boolean = false;
+  passwordLengthError: boolean = false;
 
   constructor(
     private authService: AuthService,
@@ -29,14 +33,26 @@ export class LoginComponent {
         })
       )
       .subscribe((response) => {
+        this.emailError = false;
+        this.passwordError = false;
+        this.accountError = false;
+        this.passwordLengthError = false;
         if (response.length > 0) {
+          if (this.loginPasswordValue.length < 5) {
+            this.passwordLengthError = true;
+          }
           if (this.loginPasswordValue !== response[0].password) {
-            alert('password not correct');
+            this.passwordError = true;
           } else {
             this.router.navigate(['/']);
           }
         } else {
-          alert('invalid email or password');
+          if (this.loginEmailValue == '') {
+            this.emailError = true;
+            this.passwordError = true;
+          } else {
+            this.accountError = true;
+          }
         }
       });
   }

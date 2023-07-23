@@ -312,34 +312,22 @@
   ],
   "users": [
     {
-      "email": "sdfsdfsdf",
-      "password": "aaaa",
-      "userType": "instructor",
+      "email": "dfsdfds",
+      "password": "ttttt",
+      "userType": "",
       "id": 1
     },
     {
-      "email": "tttt",
-      "password": "tt",
+      "email": "sdfsdfds",
+      "password": "ttttt",
       "userType": "instructor",
       "id": 2
     },
     {
-      "email": "sdadasd",
-      "password": "a",
+      "email": "dsfsdfds",
+      "password": "ttttt",
       "userType": "instructor",
       "id": 3
-    },
-    {
-      "email": "sadsda",
-      "password": "aaaa",
-      "userType": "instructor",
-      "id": 4
-    },
-    {
-      "email": "fsdfsd",
-      "password": "aaaa",
-      "userType": "instructor",
-      "id": 5
     }
   ]
 }

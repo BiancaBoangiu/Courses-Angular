@@ -45,7 +45,10 @@
                 <label for="exampleInputEmail1" class="form-label"
                   >Email address *</label
                 >
-                <div class="input-group input-group-lg">
+                <div
+                  class="input-group input-group-lg"
+                  [ngClass]="{ error: emailEmptyFieldError }"
+                >
                   <span
                     class="input-group-text bg-light rounded-start border-0 text-secondary px-3"
                     ><i class="bi bi-envelope-fill"></i
@@ -59,13 +62,19 @@
                     [ngModelOptions]="{ standalone: true }"
                   />
                 </div>
+                <div *ngIf="emailEmptyFieldError" class="my-2 error-text">
+                  <p>This field is required</p>
+                </div>
               </div>
               <!-- Password -->
               <div class="mb-4">
                 <label for="inputPassword5" class="form-label"
                   >Password *</label
                 >
-                <div class="input-group input-group-lg">
+                <div
+                  class="input-group input-group-lg"
+                  [ngClass]="{ error: passwordEmptyFieldError }"
+                >
                   <span
                     class="input-group-text bg-light rounded-start border-0 text-secondary px-3"
                     ><i class="fas fa-lock"></i
@@ -79,13 +88,25 @@
                     [ngModelOptions]="{ standalone: true }"
                   />
                 </div>
+                <div *ngIf="passwordLengthError" class="my-2 error-text">
+                  <p>Your password must be 5 characters at least</p>
+                </div>
+                <div *ngIf="passwordEmptyFieldError" class="my-2 error-text">
+                  <p>This field is required</p>
+                </div>
+                <div *ngIf="matchedPasswordsError" class="my-2 error-text">
+                  <p>Your passwords do not match</p>
+                </div>
               </div>
               <!-- Confirm Password -->
               <div class="mb-4">
                 <label for="inputPassword6" class="form-label"
                   >Confirm Password *</label
                 >
-                <div class="input-group input-group-lg">
+                <div
+                  class="input-group input-group-lg"
+                  [ngClass]="{ error: confirmedPasswordEmptyFieldError }"
+                >
                   <span
                     class="input-group-text bg-light rounded-start border-0 text-secondary px-3"
                     ><i class="fas fa-lock"></i
@@ -99,6 +120,21 @@
                     [ngModelOptions]="{ standalone: true }"
                   />
                 </div>
+                <div *ngIf="matchedPasswordsError" class="my-2 error-text">
+                  <p>Your passwords do not match</p>
+                </div>
+                <div
+                  *ngIf="confirmedPasswordLengthError"
+                  class="my-2 error-text"
+                >
+                  <p>Your password must be 5 characters at least</p>
+                </div>
+                <div
+                  *ngIf="confirmedPasswordEmptyFieldError"
+                  class="my-2 error-text"
+                >
+                  <p>This field is required</p>
+                </div>
               </div>
               <div class="mb-4">
                 <p>Select an option</p>
@@ -107,12 +143,17 @@
                   aria-label="Default select example"
                   [(ngModel)]="userType"
                   [ngModelOptions]="{ standalone: true }"
+                  [ngClass]="{ error: selectEmptyFieldError }"
                 >
                   <option value="" selected>Choose a type:</option>
                   <option value="instructor">Instructor</option>
                   <option value="student">Student</option>
                 </select>
               </div>
+              <div *ngIf="selectEmptyFieldError" class="my-2 error-text">
+                <p>This field is required</p>
+              </div>
+
               <!-- Check box -->
               <div class="mb-4">
                 <div class="form-check">
@@ -128,6 +169,9 @@
                       terms of service</a
                     ></label
                   >
+                </div>
+                <div *ngIf="checkboxError" class="my-2 error-text">
+                  <p>This field is required</p>
                 </div>
               </div>
               <!-- Button -->
