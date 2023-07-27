@@ -5,6 +5,9 @@ import { ListComponent } from './components/list/list.component';
 import { CourseDetailsComponent } from './components/course-details/course-details.component';
 import { CourseGridCardComponent } from './components/course-grid-card/course-grid-card.component';
 import { FormsModule } from '@angular/forms';
+import { ReviewListComponent } from './components/review-list/review-list.component';
+import { ReviewSectionComponent } from './components/review-section/review-section.component';
+import { AddReviewComponent } from './components/add-review/add-review.component';
 import { ReviewComponent } from './components/review/review.component';
 
 @NgModule({
@@ -12,6 +15,9 @@ import { ReviewComponent } from './components/review/review.component';
     ListComponent,
     CourseDetailsComponent,
     CourseGridCardComponent,
+    ReviewListComponent,
+    ReviewSectionComponent,
+    AddReviewComponent,
     ReviewComponent,
   ],
   imports: [CommonModule, CoursesRoutingModule, FormsModule],

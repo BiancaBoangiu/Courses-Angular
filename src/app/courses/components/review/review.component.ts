@@ -1,7 +1,5 @@
-import { AuthService } from 'src/app/auth/services/auth.service';
-import { Component } from '@angular/core';
-import { Reviews } from '../../models/reviews.interface';
-import { ReviewsService } from '../../services/reviews.service';
+import { Component, Input } from '@angular/core';
+import { Review } from '../../models/review.interface';
 
 @Component({
   selector: 'app-review',
@@ -9,20 +7,5 @@ import { ReviewsService } from '../../services/reviews.service';
   styleUrls: ['./review.component.scss'],
 })
 export class ReviewComponent {
-  reviews!: Reviews[];
-
-  constructor(
-    private reviewsService: ReviewsService,
-    private authService: AuthService
-  ) {}
-
-  ngOnInit() {
-    this.showReviews();
-  }
-
-  showReviews() {
-    this.reviewsService.showUserReviews().subscribe((reviews) => {
-      this.reviews = reviews;
-    });
-  }
+  @Input() review!: Review;
 }

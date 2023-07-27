@@ -3,7 +3,6 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CoursesService } from '../../services/courses.service';
 import { Course } from '../../models/course.interface';
-import { ReviewsService } from '../../services/reviews.service';
 
 @Component({
   selector: 'app-course-detail',
@@ -12,17 +11,11 @@ import { ReviewsService } from '../../services/reviews.service';
 })
 export class CourseDetailsComponent {
   course!: Course;
-  rating: number = 0;
-  message!: string;
-  userId!: number;
-  emptyRatingError: boolean = false;
-  emptyMessageError: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
     private coursesService: CoursesService,
-    private authService: AuthService,
-    private reviewsService: ReviewsService
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -41,17 +34,5 @@ export class CourseDetailsComponent {
           (updatedCourse) => (this.course.views = updatedCourse.views)
         );
     });
-  }
-  addReview() {
-    if (this.rating === 0) {
-      this.emptyRatingError = true;
-    }
-    if (!this.message) {
-      this.emptyMessageError = true;
-    }
-    this.userId = this.authService.loggedUser.id;
-    this.reviewsService
-      .addReview(this.message, this.rating, this.userId, this.course.id)
-      .subscribe();
   }
 }

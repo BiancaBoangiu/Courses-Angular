@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { catchError, throwError } from 'rxjs';
-import { Reviews } from 'src/app/courses/models/reviews.interface';
 
 @Component({
   selector: 'app-register',
@@ -23,7 +22,6 @@ export class RegisterComponent {
   selectEmptyFieldError: boolean = false;
   invalidEmailError: boolean = false;
   usedEmailError: boolean = false;
-  reviews: Reviews[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -81,12 +79,7 @@ export class RegisterComponent {
           this.usedEmailError = true;
         } else {
           this.authService
-            .registerUser(
-              this.emailValue,
-              this.passwordValue,
-              this.userType,
-              this.reviews
-            )
+            .registerUser(this.emailValue, this.passwordValue, this.userType)
             .pipe(
               catchError((error) => {
                 console.error(error);

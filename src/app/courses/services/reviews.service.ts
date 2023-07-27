@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
 import { AuthService } from 'src/app/auth/services/auth.service';
-import { Reviews } from '../models/reviews.interface';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, map, of } from 'rxjs';
+import { Observable, map, of, tap } from 'rxjs';
+import { Review } from 'src/app/courses/models/review.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ReviewsService {
-  reviews: Reviews[] = [];
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
@@ -20,7 +19,7 @@ export class ReviewsService {
     rating: number,
     userId: number,
     courseId: number
-  ): Observable<Reviews[]> {
+  ): Observable<Review> {
     if (this.authService.loggedUser) {
       const reviewsURL = `http://localhost:3000/reviews`;
       const body = {
@@ -29,20 +28,14 @@ export class ReviewsService {
         message: message,
         courseId: courseId,
       };
-
-      return this.http.post<Reviews[]>(reviewsURL, body, this.httpOptions);
+      return this.http.post<Review>(reviewsURL, body, this.httpOptions);
     } else {
-      return of<Reviews[]>([]);
+      return of({} as Review);
     }
   }
 
-  showUserReviews(): Observable<Reviews[]> {
-    const reviewsURL = `http://localhost:3000/reviews/`;
-    return this.http.get<Reviews[]>(reviewsURL).pipe(
-      map((reviews) => {
-        const courseIdFilter = this.authService.courseId;
-        return reviews.filter((review) => review.courseId === courseIdFilter);
-      })
-    );
+  showCourseReviews(): Observable<Review[]> {
+    const reviewsURL = `http://localhost:3000/reviews?courseId=${this.authService.courseId}`;
+    return this.http.get<Review[]>(reviewsURL);
   }
 }
