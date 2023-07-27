@@ -47,7 +47,12 @@
                 >
                 <div
                   class="input-group input-group-lg"
-                  [ngClass]="{ error: emailEmptyFieldError }"
+                  [ngClass]="{
+                    error:
+                      emailEmptyFieldError ||
+                      invalidEmailError ||
+                      usedEmailError
+                  }"
                 >
                   <span
                     class="input-group-text bg-light rounded-start border-0 text-secondary px-3"
@@ -63,7 +68,13 @@
                   />
                 </div>
                 <div *ngIf="emailEmptyFieldError" class="my-2 error-text">
-                  <p>This field is required</p>
+                  <span>This field is required</span>
+                </div>
+                <div *ngIf="invalidEmailError" class="my-2 error-text">
+                  <span>This email is not a valid format</span>
+                </div>
+                <div *ngIf="usedEmailError" class="my-2 error-text">
+                  <span>This email is already in use</span>
                 </div>
               </div>
               <!-- Password -->
@@ -73,7 +84,12 @@
                 >
                 <div
                   class="input-group input-group-lg"
-                  [ngClass]="{ error: passwordEmptyFieldError }"
+                  [ngClass]="{
+                    error:
+                      passwordEmptyFieldError ||
+                      passwordLengthError ||
+                      matchedPasswordsError
+                  }"
                 >
                   <span
                     class="input-group-text bg-light rounded-start border-0 text-secondary px-3"
@@ -89,13 +105,13 @@
                   />
                 </div>
                 <div *ngIf="passwordLengthError" class="my-2 error-text">
-                  <p>Your password must be 5 characters at least</p>
+                  <span>Your password must be 5 characters at least</span>
                 </div>
                 <div *ngIf="passwordEmptyFieldError" class="my-2 error-text">
-                  <p>This field is required</p>
+                  <span>This field is required</span>
                 </div>
                 <div *ngIf="matchedPasswordsError" class="my-2 error-text">
-                  <p>Your passwords do not match</p>
+                  <span>Your passwords do not match</span>
                 </div>
               </div>
               <!-- Confirm Password -->
@@ -105,7 +121,12 @@
                 >
                 <div
                   class="input-group input-group-lg"
-                  [ngClass]="{ error: confirmedPasswordEmptyFieldError }"
+                  [ngClass]="{
+                    error:
+                      confirmedPasswordEmptyFieldError ||
+                      matchedPasswordsError ||
+                      confirmedPasswordLengthError
+                  }"
                 >
                   <span
                     class="input-group-text bg-light rounded-start border-0 text-secondary px-3"
@@ -121,22 +142,22 @@
                   />
                 </div>
                 <div *ngIf="matchedPasswordsError" class="my-2 error-text">
-                  <p>Your passwords do not match</p>
+                  <span>Your passwords do not match</span>
                 </div>
                 <div
                   *ngIf="confirmedPasswordLengthError"
                   class="my-2 error-text"
                 >
-                  <p>Your password must be 5 characters at least</p>
+                  <span>Your password must be 5 characters at least</span>
                 </div>
                 <div
                   *ngIf="confirmedPasswordEmptyFieldError"
                   class="my-2 error-text"
                 >
-                  <p>This field is required</p>
+                  <span>This field is required</span>
                 </div>
               </div>
-              <div class="mb-4">
+              <div>
                 <p>Select an option</p>
                 <select
                   class="form-select"
@@ -151,31 +172,11 @@
                 </select>
               </div>
               <div *ngIf="selectEmptyFieldError" class="my-2 error-text">
-                <p>This field is required</p>
+                <span>This field is required</span>
               </div>
 
-              <!-- Check box -->
-              <div class="mb-4">
-                <div class="form-check">
-                  <input
-                    type="checkbox"
-                    class="form-check-input"
-                    id="checkbox-1"
-                    [(ngModel)]="isCheckboxChecked"
-                    [ngModelOptions]="{ standalone: true }"
-                  />
-                  <label class="form-check-label" for="checkbox-1"
-                    >By signing up, you agree to the<a href="#">
-                      terms of service</a
-                    ></label
-                  >
-                </div>
-                <div *ngIf="checkboxError" class="my-2 error-text">
-                  <p>This field is required</p>
-                </div>
-              </div>
               <!-- Button -->
-              <div class="align-items-center mt-0">
+              <div class="align-items-center mt-4">
                 <div class="d-grid">
                   <button
                     class="btn btn-primary mb-0"

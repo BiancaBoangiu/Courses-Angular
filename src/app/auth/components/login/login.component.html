@@ -41,7 +41,9 @@
                 >
                 <div
                   class="input-group input-group-lg"
-                  [ngClass]="{ error: accountError }"
+                  [ngClass]="{
+                    error: accountError || emailError || invalidEmailError
+                  }"
                 >
                   <span
                     class="input-group-text bg-light rounded-start border-0 text-secondary px-3"
@@ -62,6 +64,9 @@
                 <div *ngIf="accountError" class="my-2 error-text">
                   <p>Account does not exist</p>
                 </div>
+                <div *ngIf="invalidEmailError" class="my-2 error-text">
+                  <span>This email is not a valid format</span>
+                </div>
               </div>
               <!-- Password -->
               <div class="mb-4">
@@ -70,7 +75,7 @@
                 >
                 <div
                   class="input-group input-group-lg"
-                  [ngClass]="{ error: passwordError }"
+                  [ngClass]="{ error: passwordError || passwordLengthError }"
                 >
                   <span
                     class="input-group-text bg-light rounded-start border-0 text-secondary px-3"

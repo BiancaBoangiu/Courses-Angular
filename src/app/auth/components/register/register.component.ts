@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { catchError, throwError } from 'rxjs';
+import { Reviews } from 'src/app/courses/models/reviews.interface';
 
 @Component({
   selector: 'app-register',
@@ -13,7 +14,6 @@ export class RegisterComponent {
   passwordValue: string = '';
   userType: string = '';
   confirmedPasswordValue: string = '';
-  isCheckboxChecked: boolean = false;
   matchedPasswordsError: boolean = false;
   passwordLengthError: boolean = false;
   confirmedPasswordLengthError: boolean = false;
@@ -21,7 +21,9 @@ export class RegisterComponent {
   passwordEmptyFieldError: boolean = false;
   confirmedPasswordEmptyFieldError: boolean = false;
   selectEmptyFieldError: boolean = false;
-  checkboxError: boolean = false;
+  invalidEmailError: boolean = false;
+  usedEmailError: boolean = false;
+  reviews: Reviews[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -35,10 +37,14 @@ export class RegisterComponent {
     this.passwordEmptyFieldError = false;
     this.confirmedPasswordEmptyFieldError = false;
     this.selectEmptyFieldError = false;
-    this.checkboxError = false;
+    this.confirmedPasswordLengthError = false;
+    this.invalidEmailError = false;
+    this.usedEmailError = false;
 
     if (this.emailValue == '') {
       this.emailEmptyFieldError = true;
+    } else if (!this.isValidEmail(this.emailValue)) {
+      this.invalidEmailError = true;
     }
 
     if (this.passwordValue == '') {
@@ -61,30 +67,45 @@ export class RegisterComponent {
       this.selectEmptyFieldError = true;
     }
 
-    if (this.isCheckboxChecked === false) {
-      this.checkboxError = true;
-    }
-
     if (
       !this.passwordLengthError &&
       !this.matchedPasswordsError &&
       !this.emailEmptyFieldError &&
       !this.passwordEmptyFieldError &&
       !this.confirmedPasswordEmptyFieldError &&
-      !this.selectEmptyFieldError
+      !this.selectEmptyFieldError &&
+      !this.invalidEmailError
     ) {
-      this.authService
-        .registerUser(this.emailValue, this.passwordValue, this.userType)
-        .pipe(
-          catchError((error) => {
-            console.error(error);
-            alert('Error: ' + error.message);
-            return throwError(error);
-          })
-        )
-        .subscribe(() => {
-          this.router.navigate(['/']);
-        });
+      this.authService.verifyUser(this.emailValue).subscribe((response) => {
+        if (response.length > 0) {
+          this.usedEmailError = true;
+        } else {
+          this.authService
+            .registerUser(
+              this.emailValue,
+              this.passwordValue,
+              this.userType,
+              this.reviews
+            )
+            .pipe(
+              catchError((error) => {
+                console.error(error);
+                alert('Error: ' + error.message);
+                return throwError(error);
+              })
+            )
+            .subscribe(() => {
+              this.router.navigate(['/']);
+            });
+        }
+      });
+      //
     }
+  }
+
+  isValidEmail(email: string): boolean {
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+    return emailPattern.test(email);
   }
 }
