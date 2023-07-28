@@ -12,7 +12,7 @@ export class AddReviewComponent {
   @Output() onReviewAdded: EventEmitter<Review> = new EventEmitter<Review>();
 
   rating: number = 0;
-  message!: string;
+  message: string = '';
   emptyFieldsError: boolean = false;
   constructor(
     private reviewsService: ReviewsService,
@@ -20,7 +20,7 @@ export class AddReviewComponent {
   ) {}
 
   ngOnInit() {
-    this.checkValue();
+    this.emptyFieldsError = true;
   }
 
   addReview() {
@@ -33,13 +33,12 @@ export class AddReviewComponent {
 
         this.rating = 0;
         this.message = '';
+        this.emptyFieldsError = true;
       });
   }
 
   checkValue() {
-    if (this.message === '' || this.rating === 0) {
-      this.emptyFieldsError = true;
-    } else if (this.message !== '' && this.rating !== 0) {
+    if (this.message !== '' && this.rating !== 0) {
       this.emptyFieldsError = false;
     }
   }
