@@ -1,7 +1,7 @@
-import { AuthService } from 'src/app/auth/services/auth.service';
 import { Component } from '@angular/core';
 import { ReviewsService } from '../../services/reviews.service';
 import { Review } from '../../models/review.interface';
+import { AuthService } from 'src/app/auth/services/auth.service';
 
 @Component({
   selector: 'app-review-section',
@@ -10,8 +10,12 @@ import { Review } from '../../models/review.interface';
 })
 export class ReviewSectionComponent {
   reviews!: Review[];
+  userLogged!: boolean;
 
-  constructor(private reviewsService: ReviewsService) {}
+  constructor(
+    private reviewsService: ReviewsService,
+    private authService: AuthService
+  ) {}
 
   ngOnInit() {
     this.loadReviews();
@@ -21,6 +25,11 @@ export class ReviewSectionComponent {
     this.reviewsService.showCourseReviews().subscribe((reviews: Review[]) => {
       this.reviews = reviews;
     });
+    if (this.authService.loggedUser) {
+      this.userLogged = true;
+    } else {
+      this.userLogged = false;
+    }
   }
 
   addNewReview(review: Review) {

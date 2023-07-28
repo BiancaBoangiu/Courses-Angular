@@ -11,27 +11,19 @@ import { Review } from '../../models/review.interface';
 export class AddReviewComponent {
   @Output() onReviewAdded: EventEmitter<Review> = new EventEmitter<Review>();
 
-  @Input() rating: number = 0;
-  @Input() message!: string;
-  emptyRatingError: boolean = false;
-  emptyMessageError: boolean = false;
-
+  rating: number = 0;
+  message!: string;
+  emptyFieldsError: boolean = false;
   constructor(
     private reviewsService: ReviewsService,
     private authService: AuthService
   ) {}
 
-  addReview() {
-    if (this.rating === 0) {
-      this.emptyRatingError = true;
-    }
-    if (!this.message) {
-      this.emptyMessageError = true;
-    }
+  ngOnInit() {
+    this.checkValue();
+  }
 
-    if (this.emptyRatingError || this.emptyMessageError) {
-      return;
-    }
+  addReview() {
     const userId = this.authService.loggedUser.id;
 
     this.reviewsService
@@ -42,5 +34,13 @@ export class AddReviewComponent {
         this.rating = 0;
         this.message = '';
       });
+  }
+
+  checkValue() {
+    if (this.message === '' || this.rating === 0) {
+      this.emptyFieldsError = true;
+    } else if (this.message !== '' && this.rating !== 0) {
+      this.emptyFieldsError = false;
+    }
   }
 }

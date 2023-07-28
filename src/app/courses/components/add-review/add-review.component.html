@@ -8,6 +8,7 @@
         aria-label="Default select example"
         [(ngModel)]="rating"
         [ngModelOptions]="{ standalone: true }"
+        (change)="checkValue()"
       >
         <option value="0" selected>Select a rating</option>
         <option value="5">★★★★★ (5/5)</option>
@@ -17,9 +18,7 @@
         <option value="1">★☆☆☆☆ (1/5)</option>
       </select>
     </div>
-    <div *ngIf="emptyRatingError" class="my-2 error-text">
-      <p>Choose a rating</p>
-    </div>
+
     <!-- Message -->
     <div class="col-12 bg-light-input">
       <textarea
@@ -29,14 +28,18 @@
         rows="3"
         [(ngModel)]="message"
         [ngModelOptions]="{ standalone: true }"
+        (input)="checkValue()"
       ></textarea>
     </div>
-    <div *ngIf="emptyRatingError" class="my-2 error-text">
-      <p>Please write a message</p>
-    </div>
+
     <!-- Button -->
     <div class="col-12">
-      <button type="submit" class="btn btn-primary mb-0" (click)="addReview()">
+      <button
+        type="submit"
+        class="btn btn-primary mb-0"
+        (click)="addReview()"
+        [disabled]="emptyFieldsError"
+      >
         Post Review
       </button>
     </div>

@@ -20,7 +20,7 @@
         }
       ],
       "authorId": 1,
-      "views": 67,
+      "views": 80,
       "rating": 4.5,
       "participants": [],
       "hasCertificate": true,
@@ -46,7 +46,7 @@
       "level": "Intermediate",
       "curriculum": [],
       "authorId": 0,
-      "views": 71,
+      "views": 76,
       "rating": 4,
       "participants": [],
       "hasCertificate": true,
@@ -62,7 +62,7 @@
       "level": "Advanced",
       "curriculum": [],
       "authorId": 0,
-      "views": 27,
+      "views": 48,
       "rating": 4.5,
       "participants": [],
       "hasCertificate": true,
@@ -78,7 +78,7 @@
       "level": "Intermediate",
       "curriculum": [],
       "authorId": 0,
-      "views": 85,
+      "views": 87,
       "rating": 4.3,
       "participants": [],
       "hasCertificate": false,
@@ -94,7 +94,7 @@
       "level": "Advanced",
       "curriculum": [],
       "authorId": 0,
-      "views": 19,
+      "views": 21,
       "rating": 4.2,
       "participants": [],
       "hasCertificate": true,
@@ -110,7 +110,7 @@
       "level": "Beginner",
       "curriculum": [],
       "authorId": 0,
-      "views": 3,
+      "views": 5,
       "rating": 4.6,
       "participants": [],
       "hasCertificate": true,
@@ -344,6 +344,41 @@
       "message": "dsfsdfds",
       "courseId": 5,
       "id": 2
+    },
+    {
+      "userId": 1,
+      "rating": "5",
+      "message": "sdfdfds",
+      "courseId": 3,
+      "id": 3
+    },
+    {
+      "userId": 1,
+      "rating": "4",
+      "message": "sdfsdfsd",
+      "courseId": 4,
+      "id": 4
+    },
+    {
+      "userId": 1,
+      "rating": "4",
+      "message": "dsfsdfds",
+      "courseId": 3,
+      "id": 5
+    },
+    {
+      "userId": 1,
+      "rating": "2",
+      "message": "dssfsdfds",
+      "courseId": 3,
+      "id": 6
+    },
+    {
+      "userId": 1,
+      "rating": "4",
+      "message": "cvbfgfd",
+      "courseId": 3,
+      "id": 7
     }
   ]
 }

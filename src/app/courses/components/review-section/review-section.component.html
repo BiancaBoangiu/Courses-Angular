@@ -1,2 +1,4 @@
 <app-review-list [reviews]="reviews"></app-review-list>
-<app-add-review (onReviewAdded)="addNewReview($event)"></app-add-review>
+<div *ngIf="userLogged">
+  <app-add-review (onReviewAdded)="addNewReview($event)"></app-add-review>
+</div>
