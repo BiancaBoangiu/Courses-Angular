@@ -14,6 +14,7 @@ export class AddReviewComponent {
   rating: number = 0;
   message: string = '';
   emptyFieldsError: boolean = false;
+
   constructor(
     private reviewsService: ReviewsService,
     private authService: AuthService

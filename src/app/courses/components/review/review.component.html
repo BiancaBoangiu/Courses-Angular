@@ -26,7 +26,13 @@
       aria-label="Basic radio toggle button group"
     >
       <!-- Like button -->
-      <input type="radio" class="btn-check" name="btnradio" id="btnradio1" />
+      <input
+        type="radio"
+        class="btn-check"
+        name="btnradio"
+        id="btnradio1"
+        (click)="onLikeReview(review.id)"
+      />
       <label class="btn btn-outline-light btn-sm mb-0" for="btnradio1"
         ><i class="far fa-thumbs-up me-1"></i>0</label
       >

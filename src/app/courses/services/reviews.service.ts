@@ -8,6 +8,7 @@ import { Review } from 'src/app/courses/models/review.interface';
   providedIn: 'root',
 })
 export class ReviewsService {
+  private reviewsURL = 'http://localhost:3000/reviews';
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
@@ -21,14 +22,13 @@ export class ReviewsService {
     courseId: number
   ): Observable<Review> {
     if (this.authService.loggedUser) {
-      const reviewsURL = `http://localhost:3000/reviews`;
       const body = {
         userId: userId,
         rating: rating,
         message: message,
         courseId: courseId,
       };
-      return this.http.post<Review>(reviewsURL, body, this.httpOptions);
+      return this.http.post<Review>(this.reviewsURL, body, this.httpOptions);
     } else {
       return of({} as Review);
     }
@@ -37,5 +37,14 @@ export class ReviewsService {
   showCourseReviews(): Observable<Review[]> {
     const reviewsURL = `http://localhost:3000/reviews?courseId=${this.authService.courseId}`;
     return this.http.get<Review[]>(reviewsURL);
+  }
+
+  onLikeReview(reviewId: number, userId: number): Observable<any> {
+    const data = [{ userId: userId }];
+    const likesData = { likes: data };
+    return this.http.patch<any>(
+      `http://localhost:3000/reviews/${reviewId}`,
+      likesData
+    );
   }
 }

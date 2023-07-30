@@ -20,7 +20,7 @@
         }
       ],
       "authorId": 1,
-      "views": 84,
+      "views": 129,
       "rating": 4.5,
       "participants": [],
       "hasCertificate": true,
@@ -46,7 +46,7 @@
       "level": "Intermediate",
       "curriculum": [],
       "authorId": 0,
-      "views": 78,
+      "views": 90,
       "rating": 4,
       "participants": [],
       "hasCertificate": true,
@@ -62,7 +62,7 @@
       "level": "Advanced",
       "curriculum": [],
       "authorId": 0,
-      "views": 50,
+      "views": 78,
       "rating": 4.5,
       "participants": [],
       "hasCertificate": true,
@@ -331,89 +331,27 @@
   "reviews": [
     {
       "userId": 1,
-      "rating": "3",
-      "message": "sadsdfadfda",
+      "rating": "2",
+      "message": "dfgdfgdgf",
       "courseId": 1,
       "id": 1,
-      "likes": [],
-      "dislikes": []
+      "likes": [
+        {
+          "userId": 1
+        }
+      ]
     },
     {
-      "userId": 1,
+      "userId": 2,
       "rating": "4",
-      "message": "dsfsdfds",
-      "courseId": 5,
-      "id": 2
-    },
-    {
-      "userId": 1,
-      "rating": "5",
-      "message": "sdfdfds",
+      "message": "fhhfgfhgf",
       "courseId": 3,
-      "id": 3
-    },
-    {
-      "userId": 1,
-      "rating": "4",
-      "message": "sdfsdfsd",
-      "courseId": 4,
-      "id": 4
-    },
-    {
-      "userId": 1,
-      "rating": "4",
-      "message": "dsfsdfds",
-      "courseId": 3,
-      "id": 5
-    },
-    {
-      "userId": 1,
-      "rating": "2",
-      "message": "dssfsdfds",
-      "courseId": 3,
-      "id": 6
-    },
-    {
-      "userId": 1,
-      "rating": "4",
-      "message": "cvbfgfd",
-      "courseId": 3,
-      "id": 7
-    },
-    {
-      "userId": 1,
-      "rating": "4",
-      "message": "dfsdfsdfsdfs",
-      "courseId": 2,
-      "id": 8
-    },
-    {
-      "userId": 1,
-      "rating": "5",
-      "message": "ddsfdsfsd",
-      "courseId": 1,
-      "id": 9
-    },
-    {
-      "userId": 1,
-      "rating": "4",
-      "message": "fdgdfgfdgd",
-      "courseId": 1,
-      "id": 10
-    },
-    {
-      "userId": 1,
-      "rating": "5",
-      "message": "dgrdtdfgdf",
-      "courseId": 3,
-      "id": 11
-    },
-    {
-      "userId": 1,
-      "rating": "2",
-      "message": "fdgdfgdfgdf",
-      "courseId": 3,
-      "id": 12
+      "id": 2,
+      "likes": [
+        {
+          "userId": 2
+        }
+      ]
     }
   ]
 }

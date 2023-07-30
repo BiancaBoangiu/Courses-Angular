@@ -3,4 +3,5 @@ export interface Review {
   message: string;
   userId: number;
   courseId: number;
+  id: number;
 }
