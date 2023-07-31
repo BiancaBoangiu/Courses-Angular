@@ -33,13 +33,26 @@
         id="btnradio1"
         (click)="onLikeReview(review.id)"
       />
-      <label class="btn btn-outline-light btn-sm mb-0" for="btnradio1"
-        ><i class="far fa-thumbs-up me-1"></i>0</label
+      <label
+        class="btn btn-outline-light btn-sm mb-0"
+        for="btnradio1"
+        [ngClass]="{ checked: likeStatus }"
+        ><i class="far fa-thumbs-up me-1"></i>{{ numberOfLikes }}</label
       >
       <!-- Dislike button -->
-      <input type="radio" class="btn-check" name="btnradio" id="btnradio2" />
-      <label class="btn btn-outline-light btn-sm mb-0" for="btnradio2">
-        <i class="far fa-thumbs-down me-1"></i>0</label
+      <input
+        type="radio"
+        class="btn-check"
+        name="btnradio"
+        id="btnradio2"
+        (click)="onDislikeReview(review.id)"
+      />
+      <label
+        class="btn btn-outline-light btn-sm mb-0"
+        for="btnradio2"
+        [ngClass]="{ checked: dislikeStatus }"
+      >
+        <i class="far fa-thumbs-down me-1"></i>{{ numberOfDislikes }}</label
       >
     </div>
   </div>

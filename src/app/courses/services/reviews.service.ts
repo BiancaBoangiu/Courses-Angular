@@ -39,12 +39,47 @@ export class ReviewsService {
     return this.http.get<Review[]>(reviewsURL);
   }
 
-  onLikeReview(reviewId: number, userId: number): Observable<any> {
-    const data = [{ userId: userId }];
-    const likesData = { likes: data };
+  onLikeReview(
+    reviewId: number,
+    userId: number,
+    review: Review
+  ): Observable<any> {
+    if (review.dislikes.includes(userId)) {
+      const index = review.dislikes.indexOf(userId);
+      review.dislikes.splice(index, 1);
+    }
+    const likes = review.likes || [];
+    likes.push(userId);
+    const likesData = {
+      likes: likes,
+      dislikes: review.dislikes,
+    };
+
     return this.http.patch<any>(
       `http://localhost:3000/reviews/${reviewId}`,
       likesData
+    );
+  }
+
+  onDislikeReview(
+    reviewId: number,
+    userId: number,
+    review: Review
+  ): Observable<any> {
+    if (review.likes.includes(userId)) {
+      const index = review.likes.indexOf(userId);
+      review.likes.splice(index, 1);
+    }
+    const dislikes = review.dislikes || [];
+    dislikes.push(userId);
+    const dislikesData = {
+      dislikes: dislikes,
+      likes: review.likes,
+    };
+
+    return this.http.patch<any>(
+      `http://localhost:3000/reviews/${reviewId}`,
+      dislikesData
     );
   }
 }

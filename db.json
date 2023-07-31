@@ -20,7 +20,7 @@
         }
       ],
       "authorId": 1,
-      "views": 129,
+      "views": 244,
       "rating": 4.5,
       "participants": [],
       "hasCertificate": true,
@@ -326,32 +326,30 @@
       "userType": "student",
       "reviews": [],
       "id": 2
+    },
+    {
+      "email": "admin2@test.com",
+      "password": "aaaaa",
+      "userType": "instructor",
+      "id": 3
     }
   ],
   "reviews": [
     {
       "userId": 1,
-      "rating": "2",
-      "message": "dfgdfgdgf",
+      "rating": "5",
+      "message": "dfsdfdsfsd",
       "courseId": 1,
       "id": 1,
       "likes": [
-        {
-          "userId": 1
-        }
-      ]
-    },
-    {
-      "userId": 2,
-      "rating": "4",
-      "message": "fhhfgfhgf",
-      "courseId": 3,
-      "id": 2,
-      "likes": [
-        {
-          "userId": 2
-        }
-      ]
+        1
+      ],
+      "likesCount": 1,
+      "dislikes": [
+        3,
+        2
+      ],
+      "dislikesCount": 2
     }
   ]
 }
