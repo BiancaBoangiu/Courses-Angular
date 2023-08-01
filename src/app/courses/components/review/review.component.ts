@@ -21,46 +21,45 @@ export class ReviewComponent {
   ) {}
 
   ngOnInit() {
-    this.numberOfLikes = this.review.likesCount;
-    this.numberOfDislikes = this.review.dislikesCount;
-    if (this.review.likes.includes(this.authService.loggedUser.id)) {
-      this.likeStatus = true;
-    }
-    if (this.review.dislikes.includes(this.authService.loggedUser.id)) {
-      this.dislikeStatus = true;
-    }
+    this.likeStatus = false;
+    this.dislikeStatus = false;
+    this.numberOfLikes = this.review.likes?.length || 0;
+    this.numberOfDislikes = this.review.dislikes?.length || 0;
   }
 
   onLikeReview(reviewId: number): void {
     const userLoggedId = this.authService.loggedUser.id;
-    if (this.review.likes.includes(userLoggedId)) {
-      return;
-    } else {
-      this.reviewsService
-        .onLikeReview(reviewId, userLoggedId, this.review)
-        .subscribe((response) => {
-          this.numberOfLikes = response.likes.length;
-          this.numberOfDislikes = response.dislikes.length;
-          this.likeStatus = true;
-          this.dislikeStatus = false;
-        });
+    if (this.review.likes) {
+      if (this.review.likes.includes(userLoggedId)) {
+        return;
+      } else {
+        this.reviewsService
+          .onLikeReview(reviewId, userLoggedId, this.review)
+          .subscribe((response) => {
+            this.numberOfLikes = response.likes.length;
+            this.numberOfDislikes = response.dislikes.length;
+            this.likeStatus = true;
+            this.dislikeStatus = false;
+          });
+      }
     }
   }
 
   onDislikeReview(reviewId: number): void {
     const userLoggedId = this.authService.loggedUser.id;
-
-    if (this.review.dislikes.includes(userLoggedId)) {
-      return;
-    } else {
-      this.reviewsService
-        .onDislikeReview(reviewId, userLoggedId, this.review)
-        .subscribe((response) => {
-          this.numberOfDislikes = response.dislikes.length;
-          this.numberOfLikes = response.likes.length;
-          this.dislikeStatus = true;
-          this.likeStatus = false;
-        });
+    if (this.review.dislikes) {
+      if (this.review.dislikes.includes(userLoggedId)) {
+        return;
+      } else {
+        this.reviewsService
+          .onDislikeReview(reviewId, userLoggedId, this.review)
+          .subscribe((response) => {
+            this.numberOfDislikes = response.dislikes.length;
+            this.numberOfLikes = response.likes.length;
+            this.dislikeStatus = true;
+            this.likeStatus = false;
+          });
+      }
     }
   }
 }

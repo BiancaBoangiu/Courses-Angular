@@ -44,10 +44,13 @@ export class ReviewsService {
     userId: number,
     review: Review
   ): Observable<any> {
-    if (review.dislikes.includes(userId)) {
-      const index = review.dislikes.indexOf(userId);
-      review.dislikes.splice(index, 1);
+    if (review.dislikes) {
+      if (review.dislikes.includes(userId)) {
+        const index = review.dislikes.indexOf(userId);
+        review.dislikes.splice(index, 1);
+      }
     }
+
     const likes = review.likes || [];
     likes.push(userId);
     const likesData = {
@@ -66,10 +69,13 @@ export class ReviewsService {
     userId: number,
     review: Review
   ): Observable<any> {
-    if (review.likes.includes(userId)) {
-      const index = review.likes.indexOf(userId);
-      review.likes.splice(index, 1);
+    if (review.likes) {
+      if (review.likes.includes(userId)) {
+        const index = review.likes.indexOf(userId);
+        review.likes.splice(index, 1);
+      }
     }
+
     const dislikes = review.dislikes || [];
     dislikes.push(userId);
     const dislikesData = {

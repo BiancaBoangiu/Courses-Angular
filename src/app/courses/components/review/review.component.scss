@@ -1,3 +1,17 @@
 .checked{
-    background-color: rgb(199, 199, 199);
+    background-color: rgba(233, 230, 230, 0.921);
+}
+
+.checked i, .checked span{
+    color: rgba(0, 0, 255, 0.718);
+}
+
+.review-button{
+    border: 1px solid #f9f9f9b1;
+    padding:6px 12px 6px 12px;
+    
+}
+
+.review-button:first-of-type{
+    border-right:0;
 }
