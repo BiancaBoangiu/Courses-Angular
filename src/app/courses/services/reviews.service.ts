@@ -3,11 +3,13 @@ import { AuthService } from 'src/app/auth/services/auth.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, map, of, tap } from 'rxjs';
 import { Review } from 'src/app/courses/models/review.interface';
+import { Course } from '../models/course.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ReviewsService {
+  averageRating: number = 0;
   private reviewsURL = 'http://localhost:3000/reviews';
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
@@ -27,6 +29,9 @@ export class ReviewsService {
         rating: rating,
         message: message,
         courseId: courseId,
+        likes: [],
+        dislikes: [],
+        userEmail: this.authService.loggedUser.email,
       };
       return this.http.post<Review>(this.reviewsURL, body, this.httpOptions);
     } else {
@@ -44,11 +49,9 @@ export class ReviewsService {
     userId: number,
     review: Review
   ): Observable<any> {
-    if (review.dislikes) {
-      if (review.dislikes.includes(userId)) {
-        const index = review.dislikes.indexOf(userId);
-        review.dislikes.splice(index, 1);
-      }
+    if (review.dislikes.includes(userId)) {
+      const index = review.dislikes.indexOf(userId);
+      review.dislikes.splice(index, 1);
     }
 
     const likes = review.likes || [];
@@ -69,11 +72,9 @@ export class ReviewsService {
     userId: number,
     review: Review
   ): Observable<any> {
-    if (review.likes) {
-      if (review.likes.includes(userId)) {
-        const index = review.likes.indexOf(userId);
-        review.likes.splice(index, 1);
-      }
+    if (review.likes.includes(userId)) {
+      const index = review.likes.indexOf(userId);
+      review.likes.splice(index, 1);
     }
 
     const dislikes = review.dislikes || [];
@@ -86,6 +87,26 @@ export class ReviewsService {
     return this.http.patch<any>(
       `http://localhost:3000/reviews/${reviewId}`,
       dislikesData
+    );
+  }
+
+  showAverageRating(): Observable<number> {
+    return this.showCourseReviews().pipe(
+      map((reviews) => {
+        const sum = reviews.reduce(
+          (accumulator, review) => accumulator + Number(review.rating),
+          0
+        );
+        if (reviews.length === 0) {
+          this.averageRating = 0;
+        } else {
+          this.averageRating = parseFloat(
+            Number(sum / reviews.length).toFixed(1)
+          );
+        }
+
+        return this.averageRating;
+      })
     );
   }
 }

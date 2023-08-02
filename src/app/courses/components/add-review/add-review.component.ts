@@ -13,16 +13,13 @@ export class AddReviewComponent {
 
   rating: number = 0;
   message: string = '';
-  emptyFieldsError: boolean = false;
+  ratings: number[] = [];
+  averageRating!: number;
 
   constructor(
     private reviewsService: ReviewsService,
     private authService: AuthService
   ) {}
-
-  ngOnInit() {
-    this.emptyFieldsError = true;
-  }
 
   addReview() {
     const userId = this.authService.loggedUser.id;
@@ -32,15 +29,12 @@ export class AddReviewComponent {
       .subscribe((response) => {
         this.onReviewAdded.emit(response);
 
+        this.reviewsService.showAverageRating().subscribe((response) => {
+          this.averageRating = response;
+        });
+
         this.rating = 0;
         this.message = '';
-        this.emptyFieldsError = true;
       });
-  }
-
-  checkValue() {
-    if (this.message !== '' && this.rating !== 0) {
-      this.emptyFieldsError = false;
-    }
   }
 }

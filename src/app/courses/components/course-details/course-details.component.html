@@ -20,7 +20,7 @@
           <ul class="list-inline mb-0">
             <li class="list-inline-item h6 me-3 mb-1 mb-sm-0">
               <i class="fas fa-star text-warning me-2"></i
-              >{{ course.rating }}/5.0
+              >{{ averageRating }}/5.0
             </li>
             <li class="list-inline-item h6 me-3 mb-1 mb-sm-0">
               <i class="fas fa-user-graduate text-orange me-2"></i>12k Enrolled
@@ -1422,7 +1422,7 @@
           <div class="card shadow rounded-2 mt-5">
             <!-- Review START -->
             <div class="row mb-4">
-              <h5 class="mb-4">Our Student Reviews</h5>
+              <h5 class="m-4">Our Student Reviews</h5>
 
               <!-- Rating info -->
               <div class="col-md-4 mb-3 mb-md-0">
@@ -1447,7 +1447,7 @@
                       <i class="fas fa-star-half-alt text-warning"></i>
                     </li>
                   </ul>
-                  <p class="mb-0">(Based on todays review)</p>
+                  <p class="mb-0">(Based on students' reviews)</p>
                 </div>
               </div>
 
@@ -1640,8 +1640,6 @@
             <div class="row">
               <!-- Review item START -->
               <app-review-section></app-review-section>
-
-              <hr />
             </div>
             <!-- Student review END -->
 
@@ -1808,7 +1806,7 @@
                     <div class="col-12">
                       <!-- Image -->
                       <img
-                        src="assets/publisher-photo.jpg"
+                        src="assets/publisher.jpg"
                         class="img-fluid rounded-3"
                         alt="instructor-image"
                       />

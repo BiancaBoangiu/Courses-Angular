@@ -5,7 +5,6 @@ export interface Review {
   courseId: number;
   id: number;
   likes: number[];
-  likesCount: number;
   dislikes: number[];
-  dislikesCount: number;
+  userEmail: string;
 }

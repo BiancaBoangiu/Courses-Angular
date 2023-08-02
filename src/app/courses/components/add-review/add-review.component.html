@@ -8,7 +8,6 @@
         aria-label="Default select example"
         [(ngModel)]="rating"
         [ngModelOptions]="{ standalone: true }"
-        (change)="checkValue()"
       >
         <option value="0" selected>Select a rating</option>
         <option value="5">★★★★★ (5/5)</option>
@@ -28,7 +27,6 @@
         rows="3"
         [(ngModel)]="message"
         [ngModelOptions]="{ standalone: true }"
-        (input)="checkValue()"
       ></textarea>
     </div>
 
@@ -38,10 +36,11 @@
         type="submit"
         class="btn btn-primary mb-0"
         (click)="addReview()"
-        [disabled]="emptyFieldsError"
+        [disabled]="!message || !rating"
       >
         Post Review
       </button>
     </div>
   </form>
+  <span>{{ averageRating }}</span>
 </div>

@@ -1,3 +1,4 @@
+import { ReviewsService } from './../../services/reviews.service';
 import { AuthService } from './../../../auth/services/auth.service';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -11,15 +12,18 @@ import { Course } from '../../models/course.interface';
 })
 export class CourseDetailsComponent {
   course!: Course;
+  averageRating!: number;
 
   constructor(
     private route: ActivatedRoute,
     private coursesService: CoursesService,
-    private authService: AuthService
+    private authService: AuthService,
+    private reviewsService: ReviewsService
   ) {}
 
   ngOnInit(): void {
     this.getCourse();
+    this.showAverageRating();
   }
 
   getCourse(): void {
@@ -33,6 +37,11 @@ export class CourseDetailsComponent {
         .subscribe(
           (updatedCourse) => (this.course.views = updatedCourse.views)
         );
+    });
+  }
+  showAverageRating(): void {
+    this.reviewsService.showAverageRating().subscribe((averageRating) => {
+      this.averageRating = averageRating;
     });
   }
 }

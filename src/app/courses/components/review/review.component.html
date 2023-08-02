@@ -1,4 +1,4 @@
-<div class="d-md-flex my-4">
+<div class="d-md-flex mt-4 review" *ngIf="review">
   <!-- Avatar -->
   <div class="avatar avatar-xl me-4 flex-shrink-0">
     <img
@@ -9,12 +9,9 @@
   </div>
   <!-- Text -->
   <div>
-    <h5 class="me-3 mb-0">Name</h5>
+    <h5 class="me-3 mb-0 review-rating">{{ review.userEmail }}</h5>
     <!-- Review star -->
-    <div>
-      <span>Rating: </span>
-      <span>{{ review.rating }}/5</span>
-    </div>
+    <span> {{ review.rating }}/5</span>
 
     <!-- Info -->
     <p class="small mb-2">2 days ago</p>
