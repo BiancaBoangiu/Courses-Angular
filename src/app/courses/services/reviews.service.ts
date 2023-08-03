@@ -97,16 +97,23 @@ export class ReviewsService {
           (accumulator, review) => accumulator + Number(review.rating),
           0
         );
+        let averageRatingValue = 0;
         if (reviews.length === 0) {
-          this.averageRating = 0;
+          averageRatingValue = 0;
         } else {
-          this.averageRating = parseFloat(
+          averageRatingValue = parseFloat(
             Number(sum / reviews.length).toFixed(1)
           );
         }
 
+        this.averageRating = averageRatingValue;
         return this.averageRating;
       })
     );
+  }
+
+  showCourseRating(courseId: number): Observable<number[]> {
+    const reviewsURL = `http://localhost:3000/reviews?courseId=${this.authService.courseId}`;
+    return this.http.get<Review[]>(reviewsURL);
   }
 }

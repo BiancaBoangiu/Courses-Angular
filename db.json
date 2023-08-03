@@ -20,7 +20,7 @@
         }
       ],
       "authorId": 1,
-      "views": 601,
+      "views": 608,
       "rating": 4.5,
       "participants": [],
       "hasCertificate": true,
@@ -47,7 +47,7 @@
       "level": "Intermediate",
       "curriculum": [],
       "authorId": 0,
-      "views": 97,
+      "views": 107,
       "rating": 4,
       "participants": [],
       "hasCertificate": true,
@@ -80,7 +80,7 @@
       "level": "Intermediate",
       "curriculum": [],
       "authorId": 0,
-      "views": 94,
+      "views": 98,
       "rating": 4.3,
       "participants": [],
       "hasCertificate": false,
@@ -421,41 +421,41 @@
     {
       "userId": 1,
       "rating": "4",
-      "message": "fdgdgfdgdf",
+      "message": "hgkkhjkh",
       "courseId": 1,
-      "likes": [
+      "likes": [],
+      "dislikes": [
         1
       ],
-      "dislikes": [],
       "userEmail": "admin@test.com",
       "id": 8
     },
     {
       "userId": 1,
-      "rating": "1",
-      "message": "ewrtertrete",
+      "rating": "3",
+      "message": "bvnvbnvb",
       "courseId": 1,
       "likes": [],
-      "dislikes": [],
+      "dislikes": [
+        1
+      ],
       "userEmail": "admin@test.com",
       "id": 9
     },
     {
       "userId": 1,
-      "rating": "3",
-      "message": "drgdfgdfgfd",
+      "rating": "1",
+      "message": "gjghj",
       "courseId": 1,
-      "likes": [
-        1
-      ],
+      "likes": [],
       "dislikes": [],
       "userEmail": "admin@test.com",
       "id": 10
     },
     {
       "userId": 1,
-      "rating": "4",
-      "message": "fdgdfgdfgfdg",
+      "rating": "1",
+      "message": "ghjghjg",
       "courseId": 1,
       "likes": [],
       "dislikes": [],
@@ -464,9 +464,9 @@
     },
     {
       "userId": 1,
-      "rating": "1",
-      "message": "bgghgfhg",
-      "courseId": 1,
+      "rating": "4",
+      "message": "fdgdfgdf",
+      "courseId": 2,
       "likes": [],
       "dislikes": [],
       "userEmail": "admin@test.com",
@@ -475,8 +475,8 @@
     {
       "userId": 1,
       "rating": "4",
-      "message": "dfsdfsfdsfs",
-      "courseId": 1,
+      "message": "yjy",
+      "courseId": 2,
       "likes": [],
       "dislikes": [],
       "userEmail": "admin@test.com",
@@ -484,9 +484,9 @@
     },
     {
       "userId": 1,
-      "rating": "1",
-      "message": "dfsdfsdfds",
-      "courseId": 1,
+      "rating": "4",
+      "message": "dgdgdf",
+      "courseId": 2,
       "likes": [],
       "dislikes": [],
       "userEmail": "admin@test.com",
@@ -495,8 +495,8 @@
     {
       "userId": 1,
       "rating": "1",
-      "message": "dsfsdfsfds",
-      "courseId": 1,
+      "message": "fdgfdgfd",
+      "courseId": 2,
       "likes": [],
       "dislikes": [],
       "userEmail": "admin@test.com",
@@ -505,12 +505,22 @@
     {
       "userId": 1,
       "rating": "1",
-      "message": "rfere",
-      "courseId": 1,
+      "message": "dfgregdf",
+      "courseId": 2,
       "likes": [],
       "dislikes": [],
       "userEmail": "admin@test.com",
       "id": 16
+    },
+    {
+      "userId": 1,
+      "rating": "1",
+      "message": "grgdf",
+      "courseId": 1,
+      "likes": [],
+      "dislikes": [],
+      "userEmail": "admin@test.com",
+      "id": 17
     }
   ]
 }

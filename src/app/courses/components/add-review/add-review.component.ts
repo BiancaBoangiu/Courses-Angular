@@ -29,8 +29,8 @@ export class AddReviewComponent {
       .subscribe((response) => {
         this.onReviewAdded.emit(response);
 
-        this.reviewsService.showAverageRating().subscribe((response) => {
-          this.averageRating = response;
+        this.reviewsService.showAverageRating().subscribe(() => {
+          this.averageRating = this.reviewsService.averageRating;
         });
 
         this.rating = 0;

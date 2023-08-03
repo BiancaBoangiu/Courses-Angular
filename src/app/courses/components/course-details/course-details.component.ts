@@ -40,8 +40,8 @@ export class CourseDetailsComponent {
     });
   }
   showAverageRating(): void {
-    this.reviewsService.showAverageRating().subscribe((averageRating) => {
-      this.averageRating = averageRating;
+    this.reviewsService.showAverageRating().subscribe(() => {
+      this.averageRating = this.reviewsService.averageRating;
     });
   }
 }
