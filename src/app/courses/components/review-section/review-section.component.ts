@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ReviewsService } from '../../services/reviews.service';
 import { Review } from '../../models/review.interface';
 import { AuthService } from 'src/app/auth/services/auth.service';
@@ -11,6 +11,8 @@ import { AuthService } from 'src/app/auth/services/auth.service';
 export class ReviewSectionComponent {
   reviews!: Review[];
   userLogged!: boolean;
+  @Output() averageRatingUpdate: EventEmitter<number> =
+    new EventEmitter<number>();
 
   constructor(
     private reviewsService: ReviewsService,
@@ -34,5 +36,9 @@ export class ReviewSectionComponent {
 
   addNewReview(review: Review) {
     this.reviews.push(review);
+  }
+
+  averageRatingUpdate(newAverageRating: number) {
+    this.averageRatingUpdate.emit(newAverageRating); // Emit the updated value
   }
 }

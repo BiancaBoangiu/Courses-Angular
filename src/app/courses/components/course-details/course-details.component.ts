@@ -11,7 +11,7 @@ import { Course } from '../../models/course.interface';
 })
 export class CourseDetailsComponent {
   course!: Course;
-  averageRating!: number;
+  averageRating: number = 0;
 
   constructor(
     private route: ActivatedRoute,
@@ -36,5 +36,9 @@ export class CourseDetailsComponent {
           this.course.views = updatedCourse.views;
         });
     });
+  }
+
+  onAverageRatingUpdate(newAverageRating: number) {
+    this.averageRating = newAverageRating;
   }
 }

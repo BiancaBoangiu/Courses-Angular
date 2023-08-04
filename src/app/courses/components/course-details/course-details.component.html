@@ -18,7 +18,16 @@
           </p>
           <!-- Content -->
           <ul class="list-inline mb-0">
-            <li class="list-inline-item h6 me-3 mb-1 mb-sm-0">
+            <li
+              class="list-inline-item h6 me-3 mb-1 mb-sm-0"
+              *ngIf="!averageRating"
+            >
+              <i class="fas fa-star text-warning me-2"></i>0/5.0
+            </li>
+            <li
+              class="list-inline-item h6 me-3 mb-1 mb-sm-0"
+              *ngIf="averageRating"
+            >
               <i class="fas fa-star text-warning me-2"></i
               >{{ averageRating }}/5.0
             </li>
@@ -1428,7 +1437,10 @@
               <div class="col-md-4 mb-3 mb-md-0">
                 <div class="text-center">
                   <!-- Info -->
-                  <h2 class="mb-0">{{ averageRating }}</h2>
+                  <h2 class="mb-0" *ngIf="averageRating">
+                    {{ averageRating }}/5
+                  </h2>
+                  <h2 class="mb-0" *ngIf="!averageRating">0/5</h2>
                   <!-- Star -->
                   <ul class="list-inline mb-0">
                     <li class="list-inline-item me-0">
@@ -1639,7 +1651,9 @@
             <!-- Student review START -->
             <div class="row">
               <!-- Review item START -->
-              <app-review-section></app-review-section>
+              <app-review-section
+                [averageRating]="averageRating"
+              ></app-review-section>
             </div>
             <!-- Student review END -->
 
