@@ -15,9 +15,12 @@
           <a href="#" class="badge text-bg-primary mb-2 mb-sm-0">Development</a>
           <!-- Rating and wishlist -->
           <div>
-            <span class="h6 fw-light me-3"
+            <span class="h6 fw-light me-3" *ngIf="this.course.averageRating"
               ><i class="fas fa-star text-warning me-1"></i
-              >{{ course.rating }}</span
+              >{{ course.averageRating }}/5</span
+            >
+            <span class="h6 fw-light me-3" *ngIf="!this.course.averageRating"
+              ><i class="fas fa-star text-warning me-1"></i>0/5</span
             >
             <a href="#" class="text-danger"><i class="fas fa-heart"></i></a>
           </div>

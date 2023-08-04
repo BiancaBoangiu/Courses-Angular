@@ -9,4 +9,9 @@ import { ReviewsService } from '../../services/reviews.service';
 })
 export class CourseGridCardComponent {
   @Input() course!: Course;
+  averageRating: number = 0;
+
+  ngOnInit(): void {}
+
+  constructor(private reviewsService: ReviewsService) {}
 }

@@ -14,7 +14,7 @@ export class AddReviewComponent {
   rating: number = 0;
   message: string = '';
   ratings: number[] = [];
-  averageRating!: number;
+  averageRating: number = 0;
 
   constructor(
     private reviewsService: ReviewsService,
@@ -29,9 +29,11 @@ export class AddReviewComponent {
       .subscribe((response) => {
         this.onReviewAdded.emit(response);
 
-        this.reviewsService.showAverageRating().subscribe(() => {
-          this.averageRating = this.reviewsService.averageRating;
-        });
+        this.reviewsService
+          .showAverageRating(this.authService.courseId)
+          .subscribe((ratingResponse) => {
+            this.averageRating = ratingResponse.averageRating;
+          });
 
         this.rating = 0;
         this.message = '';

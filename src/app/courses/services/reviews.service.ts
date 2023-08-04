@@ -1,15 +1,14 @@
 import { Injectable } from '@angular/core';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, map, of, tap } from 'rxjs';
+import { Observable, catchError, map, of, switchMap, tap } from 'rxjs';
 import { Review } from 'src/app/courses/models/review.interface';
-import { Course } from '../models/course.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ReviewsService {
-  averageRating: number = 0;
+  averageRatingValue: number = 0;
   private reviewsURL = 'http://localhost:3000/reviews';
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
@@ -90,30 +89,34 @@ export class ReviewsService {
     );
   }
 
-  showAverageRating(): Observable<number> {
-    return this.showCourseReviews().pipe(
-      map((reviews) => {
+  showAverageRating(courseId: number): Observable<any> {
+    return this.showCourseRatings(courseId).pipe(
+      tap((reviews) => {
         const sum = reviews.reduce(
           (accumulator, review) => accumulator + Number(review.rating),
           0
         );
-        let averageRatingValue = 0;
         if (reviews.length === 0) {
-          averageRatingValue = 0;
+          this.averageRatingValue = 0;
         } else {
-          averageRatingValue = parseFloat(
+          this.averageRatingValue = parseFloat(
             Number(sum / reviews.length).toFixed(1)
           );
         }
+      }),
 
-        this.averageRating = averageRatingValue;
-        return this.averageRating;
+      switchMap(() => {
+        const averageRating = { averageRating: this.averageRatingValue };
+        return this.http.patch<Review[]>(
+          `http://localhost:3000/courses/${courseId}`,
+          averageRating
+        );
       })
     );
   }
 
-  showCourseRating(courseId: number): Observable<number[]> {
-    const reviewsURL = `http://localhost:3000/reviews?courseId=${this.authService.courseId}`;
-    return this.http.get<Review[]>(reviewsURL);
+  showCourseRatings(courseId: number): Observable<Review[]> {
+    const ratingsURL = `http://localhost:3000/reviews?courseId=${courseId}`;
+    return this.http.get<Review[]>(ratingsURL);
   }
 }
