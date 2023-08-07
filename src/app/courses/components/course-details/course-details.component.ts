@@ -38,7 +38,7 @@ export class CourseDetailsComponent {
     });
   }
 
-  onAverageRatingUpdate(newAverageRating: number) {
-    this.averageRating = newAverageRating;
+  showAverageRating(averageRating: number) {
+    this.averageRating = averageRating;
   }
 }

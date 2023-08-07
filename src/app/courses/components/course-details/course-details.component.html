@@ -1652,7 +1652,7 @@
             <div class="row">
               <!-- Review item START -->
               <app-review-section
-                [averageRating]="averageRating"
+                (updatedAverageRating)="showAverageRating($event)"
               ></app-review-section>
             </div>
             <!-- Student review END -->

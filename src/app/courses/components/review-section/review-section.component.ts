@@ -11,7 +11,7 @@ import { AuthService } from 'src/app/auth/services/auth.service';
 export class ReviewSectionComponent {
   reviews!: Review[];
   userLogged!: boolean;
-  @Output() averageRatingUpdate: EventEmitter<number> =
+  @Output() updatedAverageRating: EventEmitter<number> =
     new EventEmitter<number>();
 
   constructor(
@@ -38,7 +38,7 @@ export class ReviewSectionComponent {
     this.reviews.push(review);
   }
 
-  averageRatingUpdate(newAverageRating: number) {
-    this.averageRatingUpdate.emit(newAverageRating); // Emit the updated value
+  onEmitAverageRatingUpdate(newAverageRating: number) {
+    this.updatedAverageRating.emit(newAverageRating);
   }
 }

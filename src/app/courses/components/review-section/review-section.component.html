@@ -2,6 +2,7 @@
 <div *ngIf="userLogged">
   <app-add-review
     (onReviewAdded)="addNewReview($event)"
-    (averageRatingUpdate)="onAverageRatingUpdate($event)"
-  ></app-add-review>
+    (onAverageRatingUpdate)="onEmitAverageRatingUpdate($event)"
+  >
+  </app-add-review>
 </div>
