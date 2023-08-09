@@ -1799,7 +1799,7 @@
                       ><i class="fas fa-fw fa-signal text-primary"></i
                       >Skills</span
                     >
-                    <span>Beginner</span>
+                    <span>{{ course.level }}</span>
                   </li>
 
                   <li
@@ -1809,7 +1809,8 @@
                       ><i class="fas fa-fw fa-medal text-primary"></i
                       >Certificate</span
                     >
-                    <span>Yes</span>
+                    <span *ngIf="course.hasCertificate">Yes</span>
+                    <span *ngIf="!course.hasCertificate">No</span>
                   </li>
                 </ul>
               </div>

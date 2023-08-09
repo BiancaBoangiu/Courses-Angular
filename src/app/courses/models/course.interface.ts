@@ -11,4 +11,5 @@ export interface Course {
   rating: number;
   averageRating: number;
   views: number;
+  hasCertificate: boolean;
 }
