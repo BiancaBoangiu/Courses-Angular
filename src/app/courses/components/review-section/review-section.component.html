@@ -1,8 +1,8 @@
-<app-review-list [reviews]="reviews"></app-review-list>
+<app-review-list
+  [reviews]="reviews"
+  (updateAverageRating)="sendAverageRating($event)"
+  (sendReviewsAfterDelete)="sendReviews($event)"
+></app-review-list>
 <div *ngIf="userLogged">
-  <app-add-review
-    (onReviewAdded)="addNewReview($event)"
-    (onAverageRatingUpdate)="onEmitAverageRatingUpdate($event)"
-  >
-  </app-add-review>
+  <app-add-review (onReviewAdded)="addNewReview($event)"> </app-add-review>
 </div>

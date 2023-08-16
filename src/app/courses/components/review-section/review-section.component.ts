@@ -11,8 +11,16 @@ import { AuthService } from 'src/app/auth/services/auth.service';
 export class ReviewSectionComponent {
   reviews!: Review[];
   userLogged!: boolean;
-  @Output() updatedAverageRating: EventEmitter<number> =
+  @Output() updateAverageRating: EventEmitter<number> =
     new EventEmitter<number>();
+
+  @Output() sendReviewsAfterDelete: EventEmitter<Review[]> = new EventEmitter<
+    Review[]
+  >();
+
+  @Output() sendReviewsAfterAdd: EventEmitter<Review[]> = new EventEmitter<
+    Review[]
+  >();
 
   constructor(
     private reviewsService: ReviewsService,
@@ -36,9 +44,24 @@ export class ReviewSectionComponent {
 
   addNewReview(review: Review) {
     this.reviews.push(review);
+    const sum = this.reviews.reduce(
+      (accumulator, review) => accumulator + Number(review.rating),
+      0
+    );
+
+    const averageRatingValue = parseFloat(
+      Number(sum / this.reviews.length).toFixed(1)
+    );
+
+    this.updateAverageRating.emit(averageRatingValue);
+    this.sendReviewsAfterAdd.emit(this.reviews);
   }
 
-  onEmitAverageRatingUpdate(newAverageRating: number) {
-    this.updatedAverageRating.emit(newAverageRating);
+  sendAverageRating(averageRating: number) {
+    this.updateAverageRating.emit(averageRating);
+  }
+
+  sendReviews(reviews: Review[]) {
+    this.sendReviewsAfterDelete.emit(reviews);
   }
 }

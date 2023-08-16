@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Review } from '../../models/review.interface';
 import { ReviewsService } from '../../services/reviews.service';
 import { AuthService } from 'src/app/auth/services/auth.service';
@@ -9,7 +9,9 @@ import { AuthService } from 'src/app/auth/services/auth.service';
   styleUrls: ['./review.component.scss'],
 })
 export class ReviewComponent {
+  @Output() onDeleteReview: EventEmitter<number> = new EventEmitter<number>();
   @Input() review!: Review;
+
   numberOfLikes!: number;
   numberOfDislikes!: number;
   likeStatus!: boolean;
@@ -80,5 +82,9 @@ export class ReviewComponent {
           this.likeStatus = false;
         });
     }
+  }
+
+  deleteReview(reviewId: number) {
+    this.onDeleteReview.emit(reviewId);
   }
 }

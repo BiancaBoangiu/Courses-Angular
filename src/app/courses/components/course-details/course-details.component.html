@@ -20,16 +20,16 @@
           <ul class="list-inline mb-0">
             <li
               class="list-inline-item h6 me-3 mb-1 mb-sm-0"
-              *ngIf="!averageRating"
+              *ngIf="!course.rating"
             >
               <i class="fas fa-star text-warning me-2"></i>0/5.0
             </li>
             <li
               class="list-inline-item h6 me-3 mb-1 mb-sm-0"
-              *ngIf="averageRating"
+              *ngIf="course.rating"
             >
               <i class="fas fa-star text-warning me-2"></i
-              >{{ averageRating }}/5.0
+              >{{ course.rating }}/5.0
             </li>
             <li class="list-inline-item h6 me-3 mb-1 mb-sm-0">
               <i class="fas fa-user-graduate text-orange me-2"></i>12k Enrolled
@@ -1437,10 +1437,10 @@
               <div class="col-md-4 mb-3 mb-md-0">
                 <div class="text-center">
                   <!-- Info -->
-                  <h2 class="mb-0" *ngIf="averageRating">
-                    {{ averageRating }}/5
+                  <h2 class="mb-0" *ngIf="course.rating">
+                    {{ course.rating }}/5
                   </h2>
-                  <h2 class="mb-0" *ngIf="!averageRating">0/5</h2>
+                  <h2 class="mb-0" *ngIf="!course.rating">0/5</h2>
                   <!-- Star -->
                   <ul class="list-inline mb-0">
                     <li class="list-inline-item me-0">
@@ -1484,6 +1484,7 @@
                   <div class="col-6 col-sm-4">
                     <!-- Star item -->
                     <ul class="list-inline mb-0">
+                      <span class="p-2">({{ fiveStars }})</span>
                       <li class="list-inline-item me-0 small">
                         <i class="fas fa-star text-warning"></i>
                       </li>
@@ -1520,6 +1521,7 @@
                   <div class="col-6 col-sm-4">
                     <!-- Star item -->
                     <ul class="list-inline mb-0">
+                      <span class="p-2">({{ fourStars }})</span>
                       <li class="list-inline-item me-0 small">
                         <i class="fas fa-star text-warning"></i>
                       </li>
@@ -1556,9 +1558,11 @@
                   <div class="col-6 col-sm-4">
                     <!-- Star item -->
                     <ul class="list-inline mb-0">
+                      <span class="p-2">({{ threeStars }})</span>
                       <li class="list-inline-item me-0 small">
                         <i class="fas fa-star text-warning"></i>
                       </li>
+
                       <li class="list-inline-item me-0 small">
                         <i class="fas fa-star text-warning"></i>
                       </li>
@@ -1592,6 +1596,7 @@
                   <div class="col-6 col-sm-4">
                     <!-- Star item -->
                     <ul class="list-inline mb-0">
+                      <span class="p-2">({{ twoStars }})</span>
                       <li class="list-inline-item me-0 small">
                         <i class="fas fa-star text-warning"></i>
                       </li>
@@ -1628,6 +1633,7 @@
                   <div class="col-6 col-sm-4">
                     <!-- Star item -->
                     <ul class="list-inline mb-0">
+                      <span class="p-2">({{ oneStar }})</span>
                       <li class="list-inline-item me-0 small">
                         <i class="fas fa-star text-warning"></i>
                       </li>
@@ -1652,7 +1658,9 @@
             <div class="row">
               <!-- Review item START -->
               <app-review-section
-                (updatedAverageRating)="showAverageRating($event)"
+                (updateAverageRating)="showAverageRating($event)"
+                (sendReviewsAfterDelete)="showReviewsRatings($event)"
+                (sendReviewsAfterAdd)="showReviewsRatings($event)"
               ></app-review-section>
             </div>
             <!-- Student review END -->

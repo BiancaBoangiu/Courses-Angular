@@ -1,8 +1,10 @@
+import { ReviewsService } from './../../services/reviews.service';
 import { AuthService } from './../../../auth/services/auth.service';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CoursesService } from '../../services/courses.service';
 import { Course } from '../../models/course.interface';
+import { Review } from '../../models/review.interface';
 
 @Component({
   selector: 'app-course-detail',
@@ -11,12 +13,18 @@ import { Course } from '../../models/course.interface';
 })
 export class CourseDetailsComponent {
   course!: Course;
-  averageRating: number = 0;
+
+  fiveStars: number = 0;
+  fourStars: number = 0;
+  threeStars: number = 0;
+  twoStars: number = 0;
+  oneStar: number = 0;
 
   constructor(
     private route: ActivatedRoute,
     private coursesService: CoursesService,
-    private authService: AuthService
+    private authService: AuthService,
+    private reviewsService: ReviewsService
   ) {}
 
   ngOnInit(): void {
@@ -28,17 +36,71 @@ export class CourseDetailsComponent {
     this.coursesService.getCourseById(id).subscribe((course) => {
       this.course = course;
       this.authService.courseId = course.id;
-      this.averageRating = this.course.averageRating;
 
       this.coursesService
         .updateCourseViewcount(id, this.course.views + 1)
         .subscribe((updatedCourse) => {
           this.course.views = updatedCourse.views;
         });
+
+      this.reviewsService.showCourseReviews().subscribe((reviews) => {
+        reviews.map((review) => {
+          this.fiveStars = 0;
+          this.fourStars = 0;
+          this.threeStars = 0;
+          this.twoStars = 0;
+          this.oneStar = 0;
+          if (Number(review.rating) === 5) {
+            this.fiveStars++;
+          }
+          if (Number(review.rating) === 4) {
+            this.fourStars++;
+          }
+          if (Number(review.rating) === 3) {
+            this.threeStars++;
+          }
+          if (Number(review.rating) === 2) {
+            this.twoStars++;
+          }
+          if (Number(review.rating) === 1) {
+            this.oneStar++;
+          }
+        });
+      });
     });
   }
 
   showAverageRating(averageRating: number) {
-    this.averageRating = averageRating;
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.coursesService
+      .updateAverageRating(id, averageRating)
+      .subscribe((response) => {
+        this.course = response;
+      });
+  }
+
+  showReviewsRatings(reviews: Review[]) {
+    reviews.map((review) => {
+      this.fiveStars = 0;
+      this.fourStars = 0;
+      this.threeStars = 0;
+      this.twoStars = 0;
+      this.oneStar = 0;
+      if (Number(review.rating) === 5) {
+        this.fiveStars++;
+      }
+      if (Number(review.rating) === 4) {
+        this.fourStars++;
+      }
+      if (Number(review.rating) === 3) {
+        this.threeStars++;
+      }
+      if (Number(review.rating) === 2) {
+        this.twoStars++;
+      }
+      if (Number(review.rating) === 1) {
+        this.oneStar++;
+      }
+    });
   }
 }

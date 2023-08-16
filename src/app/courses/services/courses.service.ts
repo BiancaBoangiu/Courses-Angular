@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
 import { Course } from '../models/course.interface';
+import { Review } from '../models/review.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -27,5 +28,16 @@ export class CoursesService {
     const url = `${this.coursesURL}/${id}`;
     const body = { views: views };
     return this.http.patch<Course>(url, body, this.httpOptions);
+  }
+
+  updateAverageRating(
+    courseId: number,
+    averageRating: number
+  ): Observable<Course> {
+    const body = { rating: averageRating };
+    return this.http.patch<Course>(
+      `http://localhost:3000/courses/${courseId}`,
+      body
+    );
   }
 }

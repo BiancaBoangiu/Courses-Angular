@@ -1,40 +1,46 @@
-<div class="d-md-flex mt-4 review" *ngIf="review">
+<div class="d-md-flex justify-content-between mt-4 review" *ngIf="review">
   <!-- Avatar -->
-  <div class="avatar avatar-xl me-4 flex-shrink-0">
-    <img
-      class="avatar-img rounded-circle"
-      src="assets/publisher.jpg"
-      alt="avatar"
-    />
-  </div>
-  <!-- Text -->
-  <div>
-    <h5 class="me-3 mb-0 review-rating">{{ review.userEmail }}</h5>
-    <!-- Review star -->
-    <span> {{ review.rating }}/5</span>
+  <div class="d-flex p-3">
+    <div class="avatar avatar-xl me-4 flex-shrink-0">
+      <img
+        class="avatar-img rounded-circle"
+        src="assets/publisher.jpg"
+        alt="avatar"
+      />
+    </div>
+    <!-- Text -->
+    <div>
+      <h5 class="me-3 mb-0 review-rating">{{ review.userEmail }}</h5>
+      <!-- Review star -->
+      <span> {{ review.rating }}/5</span>
 
-    <!-- Info -->
-    <p class="small mb-2">2 days ago</p>
-    <p class="mb-2">{{ review.message }}</p>
-    <!-- Like and dislike button -->
-    <div class="btn-group">
-      <div
-        class="review-button"
-        (click)="onLikeReview(review.id)"
-        [ngClass]="{ checked: likeStatus }"
-      >
-        <i class="far fa-thumbs-up me-1"></i>
-        <span>{{ numberOfLikes }}</span>
-      </div>
+      <!-- Info -->
+      <p class="small mb-2">2 days ago</p>
+      <p class="mb-2">{{ review.message }}</p>
+      <!-- Like and dislike button -->
+      <div class="btn-group">
+        <div
+          class="review-button"
+          (click)="onLikeReview(review.id)"
+          [ngClass]="{ checked: likeStatus }"
+        >
+          <i class="far fa-thumbs-up me-1"></i>
+          <span>{{ numberOfLikes }}</span>
+        </div>
 
-      <div
-        class="review-button"
-        (click)="onDislikeReview(review.id)"
-        [ngClass]="{ checked: dislikeStatus }"
-      >
-        <i class="far fa-thumbs-down me-1"></i>
-        <span>{{ numberOfDislikes }}</span>
+        <div
+          class="review-button"
+          (click)="onDislikeReview(review.id)"
+          [ngClass]="{ checked: dislikeStatus }"
+        >
+          <i class="far fa-thumbs-down me-1"></i>
+          <span>{{ numberOfDislikes }}</span>
+        </div>
       </div>
     </div>
+  </div>
+
+  <div class="p-5 delete-review">
+    <button (click)="deleteReview(review.id)">X</button>
   </div>
 </div>

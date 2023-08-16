@@ -10,12 +10,9 @@ import { Review } from '../../models/review.interface';
 })
 export class AddReviewComponent {
   @Output() onReviewAdded: EventEmitter<Review> = new EventEmitter<Review>();
-  @Output() onAverageRatingUpdate: EventEmitter<number> =
-    new EventEmitter<number>();
+
   rating: number = 0;
   message: string = '';
-  ratings: number[] = [];
-  averageRating: number = 0;
 
   constructor(
     private reviewsService: ReviewsService,
@@ -30,14 +27,6 @@ export class AddReviewComponent {
       .subscribe((response) => {
         this.onReviewAdded.emit(response);
 
-        this.reviewsService
-          .showAverageRating(this.authService.courseId)
-          .subscribe((ratingResponse) => {
-            this.averageRating = ratingResponse.averageRating;
-            this.onAverageRatingUpdate.emit(this.averageRating);
-          });
-
-        this.rating = 0;
         this.message = '';
       });
   }

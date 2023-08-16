@@ -1,3 +1,6 @@
 <div *ngFor="let review of reviews">
-  <app-review [review]="review"></app-review>
+  <app-review
+    [review]="review"
+    (onDeleteReview)="deleteReview($event)"
+  ></app-review>
 </div>

@@ -20,23 +20,11 @@
         }
       ],
       "authorId": 1,
-      "views": 687,
-      "rating": 4.5,
+      "views": 751,
+      "rating": 4.3,
       "participants": [],
       "hasCertificate": true,
-      "price": 150,
-      "reviews": [
-        {
-          "id": 1,
-          "rating": 4,
-          "authorId": 1,
-          "authorName": "ssfds",
-          "authorAvatar": "dfsdfds",
-          "date": "",
-          "content": "sjdgssdgnsdgds"
-        }
-      ],
-      "averageRating": 2.4
+      "price": 150
     },
     {
       "id": 2,
@@ -47,13 +35,11 @@
       "level": "Intermediate",
       "curriculum": [],
       "authorId": 0,
-      "views": 135,
-      "rating": 4,
+      "views": 189,
+      "rating": null,
       "participants": [],
       "hasCertificate": true,
-      "price": 0,
-      "reviews": [],
-      "averageRating": 3
+      "price": 0
     },
     {
       "id": 3,
@@ -64,13 +50,11 @@
       "level": "Advanced",
       "curriculum": [],
       "authorId": 0,
-      "views": 109,
-      "rating": 4.5,
+      "views": 125,
+      "rating": null,
       "participants": [],
       "hasCertificate": true,
-      "price": 0,
-      "reviews": [],
-      "averageRating": 3
+      "price": 0
     },
     {
       "id": 4,
@@ -81,13 +65,11 @@
       "level": "Intermediate",
       "curriculum": [],
       "authorId": 0,
-      "views": 124,
-      "rating": 4.3,
+      "views": 128,
+      "rating": 3.3,
       "participants": [],
       "hasCertificate": false,
-      "price": 0,
-      "reviews": [],
-      "averageRating": 2.8
+      "price": 0
     },
     {
       "id": 5,
@@ -98,13 +80,11 @@
       "level": "Advanced",
       "curriculum": [],
       "authorId": 0,
-      "views": 36,
-      "rating": 4.2,
+      "views": 44,
+      "rating": null,
       "participants": [],
       "hasCertificate": true,
-      "price": 0,
-      "reviews": [],
-      "averageRating": 2.8
+      "price": 0
     },
     {
       "id": 6,
@@ -115,13 +95,11 @@
       "level": "Beginner",
       "curriculum": [],
       "authorId": 0,
-      "views": 19,
-      "rating": 4.6,
+      "views": 32,
+      "rating": 3,
       "participants": [],
       "hasCertificate": true,
-      "price": 0,
-      "reviews": [],
-      "averageRating": 3
+      "price": 0
     },
     {
       "id": 7,
@@ -132,13 +110,11 @@
       "level": "Intermediate",
       "curriculum": [],
       "authorId": 0,
-      "views": 11,
-      "rating": 4.7,
+      "views": 12,
+      "rating": 2.7,
       "participants": [],
       "hasCertificate": false,
-      "price": 0,
-      "reviews": [],
-      "averageRating": 2.4
+      "price": 0
     },
     {
       "id": 8,
@@ -150,11 +126,10 @@
       "curriculum": [],
       "authorId": 0,
       "views": 16,
-      "rating": 4,
+      "rating": 0,
       "participants": [],
       "hasCertificate": true,
-      "price": 0,
-      "reviews": []
+      "price": 0
     },
     {
       "id": 9,
@@ -166,12 +141,10 @@
       "curriculum": [],
       "authorId": 0,
       "views": 10,
-      "rating": 4.8,
+      "rating": 0,
       "participants": [],
       "hasCertificate": true,
-      "price": 0,
-      "reviews": [],
-      "averageRating": 2.5
+      "price": 0
     },
     {
       "id": 10,
@@ -183,12 +156,10 @@
       "curriculum": [],
       "authorId": 0,
       "views": 12,
-      "rating": 5,
+      "rating": 0,
       "participants": [],
       "hasCertificate": true,
-      "price": 0,
-      "reviews": [],
-      "averageRating": 3
+      "price": 0
     },
     {
       "id": 11,
@@ -199,12 +170,11 @@
       "level": "Intermediate",
       "curriculum": [],
       "authorId": 0,
-      "views": 13,
-      "rating": 4,
+      "views": 35,
+      "rating": 0,
       "participants": [],
       "hasCertificate": false,
-      "price": 0,
-      "reviews": []
+      "price": 0
     },
     {
       "id": 12,
@@ -215,13 +185,11 @@
       "level": "Intermediate",
       "curriculum": [],
       "authorId": 0,
-      "views": 9,
-      "rating": 4.5,
+      "views": 12,
+      "rating": 0,
       "participants": [],
       "hasCertificate": true,
-      "price": 0,
-      "reviews": [],
-      "averageRating": 3
+      "price": 0
     },
     {
       "id": 13,
@@ -233,12 +201,10 @@
       "curriculum": [],
       "authorId": 0,
       "views": 2,
-      "rating": 5,
+      "rating": 0,
       "participants": [],
       "hasCertificate": true,
-      "price": 0,
-      "reviews": [],
-      "averageRating": 3
+      "price": 0
     },
     {
       "id": 14,
@@ -250,11 +216,10 @@
       "curriculum": [],
       "authorId": 0,
       "views": 0,
-      "rating": 4.5,
+      "rating": 0,
       "participants": [],
       "hasCertificate": false,
-      "price": 0,
-      "reviews": []
+      "price": 0
     },
     {
       "id": 15,
@@ -266,11 +231,10 @@
       "curriculum": [],
       "authorId": 0,
       "views": 3,
-      "rating": 4.2,
+      "rating": 0,
       "participants": [],
       "hasCertificate": true,
-      "price": 0,
-      "reviews": []
+      "price": 0
     },
     {
       "id": 16,
@@ -282,11 +246,10 @@
       "curriculum": [],
       "authorId": 0,
       "views": 0,
-      "rating": 4,
+      "rating": 0,
       "participants": [],
       "hasCertificate": false,
-      "price": 0,
-      "reviews": []
+      "price": 0
     },
     {
       "id": 17,
@@ -298,11 +261,10 @@
       "curriculum": [],
       "authorId": 0,
       "views": 5,
-      "rating": 4.7,
+      "rating": 0,
       "participants": [],
       "hasCertificate": true,
-      "price": 0,
-      "reviews": []
+      "price": 0
     },
     {
       "id": 18,
@@ -314,11 +276,10 @@
       "curriculum": [],
       "authorId": 0,
       "views": 2,
-      "rating": 4.8,
+      "rating": 0,
       "participants": [],
       "hasCertificate": false,
-      "price": 0,
-      "reviews": []
+      "price": 0
     }
   ],
   "users": [
@@ -326,16 +287,12 @@
       "email": "admin@test.com",
       "password": "aaaaa",
       "userType": "instructor",
-      "reviews": [
-        "sfdfsdfds"
-      ],
       "id": 1
     },
     {
       "email": "admin1@test.com",
       "password": "aaaaa",
       "userType": "student",
-      "reviews": [],
       "id": 2
     },
     {
@@ -348,19 +305,9 @@
   "reviews": [
     {
       "userId": 1,
-      "rating": "5",
-      "message": "fdgfd",
-      "courseId": 8,
-      "likes": [],
-      "dislikes": [],
-      "userEmail": "admin@test.com",
-      "id": 1
-    },
-    {
-      "userId": 1,
       "rating": "3",
-      "message": "fghfghfghfg",
-      "courseId": 4,
+      "message": "fdgdfgfdg",
+      "courseId": 7,
       "likes": [],
       "dislikes": [],
       "userEmail": "admin@test.com",
@@ -368,9 +315,9 @@
     },
     {
       "userId": 1,
-      "rating": "3",
-      "message": "fgjfjfgj",
-      "courseId": 4,
+      "rating": "4",
+      "message": "fdgfdgdg",
+      "courseId": 7,
       "likes": [],
       "dislikes": [],
       "userEmail": "admin@test.com",
@@ -378,9 +325,9 @@
     },
     {
       "userId": 1,
-      "rating": "4",
-      "message": "fghfghfg",
-      "courseId": 4,
+      "rating": "1",
+      "message": "dfgdgdfgfd",
+      "courseId": 7,
       "likes": [],
       "dislikes": [],
       "userEmail": "admin@test.com",
@@ -388,9 +335,9 @@
     },
     {
       "userId": 1,
-      "rating": "1",
-      "message": "gfhfghgfhg",
-      "courseId": 4,
+      "rating": "4",
+      "message": "fgdgfdg",
+      "courseId": 1,
       "likes": [],
       "dislikes": [],
       "userEmail": "admin@test.com",
@@ -398,28 +345,8 @@
     },
     {
       "userId": 1,
-      "rating": "4",
-      "message": "fdgfd",
-      "courseId": 1,
-      "likes": [],
-      "dislikes": [],
-      "userEmail": "admin@test.com",
-      "id": 6
-    },
-    {
-      "userId": 1,
-      "rating": "3",
-      "message": "dfgdfgfd",
-      "courseId": 1,
-      "likes": [],
-      "dislikes": [],
-      "userEmail": "admin@test.com",
-      "id": 7
-    },
-    {
-      "userId": 1,
-      "rating": "1",
-      "message": "dfgdfgf",
+      "rating": "5",
+      "message": "dsfdsfsdfds",
       "courseId": 1,
       "likes": [],
       "dislikes": [],
@@ -428,8 +355,8 @@
     },
     {
       "userId": 1,
-      "rating": "1",
-      "message": "fdgfdgdfgd",
+      "rating": "4",
+      "message": "gfhfhfhf",
       "courseId": 1,
       "likes": [],
       "dislikes": [],
@@ -438,19 +365,9 @@
     },
     {
       "userId": 1,
-      "rating": "1",
-      "message": "dfdsfsdf",
-      "courseId": 1,
-      "likes": [],
-      "dislikes": [],
-      "userEmail": "admin@test.com",
-      "id": 10
-    },
-    {
-      "userId": 1,
-      "rating": "1",
-      "message": "sdfsdfsdf",
-      "courseId": 1,
+      "rating": "4",
+      "message": "tryrtyrtytr",
+      "courseId": 6,
       "likes": [],
       "dislikes": [],
       "userEmail": "admin@test.com",
@@ -458,19 +375,9 @@
     },
     {
       "userId": 1,
-      "rating": "5",
-      "message": "fghfghrg",
-      "courseId": 1,
-      "likes": [],
-      "dislikes": [],
-      "userEmail": "admin@test.com",
-      "id": 12
-    },
-    {
-      "userId": 1,
-      "rating": "5",
-      "message": "gffjgfj",
-      "courseId": 1,
+      "rating": "2",
+      "message": "rtyrtyrtyrt",
+      "courseId": 6,
       "likes": [],
       "dislikes": [],
       "userEmail": "admin@test.com",
@@ -478,9 +385,9 @@
     },
     {
       "userId": 1,
-      "rating": "3",
-      "message": "bvnvbnbvn",
-      "courseId": 3,
+      "rating": "2",
+      "message": "fgdfg",
+      "courseId": 4,
       "likes": [],
       "dislikes": [],
       "userEmail": "admin@test.com",
@@ -488,9 +395,9 @@
     },
     {
       "userId": 1,
-      "rating": "3",
-      "message": "bvngfghgfhf",
-      "courseId": 3,
+      "rating": "5",
+      "message": "ertetertret",
+      "courseId": 4,
       "likes": [],
       "dislikes": [],
       "userEmail": "admin@test.com",
@@ -498,273 +405,13 @@
     },
     {
       "userId": 1,
-      "rating": "2",
-      "message": "reterterter",
-      "courseId": 2,
+      "rating": "3",
+      "message": "retertretre",
+      "courseId": 4,
       "likes": [],
       "dislikes": [],
       "userEmail": "admin@test.com",
       "id": 16
-    },
-    {
-      "userId": 1,
-      "rating": "4",
-      "message": "ertetreter",
-      "courseId": 2,
-      "likes": [],
-      "dislikes": [],
-      "userEmail": "admin@test.com",
-      "id": 17
-    },
-    {
-      "userId": 1,
-      "rating": "1",
-      "message": "dsfsdfsd",
-      "courseId": 1,
-      "likes": [],
-      "dislikes": [],
-      "userEmail": "admin@test.com",
-      "id": 18
-    },
-    {
-      "userId": 1,
-      "rating": "4",
-      "message": "gfhfghgf",
-      "courseId": 7,
-      "likes": [],
-      "dislikes": [],
-      "userEmail": "admin@test.com",
-      "id": 19
-    },
-    {
-      "userId": 1,
-      "rating": "3",
-      "message": "tyrytrytry",
-      "courseId": 7,
-      "likes": [],
-      "dislikes": [],
-      "userEmail": "admin@test.com",
-      "id": 20
-    },
-    {
-      "userId": 1,
-      "rating": "2",
-      "message": "fdgdfgdfgd",
-      "courseId": 7,
-      "likes": [],
-      "dislikes": [],
-      "userEmail": "admin@test.com",
-      "id": 21
-    },
-    {
-      "userId": 1,
-      "rating": "5",
-      "message": "fdgdfgfdgfd",
-      "courseId": 7,
-      "likes": [],
-      "dislikes": [],
-      "userEmail": "admin@test.com",
-      "id": 22
-    },
-    {
-      "userId": 1,
-      "rating": "1",
-      "message": "retetrert",
-      "courseId": 7,
-      "likes": [],
-      "dislikes": [],
-      "userEmail": "admin@test.com",
-      "id": 23
-    },
-    {
-      "userId": 1,
-      "rating": "1",
-      "message": "tryrtyry",
-      "courseId": 7,
-      "likes": [],
-      "dislikes": [],
-      "userEmail": "admin@test.com",
-      "id": 24
-    },
-    {
-      "userId": 1,
-      "rating": "1",
-      "message": "rtyrtyrtyrtyt",
-      "courseId": 7,
-      "likes": [],
-      "dislikes": [],
-      "userEmail": "admin@test.com",
-      "id": 25
-    },
-    {
-      "userId": 1,
-      "rating": "3",
-      "message": "ghjghjghjhg",
-      "courseId": 5,
-      "likes": [],
-      "dislikes": [],
-      "userEmail": "admin@test.com",
-      "id": 26
-    },
-    {
-      "userId": 1,
-      "rating": "3",
-      "message": "fdgfdgdfgfd",
-      "courseId": 13,
-      "likes": [],
-      "dislikes": [],
-      "userEmail": "admin@test.com",
-      "id": 27
-    },
-    {
-      "userId": 1,
-      "rating": "2",
-      "message": "cbbvv",
-      "courseId": 5,
-      "likes": [],
-      "dislikes": [],
-      "userEmail": "admin@test.com",
-      "id": 28
-    },
-    {
-      "userId": 1,
-      "rating": "1",
-      "message": "vcbcvbcv",
-      "courseId": 5,
-      "likes": [],
-      "dislikes": [],
-      "userEmail": "admin@test.com",
-      "id": 29
-    },
-    {
-      "userId": 1,
-      "rating": "3",
-      "message": "gfgffdfd",
-      "courseId": 5,
-      "likes": [],
-      "dislikes": [],
-      "userEmail": "admin@test.com",
-      "id": 30
-    },
-    {
-      "userId": 1,
-      "rating": "1",
-      "message": "bvnv",
-      "courseId": 3,
-      "likes": [],
-      "dislikes": [],
-      "userEmail": "admin@test.com",
-      "id": 31
-    },
-    {
-      "userId": 1,
-      "rating": "1",
-      "message": "dfhdfhdfgd",
-      "courseId": 3,
-      "likes": [],
-      "dislikes": [],
-      "userEmail": "admin@test.com",
-      "id": 32
-    },
-    {
-      "userId": 1,
-      "rating": "3",
-      "message": "fgdfgdf",
-      "courseId": 6,
-      "likes": [],
-      "dislikes": [],
-      "userEmail": "admin@test.com",
-      "id": 33
-    },
-    {
-      "userId": 1,
-      "rating": "5",
-      "message": "dfgdfgfdgd",
-      "courseId": 3,
-      "likes": [],
-      "dislikes": [],
-      "userEmail": "admin@test.com",
-      "id": 34
-    },
-    {
-      "userId": 1,
-      "rating": "5",
-      "message": "ghfhfghgfh",
-      "courseId": 3,
-      "likes": [],
-      "dislikes": [],
-      "userEmail": "admin@test.com",
-      "id": 35
-    },
-    {
-      "userId": 1,
-      "rating": "4",
-      "message": "fdgdfgfdgd",
-      "courseId": 9,
-      "likes": [],
-      "dislikes": [],
-      "userEmail": "admin@test.com",
-      "id": 36
-    },
-    {
-      "userId": 1,
-      "rating": "3",
-      "message": "ghfhfghgf",
-      "courseId": 9,
-      "likes": [],
-      "dislikes": [],
-      "userEmail": "admin@test.com",
-      "id": 37
-    },
-    {
-      "userId": 1,
-      "rating": "2",
-      "message": "fdgfdgfdgfd",
-      "courseId": 9,
-      "likes": [],
-      "dislikes": [],
-      "userEmail": "admin@test.com",
-      "id": 38
-    },
-    {
-      "userId": 1,
-      "rating": "1",
-      "message": "gfhfghgfhg",
-      "courseId": 9,
-      "likes": [],
-      "dislikes": [],
-      "userEmail": "admin@test.com",
-      "id": 39
-    },
-    {
-      "userId": 1,
-      "rating": "3",
-      "message": "fdgfdgfdgd",
-      "courseId": 10,
-      "likes": [],
-      "dislikes": [],
-      "userEmail": "admin@test.com",
-      "id": 40
-    },
-    {
-      "userId": 1,
-      "rating": "5",
-      "message": "fdgdfgf",
-      "courseId": 5,
-      "likes": [],
-      "dislikes": [],
-      "userEmail": "admin@test.com",
-      "id": 41
-    },
-    {
-      "userId": 1,
-      "rating": "3",
-      "message": "fgdfgdfgd",
-      "courseId": 12,
-      "likes": [],
-      "dislikes": [],
-      "userEmail": "admin@test.com",
-      "id": 42
     }
   ]
 }

@@ -3,6 +3,7 @@ import { AuthService } from 'src/app/auth/services/auth.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, catchError, map, of, switchMap, tap } from 'rxjs';
 import { Review } from 'src/app/courses/models/review.interface';
+import { CoursesService } from './courses.service';
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +15,11 @@ export class ReviewsService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
 
-  constructor(private authService: AuthService, private http: HttpClient) {}
+  constructor(
+    private authService: AuthService,
+    private http: HttpClient,
+    private coursesService: CoursesService
+  ) {}
 
   addReview(
     message: string,
@@ -89,34 +94,8 @@ export class ReviewsService {
     );
   }
 
-  showAverageRating(courseId: number): Observable<any> {
-    return this.showCourseRatings(courseId).pipe(
-      tap((reviews) => {
-        const sum = reviews.reduce(
-          (accumulator, review) => accumulator + Number(review.rating),
-          0
-        );
-        if (reviews.length === 0) {
-          this.averageRatingValue = 0;
-        } else {
-          this.averageRatingValue = parseFloat(
-            Number(sum / reviews.length).toFixed(1)
-          );
-        }
-      }),
-
-      switchMap(() => {
-        const averageRating = { averageRating: this.averageRatingValue };
-        return this.http.patch<Review[]>(
-          `http://localhost:3000/courses/${courseId}`,
-          averageRating
-        );
-      })
-    );
-  }
-
-  showCourseRatings(courseId: number): Observable<Review[]> {
-    const ratingsURL = `http://localhost:3000/reviews?courseId=${courseId}`;
-    return this.http.get<Review[]>(ratingsURL);
+  deleteReview(reviewId: number): Observable<Review[]> {
+    const url = `http://localhost:3000/reviews/${reviewId}`;
+    return this.http.delete<Review[]>(url);
   }
 }
