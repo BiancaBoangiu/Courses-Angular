@@ -12,7 +12,8 @@ export class ListComponent {
 
   beginnerChecked: boolean = false;
   intermediateChecked: boolean = false;
-  advancedChecken: boolean = false;
+  advancedChecked: boolean = false;
+  allChecked: boolean = false;
 
   constructor(private courseService: CoursesService) {}
 
@@ -22,60 +23,61 @@ export class ListComponent {
       .subscribe((courses) => (this.courses = courses));
   }
 
-  showBeginnerCourses(level: string) {
-    this.beginnerChecked = !this.beginnerChecked;
+  showCoursesByLevel(level: string) {
+    this.deselectOtherLevels(level);
+    if (level === 'all') {
+      this.allChecked = !this.allChecked;
+    }
 
-    if (this.beginnerChecked === true) {
-      this.courseService.getCourses().subscribe((courses) => {
-        const beginnerCourses = courses.filter(
-          (course: Course) => course.level.toLowerCase() === level.toLowerCase()
-        );
-        this.courses = beginnerCourses;
-      });
-    } else {
+    if (level === 'beginner') {
+      this.beginnerChecked = !this.beginnerChecked;
+    }
+
+    if (level === 'intermediate') {
+      this.intermediateChecked = !this.intermediateChecked;
+    }
+
+    if (level === 'advanced') {
+      this.advancedChecked = !this.advancedChecked;
+    }
+
+    if (this.allChecked) {
       this.courseService
         .getCourses()
         .subscribe((courses) => (this.courses = courses));
-    }
-  }
-
-  showIntermediateCourses(level: string) {
-    this.intermediateChecked = !this.intermediateChecked;
-
-    if (this.beginnerChecked === true) {
-      this.courseService.getCourses().subscribe((courses) => {
-        const intermediateCourses = courses.filter(
-          (course: Course) => course.level.toLowerCase() === level.toLowerCase()
-        );
-        this.courses = intermediateCourses;
-      });
     } else {
-      this.courseService
-        .getCourses()
-        .subscribe((courses) => (this.courses = courses));
+      if (
+        this.advancedChecked ||
+        this.beginnerChecked ||
+        this.intermediateChecked
+      ) {
+        this.courseService.getCourses().subscribe((courses) => {
+          const coursesByLevel = courses.filter(
+            (course: Course) =>
+              course.level.toLowerCase() === level.toLowerCase()
+          );
+          this.courses = coursesByLevel;
+        });
+      } else {
+        this.courseService
+          .getCourses()
+          .subscribe((courses) => (this.courses = courses));
+      }
     }
   }
 
-  showAdvancedCourses(level: string) {
-    this.advancedChecken = !this.advancedChecken;
-
-    if (this.advancedChecken === true) {
-      this.courseService.getCourses().subscribe((courses) => {
-        const advancedCourses = courses.filter(
-          (course: Course) => course.level.toLowerCase() === level.toLowerCase()
-        );
-        this.courses = advancedCourses;
-      });
-    } else {
-      this.courseService
-        .getCourses()
-        .subscribe((courses) => (this.courses = courses));
+  deselectOtherLevels(selectedLevel: string) {
+    if (selectedLevel !== 'all') {
+      this.allChecked = false;
     }
-  }
-
-  showAllCourses() {
-    this.courseService
-      .getCourses()
-      .subscribe((courses) => (this.courses = courses));
+    if (selectedLevel !== 'beginner') {
+      this.beginnerChecked = false;
+    }
+    if (selectedLevel !== 'intermediate') {
+      this.intermediateChecked = false;
+    }
+    if (selectedLevel !== 'advanced') {
+      this.advancedChecked = false;
+    }
   }
 }

@@ -282,9 +282,10 @@
                       id="btn-check-12"
                     />
                     <label
-                      class="btn btn-light btn-primary-soft-check"
+                      class="btn btn-light"
                       for="btn-check-12"
-                      (click)="showAllCourses()"
+                      (click)="showCoursesByLevel('all')"
+                      [ngClass]="{ active: allChecked }"
                       >All levels</label
                     >
                   </li>
@@ -292,9 +293,10 @@
                   <li class="list-inline-item mb-2">
                     <input type="checkbox" class="btn-check" id="btn-check-9" />
                     <label
-                      class="btn btn-light btn-primary-soft-check"
+                      class="btn btn-light"
                       for="btn-check-9"
-                      (click)="showBeginnerCourses('beginner')"
+                      (click)="showCoursesByLevel('beginner')"
+                      [ngClass]="{ active: beginnerChecked }"
                       >Beginner</label
                     >
                   </li>
@@ -306,9 +308,10 @@
                       id="btn-check-10"
                     />
                     <label
-                      class="btn btn-light btn-primary-soft-check"
+                      class="btn btn-light"
                       for="btn-check-10"
-                      (click)="showBeginnerCourses('intermediate')"
+                      (click)="showCoursesByLevel('intermediate')"
+                      [ngClass]="{ active: intermediateChecked }"
                       >Intermediate</label
                     >
                   </li>
@@ -320,9 +323,10 @@
                       id="btn-check-11"
                     />
                     <label
-                      class="btn btn-light btn-primary-soft-check"
+                      class="btn btn-light"
                       for="btn-check-11"
-                      (click)="showBeginnerCourses('advanced')"
+                      (click)="showCoursesByLevel('advanced')"
+                      [ngClass]="{ active: advancedChecked }"
                       >Advanced</label
                     >
                   </li>
