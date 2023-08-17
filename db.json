@@ -20,8 +20,8 @@
         }
       ],
       "authorId": 1,
-      "views": 751,
-      "rating": 4.3,
+      "views": 814,
+      "rating": null,
       "participants": [],
       "hasCertificate": true,
       "price": 150
@@ -35,7 +35,7 @@
       "level": "Intermediate",
       "curriculum": [],
       "authorId": 0,
-      "views": 189,
+      "views": 203,
       "rating": null,
       "participants": [],
       "hasCertificate": true,
@@ -50,7 +50,7 @@
       "level": "Advanced",
       "curriculum": [],
       "authorId": 0,
-      "views": 125,
+      "views": 131,
       "rating": null,
       "participants": [],
       "hasCertificate": true,
@@ -65,8 +65,8 @@
       "level": "Intermediate",
       "curriculum": [],
       "authorId": 0,
-      "views": 128,
-      "rating": 3.3,
+      "views": 132,
+      "rating": null,
       "participants": [],
       "hasCertificate": false,
       "price": 0
@@ -80,7 +80,7 @@
       "level": "Advanced",
       "curriculum": [],
       "authorId": 0,
-      "views": 44,
+      "views": 46,
       "rating": null,
       "participants": [],
       "hasCertificate": true,
@@ -95,8 +95,8 @@
       "level": "Beginner",
       "curriculum": [],
       "authorId": 0,
-      "views": 32,
-      "rating": 3,
+      "views": 34,
+      "rating": null,
       "participants": [],
       "hasCertificate": true,
       "price": 0
@@ -110,8 +110,8 @@
       "level": "Intermediate",
       "curriculum": [],
       "authorId": 0,
-      "views": 12,
-      "rating": 2.7,
+      "views": 14,
+      "rating": null,
       "participants": [],
       "hasCertificate": false,
       "price": 0
@@ -200,8 +200,8 @@
       "level": "Advanced",
       "curriculum": [],
       "authorId": 0,
-      "views": 2,
-      "rating": 0,
+      "views": 4,
+      "rating": null,
       "participants": [],
       "hasCertificate": true,
       "price": 0
@@ -302,116 +302,5 @@
       "id": 3
     }
   ],
-  "reviews": [
-    {
-      "userId": 1,
-      "rating": "3",
-      "message": "fdgdfgfdg",
-      "courseId": 7,
-      "likes": [],
-      "dislikes": [],
-      "userEmail": "admin@test.com",
-      "id": 2
-    },
-    {
-      "userId": 1,
-      "rating": "4",
-      "message": "fdgfdgdg",
-      "courseId": 7,
-      "likes": [],
-      "dislikes": [],
-      "userEmail": "admin@test.com",
-      "id": 3
-    },
-    {
-      "userId": 1,
-      "rating": "1",
-      "message": "dfgdgdfgfd",
-      "courseId": 7,
-      "likes": [],
-      "dislikes": [],
-      "userEmail": "admin@test.com",
-      "id": 4
-    },
-    {
-      "userId": 1,
-      "rating": "4",
-      "message": "fgdgfdg",
-      "courseId": 1,
-      "likes": [],
-      "dislikes": [],
-      "userEmail": "admin@test.com",
-      "id": 5
-    },
-    {
-      "userId": 1,
-      "rating": "5",
-      "message": "dsfdsfsdfds",
-      "courseId": 1,
-      "likes": [],
-      "dislikes": [],
-      "userEmail": "admin@test.com",
-      "id": 8
-    },
-    {
-      "userId": 1,
-      "rating": "4",
-      "message": "gfhfhfhf",
-      "courseId": 1,
-      "likes": [],
-      "dislikes": [],
-      "userEmail": "admin@test.com",
-      "id": 9
-    },
-    {
-      "userId": 1,
-      "rating": "4",
-      "message": "tryrtyrtytr",
-      "courseId": 6,
-      "likes": [],
-      "dislikes": [],
-      "userEmail": "admin@test.com",
-      "id": 11
-    },
-    {
-      "userId": 1,
-      "rating": "2",
-      "message": "rtyrtyrtyrt",
-      "courseId": 6,
-      "likes": [],
-      "dislikes": [],
-      "userEmail": "admin@test.com",
-      "id": 13
-    },
-    {
-      "userId": 1,
-      "rating": "2",
-      "message": "fgdfg",
-      "courseId": 4,
-      "likes": [],
-      "dislikes": [],
-      "userEmail": "admin@test.com",
-      "id": 14
-    },
-    {
-      "userId": 1,
-      "rating": "5",
-      "message": "ertetertret",
-      "courseId": 4,
-      "likes": [],
-      "dislikes": [],
-      "userEmail": "admin@test.com",
-      "id": 15
-    },
-    {
-      "userId": 1,
-      "rating": "3",
-      "message": "retertretre",
-      "courseId": 4,
-      "likes": [],
-      "dislikes": [],
-      "userEmail": "admin@test.com",
-      "id": 16
-    }
-  ]
+  "reviews": []
 }

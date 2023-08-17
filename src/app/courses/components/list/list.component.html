@@ -284,6 +284,7 @@
                     <label
                       class="btn btn-light btn-primary-soft-check"
                       for="btn-check-12"
+                      (click)="showAllCourses()"
                       >All levels</label
                     >
                   </li>
@@ -293,6 +294,7 @@
                     <label
                       class="btn btn-light btn-primary-soft-check"
                       for="btn-check-9"
+                      (click)="showBeginnerCourses('beginner')"
                       >Beginner</label
                     >
                   </li>
@@ -306,6 +308,7 @@
                     <label
                       class="btn btn-light btn-primary-soft-check"
                       for="btn-check-10"
+                      (click)="showBeginnerCourses('intermediate')"
                       >Intermediate</label
                     >
                   </li>
@@ -319,6 +322,7 @@
                     <label
                       class="btn btn-light btn-primary-soft-check"
                       for="btn-check-11"
+                      (click)="showBeginnerCourses('advanced')"
                       >Advanced</label
                     >
                   </li>

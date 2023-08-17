@@ -19,6 +19,7 @@ export class CourseDetailsComponent {
   threeStars: number = 0;
   twoStars: number = 0;
   oneStar: number = 0;
+  total: number = 0;
 
   constructor(
     private route: ActivatedRoute,
@@ -44,28 +45,7 @@ export class CourseDetailsComponent {
         });
 
       this.reviewsService.showCourseReviews().subscribe((reviews) => {
-        reviews.map((review) => {
-          this.fiveStars = 0;
-          this.fourStars = 0;
-          this.threeStars = 0;
-          this.twoStars = 0;
-          this.oneStar = 0;
-          if (Number(review.rating) === 5) {
-            this.fiveStars++;
-          }
-          if (Number(review.rating) === 4) {
-            this.fourStars++;
-          }
-          if (Number(review.rating) === 3) {
-            this.threeStars++;
-          }
-          if (Number(review.rating) === 2) {
-            this.twoStars++;
-          }
-          if (Number(review.rating) === 1) {
-            this.oneStar++;
-          }
-        });
+        this.showReviewsRatings(reviews);
       });
     });
   }
@@ -80,12 +60,12 @@ export class CourseDetailsComponent {
   }
 
   showReviewsRatings(reviews: Review[]) {
+    this.fiveStars = 0;
+    this.fourStars = 0;
+    this.threeStars = 0;
+    this.twoStars = 0;
+    this.oneStar = 0;
     reviews.map((review) => {
-      this.fiveStars = 0;
-      this.fourStars = 0;
-      this.threeStars = 0;
-      this.twoStars = 0;
-      this.oneStar = 0;
       if (Number(review.rating) === 5) {
         this.fiveStars++;
       }
@@ -102,5 +82,12 @@ export class CourseDetailsComponent {
         this.oneStar++;
       }
     });
+
+    this.total =
+      this.fiveStars +
+      this.fourStars +
+      this.threeStars +
+      this.twoStars +
+      this.oneStar;
   }
 }

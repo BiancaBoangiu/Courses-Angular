@@ -1,8 +1,8 @@
 <div class="mt-2">
-  <h5 class="mb-4">Leave a Review</h5>
-  <form class="row g-3">
+  <h5 class="mb-4 ps-4">Leave a Review</h5>
+  <form class="row g-3 align-items-center justify-content-around">
     <!-- Rating -->
-    <div class="col-12 bg-light-input">
+    <div class="col-11 bg-light-input">
       <select
         class="form-select"
         aria-label="Default select example"
@@ -19,7 +19,7 @@
     </div>
 
     <!-- Message -->
-    <div class="col-12 bg-light-input">
+    <div class="col-11 bg-light-input">
       <textarea
         class="form-control"
         id="exampleFormControlTextarea1"
@@ -31,10 +31,10 @@
     </div>
 
     <!-- Button -->
-    <div class="col-12">
+    <div class="col-12 d-flex justify-content-center mt-2 mb-2">
       <button
         type="submit"
-        class="btn btn-primary mb-0"
+        class="btn btn-primary m-0 text-center submit-button"
         (click)="addReview()"
         [disabled]="!message || !rating"
       >
