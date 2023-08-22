@@ -36,11 +36,19 @@
       <!-- Select option -->
       <div class="col-md-8">
         <div class="row g-3 align-items-center justify-content-md-end me-auto">
-          <select class="form-select" aria-label="Default select example">
-            <option selected>Sort by</option>
-            <option value="1">Free</option>
-            <option value="2">Most popular</option>
-            <option value="3">Newest</option>
+          <select
+            class="form-select"
+            [(ngModel)]="selectedSortOption"
+            (change)="sort(selectedSortOption)"
+          >
+            <option value="0" selected>Sort by</option>
+            <option value="1">Rating ascending</option>
+
+            <option value="2">Rating descending</option>
+            <option value="3">Price ascending</option>
+            <option value="4">Price descending</option>
+            <option value="5">Most popular</option>
+            <option value="6">Newest</option>
           </select>
         </div>
       </div>
@@ -225,44 +233,32 @@
                 <ul class="list-inline mb-0">
                   <!-- Price item -->
                   <li class="list-inline-item">
-                    <input
-                      type="radio"
-                      class="btn-check"
-                      name="options"
-                      id="option1"
-                    />
                     <label
                       class="btn btn-light btn-primary-soft-check"
                       for="option1"
+                      (click)="showCoursesByPriceLevel('all')"
+                      [ngClass]="{ active: allPriceChecked }"
                       >All</label
                     >
                   </li>
                   <!-- Price item -->
                   <li class="list-inline-item">
-                    <input
-                      type="radio"
-                      class="btn-check"
-                      name="options"
-                      id="option2"
-                    />
                     <label
                       class="btn btn-light btn-primary-soft-check"
                       for="option2"
+                      (click)="showCoursesByPriceLevel('free')"
+                      [ngClass]="{ active: freeChecked }"
                       >Free</label
                     >
                   </li>
                   <!-- Price item -->
                   <li class="list-inline-item">
-                    <input
-                      type="radio"
-                      class="btn-check"
-                      name="options"
-                      id="option3"
-                    />
                     <label
                       class="btn btn-light btn-primary-soft-check"
                       for="option3"
-                      >Paid</label
+                      (click)="showCoursesByPriceLevel('premium')"
+                      [ngClass]="{ active: premiumChecked }"
+                      >Premium</label
                     >
                   </li>
                 </ul>
@@ -276,59 +272,47 @@
                 <ul class="list-inline mb-0">
                   <!-- Item -->
                   <li class="list-inline-item mb-2">
-                    <input
-                      type="checkbox"
-                      class="btn-check"
-                      id="btn-check-12"
-                    />
-                    <label
+                    <button
                       class="btn btn-light"
                       for="btn-check-12"
                       (click)="showCoursesByLevel('all')"
                       [ngClass]="{ active: allChecked }"
-                      >All levels</label
                     >
+                      All levels
+                    </button>
                   </li>
                   <!-- Item -->
                   <li class="list-inline-item mb-2">
-                    <input type="checkbox" class="btn-check" id="btn-check-9" />
-                    <label
+                    <button
                       class="btn btn-light"
                       for="btn-check-9"
                       (click)="showCoursesByLevel('beginner')"
                       [ngClass]="{ active: beginnerChecked }"
-                      >Beginner</label
                     >
+                      Beginner
+                    </button>
                   </li>
                   <!-- Item -->
                   <li class="list-inline-item mb-2">
-                    <input
-                      type="checkbox"
-                      class="btn-check"
-                      id="btn-check-10"
-                    />
-                    <label
+                    <button
                       class="btn btn-light"
                       for="btn-check-10"
                       (click)="showCoursesByLevel('intermediate')"
                       [ngClass]="{ active: intermediateChecked }"
-                      >Intermediate</label
                     >
+                      Intermediate
+                    </button>
                   </li>
                   <!-- Item -->
                   <li class="list-inline-item mb-2">
-                    <input
-                      type="checkbox"
-                      class="btn-check"
-                      id="btn-check-11"
-                    />
-                    <label
+                    <button
                       class="btn btn-light"
                       for="btn-check-11"
                       (click)="showCoursesByLevel('advanced')"
                       [ngClass]="{ active: advancedChecked }"
-                      >Advanced</label
                     >
+                      Advanced
+                    </button>
                   </li>
                 </ul>
               </div>

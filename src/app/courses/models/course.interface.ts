@@ -12,4 +12,5 @@ export interface Course {
   averageRating: number;
   views: number;
   hasCertificate: boolean;
+  price: number;
 }

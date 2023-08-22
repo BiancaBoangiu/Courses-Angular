@@ -11,6 +11,7 @@ import { AuthService } from 'src/app/auth/services/auth.service';
 export class ReviewSectionComponent {
   reviews!: Review[];
   userLogged!: boolean;
+
   @Output() updateAverageRating: EventEmitter<number> =
     new EventEmitter<number>();
 

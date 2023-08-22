@@ -4,7 +4,8 @@
       <img src="{{ course.image }}" class="rounded-2" alt="Card image" />
       <!-- Ribbon -->
       <div class="card-img-overlay">
-        <div class="ribbon"><span>Free</span></div>
+        <div class="ribbon" *ngIf="course.price === 0"><span>Free</span></div>
+        <div class="ribbon" *ngIf="course.price > 0"><span>Premium</span></div>
       </div>
     </div>
     <div class="col-md-7">
@@ -51,7 +52,7 @@
         <!-- Price and avatar -->
         <div class="d-sm-flex justify-content-sm-between align-items-center">
           <!-- Avatar -->
-          <div class="d-flex align-items-center">
+          <!-- <div class="d-flex align-items-center">
             <div class="avatar">
               <img
                 class="avatar-img rounded-circle"
@@ -62,8 +63,14 @@
             <p class="mb-0 ms-2">
               <a href="#" class="h6 fw-light">{{ course.author }}</a>
             </p>
-          </div>
+          </div> -->
           <!-- Price -->
+          <div *ngIf="course.price > 0">
+            <h5 class="course-price">$ {{ course.price }}</h5>
+          </div>
+          <div *ngIf="course.price === 0">
+            <h5 class="course-price">Free</h5>
+          </div>
           <div class="mt-3 mt-sm-0">
             <a [routerLink]="'/courses/' + course.id" class="btn btn-dark"
               >View more</a

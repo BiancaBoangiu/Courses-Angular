@@ -3,7 +3,7 @@
     {
       "id": 1,
       "name": "Introduction to Programming",
-      "image": "assets/course1.jpg",
+      "image": "assets/graphic.jpg",
       "description": "Learn the basics of programming and coding",
       "time": 21.56,
       "level": "Beginner",
@@ -20,11 +20,11 @@
         }
       ],
       "authorId": 1,
-      "views": 814,
+      "views": 823,
       "rating": null,
       "participants": [],
       "hasCertificate": true,
-      "price": 150
+      "price": 0
     },
     {
       "id": 2,
@@ -35,11 +35,11 @@
       "level": "Intermediate",
       "curriculum": [],
       "authorId": 0,
-      "views": 203,
-      "rating": null,
+      "views": 204,
+      "rating": 0,
       "participants": [],
       "hasCertificate": true,
-      "price": 0
+      "price": 200
     },
     {
       "id": 3,
@@ -50,26 +50,26 @@
       "level": "Advanced",
       "curriculum": [],
       "authorId": 0,
-      "views": 131,
+      "views": 133,
       "rating": null,
       "participants": [],
       "hasCertificate": true,
-      "price": 0
+      "price": 400
     },
     {
       "id": 4,
       "name": "Python for Data Science",
-      "image": "assets/course1.jpg",
+      "image": "assets/graphic.jpg",
       "description": "Learn Python programming for data analysis and visualization.",
       "time": 8,
       "level": "Intermediate",
       "curriculum": [],
       "authorId": 0,
-      "views": 132,
-      "rating": null,
+      "views": 136,
+      "rating": 3,
       "participants": [],
       "hasCertificate": false,
-      "price": 0
+      "price": 550
     },
     {
       "id": 5,
@@ -81,14 +81,14 @@
       "curriculum": [],
       "authorId": 0,
       "views": 46,
-      "rating": null,
+      "rating": 0,
       "participants": [],
       "hasCertificate": true,
       "price": 0
     },
     {
       "id": 6,
-      "image": "assets/course2.jpg",
+      "image": "assets/graphic.jpg",
       "name": "Introduction to Artificial Intelligence",
       "description": "Explore the fundamentals of AI and machine learning.",
       "time": 6,
@@ -96,10 +96,10 @@
       "curriculum": [],
       "authorId": 0,
       "views": 34,
-      "rating": null,
+      "rating": 0,
       "participants": [],
       "hasCertificate": true,
-      "price": 0
+      "price": 450
     },
     {
       "id": 7,
@@ -111,10 +111,10 @@
       "curriculum": [],
       "authorId": 0,
       "views": 14,
-      "rating": null,
+      "rating": 0,
       "participants": [],
       "hasCertificate": false,
-      "price": 0
+      "price": 500
     },
     {
       "id": 8,
@@ -129,11 +129,11 @@
       "rating": 0,
       "participants": [],
       "hasCertificate": true,
-      "price": 0
+      "price": 600
     },
     {
       "id": 9,
-      "image": "assets/course2.jpg",
+      "image": "assets/graphic.jpg",
       "name": "JavaScript Fundamentals",
       "description": "Master the basics of JavaScript programming language.",
       "time": 4,
@@ -148,7 +148,7 @@
     },
     {
       "id": 10,
-      "image": "assets/course3.jpg",
+      "image": "assets/javascript.jpg",
       "name": "Data Visualization with D3.js",
       "description": "Learn how to create interactive data visualizations using D3.js.",
       "time": 6,
@@ -159,7 +159,7 @@
       "rating": 0,
       "participants": [],
       "hasCertificate": true,
-      "price": 0
+      "price": 300
     },
     {
       "id": 11,
@@ -174,7 +174,7 @@
       "rating": 0,
       "participants": [],
       "hasCertificate": false,
-      "price": 0
+      "price": 300
     },
     {
       "id": 12,
@@ -189,11 +189,11 @@
       "rating": 0,
       "participants": [],
       "hasCertificate": true,
-      "price": 0
+      "price": 430
     },
     {
       "id": 13,
-      "image": "assets/course3.jpg",
+      "image": "assets/javascript.jpg",
       "name": "Machine Learning Algorithms",
       "description": "Explore various machine learning algorithms and their applications.",
       "time": 10,
@@ -201,14 +201,14 @@
       "curriculum": [],
       "authorId": 0,
       "views": 4,
-      "rating": null,
+      "rating": 0,
       "participants": [],
       "hasCertificate": true,
-      "price": 0
+      "price": 370
     },
     {
       "id": 14,
-      "image": "assets/course1.jpg",
+      "image": "assets/graphic.jpg",
       "name": "iOS App Development with Swift",
       "description": "Learn how to build iOS apps using the Swift programming language.",
       "time": 8,
@@ -219,7 +219,7 @@
       "rating": 0,
       "participants": [],
       "hasCertificate": false,
-      "price": 0
+      "price": 420
     },
     {
       "id": 15,
@@ -249,7 +249,7 @@
       "rating": 0,
       "participants": [],
       "hasCertificate": false,
-      "price": 0
+      "price": 500
     },
     {
       "id": 17,
@@ -264,11 +264,11 @@
       "rating": 0,
       "participants": [],
       "hasCertificate": true,
-      "price": 0
+      "price": 520
     },
     {
       "id": 18,
-      "image": "assets/course2.jpg",
+      "image": "assets/graphic.jpg",
       "name": "Introduction to Cybersecurity",
       "description": "Learn the basics of cybersecurity and common security threats.",
       "time": 4,
@@ -279,7 +279,7 @@
       "rating": 0,
       "participants": [],
       "hasCertificate": false,
-      "price": 0
+      "price": 430
     }
   ],
   "users": [
@@ -302,5 +302,26 @@
       "id": 3
     }
   ],
-  "reviews": []
+  "reviews": [
+    {
+      "userId": 1,
+      "rating": "4",
+      "message": "fdgdfgdgdfgd",
+      "courseId": 4,
+      "likes": [],
+      "dislikes": [],
+      "userEmail": "admin@test.com",
+      "id": 3
+    },
+    {
+      "userId": 1,
+      "rating": "2",
+      "message": "gfhfhfghgf",
+      "courseId": 4,
+      "likes": [],
+      "dislikes": [],
+      "userEmail": "admin@test.com",
+      "id": 4
+    }
+  ]
 }
