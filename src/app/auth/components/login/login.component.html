@@ -33,18 +33,13 @@
             </p>
 
             <!-- Form START -->
-            <form>
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
               <!-- Email -->
               <div class="mb-4">
                 <label for="exampleInputEmail1" class="form-label"
                   >Email address *</label
                 >
-                <div
-                  class="input-group input-group-lg"
-                  [ngClass]="{
-                    error: accountError || emailError || invalidEmailError
-                  }"
-                >
+                <div class="input-group input-group-lg">
                   <span
                     class="input-group-text bg-light rounded-start border-0 text-secondary px-3"
                     ><i class="bi bi-envelope-fill"></i
@@ -54,18 +49,28 @@
                     class="form-control border-0 bg-light rounded-end ps-1"
                     placeholder="E-mail"
                     id="exampleInputEmail1"
-                    [(ngModel)]="loginEmailValue"
-                    [ngModelOptions]="{ standalone: true }"
+                    formControlName="email"
                   />
                 </div>
-                <div *ngIf="emailError" class="my-2 error-text">
-                  <p>Invalid email</p>
-                </div>
-                <div *ngIf="accountError" class="my-2 error-text">
-                  <p>Account does not exist</p>
-                </div>
-                <div *ngIf="invalidEmailError" class="my-2 error-text">
-                  <span>This email is not a valid format</span>
+                <div
+                  *ngIf="
+                    loginForm.get('email')?.invalid &&
+                    (loginForm.get('email')?.dirty ||
+                      loginForm.get('email')?.touched)
+                  "
+                >
+                  <div
+                    class="error-text"
+                    *ngIf="loginForm.get('email')?.errors?.['required']"
+                  >
+                    Email is required.
+                  </div>
+                  <div
+                    class="error-text"
+                    *ngIf="loginForm.get('email')?.errors?.['email']"
+                  >
+                    Invalid email format.
+                  </div>
                 </div>
               </div>
               <!-- Password -->
@@ -73,10 +78,7 @@
                 <label for="inputPassword5" class="form-label"
                   >Password *</label
                 >
-                <div
-                  class="input-group input-group-lg"
-                  [ngClass]="{ error: passwordError || passwordLengthError }"
-                >
+                <div class="input-group input-group-lg">
                   <span
                     class="input-group-text bg-light rounded-start border-0 text-secondary px-3"
                     ><i class="fas fa-lock"></i
@@ -86,26 +88,36 @@
                     class="form-control border-0 bg-light rounded-end ps-1"
                     placeholder="password"
                     id="inputPassword5"
-                    [(ngModel)]="loginPasswordValue"
-                    [ngModelOptions]="{ standalone: true }"
+                    formControlName="password"
                   />
                 </div>
-                <div *ngIf="passwordLengthError" class="my-2 error-text">
-                  Your password must be 5 characters at least
-                </div>
-                <div *ngIf="passwordError" class="my-2 error-text">
-                  <p>Invalid password</p>
+
+                <div
+                  *ngIf="
+                    loginForm.get('password')?.invalid &&
+                    (loginForm.get('password')?.dirty ||
+                      loginForm.get('password')?.touched)
+                  "
+                >
+                  <div
+                    class="error-text"
+                    *ngIf="loginForm.get('password')?.errors?.['required']"
+                  >
+                    Password is required.
+                  </div>
+                  <div
+                    class="error-text"
+                    *ngIf="loginForm.get('password')?.errors?.['minlength']"
+                  >
+                    Password is less that 5 characters
+                  </div>
                 </div>
               </div>
 
               <!-- Button -->
               <div class="align-items-center mt-0">
                 <div class="d-grid">
-                  <button
-                    class="btn btn-primary mb-0"
-                    type="button"
-                    (click)="loginUser()"
-                  >
+                  <button class="btn btn-primary mb-0" type="submit">
                     Login
                   </button>
                 </div>

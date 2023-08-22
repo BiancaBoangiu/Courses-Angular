@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { catchError, throwError } from 'rxjs';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -9,67 +10,34 @@ import { catchError, throwError } from 'rxjs';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-  loginEmailValue: string = '';
-  loginPasswordValue: string = '';
-  emailError: boolean = false;
+  loginForm: FormGroup;
   passwordError: boolean = false;
-  accountError: boolean = false;
-  passwordLengthError: boolean = false;
-  invalidEmailError: boolean = false;
 
   constructor(
     private authService: AuthService,
     private route: ActivatedRoute,
-    private router: Router
-  ) {}
-
-  loginUser() {
-    this.emailError = false;
-    this.passwordError = false;
-    this.accountError = false;
-    this.passwordLengthError = false;
-    this.invalidEmailError = false;
-
-    if (this.loginEmailValue == '') {
-      this.emailError = true;
-    } else if (!this.isValidEmail(this.loginEmailValue)) {
-      this.invalidEmailError = true;
-    } else {
-      this.authService
-        .verifyUser(this.loginEmailValue)
-        .pipe(
-          catchError((error) => {
-            console.error(error);
-            alert('Error: ' + error.message);
-            return throwError(error);
-          })
-        )
-        .subscribe((response) => {
-          if (response.length > 0) {
-            if (this.loginPasswordValue.length < 5) {
-              this.passwordLengthError = true;
-            }
-            if (this.loginPasswordValue !== response[0].password) {
-              this.passwordError = true;
-            } else {
-              this.authService.loggedUser = response[0];
-              this.router.navigate(['/']);
-            }
-          } else {
-            if (this.loginEmailValue == '') {
-              this.emailError = true;
-              this.passwordError = true;
-            } else {
-              this.accountError = true;
-            }
-          }
-        });
-    }
+    private router: Router,
+    private fb: FormBuilder
+  ) {
+    this.loginForm = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(5)]],
+    });
   }
 
-  isValidEmail(email: string): boolean {
-    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  onSubmit() {
+    const emailValue = this.loginForm.get('email')?.value;
+    const passwordValue = this.loginForm.get('password')?.value;
 
-    return emailPattern.test(email);
+    this.authService.verifyUser(emailValue).subscribe((response) => {
+      if (response.length > 0) {
+        if (passwordValue !== response[0].password) {
+          this.passwordError = true;
+        } else {
+          this.authService.loggedUser = response[0];
+          this.router.navigate(['/']);
+        }
+      }
+    });
   }
 }

@@ -20,8 +20,8 @@
         }
       ],
       "authorId": 1,
-      "views": 823,
-      "rating": null,
+      "views": 824,
+      "rating": 4,
       "participants": [],
       "hasCertificate": true,
       "price": 0
@@ -322,6 +322,16 @@
       "dislikes": [],
       "userEmail": "admin@test.com",
       "id": 4
+    },
+    {
+      "userId": 1,
+      "rating": "4",
+      "message": "fghgfhgf",
+      "courseId": 1,
+      "likes": [],
+      "dislikes": [],
+      "userEmail": "admin@test.com",
+      "id": 5
     }
   ]
 }
