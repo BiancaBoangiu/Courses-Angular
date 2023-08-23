@@ -35,8 +35,8 @@
       "level": "Intermediate",
       "curriculum": [],
       "authorId": 0,
-      "views": 204,
-      "rating": 0,
+      "views": 205,
+      "rating": null,
       "participants": [],
       "hasCertificate": true,
       "price": 200
@@ -300,6 +300,60 @@
       "password": "aaaaa",
       "userType": "instructor",
       "id": 3
+    },
+    {
+      "email": "admin3@test.com",
+      "password": "ttttt",
+      "userType": "instructor",
+      "id": 4
+    },
+    {
+      "email": "t",
+      "password": "ttttt",
+      "userType": "",
+      "id": 5
+    },
+    {
+      "email": "admin5@test.com",
+      "password": "ttttt",
+      "userType": "",
+      "id": 6
+    },
+    {
+      "email": "admin4@test.com",
+      "password": "ttttt",
+      "userType": "instructor",
+      "id": 7
+    },
+    {
+      "email": "admin6@test.com",
+      "password": "ttttyy",
+      "userType": "instructor",
+      "id": 8
+    },
+    {
+      "email": "admin8@test.com",
+      "password": "aaayyyy",
+      "userType": "student",
+      "id": 9
+    },
+    {
+      "email": "admin9@test.com",
+      "password": "ttttt",
+      "userType": "instructor",
+      "id": 10
+    },
+    {
+      "email": "admin10@test.com",
+      "password": "aaaaa",
+      "userType": "instructor",
+      "id": 11
+    },
+    {
+      "email": "admin31@test.com",
+      "password": "aaaaa",
+      "userType": "instructor",
+      "id": 12
     }
   ],
   "reviews": [

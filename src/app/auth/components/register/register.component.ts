@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { catchError, throwError } from 'rxjs';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -9,77 +10,50 @@ import { catchError, throwError } from 'rxjs';
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent {
-  emailValue: string = '';
-  passwordValue: string = '';
-  userType: string = '';
-  confirmedPasswordValue: string = '';
-  matchedPasswordsError: boolean = false;
-  passwordLengthError: boolean = false;
-  confirmedPasswordLengthError: boolean = false;
-  emailEmptyFieldError: boolean = false;
-  passwordEmptyFieldError: boolean = false;
-  confirmedPasswordEmptyFieldError: boolean = false;
-  selectEmptyFieldError: boolean = false;
-  invalidEmailError: boolean = false;
-  usedEmailError: boolean = false;
+  registerForm: FormGroup;
+  emailAlreadyUsed: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
     private authService: AuthService,
-    private router: Router
-  ) {}
-  registerUser(): void {
-    this.passwordLengthError = false;
-    this.matchedPasswordsError = false;
-    this.emailEmptyFieldError = false;
-    this.passwordEmptyFieldError = false;
-    this.confirmedPasswordEmptyFieldError = false;
-    this.selectEmptyFieldError = false;
-    this.confirmedPasswordLengthError = false;
-    this.invalidEmailError = false;
-    this.usedEmailError = false;
+    private router: Router,
+    private fb: FormBuilder
+  ) {
+    this.registerForm = this.fb.group(
+      {
+        email: ['', [Validators.required, Validators.email]],
+        password: ['', [Validators.required, Validators.minLength(5)]],
+        userType: ['', Validators.required],
+        confirmedPassword: ['', [Validators.required, Validators.minLength(5)]],
+      },
+      { validator: this.passwordsMatchValidator }
+    );
+  }
 
-    if (this.emailValue == '') {
-      this.emailEmptyFieldError = true;
-    } else if (!this.isValidEmail(this.emailValue)) {
-      this.invalidEmailError = true;
-    }
+  passwordsMatchValidator(group: FormGroup): { [key: string]: any } | null {
+    const password = group.get('password')?.value;
+    const confirmedPassword = group.get('confirmedPassword')?.value;
 
-    if (this.passwordValue == '') {
-      this.passwordEmptyFieldError = true;
-    } else if (this.passwordValue.length < 5) {
-      this.passwordLengthError = true;
-    } else if (this.passwordValue !== this.confirmedPasswordValue) {
-      this.matchedPasswordsError = true;
-    }
+    return password === confirmedPassword ? null : { passwordsNotMatch: true };
+  }
 
-    if (this.confirmedPasswordValue == '') {
-      this.confirmedPasswordEmptyFieldError = true;
-    } else if (this.confirmedPasswordValue.length < 5) {
-      this.confirmedPasswordLengthError = true;
-    } else if (this.passwordValue !== this.confirmedPasswordValue) {
-      this.matchedPasswordsError = true;
-    }
+  onSubmit(): void {
+    const emailValue = this.registerForm.get('email')?.value;
+    const passwordValue = this.registerForm.get('password')?.value;
+    const confirmedPasswordValue =
+      this.registerForm.get('confirmedPassword')?.value;
+    const userType = this.registerForm.get('userType')?.value;
 
-    if (this.userType == '') {
-      this.selectEmptyFieldError = true;
-    }
-
-    if (
-      !this.passwordLengthError &&
-      !this.matchedPasswordsError &&
-      !this.emailEmptyFieldError &&
-      !this.passwordEmptyFieldError &&
-      !this.confirmedPasswordEmptyFieldError &&
-      !this.selectEmptyFieldError &&
-      !this.invalidEmailError
-    ) {
-      this.authService.verifyUser(this.emailValue).subscribe((response) => {
+    if (!emailValue || !passwordValue || !confirmedPasswordValue || !userType) {
+      return;
+    } else {
+      this.authService.verifyUser(emailValue).subscribe((response) => {
+        this.emailAlreadyUsed = false;
         if (response.length > 0) {
-          this.usedEmailError = true;
+          this.emailAlreadyUsed = true;
         } else {
           this.authService
-            .registerUser(this.emailValue, this.passwordValue, this.userType)
+            .registerUser(emailValue, passwordValue, userType)
             .pipe(
               catchError((error) => {
                 console.error(error);
@@ -92,13 +66,6 @@ export class RegisterComponent {
             });
         }
       });
-      //
     }
-  }
-
-  isValidEmail(email: string): boolean {
-    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-
-    return emailPattern.test(email);
   }
 }

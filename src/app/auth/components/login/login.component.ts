@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { catchError, throwError } from 'rxjs';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -11,7 +10,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginComponent {
   loginForm: FormGroup;
-  passwordError: boolean = false;
 
   constructor(
     private authService: AuthService,
@@ -32,7 +30,7 @@ export class LoginComponent {
     this.authService.verifyUser(emailValue).subscribe((response) => {
       if (response.length > 0) {
         if (passwordValue !== response[0].password) {
-          this.passwordError = true;
+          return;
         } else {
           this.authService.loggedUser = response[0];
           this.router.navigate(['/']);

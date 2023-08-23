@@ -39,21 +39,13 @@
             </p>
 
             <!-- Form START -->
-            <form>
+            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
               <!-- Email -->
               <div class="mb-4">
                 <label for="exampleInputEmail1" class="form-label"
                   >Email address *</label
                 >
-                <div
-                  class="input-group input-group-lg"
-                  [ngClass]="{
-                    error:
-                      emailEmptyFieldError ||
-                      invalidEmailError ||
-                      usedEmailError
-                  }"
-                >
+                <div class="input-group input-group-lg">
                   <span
                     class="input-group-text bg-light rounded-start border-0 text-secondary px-3"
                     ><i class="bi bi-envelope-fill"></i
@@ -63,17 +55,31 @@
                     class="form-control border-0 bg-light rounded-end ps-1"
                     placeholder="E-mail"
                     id="exampleInputEmail1"
-                    [(ngModel)]="emailValue"
-                    [ngModelOptions]="{ standalone: true }"
+                    formControlName="email"
                   />
                 </div>
-                <div *ngIf="emailEmptyFieldError" class="my-2 error-text">
-                  <span>This field is required</span>
+
+                <div
+                  *ngIf="
+                    registerForm.get('email')?.invalid &&
+                    (registerForm.get('email')?.dirty ||
+                      registerForm.get('email')?.touched)
+                  "
+                >
+                  <div
+                    *ngIf="registerForm.get('email')?.errors?.['require']"
+                    class="my-2 error-text"
+                  >
+                    <span>This field is required</span>
+                  </div>
+                  <div
+                    *ngIf="registerForm.get('email')?.errors?.['email']"
+                    class="my-2 error-text"
+                  >
+                    <span>This email is not a valid format</span>
+                  </div>
                 </div>
-                <div *ngIf="invalidEmailError" class="my-2 error-text">
-                  <span>This email is not a valid format</span>
-                </div>
-                <div *ngIf="usedEmailError" class="my-2 error-text">
+                <div *ngIf="emailAlreadyUsed" class="my-2 error-text">
                   <span>This email is already in use</span>
                 </div>
               </div>
@@ -82,15 +88,7 @@
                 <label for="inputPassword5" class="form-label"
                   >Password *</label
                 >
-                <div
-                  class="input-group input-group-lg"
-                  [ngClass]="{
-                    error:
-                      passwordEmptyFieldError ||
-                      passwordLengthError ||
-                      matchedPasswordsError
-                  }"
-                >
+                <div class="input-group input-group-lg">
                   <span
                     class="input-group-text bg-light rounded-start border-0 text-secondary px-3"
                     ><i class="fas fa-lock"></i
@@ -100,18 +98,35 @@
                     class="form-control border-0 bg-light rounded-end ps-1"
                     placeholder="*********"
                     id="inputPassword5"
-                    [(ngModel)]="passwordValue"
-                    [ngModelOptions]="{ standalone: true }"
+                    formControlName="password"
                   />
                 </div>
-                <div *ngIf="passwordLengthError" class="my-2 error-text">
-                  <span>Your password must be 5 characters at least</span>
-                </div>
-                <div *ngIf="passwordEmptyFieldError" class="my-2 error-text">
-                  <span>This field is required</span>
-                </div>
-                <div *ngIf="matchedPasswordsError" class="my-2 error-text">
-                  <span>Your passwords do not match</span>
+
+                <div
+                  *ngIf="
+                    registerForm.get('password')?.invalid &&
+                    (registerForm.get('password')?.dirty ||
+                      registerForm.get('password')?.touched)
+                  "
+                >
+                  <div
+                    *ngIf="registerForm.get('password')?.errors?.['minlength']"
+                    class="my-2 error-text"
+                  >
+                    <span>Your password must be 5 characters at least</span>
+                  </div>
+                  <div
+                    *ngIf="registerForm.get('password')?.errors?.['required']"
+                    class="my-2 error-text"
+                  >
+                    <span>This field is required</span>
+                  </div>
+                  <div
+                    *ngIf="registerForm.hasError('passwordsNotMatched')"
+                    class="my-2 error-text"
+                  >
+                    <span>Your passwords do not match</span>
+                  </div>
                 </div>
               </div>
               <!-- Confirm Password -->
@@ -119,15 +134,7 @@
                 <label for="inputPassword6" class="form-label"
                   >Confirm Password *</label
                 >
-                <div
-                  class="input-group input-group-lg"
-                  [ngClass]="{
-                    error:
-                      confirmedPasswordEmptyFieldError ||
-                      matchedPasswordsError ||
-                      confirmedPasswordLengthError
-                  }"
-                >
+                <div class="input-group input-group-lg">
                   <span
                     class="input-group-text bg-light rounded-start border-0 text-secondary px-3"
                     ><i class="fas fa-lock"></i
@@ -137,24 +144,35 @@
                     class="form-control border-0 bg-light rounded-end ps-1"
                     placeholder="*********"
                     id="inputPassword6"
-                    [(ngModel)]="confirmedPasswordValue"
-                    [ngModelOptions]="{ standalone: true }"
+                    formControlName="confirmedPassword"
                   />
                 </div>
-                <div *ngIf="matchedPasswordsError" class="my-2 error-text">
-                  <span>Your passwords do not match</span>
-                </div>
+
                 <div
-                  *ngIf="confirmedPasswordLengthError"
-                  class="my-2 error-text"
+                  *ngIf="
+                    registerForm.get('confirmedPassword')?.invalid &&
+                    (registerForm.get('confirmedPassword')?.dirty ||
+                      registerForm.get('confirmedPassword')?.touched)
+                  "
                 >
-                  <span>Your password must be 5 characters at least</span>
-                </div>
-                <div
-                  *ngIf="confirmedPasswordEmptyFieldError"
-                  class="my-2 error-text"
-                >
-                  <span>This field is required</span>
+                  <div
+                    *ngIf="registerForm.hasError('passwordsNotMatch')"
+                    class="my-2 error-text"
+                  >
+                    Passwords do not match.
+                  </div>
+                  <div
+                    *ngIf="registerForm.get('confirmedPassword')?.errors?.['minlength']"
+                    class="my-2 error-text"
+                  >
+                    <span>Your password must be 5 characters at least</span>
+                  </div>
+                  <div
+                    *ngIf="registerForm.get('confirmedPassword')?.errors?.['required']"
+                    class="my-2 error-text"
+                  >
+                    <span>This field is required</span>
+                  </div>
                 </div>
               </div>
               <div>
@@ -162,27 +180,32 @@
                 <select
                   class="form-select"
                   aria-label="Default select example"
-                  [(ngModel)]="userType"
-                  [ngModelOptions]="{ standalone: true }"
-                  [ngClass]="{ error: selectEmptyFieldError }"
+                  formControlName="userType"
                 >
                   <option value="" selected>Choose a type:</option>
                   <option value="instructor">Instructor</option>
                   <option value="student">Student</option>
                 </select>
               </div>
-              <div *ngIf="selectEmptyFieldError" class="my-2 error-text">
-                <span>This field is required</span>
+              <div
+                *ngIf="
+                  registerForm.get('userType')?.invalid &&
+                  (registerForm.get('userType')?.dirty ||
+                    registerForm.get('userType')?.touched)
+                "
+              >
+                <div
+                  *ngIf="registerForm.get('userType')?.errors?.['required']"
+                  class="my-2 error-text"
+                >
+                  <span>This field is required</span>
+                </div>
               </div>
 
               <!-- Button -->
               <div class="align-items-center mt-4">
                 <div class="d-grid">
-                  <button
-                    class="btn btn-primary mb-0"
-                    type="button"
-                    (click)="registerUser()"
-                  >
+                  <button class="btn btn-primary mb-0" type="submit">
                     Sign Up
                   </button>
                 </div>
