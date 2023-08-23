@@ -28,11 +28,7 @@
         <div class="row my-5">
           <div class="col-sm-10 col-xl-8 m-auto">
             <!-- Title -->
-            <img
-              src="assets/images/element/03.svg"
-              class="h-40px mb-2"
-              alt=""
-            />
+
             <h2>Sign up for your account!</h2>
             <p class="lead mb-4">
               Nice to see you! Please Sign up with your account.
@@ -101,7 +97,7 @@
                     formControlName="password"
                   />
                 </div>
-
+                <!-- Check for password -->
                 <div
                   *ngIf="
                     registerForm.get('password')?.invalid &&
@@ -109,26 +105,37 @@
                       registerForm.get('password')?.touched)
                   "
                 >
+                  <!-- Check min length of 5 -->
                   <div
                     *ngIf="registerForm.get('password')?.errors?.['minlength']"
                     class="my-2 error-text"
                   >
                     <span>Your password must be 5 characters at least</span>
                   </div>
+
+                  <!-- Check if password has at least 5 characters -->
+                  <div
+                    *ngIf="!registerForm.get('password')?.errors?.['minlength']"
+                  >
+                    <!-- Check if passwords match only when password has at least 5 characters -->
+                    <div
+                      *ngIf="registerForm.hasError('passwordsNotMatch')"
+                      class="my-2 error-text"
+                    >
+                      <span>Your passwords do not match</span>
+                    </div>
+                  </div>
+
+                  <!-- Password is required -->
                   <div
                     *ngIf="registerForm.get('password')?.errors?.['required']"
                     class="my-2 error-text"
                   >
                     <span>This field is required</span>
                   </div>
-                  <div
-                    *ngIf="registerForm.hasError('passwordsNotMatched')"
-                    class="my-2 error-text"
-                  >
-                    <span>Your passwords do not match</span>
-                  </div>
                 </div>
               </div>
+
               <!-- Confirm Password -->
               <div class="mb-4">
                 <label for="inputPassword6" class="form-label"
@@ -147,7 +154,7 @@
                     formControlName="confirmedPassword"
                   />
                 </div>
-
+                <!-- Check for confirm password -->
                 <div
                   *ngIf="
                     registerForm.get('confirmedPassword')?.invalid &&
@@ -155,17 +162,26 @@
                       registerForm.get('confirmedPassword')?.touched)
                   "
                 >
-                  <div
-                    *ngIf="registerForm.hasError('passwordsNotMatch')"
-                    class="my-2 error-text"
-                  >
-                    Passwords do not match.
-                  </div>
+                  <!-- Check min length of 5 -->
+
                   <div
                     *ngIf="registerForm.get('confirmedPassword')?.errors?.['minlength']"
                     class="my-2 error-text"
                   >
                     <span>Your password must be 5 characters at least</span>
+                  </div>
+                  <!-- Else -->
+                  <div
+                    *ngIf="!registerForm.get('confirmedPassword')?.errors?.['minlength']"
+                    class="my-2 error-text"
+                  >
+                    <!-- Check if passwords match -->
+                    <div
+                      *ngIf="registerForm.hasError('passwordsNotMatch')"
+                      class="my-2 error-text"
+                    >
+                      Passwords do not match.
+                    </div>
                   </div>
                   <div
                     *ngIf="registerForm.get('confirmedPassword')?.errors?.['required']"
