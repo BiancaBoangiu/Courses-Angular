@@ -18,6 +18,14 @@ const routes: Routes = [
     path: 'auth',
     loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
   },
+
+  {
+    path: 'instructors',
+    loadChildren: () =>
+      import('./instructors/instructors.module').then(
+        (m) => m.InstructorsModule
+      ),
+  },
   { path: '**', component: NotFoundComponent },
 ];
 

@@ -286,116 +286,22 @@
     {
       "email": "admin@test.com",
       "password": "aaaaa",
-      "userType": "instructor",
       "id": 1
     },
     {
       "email": "admin1@test.com",
       "password": "aaaaa",
-      "userType": "student",
       "id": 2
     },
     {
       "email": "admin2@test.com",
       "password": "aaaaa",
-      "userType": "instructor",
       "id": 3
     },
     {
       "email": "admin3@test.com",
       "password": "ttttt",
-      "userType": "instructor",
       "id": 4
-    },
-    {
-      "email": "t",
-      "password": "ttttt",
-      "userType": "",
-      "id": 5
-    },
-    {
-      "email": "admin5@test.com",
-      "password": "ttttt",
-      "userType": "",
-      "id": 6
-    },
-    {
-      "email": "admin4@test.com",
-      "password": "ttttt",
-      "userType": "instructor",
-      "id": 7
-    },
-    {
-      "email": "admin6@test.com",
-      "password": "ttttyy",
-      "userType": "instructor",
-      "id": 8
-    },
-    {
-      "email": "admin8@test.com",
-      "password": "aaayyyy",
-      "userType": "student",
-      "id": 9
-    },
-    {
-      "email": "admin9@test.com",
-      "password": "ttttt",
-      "userType": "instructor",
-      "id": 10
-    },
-    {
-      "email": "admin10@test.com",
-      "password": "aaaaa",
-      "userType": "instructor",
-      "id": 11
-    },
-    {
-      "email": "admin31@test.com",
-      "password": "aaaaa",
-      "userType": "instructor",
-      "id": 12
-    },
-    {
-      "email": "admin113@test.com",
-      "password": "aaaaa",
-      "userType": "instructor",
-      "id": 13
-    },
-    {
-      "email": "admin1113@test.com",
-      "password": "aaaaaa",
-      "userType": "instructor",
-      "id": 14
-    },
-    {
-      "email": "admin3rgfdgfd@test.com",
-      "password": "aaaaa",
-      "userType": "student",
-      "id": 15
-    },
-    {
-      "email": "adminfgdfgdfgfdgd3@test.com",
-      "password": "aaaaa",
-      "userType": "instructor",
-      "id": 16
-    },
-    {
-      "email": "admin3fdgfdgdgfdgfd@test.com",
-      "password": "aaaaa",
-      "userType": "student",
-      "id": 17
-    },
-    {
-      "email": "admin365454@test.com",
-      "password": "ttttt",
-      "userType": "instructor",
-      "id": 18
-    },
-    {
-      "email": "fdgdfgadmin3@test.com",
-      "password": "aaaaa",
-      "userType": "instructor",
-      "id": 19
     }
   ],
   "reviews": [
@@ -428,6 +334,128 @@
       "dislikes": [],
       "userEmail": "admin@test.com",
       "id": 5
+    }
+  ],
+  "instructors": [
+    {
+      "id": 1,
+      "name": "Frances Guerrero",
+      "image": "assets/instructor1.jpg",
+      "skills": "Programming, Data Science",
+      "description": "Passionate about teaching programming and data science to aspiring learners. With over 10 years of industry experience, I'm excited to share my knowledge and help you succeed in your coding journey.",
+      "education": "MSc in Computer Science, Stanford University",
+      "address": "123 Main Street, Cityville",
+      "email": "frances@example.com",
+      "phoneNumber": "123-456-7890",
+      "rating": 4.5
+    },
+    {
+      "id": 2,
+      "name": "Alexandra Carter",
+      "image": "assets/instructor2.jpg",
+      "skills": "Web Development, UX Design",
+      "description": "With a background in both web development and user experience design, I'm here to help you bridge the gap between coding and design. I believe that a great user experience is at the heart of every successful web project, and I'm excited to guide you through creating responsive and user-friendly websites.",
+      "education": "BSc in Computer Science, University of California",
+      "address": "456 Elm Street, Townsville",
+      "email": "alexandra@example.com",
+      "phoneNumber": "987-654-3210",
+      "rating": 4.8
+    },
+    {
+      "id": 3,
+      "name": "Michael Johnson",
+      "image": "assets/instructor3.jpg",
+      "skills": "Data Science, Machine Learning",
+      "description": "As a data enthusiast and machine learning practitioner, I'm passionate about helping you unlock the power of data. Whether you're a beginner or looking to dive deeper into complex algorithms, I'll guide you through the world of data science, from data preprocessing to building predictive models.",
+      "education": "PhD in Statistics, University of Toronto",
+      "address": "789 Oak Avenue, Villagetown",
+      "email": "michael@example.com",
+      "phoneNumber": "555-123-4567",
+      "rating": 4.7
+    },
+    {
+      "id": 4,
+      "name": "Sophia Martinez",
+      "image": "assets/instructor4.jpg",
+      "skills": "Graphic Design, UI/UX Design",
+      "description": "With a keen eye for aesthetics and a passion for design, I'm dedicated to helping you master the art of graphic design and user interface/user experience design. Join me to learn how to create visually appealing designs that captivate and communicate effectively.",
+      "education": "BA in Graphic Design, Parsons School of Design",
+      "address": "567 Pine Lane, Artville",
+      "email": "sophia@example.com",
+      "phoneNumber": "777-888-9999",
+      "rating": 4.9
+    },
+    {
+      "id": 5,
+      "name": "Daniel Lee",
+      "image": "assets/instructor1.jpg",
+      "skills": "Mobile App Development, Android",
+      "description": "As a seasoned mobile app developer, I'm here to guide you through the exciting world of app development. Learn how to create engaging and functional apps for both iOS and Android platforms. Join me to turn your app ideas into reality.",
+      "education": "MEng in Computer Engineering, Massachusetts Institute of Technology",
+      "address": "234 Maple Street, Mobile City",
+      "email": "daniel@example.com",
+      "phoneNumber": "444-555-6666",
+      "rating": 4.6
+    },
+    {
+      "id": 6,
+      "name": "Emily White",
+      "image": "assets/instructor2.jpg",
+      "skills": "Cloud Computing, DevOps",
+      "description": "With extensive experience in cloud computing and DevOps practices, I'm excited to guide you through deploying, managing, and scaling applications on various cloud platforms. Join my courses to learn about containerization, orchestration, and building scalable infrastructure.",
+      "education": "BSc in Computer Science, Stanford University",
+      "address": "789 Tech Road, Cloudville",
+      "email": "emily@example.com",
+      "phoneNumber": "222-333-4444",
+      "rating": 4.7
+    },
+    {
+      "id": 7,
+      "name": "David Wilson",
+      "image": "assets/instructor3.jpg",
+      "skills": "Ethical Hacking, Cybersecurity",
+      "description": "Cybersecurity is more important than ever. Join me to explore the world of ethical hacking and cybersecurity, and learn how to secure systems, detect vulnerabilities, and protect against cyber threats. Get hands-on experience in defending digital assets.",
+      "education": "MS in Cybersecurity, University of Maryland",
+      "address": "890 Security Avenue, Cyberburg",
+      "email": "david@example.com",
+      "phoneNumber": "111-222-3333",
+      "rating": 4.5
+    },
+    {
+      "id": 8,
+      "name": "Isabella Adams",
+      "image": "assets/instructor4.jpg",
+      "skills": "JavaScript, Front-End Development",
+      "description": "Are you excited about web development and creating interactive user interfaces? Join my courses to master the art of JavaScript programming, build dynamic websites, and harness the power of front-end technologies to enhance user experiences.",
+      "education": "BA in Computer Science, University of California",
+      "address": "123 Frontend Lane, Codeville",
+      "email": "isabella@example.com",
+      "phoneNumber": "555-777-8888",
+      "rating": 4.8
+    },
+    {
+      "id": 9,
+      "name": "Liam Harris",
+      "image": "assets/instructor1.jpg",
+      "skills": "Full-Stack Development, Back-End",
+      "description": "Join me to embark on a journey into full-stack development. From building responsive front-end interfaces to crafting robust back-end systems, my courses will equip you with the skills needed to create end-to-end web applications.",
+      "education": "BEng in Software Engineering, University of Texas",
+      "address": "456 Stack Street, Codeburg",
+      "email": "liam@example.com",
+      "phoneNumber": "888-999-0000",
+      "rating": 4.6
+    },
+    {
+      "id": 10,
+      "name": "Ava Turner",
+      "image": "assets/instructor2.jpg",
+      "skills": "Python, Data Analysis",
+      "description": "Python is a versatile language with applications in data analysis, automation, and more. Join my courses to learn Python programming from scratch and discover how to analyze data, create visualizations, and extract insights using Python's powerful libraries.",
+      "education": "MSc in Data Science, University of Washington",
+      "address": "789 Python Lane, Pythontown",
+      "email": "ava@example.com",
+      "phoneNumber": "999-000-1111",
+      "rating": 4.7
     }
   ]
 }

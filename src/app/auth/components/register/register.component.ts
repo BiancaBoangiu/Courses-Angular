@@ -23,7 +23,6 @@ export class RegisterComponent {
       {
         email: ['', [Validators.required, Validators.email]],
         password: ['', [Validators.required, Validators.minLength(5)]],
-        userType: ['', Validators.required],
         confirmedPassword: ['', [Validators.required, Validators.minLength(5)]],
       },
       { validator: this.passwordsMatchValidator }
@@ -42,9 +41,8 @@ export class RegisterComponent {
     const passwordValue = this.registerForm.get('password')?.value;
     const confirmedPasswordValue =
       this.registerForm.get('confirmedPassword')?.value;
-    const userType = this.registerForm.get('userType')?.value;
 
-    if (!emailValue || !passwordValue || !confirmedPasswordValue || !userType) {
+    if (!emailValue || !passwordValue || !confirmedPasswordValue) {
       return;
     } else {
       this.authService.verifyUser(emailValue).subscribe((response) => {
@@ -53,7 +51,7 @@ export class RegisterComponent {
           this.emailAlreadyUsed = true;
         } else {
           this.authService
-            .registerUser(emailValue, passwordValue, userType)
+            .registerUser(emailValue, passwordValue)
             .pipe(
               catchError((error) => {
                 console.error(error);

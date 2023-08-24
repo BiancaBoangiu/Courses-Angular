@@ -112,12 +112,13 @@
                   >
                     <span>Your password must be 5 characters at least</span>
                   </div>
-
-                  <!-- Check if password has at least 5 characters -->
+                  <!-- Else -->
                   <div
                     *ngIf="!registerForm.get('password')?.errors?.['minlength']"
+                    class="my-2 error-text"
                   >
-                    <!-- Check if passwords match only when password has at least 5 characters -->
+                    <!-- Check if passwords match -->
+                    <span>pula</span>
                     <div
                       *ngIf="registerForm.hasError('passwordsNotMatch')"
                       class="my-2 error-text"
@@ -125,7 +126,6 @@
                       <span>Your passwords do not match</span>
                     </div>
                   </div>
-
                   <!-- Password is required -->
                   <div
                     *ngIf="registerForm.get('password')?.errors?.['required']"
@@ -183,6 +183,7 @@
                       Passwords do not match.
                     </div>
                   </div>
+
                   <div
                     *ngIf="registerForm.get('confirmedPassword')?.errors?.['required']"
                     class="my-2 error-text"
@@ -191,7 +192,7 @@
                   </div>
                 </div>
               </div>
-              <div>
+              <!-- <div>
                 <p>Select an option</p>
                 <select
                   class="form-select"
@@ -216,7 +217,7 @@
                 >
                   <span>This field is required</span>
                 </div>
-              </div>
+              </div> -->
 
               <!-- Button -->
               <div class="align-items-center mt-4">

@@ -16,16 +16,11 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
 
-  registerUser(
-    email: string,
-    password: string,
-    userType: string
-  ): Observable<Auth> {
+  registerUser(email: string, password: string): Observable<Auth> {
     const usersURL = 'http://localhost:3000/users';
     const body = {
       email: email,
       password: password,
-      userType: userType,
     };
 
     return this.http.post<Auth>(usersURL, body, this.httpOptions);
