@@ -20,7 +20,7 @@
         }
       ],
       "instructorId": 1,
-      "views": 824,
+      "views": 826,
       "rating": 4,
       "participants": [],
       "hasCertificate": true,
@@ -50,7 +50,7 @@
       "level": "Advanced",
       "curriculum": [],
       "instructorId": 3,
-      "views": 133,
+      "views": 134,
       "rating": null,
       "participants": [],
       "hasCertificate": true,
@@ -302,6 +302,31 @@
       "email": "admin3@test.com",
       "password": "ttttt",
       "id": 4
+    },
+    {
+      "email": "admin7@test.com",
+      "password": "ttttt",
+      "id": 5
+    },
+    {
+      "email": "admin9@test.com",
+      "password": "ttttt",
+      "id": 6
+    },
+    {
+      "email": "adminthgfh3@test.com",
+      "password": "ttttt",
+      "id": 7
+    },
+    {
+      "email": "admidgdfgfdgdfn3@test.com",
+      "password": "ttttt",
+      "id": 8
+    },
+    {
+      "email": "admfgfdgfdin3@test.com",
+      "password": "ttttt",
+      "id": 9
     }
   ],
   "reviews": [

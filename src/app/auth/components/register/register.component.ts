@@ -24,6 +24,7 @@ export class RegisterComponent {
         email: ['', [Validators.required, Validators.email]],
         password: ['', [Validators.required, Validators.minLength(5)]],
         confirmedPassword: ['', [Validators.required, Validators.minLength(5)]],
+        userType: ['', Validators.required],
       },
       { validator: this.passwordsMatchValidator }
     );
@@ -41,8 +42,9 @@ export class RegisterComponent {
     const passwordValue = this.registerForm.get('password')?.value;
     const confirmedPasswordValue =
       this.registerForm.get('confirmedPassword')?.value;
+    const userType = this.registerForm.get('userType')?.value;
 
-    if (!emailValue || !passwordValue || !confirmedPasswordValue) {
+    if (!emailValue || !passwordValue || !confirmedPasswordValue || !userType) {
       return;
     } else {
       this.authService.verifyUser(emailValue).subscribe((response) => {
@@ -60,7 +62,11 @@ export class RegisterComponent {
               })
             )
             .subscribe(() => {
-              this.router.navigate(['/']);
+              if (userType === 'instructor') {
+                this.router.navigate(['/register-instructor']);
+              } else {
+                this.router.navigate(['/']);
+              }
             });
         }
       });
