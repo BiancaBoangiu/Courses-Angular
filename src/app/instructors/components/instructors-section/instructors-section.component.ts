@@ -5,4 +5,6 @@ import { Component } from '@angular/core';
   templateUrl: './instructors-section.component.html',
   styleUrls: ['./instructors-section.component.scss'],
 })
-export class InstructorsSectionComponent {}
+export class InstructorsSectionComponent {
+  registerInstructor() {}
+}

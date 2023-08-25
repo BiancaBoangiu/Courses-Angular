@@ -19,7 +19,7 @@
           ]
         }
       ],
-      "authorId": 1,
+      "instructorId": 1,
       "views": 824,
       "rating": 4,
       "participants": [],
@@ -34,7 +34,7 @@
       "time": 10,
       "level": "Intermediate",
       "curriculum": [],
-      "authorId": 0,
+      "instructorId": 2,
       "views": 205,
       "rating": null,
       "participants": [],
@@ -49,7 +49,7 @@
       "time": 12,
       "level": "Advanced",
       "curriculum": [],
-      "authorId": 0,
+      "instructorId": 3,
       "views": 133,
       "rating": null,
       "participants": [],
@@ -64,7 +64,7 @@
       "time": 8,
       "level": "Intermediate",
       "curriculum": [],
-      "authorId": 0,
+      "instructorId": 4,
       "views": 136,
       "rating": 3,
       "participants": [],
@@ -79,7 +79,7 @@
       "time": 10,
       "level": "Advanced",
       "curriculum": [],
-      "authorId": 0,
+      "instructorId": 5,
       "views": 46,
       "rating": 0,
       "participants": [],
@@ -94,7 +94,7 @@
       "time": 6,
       "level": "Beginner",
       "curriculum": [],
-      "authorId": 0,
+      "instructorId": 6,
       "views": 34,
       "rating": 0,
       "participants": [],
@@ -109,7 +109,7 @@
       "time": 12,
       "level": "Intermediate",
       "curriculum": [],
-      "authorId": 0,
+      "instructorId": 7,
       "views": 14,
       "rating": 0,
       "participants": [],
@@ -124,7 +124,7 @@
       "time": 8,
       "level": "Advanced",
       "curriculum": [],
-      "authorId": 0,
+      "instructorId": 8,
       "views": 16,
       "rating": 0,
       "participants": [],
@@ -139,7 +139,7 @@
       "time": 4,
       "level": "Beginner",
       "curriculum": [],
-      "authorId": 0,
+      "instructorId": 9,
       "views": 10,
       "rating": 0,
       "participants": [],
@@ -154,7 +154,7 @@
       "time": 6,
       "level": "Intermediate",
       "curriculum": [],
-      "authorId": 0,
+      "instructorId": 10,
       "views": 12,
       "rating": 0,
       "participants": [],
@@ -169,7 +169,7 @@
       "time": 8,
       "level": "Intermediate",
       "curriculum": [],
-      "authorId": 0,
+      "instructorId": 1,
       "views": 35,
       "rating": 0,
       "participants": [],
@@ -184,7 +184,7 @@
       "time": 6,
       "level": "Intermediate",
       "curriculum": [],
-      "authorId": 0,
+      "instructorId": 2,
       "views": 12,
       "rating": 0,
       "participants": [],
@@ -199,7 +199,7 @@
       "time": 10,
       "level": "Advanced",
       "curriculum": [],
-      "authorId": 0,
+      "instructorId": 3,
       "views": 4,
       "rating": 0,
       "participants": [],
@@ -214,7 +214,7 @@
       "time": 8,
       "level": "Intermediate",
       "curriculum": [],
-      "authorId": 0,
+      "instructorId": 4,
       "views": 0,
       "rating": 0,
       "participants": [],
@@ -229,7 +229,7 @@
       "time": 8,
       "level": "Intermediate",
       "curriculum": [],
-      "authorId": 0,
+      "instructorId": 5,
       "views": 3,
       "rating": 0,
       "participants": [],
@@ -244,7 +244,7 @@
       "time": 6,
       "level": "Beginner",
       "curriculum": [],
-      "authorId": 0,
+      "instructorId": 6,
       "views": 0,
       "rating": 0,
       "participants": [],
@@ -259,7 +259,7 @@
       "time": 10,
       "level": "Intermediate",
       "curriculum": [],
-      "authorId": 0,
+      "instructorId": 1,
       "views": 5,
       "rating": 0,
       "participants": [],
@@ -274,7 +274,7 @@
       "time": 4,
       "level": "Beginner",
       "curriculum": [],
-      "authorId": 0,
+      "instructorId": 2,
       "views": 2,
       "rating": 0,
       "participants": [],
@@ -347,7 +347,7 @@
       "address": "123 Main Street, Cityville",
       "email": "frances@example.com",
       "phoneNumber": "123-456-7890",
-      "rating": 4.5
+      "rating": 0
     },
     {
       "id": 2,
@@ -359,31 +359,31 @@
       "address": "456 Elm Street, Townsville",
       "email": "alexandra@example.com",
       "phoneNumber": "987-654-3210",
-      "rating": 4.8
+      "rating": 0
     },
     {
       "id": 3,
       "name": "Michael Johnson",
-      "image": "assets/instructor3.jpg",
+      "image": "assets/instructor4.jpg",
       "skills": "Data Science, Machine Learning",
       "description": "As a data enthusiast and machine learning practitioner, I'm passionate about helping you unlock the power of data. Whether you're a beginner or looking to dive deeper into complex algorithms, I'll guide you through the world of data science, from data preprocessing to building predictive models.",
       "education": "PhD in Statistics, University of Toronto",
       "address": "789 Oak Avenue, Villagetown",
       "email": "michael@example.com",
       "phoneNumber": "555-123-4567",
-      "rating": 4.7
+      "rating": 0
     },
     {
       "id": 4,
       "name": "Sophia Martinez",
-      "image": "assets/instructor4.jpg",
+      "image": "assets/instructor3.jpg",
       "skills": "Graphic Design, UI/UX Design",
       "description": "With a keen eye for aesthetics and a passion for design, I'm dedicated to helping you master the art of graphic design and user interface/user experience design. Join me to learn how to create visually appealing designs that captivate and communicate effectively.",
       "education": "BA in Graphic Design, Parsons School of Design",
       "address": "567 Pine Lane, Artville",
       "email": "sophia@example.com",
       "phoneNumber": "777-888-9999",
-      "rating": 4.9
+      "rating": 0
     },
     {
       "id": 5,
@@ -395,7 +395,7 @@
       "address": "234 Maple Street, Mobile City",
       "email": "daniel@example.com",
       "phoneNumber": "444-555-6666",
-      "rating": 4.6
+      "rating": 0
     },
     {
       "id": 6,
@@ -407,31 +407,31 @@
       "address": "789 Tech Road, Cloudville",
       "email": "emily@example.com",
       "phoneNumber": "222-333-4444",
-      "rating": 4.7
+      "rating": 0
     },
     {
       "id": 7,
       "name": "David Wilson",
-      "image": "assets/instructor3.jpg",
+      "image": "assets/instructor4.jpg",
       "skills": "Ethical Hacking, Cybersecurity",
       "description": "Cybersecurity is more important than ever. Join me to explore the world of ethical hacking and cybersecurity, and learn how to secure systems, detect vulnerabilities, and protect against cyber threats. Get hands-on experience in defending digital assets.",
       "education": "MS in Cybersecurity, University of Maryland",
       "address": "890 Security Avenue, Cyberburg",
       "email": "david@example.com",
       "phoneNumber": "111-222-3333",
-      "rating": 4.5
+      "rating": 0
     },
     {
       "id": 8,
       "name": "Isabella Adams",
-      "image": "assets/instructor4.jpg",
+      "image": "assets/instructor2.jpg",
       "skills": "JavaScript, Front-End Development",
       "description": "Are you excited about web development and creating interactive user interfaces? Join my courses to master the art of JavaScript programming, build dynamic websites, and harness the power of front-end technologies to enhance user experiences.",
       "education": "BA in Computer Science, University of California",
       "address": "123 Frontend Lane, Codeville",
       "email": "isabella@example.com",
       "phoneNumber": "555-777-8888",
-      "rating": 4.8
+      "rating": 0
     },
     {
       "id": 9,
@@ -443,19 +443,19 @@
       "address": "456 Stack Street, Codeburg",
       "email": "liam@example.com",
       "phoneNumber": "888-999-0000",
-      "rating": 4.6
+      "rating": 0
     },
     {
       "id": 10,
       "name": "Ava Turner",
-      "image": "assets/instructor2.jpg",
+      "image": "assets/instructor3.jpg",
       "skills": "Python, Data Analysis",
       "description": "Python is a versatile language with applications in data analysis, automation, and more. Join my courses to learn Python programming from scratch and discover how to analyze data, create visualizations, and extract insights using Python's powerful libraries.",
       "education": "MSc in Data Science, University of Washington",
       "address": "789 Python Lane, Pythontown",
       "email": "ava@example.com",
       "phoneNumber": "999-000-1111",
-      "rating": 4.7
+      "rating": 0
     }
   ]
 }
