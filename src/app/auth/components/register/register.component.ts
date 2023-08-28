@@ -23,7 +23,7 @@ export class RegisterComponent {
       {
         email: ['', [Validators.required, Validators.email]],
         password: ['', [Validators.required, Validators.minLength(5)]],
-        confirmedPassword: ['', [Validators.required, Validators.minLength(5)]],
+        confirmedPassword: ['', Validators.required],
         userType: ['', Validators.required],
       },
       { validator: this.passwordsMatchValidator }
@@ -34,7 +34,11 @@ export class RegisterComponent {
     const password = group.get('password')?.value;
     const confirmedPassword = group.get('confirmedPassword')?.value;
 
-    return password === confirmedPassword ? null : { passwordsNotMatch: true };
+    if (password === confirmedPassword) {
+      return null;
+    } else {
+      return { passwordsNotMatch: true };
+    }
   }
 
   onSubmit(): void {
@@ -44,7 +48,13 @@ export class RegisterComponent {
       this.registerForm.get('confirmedPassword')?.value;
     const userType = this.registerForm.get('userType')?.value;
 
-    if (!emailValue || !passwordValue || !confirmedPasswordValue || !userType) {
+    if (
+      !emailValue ||
+      !passwordValue ||
+      !confirmedPasswordValue ||
+      !userType ||
+      this.registerForm.invalid
+    ) {
       return;
     } else {
       this.authService.verifyUser(emailValue).subscribe((response) => {
@@ -63,7 +73,7 @@ export class RegisterComponent {
             )
             .subscribe(() => {
               if (userType === 'instructor') {
-                this.router.navigate(['/register-instructor']);
+                this.router.navigate(['/auth/register-instructor-auth']);
               } else {
                 this.router.navigate(['/']);
               }

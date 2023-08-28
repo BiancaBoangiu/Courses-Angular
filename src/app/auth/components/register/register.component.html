@@ -105,6 +105,13 @@
                       registerForm.get('password')?.touched)
                   "
                 >
+                  <!-- Check if passwords match -->
+                  <div
+                    *ngIf="registerForm.hasError('passwordsNotMatch')"
+                    class="my-2 error-text"
+                  >
+                    <span>Your passwords do not match</span>
+                  </div>
                   <!-- Check min length of 5 -->
                   <div
                     *ngIf="registerForm.get('password')?.errors?.['minlength']"
@@ -112,20 +119,7 @@
                   >
                     <span>Your password must be 5 characters at least</span>
                   </div>
-                  <!-- Else -->
-                  <div
-                    *ngIf="!registerForm.get('password')?.errors?.['minlength']"
-                    class="my-2 error-text"
-                  >
-                    <!-- Check if passwords match -->
-                    <span>pula</span>
-                    <div
-                      *ngIf="registerForm.hasError('passwordsNotMatch')"
-                      class="my-2 error-text"
-                    >
-                      <span>Your passwords do not match</span>
-                    </div>
-                  </div>
+
                   <!-- Password is required -->
                   <div
                     *ngIf="registerForm.get('password')?.errors?.['required']"
@@ -162,26 +156,20 @@
                       registerForm.get('confirmedPassword')?.touched)
                   "
                 >
-                  <!-- Check min length of 5 -->
+                  <!-- Check if passwords match -->
+                  <div
+                    *ngIf="registerForm.hasError('passwordsNotMatch')"
+                    class="my-2 error-text"
+                  >
+                    Passwords do not match.
+                  </div>
 
+                  <!-- Check min length of 5 -->
                   <div
                     *ngIf="registerForm.get('confirmedPassword')?.errors?.['minlength']"
                     class="my-2 error-text"
                   >
                     <span>Your password must be 5 characters at least</span>
-                  </div>
-                  <!-- Else -->
-                  <div
-                    *ngIf="!registerForm.get('confirmedPassword')?.errors?.['minlength']"
-                    class="my-2 error-text"
-                  >
-                    <!-- Check if passwords match -->
-                    <div
-                      *ngIf="registerForm.hasError('passwordsNotMatch')"
-                      class="my-2 error-text"
-                    >
-                      Passwords do not match.
-                    </div>
                   </div>
 
                   <div

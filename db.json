@@ -299,39 +299,29 @@
       "id": 3
     },
     {
-      "email": "admin3@test.com",
-      "password": "ttttt",
+      "email": "aaadmin3@test.com",
+      "password": "aaaaa",
       "id": 4
     },
     {
-      "email": "admin7@test.com",
-      "password": "ttttt",
+      "email": "fdgdfgdadmin3@test.com",
+      "password": "aaaaa",
       "id": 5
     },
     {
-      "email": "admin9@test.com",
-      "password": "ttttt",
+      "email": "sadasadmin3@test.com",
+      "password": "aaaaa",
       "id": 6
     },
     {
-      "email": "adminthgfh3@test.com",
-      "password": "ttttt",
+      "email": "afgdfgfddmin3@test.com",
+      "password": "aaaaa",
       "id": 7
     },
     {
-      "email": "admidgdfgfdgdfn3@test.com",
-      "password": "ttttt",
+      "email": "adfgfdmin3@test.com",
+      "password": "aaaaa",
       "id": 8
-    },
-    {
-      "email": "admfgfdgfdin3@test.com",
-      "password": "ttttt",
-      "id": 9
-    },
-    {
-      "email": "admin3433@test.com",
-      "password": "ttttt",
-      "id": 10
     }
   ],
   "reviews": [
