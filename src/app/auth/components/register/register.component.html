@@ -63,7 +63,7 @@
                   "
                 >
                   <div
-                    *ngIf="registerForm.get('email')?.errors?.['require']"
+                    *ngIf="registerForm.get('email')?.errors?.['required']"
                     class="my-2 error-text"
                   >
                     <span>This field is required</span>
@@ -74,9 +74,9 @@
                   >
                     <span>This email is not a valid format</span>
                   </div>
-                </div>
-                <div *ngIf="emailAlreadyUsed" class="my-2 error-text">
-                  <span>This email is already in use</span>
+                  <div *ngIf="emailAlreadyUsed" class="my-2 error-text">
+                    <span>This email is already in use</span>
+                  </div>
                 </div>
               </div>
               <!-- Password -->
@@ -105,13 +105,6 @@
                       registerForm.get('password')?.touched)
                   "
                 >
-                  <!-- Check if passwords match -->
-                  <div
-                    *ngIf="registerForm.hasError('passwordsNotMatch')"
-                    class="my-2 error-text"
-                  >
-                    <span>Your passwords do not match</span>
-                  </div>
                   <!-- Check min length of 5 -->
                   <div
                     *ngIf="registerForm.get('password')?.errors?.['minlength']"
@@ -127,6 +120,15 @@
                   >
                     <span>This field is required</span>
                   </div>
+                </div>
+                <div
+                  *ngIf="registerForm.get('confirmedPassword')?.dirty && registerForm.hasError('passwordsNotMatch') &&
+                  !registerForm.get('password')?.errors?.['minlength'] &&
+                  !registerForm.get('password')?.errors?.['required']
+    "
+                  class="my-2 error-text"
+                >
+                  Passwords do not match.
                 </div>
               </div>
 
@@ -156,14 +158,6 @@
                       registerForm.get('confirmedPassword')?.touched)
                   "
                 >
-                  <!-- Check if passwords match -->
-                  <div
-                    *ngIf="registerForm.hasError('passwordsNotMatch')"
-                    class="my-2 error-text"
-                  >
-                    Passwords do not match.
-                  </div>
-
                   <!-- Check min length of 5 -->
                   <div
                     *ngIf="registerForm.get('confirmedPassword')?.errors?.['minlength']"
@@ -178,6 +172,15 @@
                   >
                     <span>This field is required</span>
                   </div>
+                </div>
+                <div
+                  *ngIf="registerForm.hasError('passwordsNotMatch') && 
+                  !registerForm.get('confirmedPassword')?.errors?.['minlength'] && 
+                  !registerForm.get('confirmedPassword')?.errors?.['required']
+    "
+                  class="my-2 error-text"
+                >
+                  Passwords do not match.
                 </div>
               </div>
               <div>

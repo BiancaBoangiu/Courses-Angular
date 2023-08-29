@@ -31,10 +31,10 @@ export class RegisterComponent {
   }
 
   passwordsMatchValidator(group: FormGroup): { [key: string]: any } | null {
-    const password = group.get('password')?.value;
-    const confirmedPassword = group.get('confirmedPassword')?.value;
+    const passwordValue = group.get('password')?.value;
+    const confirmedPasswordValue = group.get('confirmedPassword')?.value;
 
-    if (password === confirmedPassword) {
+    if (passwordValue === confirmedPasswordValue) {
       return null;
     } else {
       return { passwordsNotMatch: true };
@@ -48,13 +48,7 @@ export class RegisterComponent {
       this.registerForm.get('confirmedPassword')?.value;
     const userType = this.registerForm.get('userType')?.value;
 
-    if (
-      !emailValue ||
-      !passwordValue ||
-      !confirmedPasswordValue ||
-      !userType ||
-      this.registerForm.invalid
-    ) {
+    if (this.registerForm.invalid) {
       return;
     } else {
       this.authService.verifyUser(emailValue).subscribe((response) => {
@@ -62,22 +56,23 @@ export class RegisterComponent {
         if (response.length > 0) {
           this.emailAlreadyUsed = true;
         } else {
-          this.authService
-            .registerUser(emailValue, passwordValue)
-            .pipe(
-              catchError((error) => {
-                console.error(error);
-                alert('Error: ' + error.message);
-                return throwError(error);
-              })
-            )
-            .subscribe(() => {
-              if (userType === 'instructor') {
-                this.router.navigate(['/auth/register-instructor-auth']);
-              } else {
+          if (userType === 'student') {
+            this.authService
+              .registerUser(emailValue, passwordValue)
+              .pipe(
+                catchError((error) => {
+                  console.error(error);
+                  alert('Error: ' + error.message);
+                  return throwError(error);
+                })
+              )
+              .subscribe(() => {
                 this.router.navigate(['/']);
-              }
-            });
+              });
+          }
+          if (userType === 'instructor') {
+            this.router.navigate(['/auth/register-instructor-auth']);
+          }
         }
       });
     }
