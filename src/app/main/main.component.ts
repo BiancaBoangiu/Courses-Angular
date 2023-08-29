@@ -8,8 +8,30 @@ import { Component } from '@angular/core';
   styleUrls: ['./main.component.scss'],
 })
 export class MainComponent {
+  numberOfCourses!: number;
+  numberOfInstructors!: number;
+
   constructor(
     private CoursesService: CoursesService,
     private instructorsService: InstructorsService
   ) {}
+
+  ngOnInit() {
+    this.showNumberOfCourses();
+    this.showNumberOfInstructors();
+  }
+
+  showNumberOfCourses() {
+    this.CoursesService.getCourses().subscribe((courses) => {
+      this.numberOfCourses = courses.length;
+    });
+  }
+
+  showNumberOfInstructors() {
+    this.instructorsService.getInstructors().subscribe((instructors) => {
+      this.numberOfInstructors = instructors.length;
+    });
+  }
+
+  showNumberOfUsers() {}
 }
