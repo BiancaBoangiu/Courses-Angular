@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { catchError, throwError } from 'rxjs';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { InstructorsService } from 'src/app/instructors/services/instructors.service';
 
 @Component({
   selector: 'app-register',
@@ -16,6 +17,7 @@ export class RegisterComponent {
   constructor(
     private route: ActivatedRoute,
     private authService: AuthService,
+    private instructorsService: InstructorsService,
     private router: Router,
     private fb: FormBuilder
   ) {
@@ -44,8 +46,6 @@ export class RegisterComponent {
   onSubmit(): void {
     const emailValue = this.registerForm.get('email')?.value;
     const passwordValue = this.registerForm.get('password')?.value;
-    const confirmedPasswordValue =
-      this.registerForm.get('confirmedPassword')?.value;
     const userType = this.registerForm.get('userType')?.value;
 
     if (this.registerForm.invalid) {
@@ -71,6 +71,8 @@ export class RegisterComponent {
               });
           }
           if (userType === 'instructor') {
+            this.instructorsService.instructorEmail = emailValue;
+            this.instructorsService.instructorPassword = passwordValue;
             this.router.navigate(['/auth/register-instructor-auth']);
           }
         }

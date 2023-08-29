@@ -456,6 +456,17 @@
       "email": "ava@example.com",
       "phoneNumber": "999-000-1111",
       "rating": 0
+    },
+    {
+      "email": "instructor@test.com",
+      "password": "aaaaa",
+      "name": "ana",
+      "skills": "banana",
+      "education": "ana",
+      "address": "123456789",
+      "phoneNumber": "banana",
+      "description": "ana",
+      "id": 11
     }
   ]
 }
