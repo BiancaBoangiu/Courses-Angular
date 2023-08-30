@@ -95,7 +95,6 @@ export class ListComponent {
   }
 
   sort(selectedOption: string) {
-    console.log(selectedOption);
     if (selectedOption === '1') {
       this.courseService.getCourses().subscribe((courses) => {
         const coursesByRatingAscending = courses.sort(

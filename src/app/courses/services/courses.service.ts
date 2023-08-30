@@ -39,4 +39,6 @@ export class CoursesService {
       body
     );
   }
+
+  getCoursesByPopularity() {}
 }

@@ -30,4 +30,9 @@ export class AuthService {
     const userURL = `http://localhost:3000/users?email=${loginEmail}`;
     return this.http.get<Auth[]>(userURL);
   }
+
+  getUsers(): Observable<Auth[]> {
+    const usersURL = 'http://localhost:3000/users';
+    return this.http.get<Auth[]>(usersURL);
+  }
 }

@@ -47,8 +47,7 @@
           ></span>
           <div class="ms-4 h6 fw-normal mb-0">
             <div class="d-flex">
-              <h5 class="purecounter mb-0 fw-bold">60</h5>
-              <span class="mb-0 h5">K+</span>
+              <h5 class="purecounter mb-0 fw-bold">{{ numberOfUsers }}</h5>
             </div>
             <p class="mb-0">Online Students</p>
           </div>
@@ -175,29 +174,11 @@
     </ul>
     <!-- Tabs END -->
     <div class="row g-4">
-      <div class="col-sm-6 col-lg-4 col-xl-3">
-        <app-course-card></app-course-card>
-      </div>
-      <div class="col-sm-6 col-lg-4 col-xl-3">
-        <app-course-card></app-course-card>
-      </div>
-      <div class="col-sm-6 col-lg-4 col-xl-3">
-        <app-course-card></app-course-card>
-      </div>
-      <div class="col-sm-6 col-lg-4 col-xl-3">
-        <app-course-card></app-course-card>
-      </div>
-      <div class="col-sm-6 col-lg-4 col-xl-3">
-        <app-course-card></app-course-card>
-      </div>
-      <div class="col-sm-6 col-lg-4 col-xl-3">
-        <app-course-card></app-course-card>
-      </div>
-      <div class="col-sm-6 col-lg-4 col-xl-3">
-        <app-course-card></app-course-card>
-      </div>
-      <div class="col-sm-6 col-lg-4 col-xl-3">
-        <app-course-card></app-course-card>
+      <div
+        class="col-sm-6 col-lg-4 col-xl-3"
+        *ngFor="let course of coursesByPopularity"
+      >
+        <app-popular-course-card [course]="course"></app-popular-course-card>
       </div>
     </div>
   </div>
