@@ -10,6 +10,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginComponent {
   loginForm: FormGroup;
+  invalidAccount: boolean = false;
 
   constructor(
     private authService: AuthService,
@@ -42,7 +43,7 @@ export class LoginComponent {
           console.log('Password does not match.');
         }
 
-        console.log(this.authService.loggedUser);
+        this.invalidAccount = true;
       });
   }
 }

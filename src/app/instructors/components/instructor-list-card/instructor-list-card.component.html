@@ -17,11 +17,18 @@
                   <h5 class="card-title mb-0"></h5>
                   <h5>{{ instructor.name }}</h5>
                 </div>
-                <span class="h6 fw-light"
-                  >{{ instructor.rating }}/5<i
-                    class="fas fa-star text-warning ms-1"
-                  ></i
-                ></span>
+                <div *ngIf="instructor.rating">
+                  <span class="h6 fw-light"
+                    >{{ instructor.rating }}/5<i
+                      class="fas fa-star text-warning ms-1"
+                    ></i
+                  ></span>
+                </div>
+                <div *ngIf="!instructor.rating">
+                  <span class="h6 fw-light"
+                    >0/5<i class="fas fa-star text-warning ms-1"></i
+                  ></span>
+                </div>
               </div>
               <!-- Content -->
               <p class="text-truncate-2 mb-3">

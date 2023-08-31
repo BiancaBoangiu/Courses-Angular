@@ -113,6 +113,9 @@
                   </div>
                 </div>
               </div>
+              <div *ngIf="invalidAccount" class="error-text">
+                <span>Account invalid</span>
+              </div>
 
               <!-- Button -->
               <div class="align-items-center mt-0">
@@ -131,14 +134,6 @@
               <div class="position-relative my-4">
                 <hr />
               </div>
-            </div>
-
-            <!-- Sign up link -->
-            <div class="mt-4 text-center">
-              <span
-                >Don't have an account?
-                <a href="sign-up.html">Signup here</a></span
-              >
             </div>
           </div>
         </div>

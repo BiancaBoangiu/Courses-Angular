@@ -11,6 +11,9 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PopularCourseCardComponent } from './main/components/popular-course-card/popular-course-card.component';
 import { MainComponent } from './main/components/main/main.component';
+import { UserCoursesComponent } from './user/components/user-courses/user-courses.component';
+import { PaymentComponent } from './user/components/payment/payment.component';
+import { DeleteProfileComponent } from './user/components/delete-profile/delete-profile.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +25,9 @@ import { MainComponent } from './main/components/main/main.component';
     BannerComponent,
     NotFoundComponent,
     PopularCourseCardComponent,
+    UserCoursesComponent,
+    PaymentComponent,
+    DeleteProfileComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
