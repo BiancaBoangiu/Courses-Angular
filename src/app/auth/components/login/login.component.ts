@@ -27,15 +27,22 @@ export class LoginComponent {
     const emailValue = this.loginForm.get('email')?.value;
     const passwordValue = this.loginForm.get('password')?.value;
 
-    this.authService.verifyUser(emailValue).subscribe((response) => {
-      if (response.length > 0) {
-        if (passwordValue !== response[0].password) {
-          return;
-        } else {
-          this.authService.loggedUser = response[0];
+    this.authService
+      .verifyUser(emailValue)
+      .subscribe(([userData, instructorData]) => {
+        if (userData && passwordValue === userData.password) {
+          this.authService.loggedUser = userData;
           this.router.navigate(['/']);
+        } else if (
+          instructorData &&
+          passwordValue === instructorData.password
+        ) {
+          this.authService.loggedUser = instructorData;
+        } else {
+          console.log('Password does not match.');
         }
-      }
-    });
+
+        console.log(this.authService.loggedUser);
+      });
   }
 }

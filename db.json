@@ -458,15 +458,26 @@
       "rating": 0
     },
     {
-      "email": "instructor@test.com",
+      "email": "ana@gamil.com",
       "password": "aaaaa",
-      "name": "ana",
-      "skills": "banana",
-      "education": "ana",
-      "address": "123456789",
-      "phoneNumber": "banana",
-      "description": "ana",
+      "name": "sdfsd",
+      "skills": "sdfsdf",
+      "education": "ssdffsd",
+      "address": "sdfsdfsd",
+      "phoneNumber": "sdfsdfsdf",
+      "description": "sfdfsdfsdf",
       "id": 11
+    },
+    {
+      "email": "beanca@gmail.com",
+      "password": "aaaaa",
+      "name": "dsfsdf",
+      "skills": "sdfsdfsd",
+      "education": "fsfsd",
+      "address": "sdfsdfds",
+      "phoneNumber": "sdfsdfds",
+      "description": "sdfsdfs",
+      "id": 12
     }
   ]
 }

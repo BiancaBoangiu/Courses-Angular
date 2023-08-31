@@ -48,7 +48,9 @@ export class MainComponent {
 
   showCoursesByPopularity() {
     this.coursesService.getCourses().subscribe((courses) => {
-      const coursesByPopularity = courses.sort((a, b) => b.views - a.views);
+      const coursesByPopularity = courses
+        .sort((a, b) => b.views - a.views)
+        .slice(0, 8);
       this.coursesByPopularity = coursesByPopularity;
     });
   }

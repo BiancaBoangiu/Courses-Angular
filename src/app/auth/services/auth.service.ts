@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Auth } from '../models/auth.interface';
-import { Observable, of } from 'rxjs';
+import { Observable, catchError, concat, forkJoin, map, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
@@ -28,7 +28,18 @@ export class AuthService {
 
   verifyUser(loginEmail: string): Observable<Auth[]> {
     const userURL = `http://localhost:3000/users?email=${loginEmail}`;
-    return this.http.get<Auth[]>(userURL);
+    const instructorURL = `http://localhost:3000/instructors?email=${loginEmail}`;
+
+    const userRequest = this.http
+      .get<Auth[]>(userURL)
+      .pipe(catchError(() => of([])));
+    const instructorRequest = this.http
+      .get<Auth[]>(instructorURL)
+      .pipe(catchError(() => of([])));
+
+    return forkJoin([userRequest, instructorRequest]).pipe(
+      map(([userData, instructorData]) => [...userData, ...instructorData])
+    );
   }
 
   getUsers(): Observable<Auth[]> {
