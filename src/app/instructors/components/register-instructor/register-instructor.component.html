@@ -208,6 +208,20 @@
                 formControlName="name"
               />
             </div>
+            <div
+              *ngIf="
+                registerInstructor.get('name')?.invalid &&
+                (registerInstructor.get('name')?.dirty ||
+                  registerInstructor.get('name')?.touched)
+              "
+            >
+              <div
+                *ngIf="registerInstructor.get('name')?.errors?.['required']"
+                class="my-2 error-text"
+              >
+                <span>This field is required</span>
+              </div>
+            </div>
             <!-- Skills -->
             <div class="col-lg-12">
               <label class="form-label">Skills *</label>
@@ -216,6 +230,20 @@
                 class="form-control"
                 formControlName="skills"
               />
+            </div>
+            <div
+              *ngIf="
+                registerInstructor.get('skills')?.invalid &&
+                (registerInstructor.get('skills')?.dirty ||
+                  registerInstructor.get('skills')?.touched)
+              "
+            >
+              <div
+                *ngIf="registerInstructor.get('skills')?.errors?.['required']"
+                class="my-2 error-text"
+              >
+                <span>This field is required</span>
+              </div>
             </div>
             <!-- Education -->
             <div class="col-lg-12">
@@ -226,6 +254,20 @@
                 formControlName="education"
               />
             </div>
+            <div
+              *ngIf="
+                registerInstructor.get('education')?.invalid &&
+                (registerInstructor.get('education')?.dirty ||
+                  registerInstructor.get('education')?.touched)
+              "
+            >
+              <div
+                *ngIf="registerInstructor.get('education')?.errors?.['required']"
+                class="my-2 error-text"
+              >
+                <span>This field is required</span>
+              </div>
+            </div>
             <!-- Address -->
             <div class="col-lg-12">
               <label class="form-label">Address *</label>
@@ -235,6 +277,20 @@
                 formControlName="address"
               />
             </div>
+            <div
+              *ngIf="
+                registerInstructor.get('address')?.invalid &&
+                (registerInstructor.get('address')?.dirty ||
+                  registerInstructor.get('address')?.touched)
+              "
+            >
+              <div
+                *ngIf="registerInstructor.get('address')?.errors?.['required']"
+                class="my-2 error-text"
+              >
+                <span>This field is required</span>
+              </div>
+            </div>
             <!-- Phone Number -->
             <div class="col-lg-12">
               <label class="form-label">Phone Number *</label>
@@ -243,6 +299,20 @@
                 class="form-control"
                 formControlName="phoneNumber"
               />
+            </div>
+            <div
+              *ngIf="
+                registerInstructor.get('phoneNumber')?.invalid &&
+                (registerInstructor.get('phoneNumber')?.dirty ||
+                  registerInstructor.get('phoneNumber')?.touched)
+              "
+            >
+              <div
+                *ngIf="registerInstructor.get('phoneNumber')?.errors?.['required']"
+                class="my-2 error-text"
+              >
+                <span>This field is required</span>
+              </div>
             </div>
 
             <!-- Description -->
@@ -255,6 +325,54 @@
                 formControlName="description"
               ></textarea>
             </div>
+            <div
+              *ngIf="
+                registerInstructor.get('description')?.invalid &&
+                (registerInstructor.get('description')?.dirty ||
+                  registerInstructor.get('description')?.touched)
+              "
+            >
+              <div
+                *ngIf="registerInstructor.get('description')?.errors?.['required']"
+                class="my-2 error-text"
+              >
+                <span>This field is required</span>
+              </div>
+            </div>
+            <div>
+              <label for="selectedImage">Select an image:</label>
+              <select id="selectedImage" formControlName="selectedImage">
+                <option value="">Select an image</option>
+                <option value="/assets/instructor1.jpg">Image 1</option>
+                <option value="/assets/instructor2.jpg">Image 2</option>
+                <option value="/assets/instructor3.jpg">Image 3</option>
+                <option value="/assets/instructor4.jpg">Image 4</option>
+              </select>
+            </div>
+            <div
+              *ngIf="registerInstructor.get('selectedImage')?.value"
+              class="selected-image"
+            >
+              <img
+                [src]="registerInstructor.get('selectedImage')?.value"
+                alt="Selected Image"
+              />
+            </div>
+            <div
+              *ngIf="
+                registerInstructor.get('selectedImage')?.invalid &&
+                (registerInstructor.get('selectedImage')?.dirty ||
+                  registerInstructor.get('selectedImage')?.touched)
+              "
+            >
+              <div
+                *ngIf="registerInstructor.get('selectedImage')?.errors?.['required']"
+                class="my-2 error-text"
+              >
+                <span>This field is required</span>
+              </div>
+            </div>
+
             <!-- Button -->
             <div class="col-12">
               <button type="submit" class="btn btn-primary mb-0">

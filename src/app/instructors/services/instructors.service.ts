@@ -37,7 +37,8 @@ export class InstructorsService {
     education: string,
     address: string,
     phoneNumber: number,
-    description: string
+    description: string,
+    image: string
   ): Observable<Instructor> {
     const body = {
       email,
@@ -48,6 +49,7 @@ export class InstructorsService {
       address,
       phoneNumber,
       description,
+      image,
     };
 
     return this.http.post<Instructor>(this.instructorsURL, body);

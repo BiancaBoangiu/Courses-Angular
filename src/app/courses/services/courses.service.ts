@@ -40,5 +40,9 @@ export class CoursesService {
     );
   }
 
-  getCoursesByPopularity() {}
+  // getCoursesByLevel(level: string): Observable<Course[]> {
+  //   const coursesByLevel = `http://localhost:3000/courses?level=${level.toLowerCase()}`;
+  //   console.log(coursesByLevel);
+  //   return this.http.get<Course[]>(coursesByLevel);
+  // }
 }

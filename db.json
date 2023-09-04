@@ -20,7 +20,7 @@
         }
       ],
       "instructorId": 1,
-      "views": 827,
+      "views": 830,
       "rating": 4,
       "participants": [],
       "hasCertificate": true,
@@ -456,28 +456,6 @@
       "email": "ava@example.com",
       "phoneNumber": "999-000-1111",
       "rating": 0
-    },
-    {
-      "email": "ana@gamil.com",
-      "password": "aaaaa",
-      "name": "sdfsd",
-      "skills": "sdfsdf",
-      "education": "ssdffsd",
-      "address": "sdfsdfsd",
-      "phoneNumber": "sdfsdfsdf",
-      "description": "sfdfsdfsdf",
-      "id": 11
-    },
-    {
-      "email": "beanca@gmail.com",
-      "password": "aaaaa",
-      "name": "dsfsdf",
-      "skills": "sdfsdfsd",
-      "education": "fsfsd",
-      "address": "sdfsdfds",
-      "phoneNumber": "sdfsdfds",
-      "description": "sdfsdfs",
-      "id": 12
     }
   ]
 }

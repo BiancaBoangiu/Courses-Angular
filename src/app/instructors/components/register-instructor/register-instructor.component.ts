@@ -25,6 +25,7 @@ export class RegisterInstructorComponent {
       address: ['', Validators.required],
       phoneNumber: ['', Validators.required],
       description: ['', Validators.required],
+      selectedImage: ['', Validators.required],
     });
   }
 
@@ -35,6 +36,8 @@ export class RegisterInstructorComponent {
     const addressValue = this.registerInstructor.get('address')?.value;
     const phoneNumberValue = this.registerInstructor.get('phoneNumber')?.value;
     const descriptionValue = this.registerInstructor.get('description')?.value;
+    const selectedImageValue =
+      this.registerInstructor.get('selectedImage')?.value;
 
     if (this.registerInstructor.invalid) {
       return;
@@ -55,7 +58,8 @@ export class RegisterInstructorComponent {
                 educationValue,
                 phoneNumberValue,
                 addressValue,
-                descriptionValue
+                descriptionValue,
+                selectedImageValue
               )
               .pipe(
                 catchError((error) => {
