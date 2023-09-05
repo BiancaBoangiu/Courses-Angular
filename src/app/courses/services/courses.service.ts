@@ -40,9 +40,9 @@ export class CoursesService {
     );
   }
 
-  // getCoursesByLevel(level: string): Observable<Course[]> {
-  //   const coursesByLevel = `http://localhost:3000/courses?level=${level.toLowerCase()}`;
-  //   console.log(coursesByLevel);
-  //   return this.http.get<Course[]>(coursesByLevel);
-  // }
+  getCoursesByExperience(level: string): Observable<Course[]> {
+    const coursesByLevel = `http://localhost:3000/courses?experience=${level}`;
+    console.log(coursesByLevel);
+    return this.http.get<Course[]>(coursesByLevel);
+  }
 }

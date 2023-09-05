@@ -3,7 +3,7 @@ export interface Course {
   name: string;
   description: string;
   time: number;
-  level: string;
+  experience: string;
   amount: number;
   author: string;
   image: string;

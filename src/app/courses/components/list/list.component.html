@@ -21,17 +21,16 @@
         <div class="row g-3 align-items-center justify-content-md-end me-auto">
           <select
             class="form-select"
-            [(ngModel)]="selectedSortOption"
-            (change)="sort(selectedSortOption)"
+            [(ngModel)]="sortSelection"
+            (change)="sort()"
           >
-            <option value="0" selected>Sort by</option>
-            <option value="1">Rating ascending</option>
+            <option value="" selected>Sort by</option>
+            <option value="rating_asc">Rating ascending</option>
 
-            <option value="2">Rating descending</option>
-            <option value="3">Price ascending</option>
-            <option value="4">Price descending</option>
-            <option value="5">Most popular</option>
-            <option value="6">Newest</option>
+            <option value="rating_desc">Rating descending</option>
+            <option value="price_asc">Price ascending</option>
+            <option value="price_desc">Price descending</option>
+            <option value="views_desc">Most popular</option>
           </select>
         </div>
       </div>
@@ -219,8 +218,6 @@
                     <label
                       class="btn btn-light btn-primary-soft-check"
                       for="option1"
-                      (click)="showCoursesByPriceLevel('all')"
-                      [ngClass]="{ active: allPriceChecked }"
                       >All</label
                     >
                   </li>
@@ -229,8 +226,6 @@
                     <label
                       class="btn btn-light btn-primary-soft-check"
                       for="option2"
-                      (click)="showCoursesByPriceLevel('free')"
-                      [ngClass]="{ active: freeChecked }"
                       >Free</label
                     >
                   </li>
@@ -239,8 +234,6 @@
                     <label
                       class="btn btn-light btn-primary-soft-check"
                       for="option3"
-                      (click)="showCoursesByPriceLevel('premium')"
-                      [ngClass]="{ active: premiumChecked }"
                       >Premium</label
                     >
                   </li>
@@ -252,49 +245,17 @@
               <div class="card card-body shadow p-4 mb-4">
                 <!-- Title -->
                 <h4 class="mb-3">Skill level</h4>
-                <ul class="list-inline mb-0">
-                  <!-- Item -->
-                  <li class="list-inline-item mb-2">
+                <ul class="list-inline">
+                  <li
+                    *ngFor="let level of experienceLevels"
+                    class="list-inline-item mb-2"
+                  >
                     <button
                       class="btn btn-light"
-                      for="btn-check-12"
-                      (click)="showCoursesByLevel('all')"
-                      [ngClass]="{ active: allChecked }"
+                      (click)="showCoursesByExperience(level)"
+                      [ngClass]="{ active: activeButton === level }"
                     >
-                      All levels
-                    </button>
-                  </li>
-                  <!-- Item -->
-                  <li class="list-inline-item mb-2">
-                    <button
-                      class="btn btn-light"
-                      for="btn-check-9"
-                      (click)="showCoursesByLevel('beginner')"
-                      [ngClass]="{ active: beginnerChecked }"
-                    >
-                      Beginner
-                    </button>
-                  </li>
-                  <!-- Item -->
-                  <li class="list-inline-item mb-2">
-                    <button
-                      class="btn btn-light"
-                      for="btn-check-10"
-                      (click)="showCoursesByLevel('intermediate')"
-                      [ngClass]="{ active: intermediateChecked }"
-                    >
-                      Intermediate
-                    </button>
-                  </li>
-                  <!-- Item -->
-                  <li class="list-inline-item mb-2">
-                    <button
-                      class="btn btn-light"
-                      for="btn-check-11"
-                      (click)="showCoursesByLevel('advanced')"
-                      [ngClass]="{ active: advancedChecked }"
-                    >
-                      Advanced
+                      {{ level }}
                     </button>
                   </li>
                 </ul>
@@ -302,11 +263,6 @@
               <!-- Skill level END -->
             </form>
             <!-- Form End -->
-          </div>
-
-          <!-- Button -->
-          <div class="d-grid p-2 p-xl-0 bg-body text-center">
-            <button class="btn btn-primary mb-0">Filter Results</button>
           </div>
         </div>
         <!-- Responsive offcanvas body END -->

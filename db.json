@@ -6,21 +6,97 @@
       "image": "assets/graphic.jpg",
       "description": "Learn the basics of programming and coding",
       "time": 21.56,
-      "level": "Beginner",
+      "experience": "Beginner",
       "curriculum": [
         {
-          "chapterName": "sdhgds",
+          "chapterName": "Introduction to Programming Basics",
           "id": 1,
           "topics": [
             {
-              "topicName": "sjhbfdsf",
-              "id": 1
+              "topicName": "What is Programming?",
+              "id": 1,
+              "subtopics": [
+                {
+                  "subtopicName": "Definition and Purpose of Programming",
+                  "id": 1
+                },
+                {
+                  "subtopicName": "Real-world Applications of Programming",
+                  "id": 2
+                }
+              ]
+            },
+            {
+              "topicName": "History and Evolution of Programming Languages",
+              "id": 2,
+              "subtopics": [
+                {
+                  "subtopicName": "Early Programming Languages",
+                  "id": 3
+                },
+                {
+                  "subtopicName": "Modern Programming Languages",
+                  "id": 4
+                }
+              ]
+            },
+            {
+              "topicName": "Importance of Learning Programming",
+              "id": 3,
+              "subtopics": [
+                {
+                  "subtopicName": "Why Programming Skills are Valuable",
+                  "id": 5
+                },
+                {
+                  "subtopicName": "Career Opportunities in Programming",
+                  "id": 6
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "chapterName": "Getting Started with Coding",
+          "id": 2,
+          "topics": [
+            {
+              "topicName": "Setting Up Your Development Environment",
+              "id": 4,
+              "subtopics": [
+                {
+                  "subtopicName": "Choosing a Programming Language",
+                  "id": 7
+                },
+                {
+                  "subtopicName": "Installing a Code Editor",
+                  "id": 8
+                }
+              ]
+            },
+            {
+              "topicName": "Writing Your First Program",
+              "id": 5,
+              "subtopics": [
+                {
+                  "subtopicName": "Basic Program Structure",
+                  "id": 9
+                },
+                {
+                  "subtopicName": "Printing Output to the Console",
+                  "id": 10
+                },
+                {
+                  "subtopicName": "Running Your Program",
+                  "id": 11
+                }
+              ]
             }
           ]
         }
       ],
       "instructorId": 1,
-      "views": 830,
+      "views": 837,
       "rating": 4,
       "participants": [],
       "hasCertificate": true,
@@ -32,14 +108,139 @@
       "image": "assets/html.jpg",
       "description": "Master web development skills with HTML, CSS, and JavaScript.",
       "time": 10,
-      "level": "Intermediate",
-      "curriculum": [],
+      "experience": "Intermediate",
       "instructorId": 2,
       "views": 205,
       "rating": null,
       "participants": [],
       "hasCertificate": true,
-      "price": 200
+      "price": 200,
+      "curriculum": [
+        {
+          "chapterName": "HTML Fundamentals",
+          "id": 1,
+          "topics": [
+            {
+              "topicName": "Introduction to HTML",
+              "id": 1,
+              "subtopics": [
+                {
+                  "subtopicName": "What is HTML?",
+                  "id": 1
+                },
+                {
+                  "subtopicName": "HTML Document Structure",
+                  "id": 2
+                }
+              ]
+            },
+            {
+              "topicName": "HTML Elements",
+              "id": 2,
+              "subtopics": [
+                {
+                  "subtopicName": "Text and Headings",
+                  "id": 3
+                },
+                {
+                  "subtopicName": "Links and Images",
+                  "id": 4
+                },
+                {
+                  "subtopicName": "Lists and Tables",
+                  "id": 5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "chapterName": "CSS Styling",
+          "id": 2,
+          "topics": [
+            {
+              "topicName": "Introduction to CSS",
+              "id": 3,
+              "subtopics": [
+                {
+                  "subtopicName": "Styling HTML Elements",
+                  "id": 6
+                },
+                {
+                  "subtopicName": "CSS Selectors",
+                  "id": 7
+                }
+              ]
+            },
+            {
+              "topicName": "Layout and Positioning",
+              "id": 4,
+              "subtopics": [
+                {
+                  "subtopicName": "Box Model",
+                  "id": 8
+                },
+                {
+                  "subtopicName": "Flexbox",
+                  "id": 9
+                },
+                {
+                  "subtopicName": "Grid Layout",
+                  "id": 10
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "chapterName": "JavaScript Fundamentals",
+          "id": 3,
+          "topics": [
+            {
+              "topicName": "Introduction to JavaScript",
+              "id": 5,
+              "subtopics": [
+                {
+                  "subtopicName": "Basic Syntax",
+                  "id": 11
+                },
+                {
+                  "subtopicName": "Variables and Data Types",
+                  "id": 12
+                }
+              ]
+            },
+            {
+              "topicName": "Working with Functions",
+              "id": 6,
+              "subtopics": [
+                {
+                  "subtopicName": "Function Declarations",
+                  "id": 13
+                },
+                {
+                  "subtopicName": "Function Expressions",
+                  "id": 14
+                }
+              ]
+            },
+            {
+              "topicName": "DOM Manipulation",
+              "id": 7,
+              "subtopics": [
+                {
+                  "subtopicName": "Selecting DOM Elements",
+                  "id": 15
+                },
+                {
+                  "subtopicName": "Modifying DOM Elements",
+                  "id": 16
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "id": 3,
@@ -47,8 +248,91 @@
       "image": "assets/figma.jpg",
       "description": "Dive into advanced data analysis and machine learning techniques.",
       "time": 12,
-      "level": "Advanced",
-      "curriculum": [],
+      "experience": "Advanced",
+      "curriculum": [
+        {
+          "chapterName": "Foundations of Data Science",
+          "id": 1,
+          "topics": [
+            {
+              "topicName": "Data Exploration",
+              "id": 1,
+              "subtopics": [
+                {
+                  "subtopicName": "Data Cleaning",
+                  "id": 1
+                },
+                {
+                  "subtopicName": "Data Visualization",
+                  "id": 2
+                }
+              ]
+            },
+            {
+              "topicName": "Statistical Analysis",
+              "id": 2,
+              "subtopics": [
+                {
+                  "subtopicName": "Descriptive Statistics",
+                  "id": 3
+                },
+                {
+                  "subtopicName": "Inferential Statistics",
+                  "id": 4
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "chapterName": "Machine Learning Techniques",
+          "id": 2,
+          "topics": [
+            {
+              "topicName": "Supervised Learning",
+              "id": 3,
+              "subtopics": [
+                {
+                  "subtopicName": "Linear Regression",
+                  "id": 5
+                },
+                {
+                  "subtopicName": "Decision Trees",
+                  "id": 6
+                }
+              ]
+            },
+            {
+              "topicName": "Unsupervised Learning",
+              "id": 4,
+              "subtopics": [
+                {
+                  "subtopicName": "Clustering Algorithms",
+                  "id": 7
+                },
+                {
+                  "subtopicName": "Dimensionality Reduction",
+                  "id": 8
+                }
+              ]
+            },
+            {
+              "topicName": "Deep Learning",
+              "id": 5,
+              "subtopics": [
+                {
+                  "subtopicName": "Neural Networks",
+                  "id": 9
+                },
+                {
+                  "subtopicName": "Convolutional Neural Networks (CNNs)",
+                  "id": 10
+                }
+              ]
+            }
+          ]
+        }
+      ],
       "instructorId": 3,
       "views": 134,
       "rating": null,
@@ -62,7 +346,7 @@
       "image": "assets/graphic.jpg",
       "description": "Learn Python programming for data analysis and visualization.",
       "time": 8,
-      "level": "Intermediate",
+      "experience": "Intermediate",
       "curriculum": [],
       "instructorId": 4,
       "views": 136,
@@ -77,7 +361,7 @@
       "image": "assets/react.jpg",
       "description": "Create mobile apps for iOS and Android platforms.",
       "time": 10,
-      "level": "Advanced",
+      "experience": "Advanced",
       "curriculum": [],
       "instructorId": 5,
       "views": 46,
@@ -92,7 +376,7 @@
       "name": "Introduction to Artificial Intelligence",
       "description": "Explore the fundamentals of AI and machine learning.",
       "time": 6,
-      "level": "Beginner",
+      "experience": "Beginner",
       "curriculum": [],
       "instructorId": 6,
       "views": 34,
@@ -107,7 +391,7 @@
       "name": "Full-Stack Web Development",
       "description": "Become a full-stack web developer with front-end and back-end skills.",
       "time": 12,
-      "level": "Intermediate",
+      "experience": "Intermediate",
       "curriculum": [],
       "instructorId": 7,
       "views": 14,
@@ -122,7 +406,7 @@
       "name": "Ethical Hacking and Cybersecurity",
       "description": "Learn how to secure computer systems and networks from cyber threats.",
       "time": 8,
-      "level": "Advanced",
+      "experience": "Advanced",
       "curriculum": [],
       "instructorId": 8,
       "views": 16,
@@ -137,7 +421,7 @@
       "name": "JavaScript Fundamentals",
       "description": "Master the basics of JavaScript programming language.",
       "time": 4,
-      "level": "Beginner",
+      "experience": "Beginner",
       "curriculum": [],
       "instructorId": 9,
       "views": 10,
@@ -152,7 +436,7 @@
       "name": "Data Visualization with D3.js",
       "description": "Learn how to create interactive data visualizations using D3.js.",
       "time": 6,
-      "level": "Intermediate",
+      "experience": "Intermediate",
       "curriculum": [],
       "instructorId": 10,
       "views": 12,
@@ -167,7 +451,7 @@
       "name": "React.js for Front-End Development",
       "description": "Build dynamic and responsive web applications with React.js.",
       "time": 8,
-      "level": "Intermediate",
+      "experience": "Intermediate",
       "curriculum": [],
       "instructorId": 1,
       "views": 35,
@@ -182,7 +466,7 @@
       "name": "Node.js and Express.js",
       "description": "Create server-side applications with Node.js and Express.js.",
       "time": 6,
-      "level": "Intermediate",
+      "experience": "Intermediate",
       "curriculum": [],
       "instructorId": 2,
       "views": 12,
@@ -197,7 +481,7 @@
       "name": "Machine Learning Algorithms",
       "description": "Explore various machine learning algorithms and their applications.",
       "time": 10,
-      "level": "Advanced",
+      "experience": "Advanced",
       "curriculum": [],
       "instructorId": 3,
       "views": 4,
@@ -212,7 +496,7 @@
       "name": "iOS App Development with Swift",
       "description": "Learn how to build iOS apps using the Swift programming language.",
       "time": 8,
-      "level": "Intermediate",
+      "experience": "Intermediate",
       "curriculum": [],
       "instructorId": 4,
       "views": 0,
@@ -227,7 +511,7 @@
       "name": "Android App Development with Kotlin",
       "description": "Create Android apps using the Kotlin programming language.",
       "time": 8,
-      "level": "Intermediate",
+      "experience": "Intermediate",
       "curriculum": [],
       "instructorId": 5,
       "views": 3,
@@ -242,7 +526,7 @@
       "name": "Introduction to Cloud Computing",
       "description": "Understand the fundamentals of cloud computing and cloud services.",
       "time": 6,
-      "level": "Beginner",
+      "experience": "Beginner",
       "curriculum": [],
       "instructorId": 6,
       "views": 0,
@@ -257,7 +541,7 @@
       "name": "Python for Machine Learning",
       "description": "Utilize Python for various machine learning tasks and projects.",
       "time": 10,
-      "level": "Intermediate",
+      "experience": "Intermediate",
       "curriculum": [],
       "instructorId": 1,
       "views": 5,
@@ -272,7 +556,7 @@
       "name": "Introduction to Cybersecurity",
       "description": "Learn the basics of cybersecurity and common security threats.",
       "time": 4,
-      "level": "Beginner",
+      "experience": "Beginner",
       "curriculum": [],
       "instructorId": 2,
       "views": 2,
