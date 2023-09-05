@@ -9,7 +9,9 @@ import { Course } from '../../models/course.interface';
 })
 export class ListComponent {
   experienceLevels = ['All', 'Beginner', 'Intermediate', 'Advanced'];
-  activeButton: string = 'All';
+  priceLevel = ['All', 'Free', 'Premium'];
+  activeLevelButton: string = '';
+  activePriceButton: string = '';
   courses: Course[] = [];
 
   sortSelection = '';
@@ -23,7 +25,7 @@ export class ListComponent {
   }
 
   showCoursesByExperience(level: string) {
-    this.activeButton = level;
+    this.activeLevelButton = level;
     if (level === 'All') {
       this.courseService.getCourses().subscribe((courses) => {
         this.courses = courses;
@@ -35,48 +37,10 @@ export class ListComponent {
     }
   }
 
-  sort() {
-    console.log(this.sortSelection);
+  showCoursesByPrice(price: string) {
+    this.activePriceButton = price;
+    this.courseService.getCoursesByPrice(price).subscribe((courses) => {
+      this.courses = courses;
+    });
   }
-
-  // showCoursesByPriceLevel(level: string) {
-  //   this.deselectOtherLevels(level);
-  //   if (level === 'all') {
-  //     this.allPriceChecked = !this.allPriceChecked;
-  //   }
-
-  //   if (level === 'free') {
-  //     this.freeChecked = !this.freeChecked;
-  //   }
-
-  //   if (level === 'premium') {
-  //     this.premiumChecked = !this.premiumChecked;
-  //   }
-
-  //   if (this.allPriceChecked) {
-  //     this.courseService
-  //       .getCourses()
-  //       .subscribe((courses) => (this.courses = courses));
-  //   } else {
-  //     if (this.freeChecked) {
-  //       this.courseService.getCourses().subscribe((courses) => {
-  //         const coursesByFreeLevel = courses.filter(
-  //           (course: Course) => course.price === 0
-  //         );
-  //         this.courses = coursesByFreeLevel;
-  //       });
-  //     } else if (this.premiumChecked) {
-  //       this.courseService.getCourses().subscribe((courses) => {
-  //         const coursesByPremiumLevel = courses.filter(
-  //           (course: Course) => course.price > 0
-  //         );
-  //         this.courses = coursesByPremiumLevel;
-  //       });
-  //     } else {
-  //       this.courseService
-  //         .getCourses()
-  //         .subscribe((courses) => (this.courses = courses));
-  //     }
-  //   }
-  // }
 }

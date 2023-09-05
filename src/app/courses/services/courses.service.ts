@@ -45,4 +45,17 @@ export class CoursesService {
     console.log(coursesByLevel);
     return this.http.get<Course[]>(coursesByLevel);
   }
+
+  getCoursesByPrice(price: string): Observable<Course[]> {
+    const coursesByFreePrice = 'http://localhost:3000/courses?price=0';
+    const courses = 'http://localhost:3000/courses';
+    const coursesByPremiumPrice = 'http://localhost:3000/courses?price[$gt]=0';
+    if (price === 'Premium') {
+      return this.http.get<Course[]>(coursesByPremiumPrice);
+    } else if (price === 'Free') {
+      return this.http.get<Course[]>(coursesByFreePrice);
+    } else {
+      return this.http.get<Course[]>(courses);
+    }
+  }
 }

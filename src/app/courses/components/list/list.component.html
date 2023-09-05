@@ -19,11 +19,7 @@
       <!-- Select option -->
       <div class="col-md-8">
         <div class="row g-3 align-items-center justify-content-md-end me-auto">
-          <select
-            class="form-select"
-            [(ngModel)]="sortSelection"
-            (change)="sort()"
-          >
+          <select class="form-select" [(ngModel)]="sortSelection">
             <option value="" selected>Sort by</option>
             <option value="rating_asc">Rating ascending</option>
 
@@ -214,28 +210,17 @@
                 <h4 class="mb-3">Price Level</h4>
                 <ul class="list-inline mb-0">
                   <!-- Price item -->
-                  <li class="list-inline-item">
-                    <label
-                      class="btn btn-light btn-primary-soft-check"
-                      for="option1"
-                      >All</label
+                  <li
+                    *ngFor="let price of priceLevel"
+                    class="list-inline-item mb-2"
+                  >
+                    <button
+                      class="btn btn-light"
+                      (click)="showCoursesByPrice(price)"
+                      [ngClass]="{ active: activePriceButton === price }"
                     >
-                  </li>
-                  <!-- Price item -->
-                  <li class="list-inline-item">
-                    <label
-                      class="btn btn-light btn-primary-soft-check"
-                      for="option2"
-                      >Free</label
-                    >
-                  </li>
-                  <!-- Price item -->
-                  <li class="list-inline-item">
-                    <label
-                      class="btn btn-light btn-primary-soft-check"
-                      for="option3"
-                      >Premium</label
-                    >
+                      {{ price }}
+                    </button>
                   </li>
                 </ul>
               </div>
@@ -253,7 +238,7 @@
                     <button
                       class="btn btn-light"
                       (click)="showCoursesByExperience(level)"
-                      [ngClass]="{ active: activeButton === level }"
+                      [ngClass]="{ active: activeLevelButton === level }"
                     >
                       {{ level }}
                     </button>
