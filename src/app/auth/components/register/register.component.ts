@@ -13,6 +13,7 @@ import { InstructorsService } from 'src/app/instructors/services/instructors.ser
 export class RegisterComponent {
   registerForm: FormGroup;
   emailAlreadyUsed: boolean = false;
+  formSubmitted = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -44,6 +45,7 @@ export class RegisterComponent {
   }
 
   onSubmit(): void {
+    this.formSubmitted = true;
     const emailValue = this.registerForm.get('email')?.value;
     const passwordValue = this.registerForm.get('password')?.value;
     const userType = this.registerForm.get('userType')?.value;

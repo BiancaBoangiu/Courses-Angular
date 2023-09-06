@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Course } from '../models/course.interface';
+import { InstructorsService } from 'src/app/instructors/services/instructors.service';
+import { Instructor } from 'src/app/instructors/models/instructor-interface';
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +14,10 @@ export class CoursesService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private instructorsService: InstructorsService
+  ) {}
 
   getCourses(): Observable<Course[]> {
     return this.http.get<Course[]>(this.coursesURL);
@@ -47,9 +52,10 @@ export class CoursesService {
   }
 
   getCoursesByPrice(price: string): Observable<Course[]> {
-    const coursesByFreePrice = 'http://localhost:3000/courses?price=0';
+    const coursesByFreePrice = 'http://localhost:3000/courses?isPremium=false';
     const courses = 'http://localhost:3000/courses';
-    const coursesByPremiumPrice = 'http://localhost:3000/courses?price[$gt]=0';
+    const coursesByPremiumPrice =
+      'http://localhost:3000/courses?isPremium=true';
     if (price === 'Premium') {
       return this.http.get<Course[]>(coursesByPremiumPrice);
     } else if (price === 'Free') {
@@ -57,5 +63,17 @@ export class CoursesService {
     } else {
       return this.http.get<Course[]>(courses);
     }
+  }
+
+  getCoursesByOption(option: string): Observable<Course[]> {
+    const optionParts = option.split('_');
+    const courses = `http://localhost:3000/courses?_sort=${optionParts[0]}&_order=${optionParts[1]}`;
+    console.log(courses);
+    return this.http.get<Course[]>(courses);
+  }
+
+  getInstructorById(id: number): Observable<Instructor> {
+    const instructorURL = `http://localhost:3000/instructors/${id}`;
+    return this.http.get<Instructor>(instructorURL);
   }
 }

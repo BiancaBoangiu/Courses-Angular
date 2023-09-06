@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { CoursesService } from '../../services/courses.service';
 import { Course } from '../../models/course.interface';
 import { Review } from '../../models/review.interface';
+import { Instructor } from 'src/app/instructors/models/instructor-interface';
 
 @Component({
   selector: 'app-course-detail',
@@ -13,6 +14,7 @@ import { Review } from '../../models/review.interface';
 })
 export class CourseDetailsComponent {
   course!: Course;
+  instructor!: Instructor;
 
   fiveStars: number = 0;
   fourStars: number = 0;
@@ -37,6 +39,11 @@ export class CourseDetailsComponent {
     this.coursesService.getCourseById(id).subscribe((course) => {
       this.course = course;
       this.authService.courseId = course.id;
+      this.coursesService
+        .getInstructorById(this.course.instructorId)
+        .subscribe((instructor) => {
+          this.instructor = instructor;
+        });
 
       this.coursesService
         .updateCourseViewcount(id, this.course.views + 1)

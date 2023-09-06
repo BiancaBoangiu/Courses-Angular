@@ -43,4 +43,9 @@ export class ListComponent {
       this.courses = courses;
     });
   }
+  sort(option: string) {
+    this.courseService.getCoursesByOption(option).subscribe((courses) => {
+      this.courses = courses;
+    });
+  }
 }

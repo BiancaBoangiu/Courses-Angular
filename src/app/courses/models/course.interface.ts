@@ -13,4 +13,6 @@ export interface Course {
   views: number;
   hasCertificate: boolean;
   price: number;
+  isPremium: boolean;
+  instructorId: number;
 }

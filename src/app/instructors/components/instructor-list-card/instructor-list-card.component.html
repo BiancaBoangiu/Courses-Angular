@@ -2,10 +2,14 @@
   <div class="col-12">
     <a [routerLink]="'/instructors/' + instructor.id">
       <div class="card shadow p-2">
-        <div class="row g-0">
+        <div class="row g-0 align-items-center">
           <!-- Image -->
-          <div class="col-md-4">
-            <img src="{{ instructor.image }}" alt="instructor-image" />
+          <div class="col-md-4 mx-auto">
+            <img
+              src="{{ instructor.image }}"
+              alt="instructor-image"
+              class="instructor-image"
+            />
           </div>
 
           <!-- Card body -->
@@ -40,37 +44,36 @@
               >
                 <!-- Title -->
                 <h6 class="text-orange mb-0">{{ instructor.skills }}</h6>
-
-                <!-- Social button -->
-                <ul class="list-inline mb-0 mt-3 mt-sm-0">
-                  <li class="list-inline-item">
-                    <a
-                      class="mb-0 me-1 text-facebook"
-                      href="http://www.facebook.com"
-                      ><i class="fab fa-fw fa-facebook-f"></i
-                    ></a>
-                  </li>
-                  <li class="list-inline-item">
-                    <a
-                      class="mb-0 me-1 text-instagram-gradient"
-                      href="http://www.instagram.com"
-                      ><i class="fab fa-fw fa-instagram"></i
-                    ></a>
-                  </li>
-                  <li class="list-inline-item">
-                    <a
-                      class="mb-0 me-1 text-twitter"
-                      href="http://www.twitter.com"
-                      ><i class="fab fa-fw fa-twitter"></i
-                    ></a>
-                  </li>
-                  <li class="list-inline-item">
-                    <a class="mb-0 text-linkedin" href="http://www.linkedin.com"
-                      ><i class="fab fa-fw fa-linkedin-in"></i
-                    ></a>
-                  </li>
-                </ul>
               </div>
+              <!-- Social button -->
+              <ul class="list-inline mb-0 mt-3 mt-sm-0 text-end">
+                <li class="list-inline-item">
+                  <a
+                    class="mb-0 me-1 text-facebook"
+                    href="http://www.facebook.com"
+                    ><i class="fab fa-fw fa-facebook-f"></i
+                  ></a>
+                </li>
+                <li class="list-inline-item">
+                  <a
+                    class="mb-0 me-1 text-instagram-gradient"
+                    href="http://www.instagram.com"
+                    ><i class="fab fa-fw fa-instagram"></i
+                  ></a>
+                </li>
+                <li class="list-inline-item">
+                  <a
+                    class="mb-0 me-1 text-twitter"
+                    href="http://www.twitter.com"
+                    ><i class="fab fa-fw fa-twitter"></i
+                  ></a>
+                </li>
+                <li class="list-inline-item">
+                  <a class="mb-0 text-linkedin" href="http://www.linkedin.com"
+                    ><i class="fab fa-fw fa-linkedin-in"></i
+                  ></a>
+                </li>
+              </ul>
             </div>
           </div>
         </div>

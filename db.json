@@ -144,7 +144,7 @@
         }
       ],
       "instructorId": 1,
-      "views": 837,
+      "views": 857,
       "rating": 4,
       "participants": [],
       "hasCertificate": true,
@@ -159,7 +159,7 @@
       "time": 10,
       "experience": "Intermediate",
       "instructorId": 2,
-      "views": 205,
+      "views": 225,
       "rating": 0,
       "participants": [],
       "hasCertificate": true,
@@ -724,12 +724,95 @@
     },
     {
       "id": 7,
-      "image": "assets/css.jpg",
       "name": "Full-Stack Web Development",
+      "image": "assets/css.jpg",
       "description": "Become a full-stack web developer with front-end and back-end skills.",
       "time": 12,
       "experience": "Intermediate",
-      "curriculum": [],
+      "curriculum": [
+        {
+          "chapterName": "Introduction to Web Development",
+          "id": 1,
+          "topics": [
+            {
+              "topicName": "What is Web Development?",
+              "id": 1
+            },
+            {
+              "topicName": "Front-End vs. Back-End Development",
+              "id": 2
+            },
+            {
+              "topicName": "Tools and Technologies",
+              "id": 3
+            }
+          ]
+        },
+        {
+          "chapterName": "Front-End Development",
+          "id": 2,
+          "topics": [
+            {
+              "topicName": "HTML and CSS Basics",
+              "id": 4
+            },
+            {
+              "topicName": "JavaScript Fundamentals",
+              "id": 5
+            },
+            {
+              "topicName": "Front-End Frameworks",
+              "id": 6
+            }
+          ]
+        },
+        {
+          "chapterName": "Back-End Development",
+          "id": 3,
+          "topics": [
+            {
+              "topicName": "Server-Side Programming",
+              "id": 7
+            },
+            {
+              "topicName": "Databases and SQL",
+              "id": 8
+            },
+            {
+              "topicName": "API Development",
+              "id": 9
+            }
+          ]
+        },
+        {
+          "chapterName": "Full-Stack Development",
+          "id": 4,
+          "topics": [
+            {
+              "topicName": "Integrating Front-End and Back-End",
+              "id": 10
+            },
+            {
+              "topicName": "Building Full-Stack Applications",
+              "id": 11
+            }
+          ]
+        },
+        {
+          "chapterName": "Version Control and Deployment",
+          "id": 5,
+          "topics": [
+            {
+              "topicName": "Git and Version Control",
+              "id": 12
+            },
+            {
+              "topicName": "Deployment Strategies",
+              "id": 13
+            }
+          ]
+        }
+      ],
       "instructorId": 7,
       "views": 14,
       "rating": 0,
@@ -740,12 +823,103 @@
     },
     {
       "id": 8,
-      "image": "assets/invision.jpg",
       "name": "Ethical Hacking and Cybersecurity",
+      "image": "assets/invision.jpg",
       "description": "Learn how to secure computer systems and networks from cyber threats.",
       "time": 8,
       "experience": "Advanced",
-      "curriculum": [],
+      "curriculum": [
+        {
+          "chapterName": "Introduction to Cybersecurity",
+          "id": 1,
+          "topics": [
+            {
+              "topicName": "What is Cybersecurity?",
+              "id": 1
+            },
+            {
+              "topicName": "Cyber Threats and Attacks",
+              "id": 2
+            },
+            {
+              "topicName": "Importance of Ethical Hacking",
+              "id": 3
+            }
+          ]
+        },
+        {
+          "chapterName": "Ethical Hacking Fundamentals",
+          "id": 2,
+          "topics": [
+            {
+              "topicName": "Hacker Mindset",
+              "id": 4
+            },
+            {
+              "topicName": "Footprinting and Reconnaissance",
+              "id": 5
+            },
+            {
+              "topicName": "Scanning and Enumeration",
+              "id": 6
+            }
+          ]
+        },
+        {
+          "chapterName": "Network Security",
+          "id": 3,
+          "topics": [
+            {
+              "topicName": "Firewalls and Intrusion Detection Systems",
+              "id": 7
+            },
+            {
+              "topicName": "Wireless Network Security",
+              "id": 8
+            },
+            {
+              "topicName": "Securing Network Services",
+              "id": 9
+            }
+          ]
+        },
+        {
+          "chapterName": "Web Application Security",
+          "id": 4,
+          "topics": [
+            {
+              "topicName": "Web Vulnerabilities and Attacks",
+              "id": 10
+            },
+            {
+              "topicName": "Secure Coding Practices",
+              "id": 11
+            },
+            {
+              "topicName": "Web Application Penetration Testing",
+              "id": 12
+            }
+          ]
+        },
+        {
+          "chapterName": "Incident Response and Forensics",
+          "id": 5,
+          "topics": [
+            {
+              "topicName": "Incident Handling",
+              "id": 13
+            },
+            {
+              "topicName": "Digital Forensics",
+              "id": 14
+            },
+            {
+              "topicName": "Legal and Ethical Considerations",
+              "id": 15
+            }
+          ]
+        }
+      ],
       "instructorId": 8,
       "views": 16,
       "rating": 0,
@@ -756,12 +930,103 @@
     },
     {
       "id": 9,
-      "image": "assets/graphic.jpg",
       "name": "JavaScript Fundamentals",
+      "image": "assets/graphic.jpg",
       "description": "Master the basics of JavaScript programming language.",
       "time": 4,
       "experience": "Beginner",
-      "curriculum": [],
+      "curriculum": [
+        {
+          "chapterName": "Introduction to JavaScript",
+          "id": 1,
+          "topics": [
+            {
+              "topicName": "What is JavaScript?",
+              "id": 1
+            },
+            {
+              "topicName": "History of JavaScript",
+              "id": 2
+            },
+            {
+              "topicName": "JavaScript in Web Development",
+              "id": 3
+            }
+          ]
+        },
+        {
+          "chapterName": "JavaScript Basics",
+          "id": 2,
+          "topics": [
+            {
+              "topicName": "Variables and Data Types",
+              "id": 4
+            },
+            {
+              "topicName": "Operators and Expressions",
+              "id": 5
+            },
+            {
+              "topicName": "Conditional Statements",
+              "id": 6
+            }
+          ]
+        },
+        {
+          "chapterName": "Functions and Control Flow",
+          "id": 3,
+          "topics": [
+            {
+              "topicName": "Functions and Scope",
+              "id": 7
+            },
+            {
+              "topicName": "Loops and Iteration",
+              "id": 8
+            },
+            {
+              "topicName": "Error Handling",
+              "id": 9
+            }
+          ]
+        },
+        {
+          "chapterName": "Working with DOM",
+          "id": 4,
+          "topics": [
+            {
+              "topicName": "Selecting DOM Elements",
+              "id": 10
+            },
+            {
+              "topicName": "Modifying DOM Elements",
+              "id": 11
+            },
+            {
+              "topicName": "Handling Events",
+              "id": 12
+            }
+          ]
+        },
+        {
+          "chapterName": "JavaScript Libraries and Frameworks",
+          "id": 5,
+          "topics": [
+            {
+              "topicName": "Introduction to Libraries",
+              "id": 13
+            },
+            {
+              "topicName": "Popular JavaScript Frameworks",
+              "id": 14
+            },
+            {
+              "topicName": "Building Small Projects",
+              "id": 15
+            }
+          ]
+        }
+      ],
       "instructorId": 9,
       "views": 10,
       "rating": 0,
@@ -772,12 +1037,103 @@
     },
     {
       "id": 10,
-      "image": "assets/javascript.jpg",
       "name": "Data Visualization with D3.js",
+      "image": "assets/javascript.jpg",
       "description": "Learn how to create interactive data visualizations using D3.js.",
       "time": 6,
       "experience": "Intermediate",
-      "curriculum": [],
+      "curriculum": [
+        {
+          "chapterName": "Introduction to Data Visualization",
+          "id": 1,
+          "topics": [
+            {
+              "topicName": "What is Data Visualization?",
+              "id": 1
+            },
+            {
+              "topicName": "Importance of Data Visualization",
+              "id": 2
+            },
+            {
+              "topicName": "Types of Data Visualizations",
+              "id": 3
+            }
+          ]
+        },
+        {
+          "chapterName": "Getting Started with D3.js",
+          "id": 2,
+          "topics": [
+            {
+              "topicName": "Introduction to D3.js",
+              "id": 4
+            },
+            {
+              "topicName": "Setting Up a D3.js Environment",
+              "id": 5
+            },
+            {
+              "topicName": "Data Binding and Selections",
+              "id": 6
+            }
+          ]
+        },
+        {
+          "chapterName": "Creating Basic Visualizations",
+          "id": 3,
+          "topics": [
+            {
+              "topicName": "Creating SVG Elements",
+              "id": 7
+            },
+            {
+              "topicName": "Bar Charts and Scatter Plots",
+              "id": 8
+            },
+            {
+              "topicName": "Adding Interactivity",
+              "id": 9
+            }
+          ]
+        },
+        {
+          "chapterName": "Advanced Data Visualizations",
+          "id": 4,
+          "topics": [
+            {
+              "topicName": "Line Charts and Area Charts",
+              "id": 10
+            },
+            {
+              "topicName": "Pie Charts and Donut Charts",
+              "id": 11
+            },
+            {
+              "topicName": "Custom Visualizations with D3.js",
+              "id": 12
+            }
+          ]
+        },
+        {
+          "chapterName": "Data Visualization Best Practices",
+          "id": 5,
+          "topics": [
+            {
+              "topicName": "Choosing the Right Visualization",
+              "id": 13
+            },
+            {
+              "topicName": "Color and Accessibility",
+              "id": 14
+            },
+            {
+              "topicName": "Storytelling with Data",
+              "id": 15
+            }
+          ]
+        }
+      ],
       "instructorId": 10,
       "views": 12,
       "rating": 0,
@@ -788,12 +1144,103 @@
     },
     {
       "id": 11,
-      "image": "assets/graphic.jpg",
       "name": "React.js for Front-End Development",
+      "image": "assets/graphic.jpg",
       "description": "Build dynamic and responsive web applications with React.js.",
       "time": 8,
       "experience": "Intermediate",
-      "curriculum": [],
+      "curriculum": [
+        {
+          "chapterName": "Introduction to React.js",
+          "id": 1,
+          "topics": [
+            {
+              "topicName": "What is React.js?",
+              "id": 1
+            },
+            {
+              "topicName": "Why Use React.js?",
+              "id": 2
+            },
+            {
+              "topicName": "Setting Up a React.js Environment",
+              "id": 3
+            }
+          ]
+        },
+        {
+          "chapterName": "React Components and State",
+          "id": 2,
+          "topics": [
+            {
+              "topicName": "Creating React Components",
+              "id": 4
+            },
+            {
+              "topicName": "Managing Component State",
+              "id": 5
+            },
+            {
+              "topicName": "Props and Data Flow",
+              "id": 6
+            }
+          ]
+        },
+        {
+          "chapterName": "React Router and Navigation",
+          "id": 3,
+          "topics": [
+            {
+              "topicName": "Navigation in React Applications",
+              "id": 7
+            },
+            {
+              "topicName": "React Router Setup",
+              "id": 8
+            },
+            {
+              "topicName": "Routing and Route Parameters",
+              "id": 9
+            }
+          ]
+        },
+        {
+          "chapterName": "State Management with Redux",
+          "id": 4,
+          "topics": [
+            {
+              "topicName": "Introduction to Redux",
+              "id": 10
+            },
+            {
+              "topicName": "Redux Store and Actions",
+              "id": 11
+            },
+            {
+              "topicName": "Connecting React and Redux",
+              "id": 12
+            }
+          ]
+        },
+        {
+          "chapterName": "Building Real-World Projects",
+          "id": 5,
+          "topics": [
+            {
+              "topicName": "Building a React App",
+              "id": 13
+            },
+            {
+              "topicName": "Working with APIs",
+              "id": 14
+            },
+            {
+              "topicName": "Deployment and Optimization",
+              "id": 15
+            }
+          ]
+        }
+      ],
       "instructorId": 1,
       "views": 35,
       "rating": 0,
@@ -804,12 +1251,103 @@
     },
     {
       "id": 12,
-      "image": "assets/design.jpg",
       "name": "Node.js and Express.js",
+      "image": "assets/design.jpg",
       "description": "Create server-side applications with Node.js and Express.js.",
       "time": 6,
       "experience": "Intermediate",
-      "curriculum": [],
+      "curriculum": [
+        {
+          "chapterName": "Introduction to Node.js and Express.js",
+          "id": 1,
+          "topics": [
+            {
+              "topicName": "What is Node.js?",
+              "id": 1
+            },
+            {
+              "topicName": "Why Use Node.js and Express.js?",
+              "id": 2
+            },
+            {
+              "topicName": "Setting Up a Node.js Environment",
+              "id": 3
+            }
+          ]
+        },
+        {
+          "chapterName": "Building RESTful APIs",
+          "id": 2,
+          "topics": [
+            {
+              "topicName": "Creating Routes and Endpoints",
+              "id": 4
+            },
+            {
+              "topicName": "Handling HTTP Requests",
+              "id": 5
+            },
+            {
+              "topicName": "Middleware and Error Handling",
+              "id": 6
+            }
+          ]
+        },
+        {
+          "chapterName": "Database Integration",
+          "id": 3,
+          "topics": [
+            {
+              "topicName": "Connecting to Databases",
+              "id": 7
+            },
+            {
+              "topicName": "CRUD Operations",
+              "id": 8
+            },
+            {
+              "topicName": "Authentication and Authorization",
+              "id": 9
+            }
+          ]
+        },
+        {
+          "chapterName": "Deploying Express.js Applications",
+          "id": 4,
+          "topics": [
+            {
+              "topicName": "Server Deployment Options",
+              "id": 10
+            },
+            {
+              "topicName": "Continuous Integration and Deployment (CI/CD)",
+              "id": 11
+            },
+            {
+              "topicName": "Performance Optimization",
+              "id": 12
+            }
+          ]
+        },
+        {
+          "chapterName": "Advanced Topics",
+          "id": 5,
+          "topics": [
+            {
+              "topicName": "WebSockets and Real-Time Communication",
+              "id": 13
+            },
+            {
+              "topicName": "REST API Best Practices",
+              "id": 14
+            },
+            {
+              "topicName": "Testing Express.js Applications",
+              "id": 15
+            }
+          ]
+        }
+      ],
       "instructorId": 2,
       "views": 12,
       "rating": 0,
@@ -820,12 +1358,103 @@
     },
     {
       "id": 13,
-      "image": "assets/javascript.jpg",
       "name": "Machine Learning Algorithms",
+      "image": "assets/javascript.jpg",
       "description": "Explore various machine learning algorithms and their applications.",
       "time": 10,
       "experience": "Advanced",
-      "curriculum": [],
+      "curriculum": [
+        {
+          "chapterName": "Introduction to Machine Learning",
+          "id": 1,
+          "topics": [
+            {
+              "topicName": "What is Machine Learning?",
+              "id": 1
+            },
+            {
+              "topicName": "Supervised vs. Unsupervised Learning",
+              "id": 2
+            },
+            {
+              "topicName": "Machine Learning Workflow",
+              "id": 3
+            }
+          ]
+        },
+        {
+          "chapterName": "Linear Models and Regression",
+          "id": 2,
+          "topics": [
+            {
+              "topicName": "Linear Regression",
+              "id": 4
+            },
+            {
+              "topicName": "Logistic Regression",
+              "id": 5
+            },
+            {
+              "topicName": "Regularization Techniques",
+              "id": 6
+            }
+          ]
+        },
+        {
+          "chapterName": "Tree-Based Models",
+          "id": 3,
+          "topics": [
+            {
+              "topicName": "Decision Trees",
+              "id": 7
+            },
+            {
+              "topicName": "Random Forests",
+              "id": 8
+            },
+            {
+              "topicName": "Gradient Boosting",
+              "id": 9
+            }
+          ]
+        },
+        {
+          "chapterName": "Clustering and Dimensionality Reduction",
+          "id": 4,
+          "topics": [
+            {
+              "topicName": "K-Means Clustering",
+              "id": 10
+            },
+            {
+              "topicName": "Principal Component Analysis (PCA)",
+              "id": 11
+            },
+            {
+              "topicName": "t-SNE",
+              "id": 12
+            }
+          ]
+        },
+        {
+          "chapterName": "Deep Learning and Neural Networks",
+          "id": 5,
+          "topics": [
+            {
+              "topicName": "Neural Networks",
+              "id": 13
+            },
+            {
+              "topicName": "Convolutional Neural Networks (CNNs)",
+              "id": 14
+            },
+            {
+              "topicName": "Recurrent Neural Networks (RNNs)",
+              "id": 15
+            }
+          ]
+        }
+      ],
       "instructorId": 3,
       "views": 4,
       "rating": 0,
@@ -836,12 +1465,85 @@
     },
     {
       "id": 14,
-      "image": "assets/graphic.jpg",
       "name": "iOS App Development with Swift",
+      "image": "assets/graphic.jpg",
       "description": "Learn how to build iOS apps using the Swift programming language.",
       "time": 8,
       "experience": "Intermediate",
-      "curriculum": [],
+      "curriculum": [
+        {
+          "chapterName": "Introduction to iOS App Development",
+          "id": 1,
+          "topics": [
+            {
+              "topicName": "Getting Started with Swift",
+              "id": 1
+            },
+            {
+              "topicName": "Xcode and Development Environment",
+              "id": 2
+            },
+            {
+              "topicName": "Building Your First iOS App",
+              "id": 3
+            }
+          ]
+        },
+        {
+          "chapterName": "User Interface Design",
+          "id": 2,
+          "topics": [
+            {
+              "topicName": "Creating User Interfaces",
+              "id": 4
+            },
+            {
+              "topicName": "Auto Layout and Constraints",
+              "id": 5
+            },
+            {
+              "topicName": "Navigation and UI Components",
+              "id": 6
+            }
+          ]
+        },
+        {
+          "chapterName": "Working with Data",
+          "id": 3,
+          "topics": [
+            {
+              "topicName": "Data Models and Storage",
+              "id": 7
+            },
+            {
+              "topicName": "Networking and API Integration",
+              "id": 8
+            },
+            {
+              "topicName": "Core Data and Persistence",
+              "id": 9
+            }
+          ]
+        },
+        {
+          "chapterName": "Advanced Topics",
+          "id": 4,
+          "topics": [
+            {
+              "topicName": "Using Third-Party Libraries",
+              "id": 10
+            },
+            {
+              "topicName": "Testing and Debugging",
+              "id": 11
+            },
+            {
+              "topicName": "App Deployment and App Store",
+              "id": 12
+            }
+          ]
+        }
+      ],
       "instructorId": 4,
       "views": 0,
       "rating": 0,
@@ -852,12 +1554,85 @@
     },
     {
       "id": 15,
-      "image": "assets/invision.jpg",
       "name": "Android App Development with Kotlin",
+      "image": "assets/invision.jpg",
       "description": "Create Android apps using the Kotlin programming language.",
       "time": 8,
       "experience": "Intermediate",
-      "curriculum": [],
+      "curriculum": [
+        {
+          "chapterName": "Introduction to Android App Development",
+          "id": 1,
+          "topics": [
+            {
+              "topicName": "Getting Started with Kotlin",
+              "id": 1
+            },
+            {
+              "topicName": "Android Studio and Development Environment",
+              "id": 2
+            },
+            {
+              "topicName": "Building Your First Android App",
+              "id": 3
+            }
+          ]
+        },
+        {
+          "chapterName": "User Interface Design",
+          "id": 2,
+          "topics": [
+            {
+              "topicName": "Creating User Interfaces with XML",
+              "id": 4
+            },
+            {
+              "topicName": "Kotlin for UI Development",
+              "id": 5
+            },
+            {
+              "topicName": "Navigation and UI Components",
+              "id": 6
+            }
+          ]
+        },
+        {
+          "chapterName": "Working with Data",
+          "id": 3,
+          "topics": [
+            {
+              "topicName": "Data Models and Storage",
+              "id": 7
+            },
+            {
+              "topicName": "Networking and API Integration",
+              "id": 8
+            },
+            {
+              "topicName": "Local Data Storage and Preferences",
+              "id": 9
+            }
+          ]
+        },
+        {
+          "chapterName": "Advanced Topics",
+          "id": 4,
+          "topics": [
+            {
+              "topicName": "Using Third-Party Libraries",
+              "id": 10
+            },
+            {
+              "topicName": "Testing and Debugging",
+              "id": 11
+            },
+            {
+              "topicName": "App Deployment and Google Play Store",
+              "id": 12
+            }
+          ]
+        }
+      ],
       "instructorId": 5,
       "views": 3,
       "rating": 0,
@@ -868,12 +1643,81 @@
     },
     {
       "id": 16,
-      "image": "assets/javascript.jpg",
       "name": "Introduction to Cloud Computing",
+      "image": "assets/javascript.jpg",
       "description": "Understand the fundamentals of cloud computing and cloud services.",
       "time": 6,
       "experience": "Beginner",
-      "curriculum": [],
+      "curriculum": [
+        {
+          "chapterName": "What is Cloud Computing?",
+          "id": 1,
+          "topics": [
+            {
+              "topicName": "Introduction to Cloud Computing",
+              "id": 1
+            },
+            {
+              "topicName": "Advantages of Cloud Computing",
+              "id": 2
+            },
+            {
+              "topicName": "Cloud Service Models",
+              "id": 3
+            }
+          ]
+        },
+        {
+          "chapterName": "Cloud Providers and Services",
+          "id": 2,
+          "topics": [
+            {
+              "topicName": "Popular Cloud Providers",
+              "id": 4
+            },
+            {
+              "topicName": "Infrastructure as a Service (IaaS)",
+              "id": 5
+            },
+            {
+              "topicName": "Platform as a Service (PaaS)",
+              "id": 6
+            }
+          ]
+        },
+        {
+          "chapterName": "Cloud Deployment Models",
+          "id": 3,
+          "topics": [
+            {
+              "topicName": "Public, Private, and Hybrid Clouds",
+              "id": 7
+            },
+            {
+              "topicName": "Choosing the Right Deployment Model",
+              "id": 8
+            }
+          ]
+        },
+        {
+          "chapterName": "Cloud Services and Use Cases",
+          "id": 4,
+          "topics": [
+            {
+              "topicName": "Storage and Data Services",
+              "id": 9
+            },
+            {
+              "topicName": "Compute and Networking Services",
+              "id": 10
+            },
+            {
+              "topicName": "Real-World Cloud Use Cases",
+              "id": 11
+            }
+          ]
+        }
+      ],
       "instructorId": 6,
       "views": 0,
       "rating": 0,
@@ -884,12 +1728,85 @@
     },
     {
       "id": 17,
-      "image": "assets/design.jpg",
       "name": "Python for Machine Learning",
+      "image": "assets/design.jpg",
       "description": "Utilize Python for various machine learning tasks and projects.",
       "time": 10,
       "experience": "Intermediate",
-      "curriculum": [],
+      "curriculum": [
+        {
+          "chapterName": "Introduction to Python for Machine Learning",
+          "id": 1,
+          "topics": [
+            {
+              "topicName": "Why Python for Machine Learning?",
+              "id": 1
+            },
+            {
+              "topicName": "Setting Up Python Environment",
+              "id": 2
+            },
+            {
+              "topicName": "Python Basics for Machine Learning",
+              "id": 3
+            }
+          ]
+        },
+        {
+          "chapterName": "Data Preparation and Preprocessing",
+          "id": 2,
+          "topics": [
+            {
+              "topicName": "Data Cleaning and Transformation",
+              "id": 4
+            },
+            {
+              "topicName": "Feature Engineering",
+              "id": 5
+            },
+            {
+              "topicName": "Handling Missing Data",
+              "id": 6
+            }
+          ]
+        },
+        {
+          "chapterName": "Machine Learning Algorithms",
+          "id": 3,
+          "topics": [
+            {
+              "topicName": "Supervised Learning Algorithms",
+              "id": 7
+            },
+            {
+              "topicName": "Unsupervised Learning Algorithms",
+              "id": 8
+            },
+            {
+              "topicName": "Evaluation and Model Selection",
+              "id": 9
+            }
+          ]
+        },
+        {
+          "chapterName": "Machine Learning Projects",
+          "id": 4,
+          "topics": [
+            {
+              "topicName": "Building and Deploying ML Models",
+              "id": 10
+            },
+            {
+              "topicName": "Real-World Machine Learning Projects",
+              "id": 11
+            },
+            {
+              "topicName": "Best Practices and Challenges",
+              "id": 12
+            }
+          ]
+        }
+      ],
       "instructorId": 1,
       "views": 5,
       "rating": 0,
@@ -900,12 +1817,85 @@
     },
     {
       "id": 18,
-      "image": "assets/graphic.jpg",
       "name": "Introduction to Cybersecurity",
+      "image": "assets/graphic.jpg",
       "description": "Learn the basics of cybersecurity and common security threats.",
       "time": 4,
       "experience": "Beginner",
-      "curriculum": [],
+      "curriculum": [
+        {
+          "chapterName": "Introduction to Cybersecurity Fundamentals",
+          "id": 1,
+          "topics": [
+            {
+              "topicName": "What is Cybersecurity?",
+              "id": 1
+            },
+            {
+              "topicName": "Key Concepts in Cybersecurity",
+              "id": 2
+            },
+            {
+              "topicName": "Importance of Cybersecurity",
+              "id": 3
+            }
+          ]
+        },
+        {
+          "chapterName": "Common Security Threats",
+          "id": 2,
+          "topics": [
+            {
+              "topicName": "Malware and Virus",
+              "id": 4
+            },
+            {
+              "topicName": "Phishing and Social Engineering",
+              "id": 5
+            },
+            {
+              "topicName": "Data Breaches and Identity Theft",
+              "id": 6
+            }
+          ]
+        },
+        {
+          "chapterName": "Cybersecurity Best Practices",
+          "id": 3,
+          "topics": [
+            {
+              "topicName": "Password Security",
+              "id": 7
+            },
+            {
+              "topicName": "Network Security",
+              "id": 8
+            },
+            {
+              "topicName": "Incident Response and Recovery",
+              "id": 9
+            }
+          ]
+        },
+        {
+          "chapterName": "Cybersecurity in the Modern World",
+          "id": 4,
+          "topics": [
+            {
+              "topicName": "IoT Security",
+              "id": 10
+            },
+            {
+              "topicName": "Cloud Security",
+              "id": 11
+            },
+            {
+              "topicName": "Career Opportunities in Cybersecurity",
+              "id": 12
+            }
+          ]
+        }
+      ],
       "instructorId": 2,
       "views": 2,
       "rating": 0,

@@ -57,9 +57,10 @@
 
                 <div
                   *ngIf="
-                    registerForm.get('email')?.invalid &&
-                    (registerForm.get('email')?.dirty ||
-                      registerForm.get('email')?.touched)
+                    (registerForm.get('email')?.invalid &&
+                      (registerForm.get('email')?.dirty ||
+                        registerForm.get('email')?.touched)) ||
+                    formSubmitted
                   "
                 >
                   <div
@@ -100,9 +101,10 @@
                 <!-- Check for password -->
                 <div
                   *ngIf="
-                    registerForm.get('password')?.invalid &&
-                    (registerForm.get('password')?.dirty ||
-                      registerForm.get('password')?.touched)
+                    (registerForm.get('password')?.invalid &&
+                      (registerForm.get('password')?.dirty ||
+                        registerForm.get('password')?.touched)) ||
+                    formSubmitted
                   "
                 >
                   <!-- Check min length of 5 -->
@@ -153,9 +155,10 @@
                 <!-- Check for confirm password -->
                 <div
                   *ngIf="
-                    registerForm.get('confirmedPassword')?.invalid &&
-                    (registerForm.get('confirmedPassword')?.dirty ||
-                      registerForm.get('confirmedPassword')?.touched)
+                    (registerForm.get('confirmedPassword')?.invalid &&
+                      (registerForm.get('confirmedPassword')?.dirty ||
+                        registerForm.get('confirmedPassword')?.touched)) ||
+                    formSubmitted
                   "
                 >
                   <!-- Check min length of 5 -->
@@ -197,9 +200,10 @@
               </div>
               <div
                 *ngIf="
-                  registerForm.get('userType')?.invalid &&
-                  (registerForm.get('userType')?.dirty ||
-                    registerForm.get('userType')?.touched)
+                  (registerForm.get('userType')?.invalid &&
+                    (registerForm.get('userType')?.dirty ||
+                      registerForm.get('userType')?.touched)) ||
+                  formSubmitted
                 "
               >
                 <div

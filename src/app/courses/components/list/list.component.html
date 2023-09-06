@@ -19,7 +19,11 @@
       <!-- Select option -->
       <div class="col-md-8">
         <div class="row g-3 align-items-center justify-content-md-end me-auto">
-          <select class="form-select" [(ngModel)]="sortSelection">
+          <select
+            class="form-select"
+            [(ngModel)]="sortSelection"
+            (click)="sort(sortSelection)"
+          >
             <option value="" selected>Sort by</option>
             <option value="rating_asc">Rating ascending</option>
 
