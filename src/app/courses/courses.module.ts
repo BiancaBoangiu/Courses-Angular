@@ -9,6 +9,7 @@ import { ReviewListComponent } from './components/review-list/review-list.compon
 import { ReviewSectionComponent } from './components/review-section/review-section.component';
 import { AddReviewComponent } from './components/add-review/add-review.component';
 import { ReviewComponent } from './components/review/review.component';
+import { CurriculumComponent } from '../curriculum/curriculum.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { ReviewComponent } from './components/review/review.component';
     ReviewSectionComponent,
     AddReviewComponent,
     ReviewComponent,
+    CurriculumComponent,
   ],
   imports: [CommonModule, CoursesRoutingModule, FormsModule],
 })

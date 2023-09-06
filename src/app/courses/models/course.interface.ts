@@ -15,4 +15,5 @@ export interface Course {
   price: number;
   isPremium: boolean;
   instructorId: number;
+  curriculum: any;
 }

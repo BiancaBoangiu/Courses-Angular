@@ -1,0 +1,19 @@
+<div class="accordion-body mt-3">
+  <!-- Course lecture -->
+  <div *ngFor="let topic of lecture.topics">
+    <div class="d-flex justify-content-between align-items-center">
+      <div class="position-relative d-flex align-items-center">
+        <!-- Display topicName -->
+        <span
+          class="d-inline-block text-truncate ms-2 mb-0 h6 fw-light w-100px w-sm-200px w-md-400px"
+        >
+          {{ topic.topicName }}
+        </span>
+      </div>
+      <p class="mb-0">{{ topic.duration }}</p>
+      <!-- Add duration if available -->
+    </div>
+    <hr />
+    <!-- Divider between topics -->
+  </div>
+</div>
