@@ -9,88 +9,136 @@
       "experience": "Beginner",
       "curriculum": [
         {
-          "chapterName": "Introduction to Programming Basics",
+          "chapterName": "Chapter 1: Getting Started",
           "id": 1,
           "topics": [
             {
               "topicName": "What is Programming?",
-              "id": 1,
-              "subtopics": [
-                {
-                  "subtopicName": "Definition and Purpose of Programming",
-                  "id": 1
-                },
-                {
-                  "subtopicName": "Real-world Applications of Programming",
-                  "id": 2
-                }
-              ]
+              "id": 1
             },
             {
-              "topicName": "History and Evolution of Programming Languages",
-              "id": 2,
-              "subtopics": [
-                {
-                  "subtopicName": "Early Programming Languages",
-                  "id": 3
-                },
-                {
-                  "subtopicName": "Modern Programming Languages",
-                  "id": 4
-                }
-              ]
+              "topicName": "Choosing a Programming Language",
+              "id": 2
             },
             {
-              "topicName": "Importance of Learning Programming",
-              "id": 3,
-              "subtopics": [
-                {
-                  "subtopicName": "Why Programming Skills are Valuable",
-                  "id": 5
-                },
-                {
-                  "subtopicName": "Career Opportunities in Programming",
-                  "id": 6
-                }
-              ]
+              "topicName": "Setting Up Your Development Environment",
+              "id": 3
             }
           ]
         },
         {
-          "chapterName": "Getting Started with Coding",
+          "chapterName": "Chapter 2: Basic Concepts",
           "id": 2,
           "topics": [
             {
-              "topicName": "Setting Up Your Development Environment",
-              "id": 4,
-              "subtopics": [
-                {
-                  "subtopicName": "Choosing a Programming Language",
-                  "id": 7
-                },
-                {
-                  "subtopicName": "Installing a Code Editor",
-                  "id": 8
-                }
-              ]
+              "topicName": "Variables and Data Types",
+              "id": 4
             },
             {
-              "topicName": "Writing Your First Program",
-              "id": 5,
-              "subtopics": [
-                {
-                  "subtopicName": "Basic Program Structure",
-                  "id": 9
-                },
-                {
-                  "subtopicName": "Printing Output to the Console",
-                  "id": 10
-                },
-                {
-                  "subtopicName": "Running Your Program",
-                  "id": 11
-                }
-              ]
+              "topicName": "Operators and Expressions",
+              "id": 5
+            },
+            {
+              "topicName": "Control Flow and Loops",
+              "id": 6
+            },
+            {
+              "topicName": "Functions and Methods",
+              "id": 7
+            }
+          ]
+        },
+        {
+          "chapterName": "Chapter 3: Advanced Topics",
+          "id": 3,
+          "topics": [
+            {
+              "topicName": "Object-Oriented Programming",
+              "id": 8
+            },
+            {
+              "topicName": "Data Structures and Algorithms",
+              "id": 9
+            },
+            {
+              "topicName": "Error Handling and Debugging",
+              "id": 10
+            },
+            {
+              "topicName": "Working with Files and Input/Output",
+              "id": 11
+            }
+          ]
+        },
+        {
+          "chapterName": "Chapter 4: Web Development Fundamentals",
+          "id": 4,
+          "topics": [
+            {
+              "topicName": "HTML and CSS Basics",
+              "id": 12
+            },
+            {
+              "topicName": "JavaScript Essentials",
+              "id": 13
+            },
+            {
+              "topicName": "Introduction to Front-End Frameworks",
+              "id": 14
+            }
+          ]
+        },
+        {
+          "chapterName": "Chapter 5: Database Design and Management",
+          "id": 5,
+          "topics": [
+            {
+              "topicName": "Relational Databases",
+              "id": 15
+            },
+            {
+              "topicName": "SQL Fundamentals",
+              "id": 16
+            },
+            {
+              "topicName": "NoSQL Databases",
+              "id": 17
+            }
+          ]
+        },
+        {
+          "chapterName": "Chapter 6: Software Development Lifecycle",
+          "id": 6,
+          "topics": [
+            {
+              "topicName": "Requirements Gathering",
+              "id": 18
+            },
+            {
+              "topicName": "Design and Planning",
+              "id": 19
+            },
+            {
+              "topicName": "Testing and Quality Assurance",
+              "id": 20
+            }
+          ]
+        },
+        {
+          "chapterName": "Chapter 7: Version Control and Collaboration",
+          "id": 7,
+          "topics": [
+            {
+              "topicName": "Introduction to Git",
+              "id": 21
+            },
+            {
+              "topicName": "Branching and Merging",
+              "id": 22
+            },
+            {
+              "topicName": "Collaborative Development Workflows",
+              "id": 23
             }
           ]
         }
@@ -100,7 +148,8 @@
       "rating": 4,
       "participants": [],
       "hasCertificate": true,
-      "price": 0
+      "price": 0,
+      "isPremium": false
     },
     {
       "id": 2,
@@ -111,10 +160,11 @@
       "experience": "Intermediate",
       "instructorId": 2,
       "views": 205,
-      "rating": null,
+      "rating": 0,
       "participants": [],
       "hasCertificate": true,
       "price": 200,
+      "isPremium": true,
       "curriculum": [
         {
           "chapterName": "HTML Fundamentals",
@@ -122,35 +172,15 @@
           "topics": [
             {
               "topicName": "Introduction to HTML",
-              "id": 1,
-              "subtopics": [
-                {
-                  "subtopicName": "What is HTML?",
-                  "id": 1
-                },
-                {
-                  "subtopicName": "HTML Document Structure",
-                  "id": 2
-                }
-              ]
+              "id": 1
             },
             {
               "topicName": "HTML Elements",
-              "id": 2,
-              "subtopics": [
-                {
-                  "subtopicName": "Text and Headings",
-                  "id": 3
-                },
-                {
-                  "subtopicName": "Links and Images",
-                  "id": 4
-                },
-                {
-                  "subtopicName": "Lists and Tables",
-                  "id": 5
-                }
-              ]
+              "id": 2
+            },
+            {
+              "topicName": "HTML Forms",
+              "id": 3
             }
           ]
         },
@@ -160,35 +190,15 @@
           "topics": [
             {
               "topicName": "Introduction to CSS",
-              "id": 3,
-              "subtopics": [
-                {
-                  "subtopicName": "Styling HTML Elements",
-                  "id": 6
-                },
-                {
-                  "subtopicName": "CSS Selectors",
-                  "id": 7
-                }
-              ]
+              "id": 4
             },
             {
               "topicName": "Layout and Positioning",
-              "id": 4,
-              "subtopics": [
-                {
-                  "subtopicName": "Box Model",
-                  "id": 8
-                },
-                {
-                  "subtopicName": "Flexbox",
-                  "id": 9
-                },
-                {
-                  "subtopicName": "Grid Layout",
-                  "id": 10
-                }
-              ]
+              "id": 5
+            },
+            {
+              "topicName": "Advanced CSS Techniques",
+              "id": 6
             }
           ]
         },
@@ -198,45 +208,87 @@
           "topics": [
             {
               "topicName": "Introduction to JavaScript",
-              "id": 5,
-              "subtopics": [
-                {
-                  "subtopicName": "Basic Syntax",
-                  "id": 11
-                },
-                {
-                  "subtopicName": "Variables and Data Types",
-                  "id": 12
-                }
-              ]
+              "id": 7
             },
             {
               "topicName": "Working with Functions",
-              "id": 6,
-              "subtopics": [
-                {
-                  "subtopicName": "Function Declarations",
-                  "id": 13
-                },
-                {
-                  "subtopicName": "Function Expressions",
-                  "id": 14
-                }
-              ]
+              "id": 8
             },
             {
               "topicName": "DOM Manipulation",
-              "id": 7,
-              "subtopics": [
-                {
-                  "subtopicName": "Selecting DOM Elements",
-                  "id": 15
-                },
-                {
-                  "subtopicName": "Modifying DOM Elements",
-                  "id": 16
-                }
-              ]
+              "id": 9
+            }
+          ]
+        },
+        {
+          "chapterName": "Responsive Web Design",
+          "id": 4,
+          "topics": [
+            {
+              "topicName": "Media Queries",
+              "id": 10
+            },
+            {
+              "topicName": "Flexbox Layout",
+              "id": 11
+            },
+            {
+              "topicName": "CSS Grid",
+              "id": 12
+            }
+          ]
+        },
+        {
+          "chapterName": "Front-End Frameworks",
+          "id": 5,
+          "topics": [
+            {
+              "topicName": "Introduction to React",
+              "id": 13
+            },
+            {
+              "topicName": "Vue.js Essentials",
+              "id": 14
+            },
+            {
+              "topicName": "Angular Fundamentals",
+              "id": 15
+            }
+          ]
+        },
+        {
+          "chapterName": "Back-End Development",
+          "id": 6,
+          "topics": [
+            {
+              "topicName": "Node.js and Express",
+              "id": 16
+            },
+            {
+              "topicName": "Databases and SQL",
+              "id": 17
+            },
+            {
+              "topicName": "RESTful API Development",
+              "id": 18
+            }
+          ]
+        },
+        {
+          "chapterName": "Web Security",
+          "id": 7,
+          "topics": [
+            {
+              "topicName": "Common Security Threats",
+              "id": 19
+            },
+            {
+              "topicName": "Authentication and Authorization",
+              "id": 20
+            },
+            {
+              "topicName": "Best Practices for Web Security",
+              "id": 21
             }
           ]
         }
@@ -256,31 +308,11 @@
           "topics": [
             {
               "topicName": "Data Exploration",
-              "id": 1,
-              "subtopics": [
-                {
-                  "subtopicName": "Data Cleaning",
-                  "id": 1
-                },
-                {
-                  "subtopicName": "Data Visualization",
-                  "id": 2
-                }
-              ]
+              "id": 1
             },
             {
               "topicName": "Statistical Analysis",
-              "id": 2,
-              "subtopics": [
-                {
-                  "subtopicName": "Descriptive Statistics",
-                  "id": 3
-                },
-                {
-                  "subtopicName": "Inferential Statistics",
-                  "id": 4
-                }
-              ]
+              "id": 2
             }
           ]
         },
@@ -290,55 +322,100 @@
           "topics": [
             {
               "topicName": "Supervised Learning",
-              "id": 3,
-              "subtopics": [
-                {
-                  "subtopicName": "Linear Regression",
-                  "id": 5
-                },
-                {
-                  "subtopicName": "Decision Trees",
-                  "id": 6
-                }
-              ]
+              "id": 3
             },
             {
               "topicName": "Unsupervised Learning",
-              "id": 4,
-              "subtopics": [
-                {
-                  "subtopicName": "Clustering Algorithms",
-                  "id": 7
-                },
-                {
-                  "subtopicName": "Dimensionality Reduction",
-                  "id": 8
-                }
-              ]
+              "id": 4
             },
             {
               "topicName": "Deep Learning",
-              "id": 5,
-              "subtopics": [
-                {
-                  "subtopicName": "Neural Networks",
-                  "id": 9
-                },
-                {
-                  "subtopicName": "Convolutional Neural Networks (CNNs)",
-                  "id": 10
-                }
-              ]
+              "id": 5
+            }
+          ]
+        },
+        {
+          "chapterName": "Data Preprocessing",
+          "id": 3,
+          "topics": [
+            {
+              "topicName": "Feature Engineering",
+              "id": 6
+            },
+            {
+              "topicName": "Data Scaling and Normalization",
+              "id": 7
+            },
+            {
+              "topicName": "Handling Missing Data",
+              "id": 8
+            }
+          ]
+        },
+        {
+          "chapterName": "Model Evaluation",
+          "id": 4,
+          "topics": [
+            {
+              "topicName": "Cross-Validation",
+              "id": 9
+            },
+            {
+              "topicName": "Model Metrics",
+              "id": 10
+            }
+          ]
+        },
+        {
+          "chapterName": "Feature Selection",
+          "id": 5,
+          "topics": [
+            {
+              "topicName": "Filter Methods",
+              "id": 11
+            },
+            {
+              "topicName": "Wrapper Methods",
+              "id": 12
+            }
+          ]
+        },
+        {
+          "chapterName": "Natural Language Processing",
+          "id": 6,
+          "topics": [
+            {
+              "topicName": "Text Preprocessing",
+              "id": 13
+            },
+            {
+              "topicName": "Text Classification",
+              "id": 14
+            }
+          ]
+        },
+        {
+          "chapterName": "Time Series Analysis",
+          "id": 7,
+          "topics": [
+            {
+              "topicName": "Time Series Data Exploration",
+              "id": 15
+            },
+            {
+              "topicName": "Forecasting Methods",
+              "id": 16
             }
           ]
         }
       ],
       "instructorId": 3,
       "views": 134,
-      "rating": null,
+      "rating": 0,
       "participants": [],
       "hasCertificate": true,
-      "price": 400
+      "price": 400,
+      "isPremium": true
     },
     {
       "id": 4,
@@ -347,13 +424,101 @@
       "description": "Learn Python programming for data analysis and visualization.",
       "time": 8,
       "experience": "Intermediate",
-      "curriculum": [],
+      "curriculum": [
+        {
+          "chapterName": "Python Basics",
+          "id": 1,
+          "topics": [
+            {
+              "topicName": "Introduction to Python",
+              "id": 1
+            },
+            {
+              "topicName": "Variables and Data Types",
+              "id": 2
+            },
+            {
+              "topicName": "Basic Operators",
+              "id": 3
+            }
+          ]
+        },
+        {
+          "chapterName": "Data Manipulation with Python",
+          "id": 2,
+          "topics": [
+            {
+              "topicName": "NumPy for Data Arrays",
+              "id": 4
+            },
+            {
+              "topicName": "Pandas for DataFrames",
+              "id": 5
+            },
+            {
+              "topicName": "Data Cleaning and Preprocessing",
+              "id": 6
+            }
+          ]
+        },
+        {
+          "chapterName": "Data Visualization with Python",
+          "id": 3,
+          "topics": [
+            {
+              "topicName": "Matplotlib for Plotting",
+              "id": 7
+            },
+            {
+              "topicName": "Seaborn for Statistical Visualization",
+              "id": 8
+            },
+            {
+              "topicName": "Interactive Visualization with Plotly",
+              "id": 9
+            }
+          ]
+        },
+        {
+          "chapterName": "Machine Learning with Python",
+          "id": 4,
+          "topics": [
+            {
+              "topicName": "Scikit-Learn Introduction",
+              "id": 10
+            },
+            {
+              "topicName": "Supervised Learning",
+              "id": 11
+            },
+            {
+              "topicName": "Unsupervised Learning",
+              "id": 12
+            }
+          ]
+        },
+        {
+          "chapterName": "Advanced Topics in Python",
+          "id": 5,
+          "topics": [
+            {
+              "topicName": "Web Scraping with Python",
+              "id": 13
+            },
+            {
+              "topicName": "Data Analysis Projects",
+              "id": 14
+            }
+          ]
+        }
+      ],
       "instructorId": 4,
       "views": 136,
       "rating": 3,
       "participants": [],
       "hasCertificate": false,
-      "price": 550
+      "price": 550,
+      "isPremium": true
     },
     {
       "id": 5,
@@ -362,28 +527,200 @@
       "description": "Create mobile apps for iOS and Android platforms.",
       "time": 10,
       "experience": "Advanced",
-      "curriculum": [],
+      "curriculum": [
+        {
+          "chapterName": "Introduction to Mobile App Development",
+          "id": 1,
+          "topics": [
+            {
+              "topicName": "Overview of Mobile App Development",
+              "id": 1
+            },
+            {
+              "topicName": "Choosing the Right Development Platform",
+              "id": 2
+            },
+            {
+              "topicName": "Setting Up Development Environments",
+              "id": 3
+            }
+          ]
+        },
+        {
+          "chapterName": "UI/UX Design for Mobile Apps",
+          "id": 2,
+          "topics": [
+            {
+              "topicName": "Principles of Mobile App Design",
+              "id": 4
+            },
+            {
+              "topicName": "User Interface (UI) Design",
+              "id": 5
+            },
+            {
+              "topicName": "User Experience (UX) Design",
+              "id": 6
+            }
+          ]
+        },
+        {
+          "chapterName": "Cross-Platform Development",
+          "id": 3,
+          "topics": [
+            {
+              "topicName": "React Native Framework",
+              "id": 7
+            },
+            {
+              "topicName": "Flutter Framework",
+              "id": 8
+            },
+            {
+              "topicName": "Xamarin Framework",
+              "id": 9
+            }
+          ]
+        },
+        {
+          "chapterName": "Native App Development",
+          "id": 4,
+          "topics": [
+            {
+              "topicName": "iOS App Development (Swift)",
+              "id": 10
+            },
+            {
+              "topicName": "Android App Development (Kotlin)",
+              "id": 11
+            }
+          ]
+        },
+        {
+          "chapterName": "App Testing and Debugging",
+          "id": 5,
+          "topics": [
+            {
+              "topicName": "Testing Strategies",
+              "id": 12
+            },
+            {
+              "topicName": "Debugging Techniques",
+              "id": 13
+            }
+          ]
+        }
+      ],
       "instructorId": 5,
       "views": 46,
       "rating": 0,
       "participants": [],
       "hasCertificate": true,
-      "price": 0
+      "price": 0,
+      "isPremium": false
     },
     {
       "id": 6,
-      "image": "assets/graphic.jpg",
       "name": "Introduction to Artificial Intelligence",
+      "image": "assets/graphic.jpg",
       "description": "Explore the fundamentals of AI and machine learning.",
       "time": 6,
       "experience": "Beginner",
-      "curriculum": [],
+      "curriculum": [
+        {
+          "chapterName": "Introduction to Artificial Intelligence",
+          "id": 1,
+          "topics": [
+            {
+              "topicName": "What is Artificial Intelligence?",
+              "id": 1
+            },
+            {
+              "topicName": "History and Evolution of AI",
+              "id": 2
+            },
+            {
+              "topicName": "Applications of AI",
+              "id": 3
+            }
+          ]
+        },
+        {
+          "chapterName": "Machine Learning Fundamentals",
+          "id": 2,
+          "topics": [
+            {
+              "topicName": "Introduction to Machine Learning",
+              "id": 4
+            },
+            {
+              "topicName": "Supervised Learning",
+              "id": 5
+            },
+            {
+              "topicName": "Unsupervised Learning",
+              "id": 6
+            }
+          ]
+        },
+        {
+          "chapterName": "Deep Learning",
+          "id": 3,
+          "topics": [
+            {
+              "topicName": "Neural Networks",
+              "id": 7
+            },
+            {
+              "topicName": "Convolutional Neural Networks (CNNs)",
+              "id": 8
+            },
+            {
+              "topicName": "Recurrent Neural Networks (RNNs)",
+              "id": 9
+            }
+          ]
+        },
+        {
+          "chapterName": "Natural Language Processing (NLP)",
+          "id": 4,
+          "topics": [
+            {
+              "topicName": "Text Classification",
+              "id": 10
+            },
+            {
+              "topicName": "Sentiment Analysis",
+              "id": 11
+            },
+            {
+              "topicName": "Chatbots and Language Models",
+              "id": 12
+            }
+          ]
+        },
+        {
+          "chapterName": "AI Ethics and Future Trends",
+          "id": 5,
+          "topics": [
+            {
+              "topicName": "Ethical Considerations in AI",
+              "id": 13
+            },
+            {
+              "topicName": "Future Trends in AI",
+              "id": 14
+            }
+          ]
+        }
+      ],
       "instructorId": 6,
       "views": 34,
       "rating": 0,
       "participants": [],
       "hasCertificate": true,
-      "price": 450
+      "price": 450,
+      "isPremium": true
     },
     {
       "id": 7,
@@ -398,7 +735,8 @@
       "rating": 0,
       "participants": [],
       "hasCertificate": false,
-      "price": 500
+      "price": 500,
+      "isPremium": true
     },
     {
       "id": 8,
@@ -413,7 +751,8 @@
       "rating": 0,
       "participants": [],
       "hasCertificate": true,
-      "price": 600
+      "price": 600,
+      "isPremium": true
     },
     {
       "id": 9,
@@ -428,7 +767,8 @@
       "rating": 0,
       "participants": [],
       "hasCertificate": true,
-      "price": 0
+      "price": 0,
+      "isPremium": false
     },
     {
       "id": 10,
@@ -443,7 +783,8 @@
       "rating": 0,
       "participants": [],
       "hasCertificate": true,
-      "price": 300
+      "price": 300,
+      "isPremium": true
     },
     {
       "id": 11,
@@ -458,7 +799,8 @@
       "rating": 0,
       "participants": [],
       "hasCertificate": false,
-      "price": 300
+      "price": 300,
+      "isPremium": true
     },
     {
       "id": 12,
@@ -473,7 +815,8 @@
       "rating": 0,
       "participants": [],
       "hasCertificate": true,
-      "price": 430
+      "price": 430,
+      "isPremium": true
     },
     {
       "id": 13,
@@ -488,7 +831,8 @@
       "rating": 0,
       "participants": [],
       "hasCertificate": true,
-      "price": 370
+      "price": 370,
+      "isPremium": true
     },
     {
       "id": 14,
@@ -503,7 +847,8 @@
       "rating": 0,
       "participants": [],
       "hasCertificate": false,
-      "price": 420
+      "price": 420,
+      "isPremium": true
     },
     {
       "id": 15,
@@ -518,7 +863,8 @@
       "rating": 0,
       "participants": [],
       "hasCertificate": true,
-      "price": 0
+      "price": 0,
+      "isPremium": false
     },
     {
       "id": 16,
@@ -533,7 +879,8 @@
       "rating": 0,
       "participants": [],
       "hasCertificate": false,
-      "price": 500
+      "price": 500,
+      "isPremium": true
     },
     {
       "id": 17,
@@ -548,7 +895,8 @@
       "rating": 0,
       "participants": [],
       "hasCertificate": true,
-      "price": 520
+      "price": 520,
+      "isPremium": true
     },
     {
       "id": 18,
@@ -563,7 +911,8 @@
       "rating": 0,
       "participants": [],
       "hasCertificate": false,
-      "price": 430
+      "price": 430,
+      "isPremium": true
     }
   ],
   "users": [
@@ -586,6 +935,11 @@
       "email": "aaadmin3@test.com",
       "password": "aaaaa",
       "id": 4
+    },
+    {
+      "email": "dsfsdfsdff@gmail.com",
+      "password": "aaaaa",
+      "id": 5
     }
   ],
   "reviews": [
