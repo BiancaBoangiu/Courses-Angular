@@ -6,9 +6,8 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./curriculum.component.scss'],
 })
 export class CurriculumComponent {
-  @Input() lecture!: any;
-
-  ngOnInit() {
-    console.log(this.lecture.topics);
-  }
+  //   @Input() lecture!: any;
+  //   ngOnInit() {
+  //     console.log(this.lecture.topics);
+  //   }
 }
