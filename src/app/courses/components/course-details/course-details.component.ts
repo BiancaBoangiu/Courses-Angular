@@ -44,6 +44,7 @@ export class CourseDetailsComponent {
         .subscribe((instructor) => {
           this.instructor = instructor;
         });
+      console.log(this.course.curriculum);
 
       this.coursesService
         .updateCourseViewcount(id, this.course.views + 1)

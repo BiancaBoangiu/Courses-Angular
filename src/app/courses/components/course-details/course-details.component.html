@@ -192,9 +192,8 @@
                     class="tab-pane fade active show"
                     id="course-pills-{{ lecture.id }}"
                     role="tabpanel"
-                    aria-labelledby="course-pills-tab-{{ lecture.id }}"
+                    [attr.area-labelledby]="'course-pills-tab-' + lecture.id"
                   >
-                    <!-- Course accordion START -->
                     <div
                       class="accordion accordion-icon accordion-bg-light"
                       id="accordionExample2"
@@ -209,9 +208,9 @@
                             class="accordion-button fw-bold rounded d-sm-flex d-inline-block collapsed"
                             type="button"
                             data-bs-toggle="collapse"
-                            data-bs-target="#collapse-{{ lecture.id }}"
+                            [attr.data-bs-target]="'#collapse-' + lecture.id"
                             aria-expanded="true"
-                            aria-controls="collapse-{{ lecture.id }}"
+                            [attr.aria-controls]="'collapse-' + lecture.id"
                           >
                             {{ lecture.chapterName }}
                             <span class="small ms-0 ms-sm-2">{{
@@ -219,43 +218,9 @@
                             }}</span>
                           </button>
                         </h6>
-                        <div *ngFor="let topic of lecture.topics">
-                          <div
-                            id="collapse-1"
-                            class="accordion-collapse collapse show"
-                            aria-labelledby="heading-{{ topic.id }}"
-                            data-bs-parent="#accordionExample2"
-                          >
-                            <div class="accordion-body mt-3">
-                              <!-- Course lecture -->
-                              <div
-                                class="d-flex justify-content-between align-items-center"
-                              >
-                                <div
-                                  class="position-relative d-flex align-items-center"
-                                >
-                                  <a
-                                    href="#"
-                                    class="btn btn-danger-soft btn-round btn-sm mb-0 stretched-link position-static"
-                                  >
-                                    <i class="fas fa-play me-0"></i>
-                                  </a>
-                                  <span
-                                    class="d-inline-block text-truncate ms-2 mb-0 h6 fw-light w-100px w-sm-200px w-md-400px"
-                                    >{{ topic.topicName }}</span
-                                  >
-                                </div>
-                                <p class="mb-0">2m 10s</p>
-                              </div>
-
-                              <hr />
-                              <!-- Divider -->
-                            </div>
-                          </div>
-                        </div>
+                        <app-curriculum [lecture]="lecture"></app-curriculum>
                       </div>
                     </div>
-                    <!-- Course accordion END -->
                   </div>
                 </div>
               </div>
