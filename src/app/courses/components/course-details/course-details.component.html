@@ -188,40 +188,7 @@
 
                 <!-- Content START -->
                 <div *ngFor="let lecture of course.curriculum">
-                  <div
-                    class="tab-pane fade active show"
-                    id="course-pills-{{ lecture.id }}"
-                    role="tabpanel"
-                    [attr.area-labelledby]="'course-pills-tab-' + lecture.id"
-                  >
-                    <div
-                      class="accordion accordion-icon accordion-bg-light"
-                      id="accordionExample2"
-                    >
-                      <!-- Item -->
-                      <div class="accordion-item mb-3">
-                        <h6
-                          class="accordion-header font-base"
-                          id="heading-{{ lecture.id }}"
-                        >
-                          <button
-                            class="accordion-button fw-bold rounded d-sm-flex d-inline-block collapsed"
-                            type="button"
-                            data-bs-toggle="collapse"
-                            [attr.data-bs-target]="'#collapse-' + lecture.id"
-                            aria-expanded="true"
-                            [attr.aria-controls]="'collapse-' + lecture.id"
-                          >
-                            {{ lecture.chapterName }}
-                            <span class="small ms-0 ms-sm-2">{{
-                              lecture.topics.length
-                            }}</span>
-                          </button>
-                        </h6>
-                        <app-curriculum [lecture]="lecture"></app-curriculum>
-                      </div>
-                    </div>
-                  </div>
+                  <app-curriculum [lecture]="lecture"></app-curriculum>
                 </div>
               </div>
             </div>
