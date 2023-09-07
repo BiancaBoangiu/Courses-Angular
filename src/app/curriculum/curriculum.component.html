@@ -20,7 +20,9 @@
           [attr.aria-controls]="'collapse-' + lecture.id"
         >
           {{ lecture.chapterName }}
-          <span class="small ms-0 ms-sm-2">{{ lecture.topics.length }}</span>
+          <span class="small ms-0 ms-sm-2"
+            >( {{ lecture.topics.length }} lectures )</span
+          >
         </button>
       </h6>
 
@@ -48,7 +50,6 @@
                     >{{ topic.topicName }}</span
                   >
                 </div>
-                <p class="mb-0">2m 10s</p>
               </div>
 
               <hr />
