@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Auth } from '../models/auth.interface';
 import { Observable, catchError, concat, forkJoin, map, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { User } from 'src/app/user/models/user-interface';
 
 @Injectable({
   providedIn: 'root',
@@ -45,5 +46,10 @@ export class AuthService {
   getUsers(): Observable<Auth[]> {
     const usersURL = 'http://localhost:3000/users';
     return this.http.get<Auth[]>(usersURL);
+  }
+
+  getUserById(id: number): Observable<User> {
+    const userURL = `http://localhost:3000/users/${id}`;
+    return this.http.get<User>(userURL);
   }
 }
