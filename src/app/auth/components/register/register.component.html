@@ -214,6 +214,16 @@
                 </div>
               </div>
 
+              <div *ngIf="registerForm.get('userType')?.value === 'student'">
+                <div class="pt-2">
+                  <select id="selectedImage" formControlName="selectedImage">
+                    <option value="">Select an image</option>
+                    <option value="/assets/user1.jpg">Male image</option>
+                    <option value="/assets/user2.jpg">Female image</option>
+                  </select>
+                </div>
+              </div>
+
               <!-- Button -->
               <div class="align-items-center mt-4">
                 <div class="d-grid">

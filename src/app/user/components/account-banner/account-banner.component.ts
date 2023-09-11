@@ -16,6 +16,7 @@ export class AccountBannerComponent {
     this.getUser();
   }
   getUser() {
+    console.log(this.authService.loggedUser.id);
     this.authService
       .getUserById(this.authService.loggedUser.id)
       .subscribe((user) => {

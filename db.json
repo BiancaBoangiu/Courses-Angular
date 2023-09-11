@@ -1909,27 +1909,14 @@
     {
       "email": "admin@test.com",
       "password": "aaaaa",
+      "image": "/assets/user1.jpg",
       "id": 1
     },
     {
       "email": "admin1@test.com",
       "password": "aaaaa",
+      "image": "/assets/user2.jpg",
       "id": 2
-    },
-    {
-      "email": "admin2@test.com",
-      "password": "aaaaa",
-      "id": 3
-    },
-    {
-      "email": "aaadmin3@test.com",
-      "password": "aaaaa",
-      "id": 4
-    },
-    {
-      "email": "dsfsdfsdff@gmail.com",
-      "password": "aaaaa",
-      "id": 5
     }
   ],
   "reviews": [

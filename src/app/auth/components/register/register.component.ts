@@ -28,6 +28,7 @@ export class RegisterComponent {
         password: ['', [Validators.required, Validators.minLength(5)]],
         confirmedPassword: ['', Validators.required],
         userType: ['', Validators.required],
+        selectedImage: ['', Validators.required],
       },
       { validator: this.passwordsMatchValidator }
     );
@@ -49,6 +50,8 @@ export class RegisterComponent {
     const emailValue = this.registerForm.get('email')?.value;
     const passwordValue = this.registerForm.get('password')?.value;
     const userType = this.registerForm.get('userType')?.value;
+    const selectedImageValue = this.registerForm.get('selectedImage')?.value;
+    console.log(selectedImageValue);
 
     if (this.registerForm.invalid) {
       return;
@@ -60,7 +63,7 @@ export class RegisterComponent {
         } else {
           if (userType === 'student') {
             this.authService
-              .registerUser(emailValue, passwordValue)
+              .registerUser(emailValue, passwordValue, selectedImageValue)
               .pipe(
                 catchError((error) => {
                   console.error(error);
