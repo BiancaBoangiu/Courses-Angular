@@ -1910,7 +1910,11 @@
       "email": "admin@test.com",
       "password": "aaaaa",
       "image": "/assets/user1.jpg",
-      "id": 1
+      "id": 1,
+      "firstName": "Marius",
+      "lastName": "Popescu",
+      "description": "",
+      "education": ""
     },
     {
       "email": "admin1@test.com",

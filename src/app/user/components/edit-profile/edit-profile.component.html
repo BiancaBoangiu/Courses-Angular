@@ -9,7 +9,7 @@
       <!-- Card body START -->
       <div class="card-body">
         <!-- Form -->
-        <form class="row g-4" [formGroup]="editForm">
+        <form class="row g-4" [formGroup]="editForm" (ngSubmit)="onSubmit()">
           <!-- Profile picture -->
           <div class="col-12 justify-content-center align-items-center">
             <label class="form-label">Profile picture</label>
@@ -64,8 +64,9 @@
             </div>
             <div
               *ngIf="
-                editForm.get('email')?.invalid &&
-                (editForm.get('email')?.dirty || editForm.get('email')?.touched)
+                editForm.get('firstName')?.invalid &&
+                (editForm.get('firstName')?.dirty ||
+                  editForm.get('firstName')?.touched)
               "
             >
               <div

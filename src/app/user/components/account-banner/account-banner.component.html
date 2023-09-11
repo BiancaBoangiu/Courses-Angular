@@ -31,7 +31,12 @@
                   <div *ngIf="user.firstName && user.lastName">
                     <h1>{{ user.firstName }} {{ user.lastName }}</h1>
                   </div>
-                  <h1 class="my-1 fs-4">{{ user.email }}</h1>
+                  <h1
+                    *ngIf="!user.firstName || user.lastName"
+                    class="my-1 fs-4"
+                  >
+                    {{ user.email }}
+                  </h1>
                   <ul class="list-inline mb-0">
                     <li class="list-inline-item me-3 mb-1 mb-sm-0">
                       <span class="h6">7 </span>

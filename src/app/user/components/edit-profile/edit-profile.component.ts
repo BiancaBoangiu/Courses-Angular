@@ -38,12 +38,13 @@ export class EditProfileComponent {
   }
 
   onSubmit(): void {
-    // this.formSubmitted = true;
-    const firstNameValue = this.editForm.get('email')?.value;
-    const lastNameValue = this.editForm.get('password')?.value;
-    const descriptionValue = this.editForm.get('userType')?.value;
-    const educationValue = this.editForm.get('selectedImage')?.value;
+    const firstNameValue = this.editForm.get('firstName')?.value;
+    const lastNameValue = this.editForm.get('lastName')?.value;
+    const descriptionValue = this.editForm.get('description')?.value;
+    const educationValue = this.editForm.get('education')?.value;
     const userId = this.authService.loggedUser.id;
+    console.log(firstNameValue);
+    console.log(lastNameValue);
 
     if (this.editForm.invalid) {
       return;
@@ -57,7 +58,7 @@ export class EditProfileComponent {
           userId
         )
         .subscribe((user) => {
-          console.log(user);
+          this.user = user;
         });
     }
   }
