@@ -6,45 +6,36 @@
       <div class="card-header bg-transparent border-bottom">
         <h3 class="card-header-title mb-0">Edit Profile</h3>
       </div>
+      <!-- Profile picture -->
+      <div class="col-12 justify-content-center align-items-center m-3">
+        <label class="form-label">Profile picture</label>
+        <div class="d-flex align-items-center">
+          <label
+            class="position-relative me-4"
+            for="uploadfile-1"
+            title="Replace this pic"
+          >
+            <!-- Avatar place holder -->
+            <span class="avatar avatar-xl">
+              <img
+                id="uploadfile-1-preview"
+                class="avatar-img rounded-circle border border-white border-3 shadow"
+                src="{{ user.image }}"
+                alt=""
+              />
+            </span>
+          </label>
+          <!-- Upload button -->
+          <label class="btn btn-primary-soft mb-0" for="uploadfile-1"
+            >Change</label
+          >
+          <input id="uploadfile-1" class="form-control d-none" type="file" />
+        </div>
+      </div>
       <!-- Card body START -->
       <div class="card-body">
         <!-- Form -->
         <form class="row g-4" [formGroup]="editForm" (ngSubmit)="onSubmit()">
-          <!-- Profile picture -->
-          <div class="col-12 justify-content-center align-items-center">
-            <label class="form-label">Profile picture</label>
-            <div class="d-flex align-items-center">
-              <label
-                class="position-relative me-4"
-                for="uploadfile-1"
-                title="Replace this pic"
-              >
-                <!-- Avatar place holder -->
-                <span class="avatar avatar-xl">
-                  <img
-                    id="uploadfile-1-preview"
-                    class="avatar-img rounded-circle border border-white border-3 shadow"
-                    src="{{ user.image }}"
-                    alt=""
-                  />
-                </span>
-                <!-- Remove btn -->
-                <button type="button" class="uploadremove">
-                  <i class="bi bi-x text-white"></i>
-                </button>
-              </label>
-              <!-- Upload button -->
-              <label class="btn btn-primary-soft mb-0" for="uploadfile-1"
-                >Change</label
-              >
-              <input
-                id="uploadfile-1"
-                class="form-control d-none"
-                type="file"
-              />
-            </div>
-          </div>
-
           <!-- Full name -->
           <div class="col-12">
             <label class="form-label">Full name</label>
