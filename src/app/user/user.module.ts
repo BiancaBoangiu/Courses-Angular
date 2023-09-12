@@ -5,7 +5,7 @@ import { AccountComponent } from './components/account/account.component';
 import { AccountBannerComponent } from './components/account-banner/account-banner.component';
 import { AccountNavbarComponent } from './components/account-navbar/account-navbar.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DeleteProfileComponent } from './components/delete-profile/delete-profile.component';
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 import { PaymentComponent } from './components/payment/payment.component';
@@ -28,6 +28,6 @@ import { WishlistComponent } from './components/wishlist/wishlist.component';
     UserCoursesComponent,
     WishlistComponent,
   ],
-  imports: [CommonModule, UserRoutingModule, ReactiveFormsModule],
+  imports: [CommonModule, UserRoutingModule, ReactiveFormsModule, FormsModule],
 })
 export class UserModule {}

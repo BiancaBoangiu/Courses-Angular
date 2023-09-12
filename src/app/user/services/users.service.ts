@@ -21,4 +21,11 @@ export class UsersService {
     const body = { firstName, lastName, description, education };
     return this.http.patch<User>(userURL, body);
   }
+
+  updateNewPassword(newPassword: string, userId: number): Observable<User> {
+    const userURL = `http://localhost:3000/users/${userId}`;
+    const body = { password: newPassword };
+
+    return this.http.patch<User>(userURL, body);
+  }
 }
