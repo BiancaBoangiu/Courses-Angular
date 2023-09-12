@@ -37,4 +37,9 @@ export class UsersService {
 
     return this.http.patch<User>(userURL, body);
   }
+
+  deleteUserAccount(userId: number): Observable<User> {
+    const userURL = `http://localhost:3000/users/${userId}`;
+    return this.http.delete<User>(userURL);
+  }
 }

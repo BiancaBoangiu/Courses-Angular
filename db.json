@@ -1911,50 +1911,9 @@
       "password": "aaaaa",
       "image": "/assets/user2.jpg",
       "id": 2
-    },
-    {
-      "email": "admin@test.com",
-      "password": "aaaaa",
-      "image": "/assets/user6.jpg",
-      "id": 3,
-      "firstName": "Alexandru",
-      "lastName": "Vioreanu",
-      "description": "-",
-      "education": "-"
     }
   ],
-  "reviews": [
-    {
-      "userId": 1,
-      "rating": "4",
-      "message": "fdgdfgdgdfgd",
-      "courseId": 4,
-      "likes": [],
-      "dislikes": [],
-      "userEmail": "admin@test.com",
-      "id": 3
-    },
-    {
-      "userId": 1,
-      "rating": "2",
-      "message": "gfhfhfghgf",
-      "courseId": 4,
-      "likes": [],
-      "dislikes": [],
-      "userEmail": "admin@test.com",
-      "id": 4
-    },
-    {
-      "userId": 1,
-      "rating": "4",
-      "message": "fghgfhgf",
-      "courseId": 1,
-      "likes": [],
-      "dislikes": [],
-      "userEmail": "admin@test.com",
-      "id": 5
-    }
-  ],
+  "reviews": [],
   "instructors": [
     {
       "id": 1,
