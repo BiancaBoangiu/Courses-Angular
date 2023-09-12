@@ -8,28 +8,65 @@
       </div>
       <!-- Profile picture -->
       <div class="col-12 justify-content-center align-items-center m-3">
-        <label class="form-label">Profile picture</label>
+        <p class="form-label">Profile picture</p>
         <div class="d-flex align-items-center">
-          <label
-            class="position-relative me-4"
-            for="uploadfile-1"
-            title="Replace this pic"
-          >
-            <!-- Avatar place holder -->
-            <span class="avatar avatar-xl">
-              <img
-                id="uploadfile-1-preview"
-                class="avatar-img rounded-circle border border-white border-3 shadow"
-                src="{{ user.image }}"
-                alt=""
-              />
-            </span>
-          </label>
+          <!-- Avatar place holder -->
+          <span class="avatar avatar-xl me-3">
+            <img
+              class="avatar-img rounded-circle border border-white border-3 shadow"
+              src="{{ user.image }}"
+              alt="user-image"
+              (click)="showImageOptions()"
+            />
+          </span>
+
           <!-- Upload button -->
-          <label class="btn btn-primary-soft mb-0" for="uploadfile-1"
-            >Change</label
+          <button
+            class="btn btn-primary-soft mb-0"
+            (click)="saveNewProfileImage()"
           >
-          <input id="uploadfile-1" class="form-control d-none" type="file" />
+            Change
+          </button>
+        </div>
+      </div>
+      <div *ngIf="imagesShown">
+        <div class="d-flex justify-content-center g-1">
+          <img
+            src="/assets/user1.jpg"
+            class="user-image"
+            [class.selected]="selectedImageSrc === '/assets/user1.jpg'"
+            (click)="saveImageSrc('/assets/user1.jpg')"
+          />
+          <img
+            src="/assets/user2.jpg"
+            class="user-image"
+            [class.selected]="selectedImageSrc === '/assets/user2.jpg'"
+            (click)="saveImageSrc('/assets/user2.jpg')"
+          />
+          <img
+            src="/assets/user3.jpg"
+            class="user-image"
+            [class.selected]="selectedImageSrc === '/assets/user3.jpg'"
+            (click)="saveImageSrc('/assets/user3.jpg')"
+          />
+          <img
+            src="/assets/user4.jpg"
+            class="user-image"
+            [class.selected]="selectedImageSrc === '/assets/user4.jpg'"
+            (click)="saveImageSrc('/assets/user4.jpg')"
+          />
+          <img
+            src="/assets/user5.jpg"
+            class="user-image"
+            [class.selected]="selectedImageSrc === '/assets/user5.jpg'"
+            (click)="saveImageSrc('/assets/user5.jpg')"
+          />
+          <img
+            src="/assets/user6.jpg"
+            class="user-image"
+            [class.selected]="selectedImageSrc === '/assets/user6.jpg'"
+            (click)="saveImageSrc('/assets/user6.jpg')"
+          />
         </div>
       </div>
       <!-- Card body START -->

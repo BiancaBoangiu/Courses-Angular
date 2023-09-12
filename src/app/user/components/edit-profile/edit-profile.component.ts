@@ -14,6 +14,8 @@ export class EditProfileComponent {
   editForm!: FormGroup;
   newPassword: string = '';
   passwordSaved: boolean = false;
+  imagesShown: boolean = false;
+  selectedImageSrc: string = '';
 
   constructor(
     private authService: AuthService,
@@ -73,5 +75,22 @@ export class EditProfileComponent {
     } else {
       return;
     }
+  }
+
+  showImageOptions() {
+    this.imagesShown = true;
+  }
+
+  saveImageSrc(src: string) {
+    this.selectedImageSrc = src;
+  }
+
+  saveNewProfileImage() {
+    this.usersService
+      .updateNewProfileImage(this.selectedImageSrc, this.user.id)
+      .subscribe((user) => {
+        this.user = user;
+        this.imagesShown = false;
+      });
   }
 }

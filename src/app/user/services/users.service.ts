@@ -28,4 +28,13 @@ export class UsersService {
 
     return this.http.patch<User>(userURL, body);
   }
+  updateNewProfileImage(
+    newProfileImage: string,
+    userId: number
+  ): Observable<User> {
+    const userURL = `http://localhost:3000/users/${userId}`;
+    const body = { image: newProfileImage };
+
+    return this.http.patch<User>(userURL, body);
+  }
 }
