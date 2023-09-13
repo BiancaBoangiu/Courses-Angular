@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { User } from '../../models/user-interface';
 import { AuthService } from 'src/app/auth/services/auth.service';
+import { UsersService } from '../../services/users.service';
 
 @Component({
   selector: 'app-account-banner',
@@ -10,17 +11,22 @@ import { AuthService } from 'src/app/auth/services/auth.service';
 export class AccountBannerComponent {
   user!: User;
 
-  constructor(private authService: AuthService) {}
+  constructor(
+    private authService: AuthService,
+    private usersService: UsersService
+  ) {}
 
   ngOnInit() {
     this.getUser();
   }
   getUser() {
-    console.log(this.authService.loggedUser.id);
     this.authService
       .getUserById(this.authService.loggedUser.id)
       .subscribe((user) => {
         this.user = user;
+        this.usersService.userData$.subscribe((user: User) => {
+          this.user = user;
+        });
       });
   }
 }

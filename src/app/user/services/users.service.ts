@@ -3,11 +3,14 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from '../models/user-interface';
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/auth/services/auth.service';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UsersService {
+  private userDataSubject = new Subject<User>();
+  userData$ = this.userDataSubject.asObservable();
   constructor(private http: HttpClient, private authService: AuthService) {}
 
   updateUserInfo(
@@ -41,5 +44,9 @@ export class UsersService {
   deleteUserAccount(userId: number): Observable<User> {
     const userURL = `http://localhost:3000/users/${userId}`;
     return this.http.delete<User>(userURL);
+  }
+
+  emitUserData(data: User) {
+    this.userDataSubject.next(data);
   }
 }

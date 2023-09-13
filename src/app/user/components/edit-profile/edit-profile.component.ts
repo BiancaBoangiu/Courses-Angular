@@ -60,6 +60,7 @@ export class EditProfileComponent {
         )
         .subscribe((user) => {
           this.user = user;
+          this.usersService.emitUserData(user);
         });
     }
   }
@@ -90,6 +91,7 @@ export class EditProfileComponent {
       .updateNewProfileImage(this.selectedImageSrc, this.user.id)
       .subscribe((user) => {
         this.user = user;
+        this.usersService.emitUserData(user);
         this.imagesShown = false;
       });
   }
