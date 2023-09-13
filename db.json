@@ -144,8 +144,8 @@
         }
       ],
       "instructorId": 1,
-      "views": 946,
-      "rating": 4,
+      "views": 948,
+      "rating": 3,
       "participants": [],
       "hasCertificate": true,
       "price": 0,
@@ -513,8 +513,8 @@
         }
       ],
       "instructorId": 4,
-      "views": 136,
-      "rating": 3,
+      "views": 137,
+      "rating": 2,
       "participants": [],
       "hasCertificate": false,
       "price": 550,
@@ -715,7 +715,7 @@
         }
       ],
       "instructorId": 6,
-      "views": 34,
+      "views": 35,
       "rating": 0,
       "participants": [],
       "hasCertificate": true,
@@ -1907,23 +1907,56 @@
   ],
   "users": [
     {
-      "email": "admin1@test.com",
+      "email": "admin2@test.com",
       "password": "aaaaa",
-      "image": "/assets/user2.jpg",
-      "id": 2
+      "image": "/assets/user1.jpg",
+      "id": 4
     },
     {
       "email": "admin@test.com",
       "password": "aaaaa",
-      "image": "/assets/user6.jpg",
-      "id": 3,
-      "firstName": "Alexandru",
-      "lastName": "Vioreanu",
-      "description": "",
-      "education": ""
+      "image": "/assets/user1.jpg",
+      "id": 5
+    },
+    {
+      "email": "admin3@test.com",
+      "password": "aaaaa",
+      "image": "/assets/user1.jpg",
+      "id": 6
     }
   ],
-  "reviews": [],
+  "reviews": [
+    {
+      "userId": 5,
+      "rating": "4",
+      "message": "tryrtytry",
+      "courseId": 1,
+      "likes": [],
+      "dislikes": [],
+      "userEmail": "admin@test.com",
+      "id": 1
+    },
+    {
+      "userId": 5,
+      "rating": "2",
+      "message": "reterterter",
+      "courseId": 4,
+      "likes": [],
+      "dislikes": [],
+      "userEmail": "admin@test.com",
+      "id": 2
+    },
+    {
+      "userId": 4,
+      "rating": "2",
+      "message": "dsfsdfsd",
+      "courseId": 1,
+      "likes": [],
+      "dislikes": [],
+      "userEmail": "admin2@test.com",
+      "id": 3
+    }
+  ],
   "instructors": [
     {
       "id": 1,

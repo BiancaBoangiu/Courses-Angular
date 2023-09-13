@@ -12,21 +12,31 @@
         <li>Take a backup of your data <a href="#">Here</a></li>
         <li>If you delete your account, you will lose your all data.</li>
       </ul>
-      <div class="form-check form-check-md my-4">
-        <input
-          class="form-check-input"
-          type="checkbox"
-          value=""
-          id="deleteaccountCheck"
-        />
-        <label class="form-check-label" for="deleteaccountCheck"
-          >Yes, I'd like to delete my account</label
+      <div *ngIf="!accountDeleted">
+        <div class="form-check form-check-md my-4">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            value=""
+            id="deleteaccountCheck"
+            [(ngModel)]="isCheckboxChecked"
+            (change)="onCheckboxChange($event)"
+          />
+          <label class="form-check-label" for="deleteaccountCheck"
+            >Yes, I'd like to delete my account</label
+          >
+        </div>
+        <a class="btn btn-danger mb-0" (click)="deleteAccount()"
+          >Delete my account</a
         >
       </div>
-      <a href="#" class="btn btn-danger mb-0" (click)="deleteAccount()"
-        >Delete my account</a
-      >
     </div>
   </div>
   <!-- Title and select END -->
+</div>
+
+<div *ngIf="accountDeleted">
+  <div class="col-xl-9 deleted-account-section">
+    <h5 class="background-green text-center">Account deleted succesfully</h5>
+  </div>
 </div>

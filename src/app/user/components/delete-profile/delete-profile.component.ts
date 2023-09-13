@@ -8,13 +8,23 @@ import { AuthService } from 'src/app/auth/services/auth.service';
   styleUrls: ['./delete-profile.component.scss'],
 })
 export class DeleteProfileComponent {
+  isCheckboxChecked = false;
+  accountDeleted: boolean = false;
+
   constructor(
     private usersService: UsersService,
     private authService: AuthService
   ) {}
 
   deleteAccount() {
-    const userId = this.authService.loggedUser.id;
-    this.usersService.deleteUserAccount(userId).subscribe();
+    if (this.isCheckboxChecked) {
+      const userId = this.authService.loggedUser.id;
+      this.usersService.deleteUserAccount(userId).subscribe(() => {
+        this.accountDeleted = true;
+      });
+    }
+  }
+  onCheckboxChange(event: Event) {
+    this.isCheckboxChecked = (event.target as HTMLInputElement).checked;
   }
 }

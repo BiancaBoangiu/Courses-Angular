@@ -4,6 +4,7 @@ import { User } from '../models/user-interface';
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { Subject } from 'rxjs';
+import { Review } from 'src/app/courses/models/review.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -48,5 +49,10 @@ export class UsersService {
 
   emitUserData(data: User) {
     this.userDataSubject.next(data);
+  }
+
+  showUserReviews(userId: number): Observable<Review[]> {
+    const userReviewsURL = `http://localhost:3000/reviews?userId=${userId}`;
+    return this.http.get<Review[]>(userReviewsURL);
   }
 }

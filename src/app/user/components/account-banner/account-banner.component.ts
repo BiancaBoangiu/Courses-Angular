@@ -10,6 +10,7 @@ import { UsersService } from '../../services/users.service';
 })
 export class AccountBannerComponent {
   user!: User;
+  userReviewsNumber!: number;
 
   constructor(
     private authService: AuthService,
@@ -24,6 +25,10 @@ export class AccountBannerComponent {
       .getUserById(this.authService.loggedUser.id)
       .subscribe((user) => {
         this.user = user;
+        this.usersService.showUserReviews(this.user.id).subscribe((reviews) => {
+          console.log(reviews);
+          this.userReviewsNumber = reviews.length;
+        });
         this.usersService.userData$.subscribe((user: User) => {
           this.user = user;
         });
