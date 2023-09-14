@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpRequest } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Course } from '../models/course.interface';
 import { InstructorsService } from 'src/app/instructors/services/instructors.service';
@@ -10,6 +10,7 @@ import { Instructor } from 'src/app/instructors/models/instructor-interface';
 })
 export class CoursesService {
   private coursesURL = 'http://localhost:3000/courses';
+  private wishlistURL = 'http://localhost:3000/wishlist';
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
@@ -75,5 +76,14 @@ export class CoursesService {
   getInstructorById(id: number): Observable<Instructor> {
     const instructorURL = `http://localhost:3000/instructors/${id}`;
     return this.http.get<Instructor>(instructorURL);
+  }
+
+  addToWishlist(courseId: number, userId: number): Observable<any> {
+    const wishlistURL = 'http://localhost:3000/wishlist';
+    const body = {
+      courseId,
+      userId,
+    };
+    return this.http.post<any>(wishlistURL, body);
   }
 }

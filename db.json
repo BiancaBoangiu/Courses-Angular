@@ -144,8 +144,8 @@
         }
       ],
       "instructorId": 1,
-      "views": 948,
-      "rating": 3,
+      "views": 950,
+      "rating": 3.3,
       "participants": [],
       "hasCertificate": true,
       "price": 0,
@@ -518,7 +518,11 @@
       "participants": [],
       "hasCertificate": false,
       "price": 550,
-      "isPremium": true
+      "isPremium": true,
+      "wishlist": [
+        4,
+        1
+      ]
     },
     {
       "id": 5,
@@ -617,7 +621,11 @@
       "participants": [],
       "hasCertificate": true,
       "price": 0,
-      "isPremium": false
+      "isPremium": false,
+      "wishlist": [
+        4,
+        1
+      ]
     },
     {
       "id": 6,
@@ -1921,21 +1929,15 @@
     {
       "email": "admin3@test.com",
       "password": "aaaaa",
-      "image": "/assets/user1.jpg",
-      "id": 6
+      "image": "/assets/user5.jpg",
+      "id": 6,
+      "firstName": "Alexandru",
+      "lastName": "Vioreanu",
+      "description": "",
+      "education": ""
     }
   ],
   "reviews": [
-    {
-      "userId": 5,
-      "rating": "4",
-      "message": "tryrtytry",
-      "courseId": 1,
-      "likes": [],
-      "dislikes": [],
-      "userEmail": "admin@test.com",
-      "id": 1
-    },
     {
       "userId": 5,
       "rating": "2",
@@ -1951,10 +1953,36 @@
       "rating": "2",
       "message": "dsfsdfsd",
       "courseId": 1,
-      "likes": [],
+      "likes": [
+        5
+      ],
       "dislikes": [],
       "userEmail": "admin2@test.com",
       "id": 3
+    },
+    {
+      "userId": 5,
+      "rating": "4",
+      "message": "dfgdfgfd",
+      "courseId": 1,
+      "likes": [
+        5
+      ],
+      "dislikes": [],
+      "userEmail": "admin@test.com",
+      "id": 4
+    },
+    {
+      "userId": 5,
+      "rating": "4",
+      "message": "fdgdfgfd",
+      "courseId": 1,
+      "likes": [
+        5
+      ],
+      "dislikes": [],
+      "userEmail": "admin@test.com",
+      "id": 5
     }
   ],
   "instructors": [
@@ -2077,6 +2105,58 @@
       "email": "ava@example.com",
       "phoneNumber": "999-000-1111",
       "rating": 0
+    }
+  ],
+  "wishlist": [
+    {
+      "courseId": 5,
+      "userId": 1,
+      "id": 1
+    },
+    {
+      "courseId": 5,
+      "userId": 1,
+      "id": 2
+    },
+    {
+      "courseId": 5,
+      "userId": 1,
+      "id": 3
+    },
+    {
+      "courseId": 5,
+      "userId": 2,
+      "id": 4
+    },
+    {
+      "courseId": 5,
+      "userId": 3,
+      "id": 5
+    },
+    {
+      "courseId": 5,
+      "userId": 1,
+      "id": 6
+    },
+    {
+      "courseId": 5,
+      "userId": 1,
+      "id": 7
+    },
+    {
+      "courseId": 5,
+      "userId": 1,
+      "id": 8
+    },
+    {
+      "courseId": 5,
+      "userId": 1,
+      "id": 9
+    },
+    {
+      "courseId": 5,
+      "userId": 1,
+      "id": 10
     }
   ]
 }

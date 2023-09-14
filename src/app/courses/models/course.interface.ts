@@ -16,4 +16,5 @@ export interface Course {
   isPremium: boolean;
   instructorId: number;
   curriculum: any;
+  wishlist: number[];
 }
