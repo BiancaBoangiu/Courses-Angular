@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { Course } from '../models/course.interface';
 import { InstructorsService } from 'src/app/instructors/services/instructors.service';
 import { Instructor } from 'src/app/instructors/models/instructor-interface';
+import { User } from 'src/app/user/models/user-interface';
+import { Auth } from 'src/app/auth/models/auth.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -78,12 +80,20 @@ export class CoursesService {
     return this.http.get<Instructor>(instructorURL);
   }
 
-  addToWishlist(courseId: number, userId: number): Observable<any> {
-    const wishlistURL = 'http://localhost:3000/wishlist';
-    const body = {
-      courseId,
-      userId,
-    };
-    return this.http.post<any>(wishlistURL, body);
+  addToWishlist(courseId: number, userId: number, user: Auth): Observable<any> {
+    const userURL = `http://localhost:3000/users/${userId}`;
+
+    const wishlistCourses = user.wishlist || [];
+
+    if (!wishlistCourses.includes(courseId)) {
+      wishlistCourses.push(courseId);
+    } else {
+      const index = user.wishlist.indexOf(courseId);
+      wishlistCourses.splice(index, 1);
+    }
+
+    const wishlistData = { wishlist: wishlistCourses };
+
+    return this.http.patch<any>(userURL, wishlistData);
   }
 }

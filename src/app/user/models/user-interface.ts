@@ -7,4 +7,5 @@ export interface User {
   image: string;
   description: string;
   education: string;
+  wishlist: number[];
 }

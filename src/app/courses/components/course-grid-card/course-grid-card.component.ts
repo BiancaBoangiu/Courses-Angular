@@ -3,6 +3,7 @@ import { Course } from '../../models/course.interface';
 import { ReviewsService } from '../../services/reviews.service';
 import { CoursesService } from '../../services/courses.service';
 import { AuthService } from 'src/app/auth/services/auth.service';
+import { User } from 'src/app/user/models/user-interface';
 
 @Component({
   selector: 'app-course-grid-card',
@@ -12,21 +13,35 @@ import { AuthService } from 'src/app/auth/services/auth.service';
 export class CourseGridCardComponent {
   @Input() course!: Course;
   addedToWishlist: boolean = false;
+  user!: User;
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getUser();
+  }
 
   constructor(
     private coursesService: CoursesService,
     private authService: AuthService
   ) {}
 
+  getUser() {
+    const userId = this.authService.loggedUser.id;
+    this.authService.getUserById(userId).subscribe((user) => {
+      this.user = user;
+    });
+  }
+
   addCourseToWishlist() {
     if (this.authService.loggedUser) {
-      this.coursesService
-        .addToWishlist(this.authService.loggedUser.id, this.course.id)
-        .subscribe(() => {
-          this.addedToWishlist = true;
-        });
+      const userId = this.authService.loggedUser.id;
+
+      this.authService.getUserById(userId).subscribe((user) => {
+        this.coursesService
+          .addToWishlist(this.course.id, user.id, user)
+          .subscribe(() => {
+            this.addedToWishlist = !this.addedToWishlist;
+          });
+      });
     }
   }
 

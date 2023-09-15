@@ -1924,7 +1924,13 @@
       "email": "admin@test.com",
       "password": "aaaaa",
       "image": "/assets/user1.jpg",
-      "id": 5
+      "id": 5,
+      "wishlist": [
+        1,
+        2,
+        3,
+        4
+      ]
     },
     {
       "email": "admin3@test.com",
@@ -2105,58 +2111,6 @@
       "email": "ava@example.com",
       "phoneNumber": "999-000-1111",
       "rating": 0
-    }
-  ],
-  "wishlist": [
-    {
-      "courseId": 5,
-      "userId": 1,
-      "id": 1
-    },
-    {
-      "courseId": 5,
-      "userId": 1,
-      "id": 2
-    },
-    {
-      "courseId": 5,
-      "userId": 1,
-      "id": 3
-    },
-    {
-      "courseId": 5,
-      "userId": 2,
-      "id": 4
-    },
-    {
-      "courseId": 5,
-      "userId": 3,
-      "id": 5
-    },
-    {
-      "courseId": 5,
-      "userId": 1,
-      "id": 6
-    },
-    {
-      "courseId": 5,
-      "userId": 1,
-      "id": 7
-    },
-    {
-      "courseId": 5,
-      "userId": 1,
-      "id": 8
-    },
-    {
-      "courseId": 5,
-      "userId": 1,
-      "id": 9
-    },
-    {
-      "courseId": 5,
-      "userId": 1,
-      "id": 10
     }
   ]
 }
