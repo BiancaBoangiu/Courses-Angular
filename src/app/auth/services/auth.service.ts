@@ -1,6 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Auth } from '../models/auth.interface';
-import { Observable, catchError, concat, forkJoin, map, of } from 'rxjs';
+import {
+  BehaviorSubject,
+  Observable,
+  catchError,
+  filter,
+  forkJoin,
+  map,
+  of,
+} from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from 'src/app/user/models/user-interface';
 
@@ -8,7 +16,13 @@ import { User } from 'src/app/user/models/user-interface';
   providedIn: 'root',
 })
 export class AuthService {
-  loggedUser!: Auth;
+  loggedUserSource: BehaviorSubject<Auth | null> =
+    new BehaviorSubject<Auth | null>(null);
+  loggedUser$: Observable<Auth> = this.loggedUserSource.pipe(
+    filter((value) => value !== null),
+    map((value) => value as Auth)
+  );
+
   courseId!: number;
 
   httpOptions = {
@@ -16,6 +30,14 @@ export class AuthService {
   };
 
   constructor(private http: HttpClient) {}
+
+  updateUser(data: Auth) {
+    this.loggedUserSource.next(data);
+  }
+
+  getUserData(): Auth | null {
+    return this.loggedUserSource.getValue();
+  }
 
   registerUser(
     email: string,

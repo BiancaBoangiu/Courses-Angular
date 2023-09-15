@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { User } from '../../models/user-interface';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { UsersService } from '../../services/users.service';
+import { Subscription } from 'rxjs';
+import { Auth } from 'src/app/auth/models/auth.interface';
 
 @Component({
   selector: 'app-account-banner',
@@ -9,8 +11,9 @@ import { UsersService } from '../../services/users.service';
   styleUrls: ['./account-banner.component.scss'],
 })
 export class AccountBannerComponent {
-  user!: User;
+  user!: Auth;
   userReviewsNumber!: number;
+  userSubscription: Subscription = new Subscription();
 
   constructor(
     private authService: AuthService,
@@ -20,18 +23,28 @@ export class AccountBannerComponent {
   ngOnInit() {
     this.getUser();
   }
+
   getUser() {
-    this.authService
-      .getUserById(this.authService.loggedUser.id)
-      .subscribe((user) => {
-        this.user = user;
-        this.usersService.showUserReviews(this.user.id).subscribe((reviews) => {
-          console.log(reviews);
-          this.userReviewsNumber = reviews.length;
-        });
-        this.usersService.userData$.subscribe((user: User) => {
-          this.user = user;
-        });
+    if (!this.authService.getUserData()) {
+      return;
+    }
+
+    const userId = this.authService.getUserData()?.id as number;
+    this.authService.getUserById(userId).subscribe((user) => {
+      this.authService.updateUser(user);
+      this.usersService.showUserReviews(this.user.id).subscribe((reviews) => {
+        this.userReviewsNumber = reviews.length;
       });
+    });
+
+    this.userSubscription = this.authService.loggedUser$.subscribe(
+      (user: Auth) => {
+        this.user = user;
+      }
+    );
+  }
+
+  ngOnDestroy() {
+    this.userSubscription.unsubscribe();
   }
 }

@@ -14,8 +14,6 @@ export class CourseGridCardComponent {
   @Input() course!: Course;
   addedToWishlist: boolean = false;
 
-  user!: User;
-
   ngOnInit(): void {
     this.getUser();
   }
@@ -26,16 +24,18 @@ export class CourseGridCardComponent {
   ) {}
 
   getUser() {
-    const userId = this.authService.loggedUser.id;
-    this.authService.getUserById(userId).subscribe((user) => {
-      this.user = user;
-      this.addedToWishlist = user.wishlist.includes(this.course.id);
-    });
+    if (!this.authService.getUserData()) {
+      return;
+    }
+
+    this.addedToWishlist =
+      this.authService.getUserData()?.wishlist.includes(this.course.id) ||
+      false;
   }
 
   addCourseToWishlist() {
-    if (this.authService.loggedUser) {
-      const userId = this.authService.loggedUser.id;
+    if (this.authService.getUserData()) {
+      const userId = this.authService.getUserData()?.id as number;
 
       this.authService.getUserById(userId).subscribe((user) => {
         this.coursesService
@@ -48,8 +48,8 @@ export class CourseGridCardComponent {
   }
 
   deleteCourseFromWishlist() {
-    if (this.authService.loggedUser) {
-      const userId = this.authService.loggedUser.id;
+    if (this.authService.getUserData()) {
+      const userId = this.authService.getUserData()?.id as number;
 
       this.authService.getUserById(userId).subscribe((user) => {
         this.coursesService

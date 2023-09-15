@@ -23,11 +23,15 @@ export class ReviewComponent {
   ) {}
 
   ngOnInit() {
-    const loggedUserId = this.authService.loggedUser?.id;
+    const loggedUserId = this.authService.getUserData()?.id;
     this.likeStatus = false;
     this.dislikeStatus = false;
     this.numberOfLikes = this.review.likes.length;
     this.numberOfDislikes = this.review.dislikes.length;
+
+    if (!loggedUserId) {
+      return;
+    }
 
     if (this.review.likes.includes(loggedUserId)) {
       this.likeStatus = true;
@@ -43,7 +47,7 @@ export class ReviewComponent {
   }
 
   onLikeReview(reviewId: number): void {
-    const userLoggedId = this.authService.loggedUser?.id;
+    const userLoggedId = this.authService.getUserData()?.id;
 
     if (!userLoggedId) {
       return;
@@ -64,7 +68,7 @@ export class ReviewComponent {
   }
 
   onDislikeReview(reviewId: number): void {
-    const userLoggedId = this.authService.loggedUser?.id;
+    const userLoggedId = this.authService.getUserData()?.id;
 
     if (!userLoggedId) {
       return;

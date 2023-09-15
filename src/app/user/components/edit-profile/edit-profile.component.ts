@@ -28,8 +28,7 @@ export class EditProfileComponent {
   }
 
   getUser() {
-    const userId = this.authService.loggedUser.id;
-    this.authService.getUserById(userId).subscribe((user) => {
+    this.authService.loggedUser$.subscribe((user) => {
       this.user = user;
       this.editForm = this.fb.group({
         firstName: [this.user.firstName || '', Validators.required],
@@ -45,7 +44,7 @@ export class EditProfileComponent {
     const lastNameValue = this.editForm.get('lastName')?.value;
     const descriptionValue = this.editForm.get('description')?.value;
     const educationValue = this.editForm.get('education')?.value;
-    const userId = this.authService.loggedUser.id;
+    const userId = this.authService.getUserData()?.id as number;
 
     if (this.editForm.invalid) {
       return;
@@ -60,7 +59,7 @@ export class EditProfileComponent {
         )
         .subscribe((user) => {
           this.user = user;
-          this.usersService.emitUserData(user);
+          this.authService.updateUser(user);
         });
     }
   }
@@ -91,7 +90,7 @@ export class EditProfileComponent {
       .updateNewProfileImage(this.selectedImageSrc, this.user.id)
       .subscribe((user) => {
         this.user = user;
-        this.usersService.emitUserData(user);
+        this.authService.updateUser(user);
         this.imagesShown = false;
       });
   }

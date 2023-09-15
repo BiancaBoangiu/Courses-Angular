@@ -18,7 +18,7 @@ export class DeleteProfileComponent {
 
   deleteAccount() {
     if (this.isCheckboxChecked) {
-      const userId = this.authService.loggedUser.id;
+      const userId = this.authService.getUserData()?.id as number;
       this.usersService.deleteUserAccount(userId).subscribe(() => {
         this.accountDeleted = true;
       });

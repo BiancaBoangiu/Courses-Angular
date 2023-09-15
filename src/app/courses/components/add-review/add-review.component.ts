@@ -20,7 +20,7 @@ export class AddReviewComponent {
   ) {}
 
   addReview() {
-    const userId = this.authService.loggedUser.id;
+    const userId = this.authService.getUserData()?.id as number;
 
     this.reviewsService
       .addReview(this.message, this.rating, userId, this.authService.courseId)

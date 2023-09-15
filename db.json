@@ -1925,13 +1925,18 @@
     },
     {
       "email": "admin@test.com",
-      "password": "aaaaa",
-      "image": "/assets/user1.jpg",
+      "password": "bbbbb",
+      "image": "/assets/user5.jpg",
       "id": 5,
       "wishlist": [
         2,
-        3
-      ]
+        3,
+        1
+      ],
+      "firstName": "Alex",
+      "lastName": "Vioreanu",
+      "description": "",
+      "education": ""
     },
     {
       "email": "admin3@test.com",
@@ -1942,6 +1947,12 @@
       "lastName": "Vioreanu",
       "description": "",
       "education": ""
+    },
+    {
+      "email": "admin4@test.com",
+      "password": "aaaaa",
+      "image": "/assets/user1.jpg",
+      "id": 7
     }
   ],
   "reviews": [

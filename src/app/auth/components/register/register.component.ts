@@ -16,7 +16,6 @@ export class RegisterComponent {
   formSubmitted = false;
 
   constructor(
-    private route: ActivatedRoute,
     private authService: AuthService,
     private instructorsService: InstructorsService,
     private router: Router,
@@ -71,7 +70,8 @@ export class RegisterComponent {
                   return throwError(error);
                 })
               )
-              .subscribe(() => {
+              .subscribe((response) => {
+                this.authService.updateUser(response);
                 this.router.navigate(['/']);
               });
           }

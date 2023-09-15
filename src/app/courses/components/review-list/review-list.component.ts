@@ -22,7 +22,7 @@ export class ReviewListComponent {
   ) {}
 
   deleteReview(reviewId: number) {
-    if (this.authService.loggedUser) {
+    if (this.authService.getUserData()) {
       this.reviewsService.deleteReview(reviewId).subscribe(() => {
         const index = this.reviews.findIndex(
           (review) => review.id === reviewId

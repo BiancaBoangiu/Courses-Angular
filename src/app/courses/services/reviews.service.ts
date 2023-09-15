@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, catchError, map, of, switchMap, tap } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { Review } from 'src/app/courses/models/review.interface';
-import { CoursesService } from './courses.service';
 
 @Injectable({
   providedIn: 'root',
@@ -15,11 +14,7 @@ export class ReviewsService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
 
-  constructor(
-    private authService: AuthService,
-    private http: HttpClient,
-    private coursesService: CoursesService
-  ) {}
+  constructor(private authService: AuthService, private http: HttpClient) {}
 
   addReview(
     message: string,
@@ -27,7 +22,7 @@ export class ReviewsService {
     userId: number,
     courseId: number
   ): Observable<Review> {
-    if (this.authService.loggedUser) {
+    if (this.authService.getUserData()) {
       const body = {
         userId: userId,
         rating: rating,
@@ -35,7 +30,7 @@ export class ReviewsService {
         courseId: courseId,
         likes: [],
         dislikes: [],
-        userEmail: this.authService.loggedUser.email,
+        userEmail: this.authService.getUserData()?.email,
       };
       return this.http.post<Review>(this.reviewsURL, body, this.httpOptions);
     } else {

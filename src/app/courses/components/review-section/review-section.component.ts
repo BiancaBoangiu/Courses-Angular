@@ -36,7 +36,7 @@ export class ReviewSectionComponent {
     this.reviewsService.showCourseReviews().subscribe((reviews: Review[]) => {
       this.reviews = reviews;
     });
-    if (this.authService.loggedUser) {
+    if (this.authService.getUserData()) {
       this.userLogged = true;
     } else {
       this.userLogged = false;

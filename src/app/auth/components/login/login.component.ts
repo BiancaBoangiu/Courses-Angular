@@ -14,7 +14,6 @@ export class LoginComponent {
 
   constructor(
     private authService: AuthService,
-    private route: ActivatedRoute,
     private router: Router,
     private fb: FormBuilder
   ) {
@@ -32,13 +31,13 @@ export class LoginComponent {
       .verifyUser(emailValue)
       .subscribe(([userData, instructorData]) => {
         if (userData && passwordValue === userData.password) {
-          this.authService.loggedUser = userData;
+          this.authService.updateUser(userData);
           this.router.navigate(['/']);
         } else if (
           instructorData &&
           passwordValue === instructorData.password
         ) {
-          this.authService.loggedUser = instructorData;
+          this.authService.updateUser(instructorData);
         } else {
           console.log('Password does not match.');
         }
