@@ -13,6 +13,7 @@ import { User } from 'src/app/user/models/user-interface';
 export class CourseGridCardComponent {
   @Input() course!: Course;
   addedToWishlist: boolean = false;
+
   user!: User;
 
   ngOnInit(): void {
@@ -28,6 +29,7 @@ export class CourseGridCardComponent {
     const userId = this.authService.loggedUser.id;
     this.authService.getUserById(userId).subscribe((user) => {
       this.user = user;
+      this.addedToWishlist = user.wishlist.includes(this.course.id);
     });
   }
 
@@ -45,5 +47,17 @@ export class CourseGridCardComponent {
     }
   }
 
-  deleteCourseFromWishlist() {}
+  deleteCourseFromWishlist() {
+    if (this.authService.loggedUser) {
+      const userId = this.authService.loggedUser.id;
+
+      this.authService.getUserById(userId).subscribe((user) => {
+        this.coursesService
+          .deleteFromWishlist(this.course.id, user, user.id)
+          .subscribe(() => {
+            this.addedToWishlist = !this.addedToWishlist;
+          });
+      });
+    }
+  }
 }

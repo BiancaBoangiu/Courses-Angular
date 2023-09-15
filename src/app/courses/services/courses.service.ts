@@ -88,7 +88,25 @@ export class CoursesService {
     if (!wishlistCourses.includes(courseId)) {
       wishlistCourses.push(courseId);
     } else {
-      const index = user.wishlist.indexOf(courseId);
+      const index = wishlistCourses.indexOf(courseId);
+      wishlistCourses.splice(index, 1);
+    }
+
+    const wishlistData = { wishlist: wishlistCourses };
+
+    return this.http.patch<any>(userURL, wishlistData);
+  }
+
+  deleteFromWishlist(
+    courseId: number,
+    user: Auth,
+    userId: number
+  ): Observable<any> {
+    const userURL = `http://localhost:3000/users/${userId}`;
+    const wishlistCourses = user.wishlist || [];
+
+    if (wishlistCourses.includes(courseId)) {
+      const index = wishlistCourses.indexOf(courseId);
       wishlistCourses.splice(index, 1);
     }
 

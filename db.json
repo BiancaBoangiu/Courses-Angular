@@ -1918,7 +1918,10 @@
       "email": "admin2@test.com",
       "password": "aaaaa",
       "image": "/assets/user1.jpg",
-      "id": 4
+      "id": 4,
+      "wishlist": [
+        2
+      ]
     },
     {
       "email": "admin@test.com",
@@ -1926,10 +1929,8 @@
       "image": "/assets/user1.jpg",
       "id": 5,
       "wishlist": [
-        1,
         2,
-        3,
-        4
+        3
       ]
     },
     {
