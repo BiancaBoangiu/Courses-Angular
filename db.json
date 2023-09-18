@@ -1925,11 +1925,10 @@
     },
     {
       "email": "admin@test.com",
-      "password": "bbbbb",
+      "password": "aaaaa",
       "image": "/assets/user5.jpg",
       "id": 5,
       "wishlist": [
-        2,
         3,
         1
       ],

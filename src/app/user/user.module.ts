@@ -13,6 +13,7 @@ import { SettingsComponent } from './components/settings/settings.component';
 import { SubscriptionsComponent } from './components/subscriptions/subscriptions.component';
 import { UserCoursesComponent } from './components/user-courses/user-courses.component';
 import { WishlistComponent } from './components/wishlist/wishlist.component';
+import { WishlistCardComponent } from './components/wishlist-card/wishlist-card.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { WishlistComponent } from './components/wishlist/wishlist.component';
     SubscriptionsComponent,
     UserCoursesComponent,
     WishlistComponent,
+    WishlistCardComponent,
   ],
   imports: [CommonModule, UserRoutingModule, ReactiveFormsModule, FormsModule],
 })

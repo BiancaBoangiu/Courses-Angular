@@ -50,7 +50,6 @@ export class RegisterComponent {
     const passwordValue = this.registerForm.get('password')?.value;
     const userType = this.registerForm.get('userType')?.value;
     const selectedImageValue = this.registerForm.get('selectedImage')?.value;
-    console.log(selectedImageValue);
 
     if (this.registerForm.invalid) {
       return;
