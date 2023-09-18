@@ -8,6 +8,7 @@ import { EditProfileComponent } from './components/edit-profile/edit-profile.com
 import { UserCoursesComponent } from './components/user-courses/user-courses.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { SettingsComponent } from './components/settings/settings.component';
+import { SubscriptionsComponent } from './components/subscriptions/subscriptions.component';
 
 const routes: Routes = [
   {
@@ -20,7 +21,7 @@ const routes: Routes = [
       { path: 'edit-profile', component: EditProfileComponent },
       { path: 'payment', component: PaymentComponent },
       { path: 'settings', component: SettingsComponent },
-      { path: 'subscriptions', component: WishlistComponent },
+      { path: 'subscriptions', component: SubscriptionsComponent },
       { path: 'user-courses', component: UserCoursesComponent },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     ],
