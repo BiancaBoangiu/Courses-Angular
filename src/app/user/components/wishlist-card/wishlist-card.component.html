@@ -21,10 +21,10 @@
           </div>
           <!-- Title -->
           <h5 class="card-title fw-normal">
-            <a href="#">{{ course.name }}</a>
+            <!-- <a [routerLink]="['/courses/', course.id]">{{ course.name }}</a> -->
           </h5>
           <p class="mb-2 text-truncate-2">
-            {{ course.description }}
+            {{ course.description | slice : 0 : 50 }} ...
           </p>
           <!-- Rating star -->
           <ul class="list-inline mb-0">

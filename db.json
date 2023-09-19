@@ -144,8 +144,8 @@
         }
       ],
       "instructorId": 1,
-      "views": 950,
-      "rating": 3.3,
+      "views": 956,
+      "rating": 4,
       "participants": [],
       "hasCertificate": true,
       "price": 0,
@@ -410,7 +410,7 @@
         }
       ],
       "instructorId": 3,
-      "views": 134,
+      "views": 136,
       "rating": 0,
       "participants": [],
       "hasCertificate": true,
@@ -1964,18 +1964,6 @@
       "dislikes": [],
       "userEmail": "admin@test.com",
       "id": 2
-    },
-    {
-      "userId": 4,
-      "rating": "2",
-      "message": "dsfsdfsd",
-      "courseId": 1,
-      "likes": [
-        5
-      ],
-      "dislikes": [],
-      "userEmail": "admin2@test.com",
-      "id": 3
     },
     {
       "userId": 5,
