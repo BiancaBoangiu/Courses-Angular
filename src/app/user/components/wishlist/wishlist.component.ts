@@ -14,6 +14,7 @@ export class WishlistComponent {
     private authService: AuthService,
     private coursesService: CoursesService
   ) {}
+
   ngOnInit() {
     this.getWishlist();
   }
@@ -25,5 +26,9 @@ export class WishlistComponent {
         this.wishlistCourses.push(course);
       })
     );
+  }
+
+  showUpdatedCourses(data: Course[]) {
+    this.wishlistCourses = data;
   }
 }

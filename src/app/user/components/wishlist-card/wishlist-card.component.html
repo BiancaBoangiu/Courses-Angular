@@ -15,13 +15,13 @@
             <a class="badge bg-success bg-opacity-10 text-success">{{
               course.experience
             }}</a>
-            <a class="text-danger" *ngIf="addedToWishlist"
+            <a class="text-danger"
               ><i class="fas fa-heart" (click)="deleteCourseFromWishlist()"></i
             ></a>
           </div>
           <!-- Title -->
           <h5 class="card-title fw-normal">
-            <!-- <a [routerLink]="['/courses/', course.id]">{{ course.name }}</a> -->
+            <a [routerLink]="['/courses/', course.id]">{{ course.name }}</a>
           </h5>
           <p class="mb-2 text-truncate-2">
             {{ course.description | slice : 0 : 50 }} ...

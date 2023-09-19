@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { Course } from 'src/app/courses/models/course.interface';
 import { CoursesService } from 'src/app/courses/services/courses.service';
@@ -10,7 +10,8 @@ import { CoursesService } from 'src/app/courses/services/courses.service';
 })
 export class WishlistCardComponent {
   @Input() course!: Course;
-  addedToWishlist: boolean = true;
+  wishlistCourses: Course[] = [];
+  @Output() wishlistCoursesUpdated = new EventEmitter<Course[]>();
 
   constructor(
     private authService: AuthService,
@@ -25,7 +26,8 @@ export class WishlistCardComponent {
         this.coursesService
           .deleteFromWishlist(this.course.id, user, user.id)
           .subscribe(() => {
-            this.addedToWishlist = !this.addedToWishlist;
+            const wishlist = this.authService.getUserData()?.wishlist;
+            this.wishlistCoursesUpdated.emit(wishlist);
           });
       });
     }
