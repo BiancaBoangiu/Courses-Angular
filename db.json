@@ -144,7 +144,7 @@
         }
       ],
       "instructorId": 1,
-      "views": 959,
+      "views": 960,
       "rating": 4,
       "participants": [],
       "hasCertificate": true,
@@ -1929,9 +1929,10 @@
       "image": "/assets/user5.jpg",
       "id": 5,
       "wishlist": [
-        1,
         4,
-        7
+        1,
+        2,
+        3
       ],
       "firstName": "Alex",
       "lastName": "Vioreanu",

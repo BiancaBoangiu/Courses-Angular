@@ -20,16 +20,25 @@ export class WishlistCardComponent {
 
   deleteCourseFromWishlist() {
     if (this.authService.getUserData()) {
+      const user = this.authService.getUserData();
       const userId = this.authService.getUserData()?.id as number;
 
-      this.authService.getUserById(userId).subscribe((user) => {
+      if (user) {
         this.coursesService
-          .deleteFromWishlist(this.course.id, user, user.id)
+          .deleteFromWishlist(this.course.id, user, userId)
           .subscribe(() => {
             const wishlist = this.authService.getUserData()?.wishlist;
-            this.wishlistCoursesUpdated.emit(wishlist);
+            wishlist?.map((courseId) =>
+              this.coursesService
+                .getCourseById(courseId)
+                .subscribe((course) => {
+                  this.wishlistCourses.push(course);
+                  console.log(this.wishlistCourses);
+                  this.wishlistCoursesUpdated.emit(this.wishlistCourses);
+                })
+            );
           });
-      });
+      }
     }
   }
 }

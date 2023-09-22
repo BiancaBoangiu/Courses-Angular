@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../models/user-interface';
-import { BehaviorSubject, Observable, filter, map } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Review } from 'src/app/courses/models/review.interface';
 import { Course } from 'src/app/courses/models/course.interface';
 
