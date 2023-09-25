@@ -144,7 +144,7 @@
         }
       ],
       "instructorId": 1,
-      "views": 960,
+      "views": 962,
       "rating": 4,
       "participants": [],
       "hasCertificate": true,
@@ -159,7 +159,7 @@
       "time": 10,
       "experience": "Intermediate",
       "instructorId": 2,
-      "views": 225,
+      "views": 226,
       "rating": 0,
       "participants": [],
       "hasCertificate": true,
@@ -1930,14 +1930,20 @@
       "id": 5,
       "wishlist": [
         4,
-        1,
         2,
-        3
+        5
       ],
-      "firstName": "Alex",
+      "firstName": "Alexandru",
       "lastName": "Vioreanu",
       "description": "",
-      "education": ""
+      "education": "",
+      "payment": {
+        "cardNumber": "32423432",
+        "cardYear": "3243",
+        "cardMonth": "32",
+        "cardCvv": "234",
+        "cardName": "dsfsdfsd"
+      }
     },
     {
       "email": "admin3@test.com",
@@ -1972,10 +1978,10 @@
       "rating": "4",
       "message": "dfgdfgfd",
       "courseId": 1,
-      "likes": [
+      "likes": [],
+      "dislikes": [
         5
       ],
-      "dislikes": [],
       "userEmail": "admin@test.com",
       "id": 4
     },

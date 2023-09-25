@@ -24,7 +24,4 @@ export class DeleteProfileComponent {
       });
     }
   }
-  onCheckboxChange(event: Event) {
-    this.isCheckboxChecked = (event.target as HTMLInputElement).checked;
-  }
 }

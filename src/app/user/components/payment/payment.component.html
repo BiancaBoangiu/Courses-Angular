@@ -6,13 +6,17 @@
       class="card-header bg-transparent d-sm-flex justify-content-sm-between align-items-center border-bottom"
     >
       <h3 class="mb-2 mb-sm-0">Payment methods</h3>
-      <a
-        href="#"
-        class="btn btn-sm btn-primary-soft mb-0"
-        data-bs-toggle="modal"
-        data-bs-target="#addNewcard"
-        >Add new card</a
-      >
+      <div>
+        <button
+          href="#"
+          class="btn btn-sm btn-primary-soft mb-0"
+          data-bs-toggle="modal"
+          data-bs-target="#addNewcard"
+          (click)="saveCardInfo()"
+        >
+          Add new card
+        </button>
+      </div>
     </div>
     <!-- Card header END -->
 
@@ -21,18 +25,7 @@
       <div class="accordion accordion-circle" id="accordioncircle">
         <!-- Credit or debit card START -->
         <div class="accordion-item mb-3">
-          <h6 class="accordion-header font-base" id="heading-1">
-            <button
-              class="accordion-button bg-white rounded collapsed"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#collapse-1"
-              aria-expanded="true"
-              aria-controls="collapse-1"
-            >
-              Credit or Debit Card
-            </button>
-          </h6>
+          <h6 class="accordion-header font-base" id="heading-1"></h6>
           <div
             id="collapse-1"
             class="accordion-collapse collapse show"
@@ -53,11 +46,8 @@
                       type="text"
                       class="form-control"
                       placeholder="xxxx xxxx xxxx xxxx"
-                    />
-                    <img
-                      src="assets/images/client/visa.svg"
-                      class="w-40px position-absolute top-50 end-0 translate-middle-y me-2 d-none d-sm-block"
-                      alt=""
+                      [(ngModel)]="cardNumber"
+                      name="cardNumber"
                     />
                   </div>
                 </div>
@@ -72,12 +62,16 @@
                       class="form-control"
                       maxlength="2"
                       placeholder="Month"
+                      [(ngModel)]="cardMonth"
+                      name="cardMonth"
                     />
                     <input
                       type="text"
                       class="form-control"
                       maxlength="4"
                       placeholder="Year"
+                      [(ngModel)]="cardYear"
+                      name="cardYear"
                     />
                   </div>
                 </div>
@@ -91,6 +85,8 @@
                     class="form-control"
                     maxlength="3"
                     placeholder="xxx"
+                    [(ngModel)]="cardCvv"
+                    name="cardCvv"
                   />
                 </div>
                 <!-- Card name -->
@@ -103,6 +99,8 @@
                     class="form-control"
                     aria-label="name of card holder"
                     placeholder="Enter name"
+                    [(ngModel)]="cardName"
+                    name="cardName"
                   />
                 </div>
               </form>
@@ -111,154 +109,6 @@
           </div>
         </div>
         <!-- Credit or debit card END -->
-
-        <!-- Net banking START -->
-        <div class="accordion-item mb-3">
-          <h6 class="accordion-header font-base" id="heading-2">
-            <button
-              class="accordion-button collapsed bg-white rounded"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#collapse-2"
-              aria-expanded="false"
-              aria-controls="collapse-2"
-            >
-              Pay with Net Banking
-            </button>
-          </h6>
-          <div
-            id="collapse-2"
-            class="accordion-collapse collapse"
-            aria-labelledby="heading-2"
-            data-bs-parent="#accordioncircle"
-          >
-            <!-- Accordion body -->
-            <div class="accordion-body">
-              <!-- Form START -->
-              <form class="row text-start g-3">
-                <p class="mb-1">
-                  In order to complete your transaction, we will transfer you
-                  over to Eduport secure servers.
-                </p>
-                <p class="my-0">
-                  Select your bank from the drop-down list and click proceed to
-                  continue with your payment.
-                </p>
-                <!-- Select bank -->
-                <div class="col-md-6">
-                  <div
-                    class="choices"
-                    data-type="select-one"
-                    tabindex="0"
-                    role="combobox"
-                    aria-autocomplete="list"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                  >
-                    <div class="choices__inner">
-                      <select
-                        class="form-select form-select-sm js-choice border-0 choices__input"
-                        aria-label=".form-select-sm"
-                        hidden=""
-                        tabindex="-1"
-                        data-choice="active"
-                      >
-                        <option
-                          value=""
-                          data-custom-properties="[object Object]"
-                        >
-                          Please choose one
-                        </option>
-                      </select>
-                      <div class="choices__list choices__list--single">
-                        <div
-                          class="choices__item choices__placeholder choices__item--selectable"
-                          data-item=""
-                          data-id="1"
-                          data-value=""
-                          data-custom-properties="[object Object]"
-                          aria-selected="true"
-                        >
-                          Please choose one
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="choices__list choices__list--dropdown"
-                      aria-expanded="false"
-                    >
-                      <input
-                        type="search"
-                        name="search_terms"
-                        class="choices__input choices__input--cloned"
-                        autocomplete="off"
-                        autocapitalize="off"
-                        spellcheck="false"
-                        role="textbox"
-                        aria-autocomplete="list"
-                        aria-label="Please choose one"
-                        placeholder=""
-                      />
-                      <div class="choices__list" role="listbox">
-                        <div
-                          id="choices--bhwr-item-choice-4"
-                          class="choices__item choices__item--choice is-selected choices__placeholder choices__item--selectable is-highlighted"
-                          role="option"
-                          data-choice=""
-                          data-id="4"
-                          data-value=""
-                          data-select-text="Press to select"
-                          data-choice-selectable=""
-                          aria-selected="true"
-                        >
-                          Please choose one
-                        </div>
-                        <div
-                          id="choices--bhwr-item-choice-1"
-                          class="choices__item choices__item--choice choices__item--selectable"
-                          role="option"
-                          data-choice=""
-                          data-id="1"
-                          data-value="Bank of America"
-                          data-select-text="Press to select"
-                          data-choice-selectable=""
-                        >
-                          Bank of America
-                        </div>
-                        <div
-                          id="choices--bhwr-item-choice-2"
-                          class="choices__item choices__item--choice choices__item--selectable"
-                          role="option"
-                          data-choice=""
-                          data-id="2"
-                          data-value="Bank of India"
-                          data-select-text="Press to select"
-                          data-choice-selectable=""
-                        >
-                          Bank of India
-                        </div>
-                        <div
-                          id="choices--bhwr-item-choice-3"
-                          class="choices__item choices__item--choice choices__item--selectable"
-                          role="option"
-                          data-choice=""
-                          data-id="3"
-                          data-value="Bank of London"
-                          data-select-text="Press to select"
-                          data-choice-selectable=""
-                        >
-                          Bank of London
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </form>
-              <!-- Form END -->
-            </div>
-          </div>
-        </div>
-        <!-- Net banking END -->
       </div>
     </div>
     <!-- Card body START -->
@@ -272,13 +122,13 @@
       class="card-header bg-transparent d-sm-flex justify-content-sm-between align-items-center border-bottom"
     >
       <h3 class="mb-2 mb-sm-0">Billing address</h3>
-      <a href="#" class="btn btn-sm btn-primary-soft mb-0">Add new address</a>
+      <a href="#" class="btn btn-sm btn-primary-soft mb-0">Add address</a>
     </div>
     <!-- Card header END -->
 
     <!-- Card body START -->
     <div class="card-body">
-      <!-- Address 1 START -->
+      <!-- Address START -->
       <div
         class="bg-body border border-1 p-3 rounded-3 d-sm-flex justify-content-sm-between align-items-center mb-4"
       >
@@ -303,33 +153,7 @@
           <button class="btn btn-sm btn-danger mb-0">Delete</button>
         </div>
       </div>
-      <!-- Address 1 END -->
-
-      <!-- Address 2 START -->
-      <div
-        class="bg-body border border-1 p-3 rounded-3 d-sm-flex justify-content-sm-between align-items-center mb-4"
-      >
-        <!-- Radio button button -->
-        <div class="form-check">
-          <input
-            class="form-check-input mb-1"
-            type="radio"
-            name="address"
-            id="address2"
-          />
-          <label class="form-check-label mb-0 h5" for="address2"
-            >Address-2</label
-          >
-          <p class="mb-0">2002 Horton Ford Rd, Eidson, TN, 37731</p>
-        </div>
-
-        <!-- Button -->
-        <div>
-          <a href="#" class="btn btn-sm btn-success mb-0">Edit</a>
-          <button class="btn btn-sm btn-danger mb-0">Delete</button>
-        </div>
-      </div>
-      <!-- Address 2 END -->
+      <!-- Address END -->
     </div>
     <!-- Card body START -->
   </div>

@@ -4,6 +4,7 @@ import { User } from '../models/user-interface';
 import { Observable } from 'rxjs';
 import { Review } from 'src/app/courses/models/review.interface';
 import { Course } from 'src/app/courses/models/course.interface';
+import { Payment } from '../models/payment-interface';
 
 @Injectable({
   providedIn: 'root',
@@ -47,5 +48,28 @@ export class UsersService {
   showUserReviews(userId: number): Observable<Review[]> {
     const userReviewsURL = `http://localhost:3000/reviews?userId=${userId}`;
     return this.http.get<Review[]>(userReviewsURL);
+  }
+
+  savePaymentInfo(
+    cardNumber: number,
+    cardYear: number,
+    cardMonth: number,
+    cardCvv: number,
+    cardName: string,
+    userId: number
+  ): Observable<Payment> {
+    const usersURL = `http://localhost:3000/users/${userId}`;
+    const payment = {
+      cardNumber,
+      cardYear,
+      cardMonth,
+      cardCvv,
+      cardName,
+    };
+    const body = {
+      payment: payment,
+    };
+
+    return this.http.patch<Payment>(usersURL, body);
   }
 }

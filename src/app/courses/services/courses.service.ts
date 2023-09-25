@@ -1,5 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpRequest } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpHeaders,
+  HttpParams,
+  HttpRequest,
+} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Course } from '../models/course.interface';
 import { InstructorsService } from 'src/app/instructors/services/instructors.service';
@@ -17,13 +22,19 @@ export class CoursesService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
 
-  constructor(
-    private http: HttpClient,
-    private instructorsService: InstructorsService
-  ) {}
+  constructor(private http: HttpClient) {}
 
   getCourses(): Observable<Course[]> {
     return this.http.get<Course[]>(this.coursesURL);
+  }
+
+  getCoursesByIds(ids: number[]): Observable<Course[]> {
+    let httpParams = new HttpParams();
+
+    ids.forEach((id) => {
+      httpParams = httpParams.append('id', id);
+    });
+    return this.http.get<Course[]>(this.coursesURL, { params: httpParams });
   }
 
   getCourseById(id: number): Observable<Course> {

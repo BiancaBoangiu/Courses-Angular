@@ -10,8 +10,7 @@ import { CoursesService } from 'src/app/courses/services/courses.service';
 })
 export class WishlistCardComponent {
   @Input() course!: Course;
-  wishlistCourses: Course[] = [];
-  @Output() wishlistCoursesUpdated = new EventEmitter<Course[]>();
+  @Output() wishlistCoursesUpdated = new EventEmitter<number>();
 
   constructor(
     private authService: AuthService,
@@ -27,16 +26,7 @@ export class WishlistCardComponent {
         this.coursesService
           .deleteFromWishlist(this.course.id, user, userId)
           .subscribe(() => {
-            const wishlist = this.authService.getUserData()?.wishlist;
-            wishlist?.map((courseId) =>
-              this.coursesService
-                .getCourseById(courseId)
-                .subscribe((course) => {
-                  this.wishlistCourses.push(course);
-                  console.log(this.wishlistCourses);
-                  this.wishlistCoursesUpdated.emit(this.wishlistCourses);
-                })
-            );
+            this.wishlistCoursesUpdated.emit(this.course.id);
           });
       }
     }

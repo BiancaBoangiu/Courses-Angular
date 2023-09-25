@@ -10,6 +10,7 @@ import { CoursesService } from 'src/app/courses/services/courses.service';
 })
 export class WishlistComponent {
   wishlistCourses: Course[] = [];
+
   constructor(
     private authService: AuthService,
     private coursesService: CoursesService
@@ -21,14 +22,19 @@ export class WishlistComponent {
 
   getWishlist() {
     const wishlist = this.authService.getUserData()?.wishlist;
-    wishlist?.map((courseId) =>
-      this.coursesService.getCourseById(courseId).subscribe((course) => {
-        this.wishlistCourses.push(course);
-      })
-    );
+
+    if (wishlist) {
+      this.coursesService
+        .getCoursesByIds(wishlist)
+        .subscribe((wishlistCourses) => {
+          this.wishlistCourses = wishlistCourses;
+        });
+    }
   }
 
-  showUpdatedCourses(data: Course[]) {
-    this.wishlistCourses = data;
+  showUpdatedCourses(courseId: number) {
+    this.wishlistCourses = this.wishlistCourses.filter((course) => {
+      return course.id !== courseId;
+    });
   }
 }

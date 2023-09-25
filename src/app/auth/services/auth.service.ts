@@ -16,9 +16,9 @@ import { User } from 'src/app/user/models/user-interface';
   providedIn: 'root',
 })
 export class AuthService {
-  loggedUserSource: BehaviorSubject<Auth | null> =
+  private loggedUserSource: BehaviorSubject<Auth | null> =
     new BehaviorSubject<Auth | null>(null);
-  loggedUser$: Observable<Auth> = this.loggedUserSource.pipe(
+  loggedUser$: Observable<Auth> = this.loggedUserSource.asObservable().pipe(
     filter((value) => value !== null),
     map((value) => value as Auth)
   );
