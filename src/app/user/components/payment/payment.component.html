@@ -6,17 +6,6 @@
       class="card-header bg-transparent d-sm-flex justify-content-sm-between align-items-center border-bottom"
     >
       <h3 class="mb-2 mb-sm-0">Payment methods</h3>
-      <div>
-        <button
-          href="#"
-          class="btn btn-sm btn-primary-soft mb-0"
-          data-bs-toggle="modal"
-          data-bs-target="#addNewcard"
-          (click)="saveCardInfo()"
-        >
-          Add new card
-        </button>
-      </div>
     </div>
     <!-- Card header END -->
 
@@ -35,7 +24,11 @@
             <!-- Accordion body -->
             <div class="accordion-body">
               <!-- Form START -->
-              <form class="row text-start g-3">
+              <form
+                class="row text-start g-3"
+                [formGroup]="paymentForm"
+                (ngSubmit)="onSubmit()"
+              >
                 <!-- Card number -->
                 <div class="col-12">
                   <label class="form-label"
@@ -46,8 +39,8 @@
                       type="text"
                       class="form-control"
                       placeholder="xxxx xxxx xxxx xxxx"
-                      [(ngModel)]="cardNumber"
-                      name="cardNumber"
+                      maxlength="16"
+                      formControlName="cardNumber"
                     />
                   </div>
                 </div>
@@ -62,16 +55,14 @@
                       class="form-control"
                       maxlength="2"
                       placeholder="Month"
-                      [(ngModel)]="cardMonth"
-                      name="cardMonth"
+                      formControlName="cardMonth"
                     />
                     <input
                       type="text"
                       class="form-control"
                       maxlength="4"
                       placeholder="Year"
-                      [(ngModel)]="cardYear"
-                      name="cardYear"
+                      formControlName="cardYear"
                     />
                   </div>
                 </div>
@@ -85,8 +76,7 @@
                     class="form-control"
                     maxlength="3"
                     placeholder="xxx"
-                    [(ngModel)]="cardCvv"
-                    name="cardCvv"
+                    formControlName="cardCvv"
                   />
                 </div>
                 <!-- Card name -->
@@ -99,9 +89,19 @@
                     class="form-control"
                     aria-label="name of card holder"
                     placeholder="Enter name"
-                    [(ngModel)]="cardName"
-                    name="cardName"
+                    formControlName="cardName"
                   />
+                </div>
+                <div *ngIf="paymentAdded">
+                  <button
+                    href="#"
+                    class="btn btn-sm btn-primary-soft mb-0 ms-1"
+                    data-bs-toggle="modal"
+                    data-bs-target="#addNewcard"
+                    type="submit"
+                  >
+                    Add new card
+                  </button>
                 </div>
               </form>
               <!-- Form END -->

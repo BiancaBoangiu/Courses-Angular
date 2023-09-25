@@ -1,3 +1,5 @@
+import { Payment } from 'src/app/user/models/payment-interface';
+
 export interface Auth {
   id: number;
   email: string;
@@ -8,4 +10,5 @@ export interface Auth {
   lastName: string;
   description: string;
   education: string;
+  payment: Payment;
 }

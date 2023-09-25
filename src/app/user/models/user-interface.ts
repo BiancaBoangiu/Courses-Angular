@@ -1,3 +1,5 @@
+import { Payment } from './payment-interface';
+
 export interface User {
   email: string;
   id: number;
@@ -8,4 +10,5 @@ export interface User {
   description: string;
   education: string;
   wishlist: number[];
+  payment: Payment;
 }

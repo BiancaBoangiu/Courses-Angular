@@ -1921,7 +1921,14 @@
       "id": 4,
       "wishlist": [
         2
-      ]
+      ],
+      "payment": {
+        "cardNumber": "43534534534",
+        "cardYear": "3453",
+        "cardMonth": "43",
+        "cardCvv": "345",
+        "cardName": "dfgfdgdfgfd"
+      }
     },
     {
       "email": "admin@test.com",
