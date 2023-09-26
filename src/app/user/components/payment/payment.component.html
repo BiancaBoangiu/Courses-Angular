@@ -39,13 +39,36 @@
                       type="text"
                       class="form-control"
                       placeholder="xxxx xxxx xxxx xxxx"
-                      maxlength="16"
                       formControlName="cardNumber"
                     />
                   </div>
+                  <div
+                    *ngIf="
+                      (paymentForm.get('cardNumber')?.invalid &&
+                        paymentForm.get('cardNumber')?.dirty) ||
+                      paymentForm.get('cardNumber')?.touched
+                    "
+                  >
+                    <div
+                      *ngIf="
+                        paymentForm.get('cardNumber')?.hasError('required')
+                      "
+                    >
+                      Field is required
+                    </div>
+                    <div
+                      *ngIf="
+                        paymentForm
+                          .get('cardNumber')
+                          ?.hasError('cardNumberLengthValidator')
+                      "
+                    >
+                      Field should not have more than 16 digits
+                    </div>
+                  </div>
                 </div>
                 <!-- Expiration Date -->
-                <div class="col-md-6">
+                <div class="col-md-4">
                   <label class="form-label"
                     >Expiration date <span class="text-danger">*</span></label
                   >
@@ -53,31 +76,94 @@
                     <input
                       type="text"
                       class="form-control"
-                      maxlength="2"
                       placeholder="Month"
                       formControlName="cardMonth"
                     />
+                  </div>
+                  <div
+                    *ngIf="
+                      (paymentForm.get('cardMonth')?.invalid &&
+                        paymentForm.get('cardMonth')?.dirty) ||
+                      paymentForm.get('cardMonth')?.touched
+                    "
+                  >
+                    <div
+                      *ngIf="paymentForm.get('cardMonth')?.hasError('required')"
+                    >
+                      Field is required
+                    </div>
+                    <div
+                      *ngIf="
+                        paymentForm.get('cardMonth')?.hasError('monthValidator')
+                      "
+                    >
+                      Field should have 2 digits
+                    </div>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <label class="form-label mb-4"></label>
+                  <div class="input-group">
                     <input
                       type="text"
                       class="form-control"
-                      maxlength="4"
                       placeholder="Year"
                       formControlName="cardYear"
                     />
                   </div>
+
+                  <div
+                    *ngIf="
+                      (paymentForm.get('cardYear')?.invalid &&
+                        paymentForm.get('cardYear')?.dirty) ||
+                      paymentForm.get('cardYear')?.touched
+                    "
+                  >
+                    <div
+                      *ngIf="paymentForm.get('cardYear')?.hasError('required')"
+                    >
+                      Field is required
+                    </div>
+                    <div
+                      *ngIf="
+                        paymentForm.get('cardYear')?.hasError('yearValidator')
+                      "
+                    >
+                      Field should have 4 digits
+                    </div>
+                  </div>
                 </div>
                 <!--Cvv code  -->
-                <div class="col-md-6">
+                <div class="col-4">
                   <label class="form-label"
                     >CVV / CVC <span class="text-danger">*</span></label
                   >
                   <input
                     type="text"
                     class="form-control"
-                    maxlength="3"
                     placeholder="xxx"
                     formControlName="cardCvv"
                   />
+                  <div
+                    *ngIf="
+                      (paymentForm.get('cardCvv')?.invalid &&
+                        paymentForm.get('cardCvv')?.dirty) ||
+                      paymentForm.get('cardCvv')?.touched
+                    "
+                  >
+                    <div
+                      *ngIf="paymentForm.get('cardCvv')?.hasError('required')"
+                    >
+                      Field is required
+                    </div>
+                    <div
+                      *ngIf="
+                        paymentForm.get('cardCvv')?.hasError('cvvValidator')
+                      "
+                    >
+                      Field should have 3 digits
+                    </div>
+                  </div>
                 </div>
                 <!-- Card name -->
                 <div class="col-12">
@@ -91,8 +177,21 @@
                     placeholder="Enter name"
                     formControlName="cardName"
                   />
+                  <div
+                    *ngIf="
+                      (paymentForm.get('cardName')?.invalid &&
+                        paymentForm.get('cardName')?.dirty) ||
+                      paymentForm.get('cardName')?.touched
+                    "
+                  >
+                    <div
+                      *ngIf="paymentForm.get('cardName')?.hasError('required')"
+                    >
+                      Field is required
+                    </div>
+                  </div>
                 </div>
-                <div *ngIf="paymentAdded">
+                <div *ngIf="!paymentAdded">
                   <button
                     href="#"
                     class="btn btn-sm btn-primary-soft mb-0 ms-1"

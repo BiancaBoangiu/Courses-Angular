@@ -519,10 +519,7 @@
       "hasCertificate": false,
       "price": 550,
       "isPremium": true,
-      "wishlist": [
-        4,
-        1
-      ]
+      "wishlist": [4, 1]
     },
     {
       "id": 5,
@@ -622,10 +619,7 @@
       "hasCertificate": true,
       "price": 0,
       "isPremium": false,
-      "wishlist": [
-        4,
-        1
-      ]
+      "wishlist": [4, 1]
     },
     {
       "id": 6,
@@ -1919,9 +1913,7 @@
       "password": "aaaaa",
       "image": "/assets/user1.jpg",
       "id": 4,
-      "wishlist": [
-        2
-      ],
+      "wishlist": [2],
       "payment": {
         "cardNumber": "43534534534",
         "cardYear": "3453",
@@ -1935,22 +1927,11 @@
       "password": "aaaaa",
       "image": "/assets/user5.jpg",
       "id": 5,
-      "wishlist": [
-        4,
-        2,
-        5
-      ],
+      "wishlist": [4, 2, 5],
       "firstName": "Alexandru",
       "lastName": "Vioreanu",
       "description": "",
-      "education": "",
-      "payment": {
-        "cardNumber": "32423432",
-        "cardYear": "3243",
-        "cardMonth": "32",
-        "cardCvv": "234",
-        "cardName": "dsfsdfsd"
-      }
+      "education": ""
     },
     {
       "email": "admin3@test.com",
@@ -1960,13 +1941,33 @@
       "firstName": "Alexandru",
       "lastName": "Vioreanu",
       "description": "",
-      "education": ""
+      "education": "",
+      "payment": {
+        "cardNumber": "434343434",
+        "cardYear": "434",
+        "cardMonth": "343",
+        "cardCvv": "34343",
+        "cardName": "dsfgffdgfdgd"
+      }
     },
     {
       "email": "admin4@test.com",
       "password": "aaaaa",
       "image": "/assets/user1.jpg",
       "id": 7
+    },
+    {
+      "email": "admin5@test.com",
+      "password": "aaaaa",
+      "image": "/assets/user1.jpg",
+      "id": 8,
+      "payment": {
+        "cardNumber": "",
+        "cardYear": "",
+        "cardMonth": "",
+        "cardCvv": "",
+        "cardName": ""
+      }
     }
   ],
   "reviews": [
@@ -1986,9 +1987,7 @@
       "message": "dfgdfgfd",
       "courseId": 1,
       "likes": [],
-      "dislikes": [
-        5
-      ],
+      "dislikes": [5],
       "userEmail": "admin@test.com",
       "id": 4
     },
@@ -1997,9 +1996,7 @@
       "rating": "4",
       "message": "fdgdfgfd",
       "courseId": 1,
-      "likes": [
-        5
-      ],
+      "likes": [5],
       "dislikes": [],
       "userEmail": "admin@test.com",
       "id": 5
