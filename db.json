@@ -519,7 +519,10 @@
       "hasCertificate": false,
       "price": 550,
       "isPremium": true,
-      "wishlist": [4, 1]
+      "wishlist": [
+        4,
+        1
+      ]
     },
     {
       "id": 5,
@@ -619,7 +622,10 @@
       "hasCertificate": true,
       "price": 0,
       "isPremium": false,
-      "wishlist": [4, 1]
+      "wishlist": [
+        4,
+        1
+      ]
     },
     {
       "id": 6,
@@ -1913,7 +1919,9 @@
       "password": "aaaaa",
       "image": "/assets/user1.jpg",
       "id": 4,
-      "wishlist": [2],
+      "wishlist": [
+        2
+      ],
       "payment": {
         "cardNumber": "43534534534",
         "cardYear": "3453",
@@ -1927,11 +1935,22 @@
       "password": "aaaaa",
       "image": "/assets/user5.jpg",
       "id": 5,
-      "wishlist": [4, 2, 5],
+      "wishlist": [
+        4,
+        2,
+        5
+      ],
       "firstName": "Alexandru",
       "lastName": "Vioreanu",
       "description": "",
-      "education": ""
+      "education": "",
+      "payment": {
+        "cardNumber": "1111111111111111",
+        "cardYear": "1999",
+        "cardMonth": "11",
+        "cardCvv": "112",
+        "cardName": "alex"
+      }
     },
     {
       "email": "admin3@test.com",
@@ -1987,7 +2006,9 @@
       "message": "dfgdfgfd",
       "courseId": 1,
       "likes": [],
-      "dislikes": [5],
+      "dislikes": [
+        5
+      ],
       "userEmail": "admin@test.com",
       "id": 4
     },
@@ -1996,7 +2017,9 @@
       "rating": "4",
       "message": "fdgdfgfd",
       "courseId": 1,
-      "likes": [5],
+      "likes": [
+        5
+      ],
       "dislikes": [],
       "userEmail": "admin@test.com",
       "id": 5

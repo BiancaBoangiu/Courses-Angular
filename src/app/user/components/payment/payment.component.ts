@@ -23,29 +23,20 @@ export class PaymentComponent {
     private authService: AuthService,
     private fb: FormBuilder
   ) {
-    this.paymentForm = this.fb.group(
-      {
-        cardNumber: ['', Validators.required],
-        cardYear: ['', Validators.required],
-        cardMonth: ['', Validators.required],
-        cardCvv: ['', Validators.required],
-        cardName: ['', Validators.required],
-      },
-      {
-        validator: [
-          this.cardNumberLengthValidator,
-          this.monthValidator,
-          this.yearValidator,
-          this.cvvValidator,
-        ],
-      }
-    );
+    this.paymentForm = this.fb.group({
+      cardNumber: ['', [Validators.required, this.cardNumberLengthValidator]],
+      cardYear: ['', [Validators.required, this.yearValidator]],
+      cardMonth: ['', [Validators.required, this.monthValidator]],
+      cardCvv: ['', [Validators.required, this.cvvValidator]],
+      cardName: ['', Validators.required],
+    });
   }
 
   ngOnInit() {
     const paymentInfo = this.authService.getUserData()?.payment;
     if (paymentInfo) {
       this.getPaymentInfo();
+      this.paymentAdded = true;
     }
   }
 
@@ -97,7 +88,11 @@ export class PaymentComponent {
   yearValidator(control: AbstractControl): ValidationErrors | null {
     const currentYear = new Date().getFullYear();
     const year = control.value;
-    if (year < currentYear) {
+    console.log(year.length);
+    if (
+      (year.length > 4 || year.length < 4) &&
+      (year > currentYear || year < currentYear)
+    ) {
       return { invalidYear: true };
     } else {
       return null;
@@ -112,6 +107,7 @@ export class PaymentComponent {
       return null;
     }
   }
+
   cardNumberLengthValidator(control: AbstractControl): ValidationErrors | null {
     const cardNumber = control.value;
     if ((cardNumber && cardNumber.length < 16) || cardNumber.length > 16) {
