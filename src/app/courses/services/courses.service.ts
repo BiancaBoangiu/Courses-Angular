@@ -61,7 +61,6 @@ export class CoursesService {
 
   getCoursesByExperience(level: string): Observable<Course[]> {
     const coursesByLevel = `http://localhost:3000/courses?experience=${level}`;
-    console.log(coursesByLevel);
     return this.http.get<Course[]>(coursesByLevel);
   }
 
@@ -82,7 +81,6 @@ export class CoursesService {
   getCoursesByOption(option: string): Observable<Course[]> {
     const optionParts = option.split('_');
     const courses = `http://localhost:3000/courses?_sort=${optionParts[0]}&_order=${optionParts[1]}`;
-    console.log(courses);
     return this.http.get<Course[]>(courses);
   }
 

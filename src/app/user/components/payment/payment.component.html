@@ -63,7 +63,8 @@
                           ?.hasError('cardNumberLengthValidator')
                       "
                     >
-                      Field should not have more than 16 digits
+                      <span>lala</span>
+                      Invalid field
                     </div>
                   </div>
                 </div>
@@ -97,7 +98,7 @@
                         paymentForm.get('cardMonth')?.hasError('monthValidator')
                       "
                     >
-                      Field should have 2 digits
+                      Invalid field
                     </div>
                   </div>
                 </div>
@@ -129,7 +130,7 @@
                         paymentForm.get('cardYear')?.hasError('yearValidator')
                       "
                     >
-                      Field should have 4 digits
+                      Invalid field
                     </div>
                   </div>
                 </div>
@@ -161,7 +162,7 @@
                         paymentForm.get('cardCvv')?.hasError('cvvValidator')
                       "
                     >
-                      Field should have 3 digits
+                      Invalid field
                     </div>
                   </div>
                 </div>
@@ -221,7 +222,11 @@
       class="card-header bg-transparent d-sm-flex justify-content-sm-between align-items-center border-bottom"
     >
       <h3 class="mb-2 mb-sm-0">Billing address</h3>
-      <a href="#" class="btn btn-sm btn-primary-soft mb-0">Add address</a>
+      <div *ngIf="!addressAdded">
+        <a class="btn btn-sm btn-primary-soft mb-0" (click)="saveAddress()"
+          >Add address</a
+        >
+      </div>
     </div>
     <!-- Card header END -->
 
@@ -233,23 +238,23 @@
       >
         <!-- Radio button button -->
         <div class="form-check">
+          <label class="form-check-label mb-2 h5" for="address1">Address</label>
           <input
-            class="form-check-input mb-1"
-            type="radio"
-            name="address"
-            id="address1"
-            checked=""
+            type="text"
+            class="form-control"
+            placeholder="Address"
+            [(ngModel)]="address"
           />
-          <label class="form-check-label mb-0 h5" for="address1"
-            >Address-1</label
-          >
-          <p class="mb-0">2492 Centennial NW, Acworth, GA, 30102</p>
         </div>
 
         <!-- Button -->
         <div>
-          <a href="#" class="btn btn-sm btn-success mb-0">Edit</a>
-          <button class="btn btn-sm btn-danger mb-0">Delete</button>
+          <a class="btn btn-sm btn-success mb-0" (click)="saveAddress()"
+            >Update</a
+          >
+          <button class="btn btn-sm btn-danger mb-0" (click)="deleteAddress()">
+            Delete
+          </button>
         </div>
       </div>
       <!-- Address END -->

@@ -72,4 +72,16 @@ export class UsersService {
 
     return this.http.patch<Payment>(usersURL, body);
   }
+
+  saveAddress(address: string, userId: number): Observable<any> {
+    const usersURL = `http://localhost:3000/users/${userId}`;
+    const body = { address: address };
+    return this.http.patch<any>(usersURL, body);
+  }
+
+  deleteAddress(userId: number): Observable<any> {
+    const usersURL = `http://localhost:3000/users/${userId}`;
+    const body = { address: '' };
+    return this.http.patch<any>(usersURL, body);
+  }
 }

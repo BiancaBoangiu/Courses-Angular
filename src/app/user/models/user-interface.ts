@@ -11,4 +11,5 @@ export interface User {
   education: string;
   wishlist: number[];
   payment: Payment;
+  address: string;
 }

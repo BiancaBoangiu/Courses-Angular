@@ -17,6 +17,8 @@ import {
 export class PaymentComponent {
   paymentForm: FormGroup;
   paymentAdded: boolean = false;
+  address!: string;
+  addressAdded: boolean = false;
 
   constructor(
     private usersService: UsersService,
@@ -37,6 +39,12 @@ export class PaymentComponent {
     if (paymentInfo) {
       this.getPaymentInfo();
       this.paymentAdded = true;
+    }
+
+    const address = this.authService.getUserData()?.address;
+    if (address) {
+      this.address = address;
+      this.addressAdded = true;
     }
   }
 
@@ -88,7 +96,7 @@ export class PaymentComponent {
   yearValidator(control: AbstractControl): ValidationErrors | null {
     const currentYear = new Date().getFullYear();
     const year = control.value;
-    console.log(year.length);
+
     if (
       (year.length > 4 || year.length < 4) &&
       (year > currentYear || year < currentYear)
@@ -114,6 +122,34 @@ export class PaymentComponent {
       return { invalidCardNumberLength: true };
     } else {
       return null;
+    }
+  }
+
+  saveAddress() {
+    const userId = this.authService.getUserData()?.id;
+    if (userId) {
+      this.usersService.saveAddress(this.address, userId).subscribe((user) => {
+        this.address = user.address;
+        this.addressAdded = true;
+        const userData = this.authService.getUserData();
+        if (userData) {
+          userData.address = this.address;
+        }
+      });
+    }
+  }
+
+  deleteAddress() {
+    const userId = this.authService.getUserData()?.id;
+    if (userId) {
+      this.usersService.deleteAddress(userId).subscribe((user) => {
+        this.address = user.address;
+        this.addressAdded = false;
+        const userData = this.authService.getUserData();
+        if (userData) {
+          userData.address = this.address;
+        }
+      });
     }
   }
 }

@@ -1928,29 +1928,8 @@
         "cardMonth": "43",
         "cardCvv": "345",
         "cardName": "dfgfdgdfgfd"
-      }
-    },
-    {
-      "email": "admin@test.com",
-      "password": "aaaaa",
-      "image": "/assets/user5.jpg",
-      "id": 5,
-      "wishlist": [
-        4,
-        2,
-        5
-      ],
-      "firstName": "Alexandru",
-      "lastName": "Vioreanu",
-      "description": "",
-      "education": "",
-      "payment": {
-        "cardNumber": "1111111111111111",
-        "cardYear": "1999",
-        "cardMonth": "11",
-        "cardCvv": "112",
-        "cardName": "alex"
-      }
+      },
+      "address": "Bucuresti"
     },
     {
       "email": "admin3@test.com",
@@ -1967,7 +1946,8 @@
         "cardMonth": "343",
         "cardCvv": "34343",
         "cardName": "dsfgffdgfdgd"
-      }
+      },
+      "address": "Iasi"
     },
     {
       "email": "admin4@test.com",
@@ -1981,12 +1961,33 @@
       "image": "/assets/user1.jpg",
       "id": 8,
       "payment": {
-        "cardNumber": "",
-        "cardYear": "",
-        "cardMonth": "",
-        "cardCvv": "",
-        "cardName": ""
-      }
+        "cardNumber": "1111111111111111",
+        "cardYear": "1996",
+        "cardMonth": "12",
+        "cardCvv": "123",
+        "cardName": "Ana"
+      },
+      "firstName": "Ana",
+      "lastName": "Maria",
+      "description": "",
+      "education": "",
+      "wishlist": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "email": "user@test.com",
+      "password": "aaaaa",
+      "image": "/assets/user1.jpg",
+      "id": 9
+    },
+    {
+      "email": "user1@test.com",
+      "password": "aaaaa",
+      "image": "/assets/user2.jpg",
+      "id": 10
     }
   ],
   "reviews": [

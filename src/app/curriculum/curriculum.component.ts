@@ -7,7 +7,5 @@ import { Component, Input } from '@angular/core';
 })
 export class CurriculumComponent {
   @Input() lecture!: any;
-  ngOnInit() {
-    console.log(this.lecture.topics);
-  }
+  ngOnInit() {}
 }
