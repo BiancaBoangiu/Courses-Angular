@@ -75,13 +75,13 @@ export class UsersService {
 
   saveAddress(address: string, userId: number): Observable<any> {
     const usersURL = `http://localhost:3000/users/${userId}`;
-    const body = { address: address };
+    const body = { billingAddress: address };
     return this.http.patch<any>(usersURL, body);
   }
 
   deleteAddress(userId: number): Observable<any> {
     const usersURL = `http://localhost:3000/users/${userId}`;
-    const body = { address: '' };
+    const body = { billingAddress: '' };
     return this.http.patch<any>(usersURL, body);
   }
 }

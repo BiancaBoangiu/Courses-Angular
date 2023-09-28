@@ -1928,8 +1928,7 @@
         "cardMonth": "43",
         "cardCvv": "345",
         "cardName": "dfgfdgdfgfd"
-      },
-      "address": "Bucuresti"
+      }
     },
     {
       "email": "admin3@test.com",
@@ -1946,14 +1945,20 @@
         "cardMonth": "343",
         "cardCvv": "34343",
         "cardName": "dsfgffdgfdgd"
-      },
-      "address": "Iasi"
+      }
     },
     {
       "email": "admin4@test.com",
       "password": "aaaaa",
       "image": "/assets/user1.jpg",
-      "id": 7
+      "id": 7,
+      "payment": {
+        "cardNumber": "1111111111111111",
+        "cardYear": "1996",
+        "cardMonth": "12",
+        "cardCvv": "133",
+        "cardName": "Vioreanu"
+      }
     },
     {
       "email": "admin5@test.com",
@@ -2007,7 +2012,8 @@
         "cardMonth": "12",
         "cardCvv": "133",
         "cardName": "Alex Vioreanu"
-      }
+      },
+      "billingAddress": "Cluj"
     }
   ],
   "reviews": [

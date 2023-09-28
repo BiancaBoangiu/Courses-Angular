@@ -16,9 +16,7 @@ import {
 })
 export class PaymentComponent {
   paymentForm: FormGroup;
-  paymentAdded: boolean = false;
   address!: string;
-  addressAdded: boolean = false;
   formSubmitted: boolean = false;
 
   constructor(
@@ -39,13 +37,11 @@ export class PaymentComponent {
     const paymentInfo = this.authService.getUserData()?.payment;
     if (paymentInfo) {
       this.getPaymentInfo();
-      this.paymentAdded = true;
     }
 
     const address = this.authService.getUserData()?.address;
     if (address) {
       this.address = address;
-      this.addressAdded = true;
     }
   }
 
@@ -80,9 +76,7 @@ export class PaymentComponent {
             cardNameValue,
             userId
           )
-          .subscribe(() => {
-            this.paymentAdded = true;
-          });
+          .subscribe(() => {});
       }
     } else {
       return;
@@ -135,7 +129,7 @@ export class PaymentComponent {
     if (userId) {
       this.usersService.saveAddress(this.address, userId).subscribe((user) => {
         this.address = user.address;
-        this.addressAdded = true;
+
         const userData = this.authService.getUserData();
         if (userData) {
           userData.address = this.address;
@@ -149,7 +143,7 @@ export class PaymentComponent {
     if (userId) {
       this.usersService.deleteAddress(userId).subscribe((user) => {
         this.address = user.address;
-        this.addressAdded = false;
+
         const userData = this.authService.getUserData();
         if (userData) {
           userData.address = this.address;
