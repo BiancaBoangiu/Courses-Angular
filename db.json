@@ -1988,6 +1988,19 @@
       "password": "aaaaa",
       "image": "/assets/user2.jpg",
       "id": 10
+    },
+    {
+      "email": "user2@test.com",
+      "password": "aaaaa",
+      "image": "/assets/user1.jpg",
+      "id": 11
+    },
+    {
+      "email": "admin@test.com",
+      "password": "aaaaa",
+      "image": "/assets/user1.jpg",
+      "id": 12,
+      "address": "Iasi"
     }
   ],
   "reviews": [

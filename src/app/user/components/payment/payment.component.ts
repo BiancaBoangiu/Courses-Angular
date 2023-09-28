@@ -19,6 +19,7 @@ export class PaymentComponent {
   paymentAdded: boolean = false;
   address!: string;
   addressAdded: boolean = false;
+  formSubmitted: boolean = false;
 
   constructor(
     private usersService: UsersService,
@@ -61,6 +62,7 @@ export class PaymentComponent {
   }
 
   onSubmit() {
+    this.formSubmitted = true;
     if (this.paymentForm.valid) {
       const userId = this.authService.getUserData()?.id as number;
       const cardNumberValue = this.paymentForm.get('cardNumber')?.value;
@@ -82,6 +84,8 @@ export class PaymentComponent {
             this.paymentAdded = true;
           });
       }
+    } else {
+      return;
     }
   }
   monthValidator(control: AbstractControl): ValidationErrors | null {
@@ -118,6 +122,7 @@ export class PaymentComponent {
 
   cardNumberLengthValidator(control: AbstractControl): ValidationErrors | null {
     const cardNumber = control.value;
+
     if ((cardNumber && cardNumber.length < 16) || cardNumber.length > 16) {
       return { invalidCardNumberLength: true };
     } else {

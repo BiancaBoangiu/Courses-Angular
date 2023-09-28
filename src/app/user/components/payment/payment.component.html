@@ -46,10 +46,12 @@
                     *ngIf="
                       (paymentForm.get('cardNumber')?.invalid &&
                         paymentForm.get('cardNumber')?.dirty) ||
-                      paymentForm.get('cardNumber')?.touched
+                      paymentForm.get('cardNumber')?.touched ||
+                      formSubmitted
                     "
                   >
                     <div
+                      class="error-text mt-1"
                       *ngIf="
                         paymentForm.get('cardNumber')?.hasError('required')
                       "
@@ -57,14 +59,14 @@
                       Field is required
                     </div>
                     <div
+                      class="error-text mt-1"
                       *ngIf="
                         paymentForm
                           .get('cardNumber')
-                          ?.hasError('cardNumberLengthValidator')
+                          ?.errors?.['cardNumberLengthValidator']
                       "
                     >
-                      <span>lala</span>
-                      Invalid field
+                      <span>Invalid field</span>
                     </div>
                   </div>
                 </div>
@@ -85,20 +87,23 @@
                     *ngIf="
                       (paymentForm.get('cardMonth')?.invalid &&
                         paymentForm.get('cardMonth')?.dirty) ||
-                      paymentForm.get('cardMonth')?.touched
+                      paymentForm.get('cardMonth')?.touched ||
+                      formSubmitted
                     "
                   >
                     <div
+                      class="error-text mt-1"
                       *ngIf="paymentForm.get('cardMonth')?.hasError('required')"
                     >
                       Field is required
                     </div>
                     <div
+                      class="error-text mt-1"
                       *ngIf="
-                        paymentForm.get('cardMonth')?.hasError('monthValidator')
+                        paymentForm.get('cardMonth')?.errors?.['monthValidator']
                       "
                     >
-                      Invalid field
+                      <span>Invalid field</span>
                     </div>
                   </div>
                 </div>
@@ -117,20 +122,23 @@
                     *ngIf="
                       (paymentForm.get('cardYear')?.invalid &&
                         paymentForm.get('cardYear')?.dirty) ||
-                      paymentForm.get('cardYear')?.touched
+                      paymentForm.get('cardYear')?.touched ||
+                      formSubmitted
                     "
                   >
                     <div
+                      class="error-text mt-1"
                       *ngIf="paymentForm.get('cardYear')?.hasError('required')"
                     >
                       Field is required
                     </div>
                     <div
+                      class="error-text mt-1"
                       *ngIf="
-                        paymentForm.get('cardYear')?.hasError('yearValidator')
+                        paymentForm.get('cardYear')?.errors?.['yearValidator']
                       "
                     >
-                      Invalid field
+                      <span>Invalid field</span>
                     </div>
                   </div>
                 </div>
@@ -149,20 +157,23 @@
                     *ngIf="
                       (paymentForm.get('cardCvv')?.invalid &&
                         paymentForm.get('cardCvv')?.dirty) ||
-                      paymentForm.get('cardCvv')?.touched
+                      paymentForm.get('cardCvv')?.touched ||
+                      formSubmitted
                     "
                   >
                     <div
+                      class="error-text mt-1"
                       *ngIf="paymentForm.get('cardCvv')?.hasError('required')"
                     >
                       Field is required
                     </div>
                     <div
+                      class="error-text mt-1"
                       *ngIf="
-                        paymentForm.get('cardCvv')?.hasError('cvvValidator')
+                        paymentForm.get('cardCvv')?.errors?.['cvvValidator']
                       "
                     >
-                      Invalid field
+                      <span>Invalid field</span>
                     </div>
                   </div>
                 </div>
@@ -182,10 +193,12 @@
                     *ngIf="
                       (paymentForm.get('cardName')?.invalid &&
                         paymentForm.get('cardName')?.dirty) ||
-                      paymentForm.get('cardName')?.touched
+                      paymentForm.get('cardName')?.touched ||
+                      formSubmitted
                     "
                   >
                     <div
+                      class="error-text mt-1"
                       *ngIf="paymentForm.get('cardName')?.hasError('required')"
                     >
                       Field is required
@@ -194,10 +207,7 @@
                 </div>
                 <div *ngIf="!paymentAdded">
                   <button
-                    href="#"
                     class="btn btn-sm btn-primary-soft mb-0 ms-1"
-                    data-bs-toggle="modal"
-                    data-bs-target="#addNewcard"
                     type="submit"
                   >
                     Add new card
