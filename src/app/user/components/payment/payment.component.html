@@ -63,7 +63,7 @@
                       *ngIf="
                         paymentForm
                           .get('cardNumber')
-                          ?.errors?.['cardNumberLengthValidator']
+                          ?.hasError('invalidCardNumberLength')
                       "
                     >
                       <span>Invalid field</span>
@@ -100,7 +100,7 @@
                     <div
                       class="error-text mt-1"
                       *ngIf="
-                        paymentForm.get('cardMonth')?.errors?.['monthValidator']
+                        paymentForm.get('cardMonth')?.hasError('invalidMonth')
                       "
                     >
                       <span>Invalid field</span>
@@ -135,7 +135,7 @@
                     <div
                       class="error-text mt-1"
                       *ngIf="
-                        paymentForm.get('cardYear')?.errors?.['yearValidator']
+                        paymentForm.get('cardYear')?.hasError('invalidYear')
                       "
                     >
                       <span>Invalid field</span>
@@ -169,9 +169,7 @@
                     </div>
                     <div
                       class="error-text mt-1"
-                      *ngIf="
-                        paymentForm.get('cardCvv')?.errors?.['cvvValidator']
-                      "
+                      *ngIf="paymentForm.get('cardCvv')?.hasError('invalidCvv')"
                     >
                       <span>Invalid field</span>
                     </div>

@@ -2000,7 +2000,14 @@
       "password": "aaaaa",
       "image": "/assets/user1.jpg",
       "id": 12,
-      "address": "Iasi"
+      "address": "Iasi",
+      "payment": {
+        "cardNumber": "1111111111111111",
+        "cardYear": "1996",
+        "cardMonth": "12",
+        "cardCvv": "133",
+        "cardName": "Alex Vioreanu"
+      }
     }
   ],
   "reviews": [
