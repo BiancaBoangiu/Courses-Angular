@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../models/user-interface';
-import { Observable } from 'rxjs';
+import { Observable, switchMap } from 'rxjs';
 import { Review } from 'src/app/courses/models/review.interface';
 import { Course } from 'src/app/courses/models/course.interface';
 import { Payment } from '../models/payment-interface';
@@ -55,22 +55,24 @@ export class UsersService {
     cardYear: number,
     cardMonth: number,
     cardCvv: number,
+    cardFunds: number,
     cardName: string,
     userId: number
-  ): Observable<Payment> {
+  ): Observable<User> {
     const usersURL = `http://localhost:3000/users/${userId}`;
     const payment = {
       cardNumber,
       cardYear,
       cardMonth,
       cardCvv,
+      cardFunds,
       cardName,
     };
     const body = {
       payment: payment,
     };
 
-    return this.http.patch<Payment>(usersURL, body);
+    return this.http.patch<User>(usersURL, body);
   }
 
   saveAddress(address: string, userId: number): Observable<any> {
@@ -83,5 +85,26 @@ export class UsersService {
     const usersURL = `http://localhost:3000/users/${userId}`;
     const body = { billingAddress: '' };
     return this.http.patch<any>(usersURL, body);
+  }
+
+  depositMoney(
+    userId: number,
+    amount: number,
+    previousAmount: number,
+    funds: number,
+    paymentInfo: Payment
+  ): Observable<User> {
+    const usersURL = `http://localhost:3000/users/${userId}`;
+
+    const newAmount = amount + previousAmount;
+    const newFunds = funds - amount;
+    const body = {
+      wallet: newAmount,
+      payment: {
+        ...paymentInfo,
+        cardFunds: newFunds,
+      },
+    };
+    return this.http.patch<User>(usersURL, body);
   }
 }

@@ -8,6 +8,7 @@ import {
   AbstractControl,
   ValidationErrors,
 } from '@angular/forms';
+import { Payment } from '../../models/payment-interface';
 
 @Component({
   selector: 'app-payment',
@@ -18,6 +19,8 @@ export class PaymentComponent {
   paymentForm: FormGroup;
   address!: string;
   formSubmitted: boolean = false;
+  depositAmount: number = 0;
+  walletValue!: number;
 
   constructor(
     private usersService: UsersService,
@@ -29,6 +32,7 @@ export class PaymentComponent {
       cardYear: ['', [Validators.required, this.yearValidator]],
       cardMonth: ['', [Validators.required, this.monthValidator]],
       cardCvv: ['', [Validators.required, this.cvvValidator]],
+      cardFunds: ['', [Validators.required, this.fundsValidator]],
       cardName: ['', Validators.required],
     });
   }
@@ -36,7 +40,8 @@ export class PaymentComponent {
   ngOnInit() {
     const paymentInfo = this.authService.getUserData()?.payment;
     if (paymentInfo) {
-      this.getPaymentInfo();
+      this.formSubmitted = true;
+      this.getPaymentInfo(paymentInfo);
     }
 
     const address = this.authService.getUserData()?.address;
@@ -45,20 +50,18 @@ export class PaymentComponent {
     }
   }
 
-  getPaymentInfo() {
-    const paymentInfo = this.authService.getUserData()?.payment;
-
+  getPaymentInfo(payment: Payment) {
     this.paymentForm.patchValue({
-      cardNumber: paymentInfo?.cardNumber,
-      cardYear: paymentInfo?.cardYear,
-      cardMonth: paymentInfo?.cardMonth,
-      cardCvv: paymentInfo?.cardCvv,
-      cardName: paymentInfo?.cardName,
+      cardNumber: payment?.cardNumber,
+      cardYear: payment?.cardYear,
+      cardMonth: payment?.cardMonth,
+      cardCvv: payment?.cardCvv,
+      cardFunds: payment?.cardFunds,
+      cardName: payment?.cardName,
     });
   }
 
   onSubmit() {
-    this.formSubmitted = true;
     if (this.paymentForm.valid) {
       const userId = this.authService.getUserData()?.id as number;
       const cardNumberValue = this.paymentForm.get('cardNumber')?.value;
@@ -66,6 +69,7 @@ export class PaymentComponent {
       const cardMonthValue = this.paymentForm.get('cardMonth')?.value;
       const cardCvvValue = this.paymentForm.get('cardCvv')?.value;
       const cardNameValue = this.paymentForm.get('cardName')?.value;
+      const cardFundsValue = this.paymentForm.get('cardFunds')?.value;
       if (userId) {
         this.usersService
           .savePaymentInfo(
@@ -73,10 +77,17 @@ export class PaymentComponent {
             cardYearValue,
             cardMonthValue,
             cardCvvValue,
+            cardFundsValue,
             cardNameValue,
             userId
           )
-          .subscribe(() => {});
+          .subscribe(() => {
+            this.formSubmitted = true;
+            const paymentInfo = this.authService.getUserData()?.payment;
+            if (paymentInfo) {
+              this.getPaymentInfo(paymentInfo);
+            }
+          });
       }
     } else {
       return;
@@ -109,6 +120,15 @@ export class PaymentComponent {
     const cvv = control.value;
     if (!/^\d{3}$/.test(cvv)) {
       return { invalidCvv: true };
+    } else {
+      return null;
+    }
+  }
+
+  fundsValidator(control: AbstractControl): ValidationErrors | null {
+    const cardFunds = control.value;
+    if (cardFunds > 10000) {
+      return { invalidcardFunds: true };
     } else {
       return null;
     }
@@ -149,6 +169,31 @@ export class PaymentComponent {
           userData.address = this.address;
         }
       });
+    }
+  }
+
+  depositMoney() {
+    const paymentInfo = this.authService.getUserData()?.payment;
+    const userId = this.authService.getUserData()?.id;
+    const userAmount = this.authService.getUserData()?.wallet || 0;
+    const cardFunds = this.authService.getUserData()?.payment.cardFunds || 0;
+    console.log(paymentInfo);
+
+    if (paymentInfo) {
+      if (userId) {
+        this.usersService
+          .depositMoney(
+            userId,
+            +this.depositAmount,
+            +userAmount,
+            +cardFunds,
+            paymentInfo
+          )
+          .subscribe((user) => {
+            this.authService.updateUser(user);
+            this.walletValue = user.wallet;
+          });
+      }
     }
   }
 }

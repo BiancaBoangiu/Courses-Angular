@@ -4,4 +4,5 @@ export interface Payment {
   cardMonth: number;
   cardCvv: number;
   cardName: string;
+  cardFunds: number;
 }

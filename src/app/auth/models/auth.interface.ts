@@ -12,4 +12,5 @@ export interface Auth {
   education: string;
   payment: Payment;
   address: string;
+  wallet: number;
 }

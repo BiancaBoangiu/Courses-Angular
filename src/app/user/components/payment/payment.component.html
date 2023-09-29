@@ -1,5 +1,31 @@
 <div class="col-xl-9">
   <!-- Payment method START -->
+  <div class="row d-flex justify-content-between my-3">
+    <div class="col-4">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="xxxxx"
+        [(ngModel)]="depositAmount"
+      />
+    </div>
+    <div class="col-4">
+      <button
+        class="btn btn-sm btn-primary-soft mb-0 ms-1"
+        type="button"
+        (click)="depositMoney()"
+      >
+        Deposit
+      </button>
+    </div>
+
+    <div class="col-4" *ngIf="walletValue">
+      <span>Wallet:{{ walletValue }} $</span>
+    </div>
+    <div class="col-4" *ngIf="!walletValue">
+      <span>Wallet: 0 $</span>
+    </div>
+  </div>
   <div class="card bg-transparent border rounded-3 mb-4 z-index-9">
     <!-- Card header START -->
     <div
@@ -23,214 +49,256 @@
 
     <!-- Card body START -->
     <div class="collapse" id="collapseExample1">
-      <div class="card card-body">
-        <div class="accordion accordion-circle" id="accordioncircle">
-          <!-- Credit or debit card START -->
-          <div class="accordion-item">
-            <h6 class="accordion-header font-base" id="heading-1"></h6>
-            <div
-              id="collapse-1"
-              class="accordion-collapse collapse show"
-              aria-labelledby="heading-1"
-              data-bs-parent="#accordioncircle"
-            >
-              <!-- Accordion body -->
-              <div class="accordion-body">
-                <!-- Form START -->
-                <form
-                  class="row text-start g-3"
-                  [formGroup]="paymentForm"
-                  (ngSubmit)="onSubmit()"
-                >
-                  <!-- Card number -->
-                  <div class="col-12">
-                    <label class="form-label"
-                      >Card Number <span class="text-danger">*</span></label
-                    >
-                    <div class="position-relative">
-                      <input
-                        type="text"
-                        class="form-control"
-                        placeholder="xxxx xxxx xxxx xxxx"
-                        formControlName="cardNumber"
-                      />
-                    </div>
+      <div class="accordion accordion-circle" id="accordioncircle">
+        <!-- Credit or debit card START -->
+        <div class="accordion-item">
+          <h6 class="accordion-header font-base" id="heading-1"></h6>
+          <div
+            id="collapse-1"
+            class="accordion-collapse collapse show"
+            aria-labelledby="heading-1"
+            data-bs-parent="#accordioncircle"
+          >
+            <!-- Accordion body -->
+            <div class="accordion-body">
+              <!-- Form START -->
+              <form
+                class="row text-start g-3"
+                [formGroup]="paymentForm"
+                (ngSubmit)="onSubmit()"
+              >
+                <!-- Card number -->
+                <div class="col-12">
+                  <label class="form-label"
+                    >Card Number <span class="text-danger">*</span></label
+                  >
+                  <div class="position-relative">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="xxxx xxxx xxxx xxxx"
+                      formControlName="cardNumber"
+                    />
+                  </div>
+                  <div
+                    *ngIf="
+                      (paymentForm.get('cardNumber')?.invalid &&
+                        paymentForm.get('cardNumber')?.dirty) ||
+                      paymentForm.get('cardNumber')?.touched ||
+                      formSubmitted
+                    "
+                  >
                     <div
+                      class="error-text mt-1"
                       *ngIf="
-                        (paymentForm.get('cardNumber')?.invalid &&
-                          paymentForm.get('cardNumber')?.dirty) ||
-                        paymentForm.get('cardNumber')?.touched ||
-                        formSubmitted
+                        paymentForm.get('cardNumber')?.hasError('required')
                       "
                     >
-                      <div
-                        class="error-text mt-1"
-                        *ngIf="
-                          paymentForm.get('cardNumber')?.hasError('required')
-                        "
-                      >
-                        Field is required
-                      </div>
-                      <div
-                        class="error-text mt-1"
-                        *ngIf="
-                          paymentForm
-                            .get('cardNumber')
-                            ?.hasError('invalidCardNumberLength')
-                        "
-                      >
-                        <span>Invalid field</span>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- Expiration Date -->
-                  <div class="col-md-4">
-                    <label class="form-label"
-                      >Expiration date <span class="text-danger">*</span></label
-                    >
-                    <div class="input-group">
-                      <input
-                        type="text"
-                        class="form-control"
-                        placeholder="Month"
-                        formControlName="cardMonth"
-                      />
+                      Field is required
                     </div>
                     <div
+                      class="error-text mt-1"
                       *ngIf="
-                        (paymentForm.get('cardMonth')?.invalid &&
-                          paymentForm.get('cardMonth')?.dirty) ||
-                        paymentForm.get('cardMonth')?.touched ||
-                        formSubmitted
+                        paymentForm
+                          .get('cardNumber')
+                          ?.hasError('invalidCardNumberLength')
                       "
                     >
-                      <div
-                        class="error-text mt-1"
-                        *ngIf="
-                          paymentForm.get('cardMonth')?.hasError('required')
-                        "
-                      >
-                        Field is required
-                      </div>
-                      <div
-                        class="error-text mt-1"
-                        *ngIf="
-                          paymentForm.get('cardMonth')?.hasError('invalidMonth')
-                        "
-                      >
-                        <span>Invalid field</span>
-                      </div>
+                      <span>Invalid field</span>
                     </div>
                   </div>
-                  <div class="col-4">
-                    <label class="form-label mb-4"></label>
-                    <div class="input-group">
-                      <input
-                        type="text"
-                        class="form-control"
-                        placeholder="Year"
-                        formControlName="cardYear"
-                      />
+                </div>
+                <!-- Expiration Date -->
+                <div class="col-3">
+                  <label class="form-label"
+                    >Expiration date <span class="text-danger">*</span></label
+                  >
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Month"
+                      formControlName="cardMonth"
+                    />
+                  </div>
+                  <div
+                    *ngIf="
+                      (paymentForm.get('cardMonth')?.invalid &&
+                        paymentForm.get('cardMonth')?.dirty) ||
+                      paymentForm.get('cardMonth')?.touched ||
+                      formSubmitted
+                    "
+                  >
+                    <div
+                      class="error-text mt-1"
+                      *ngIf="paymentForm.get('cardMonth')?.hasError('required')"
+                    >
+                      Field is required
                     </div>
+                    <div
+                      class="error-text mt-1"
+                      *ngIf="
+                        paymentForm.get('cardMonth')?.hasError('invalidMonth')
+                      "
+                    >
+                      <span>Invalid field</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-3">
+                  <label class="form-label mb-4"></label>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Year"
+                      formControlName="cardYear"
+                    />
+                  </div>
 
+                  <div
+                    *ngIf="
+                      (paymentForm.get('cardYear')?.invalid &&
+                        paymentForm.get('cardYear')?.dirty) ||
+                      paymentForm.get('cardYear')?.touched ||
+                      formSubmitted
+                    "
+                  >
                     <div
+                      class="error-text mt-1"
+                      *ngIf="paymentForm.get('cardYear')?.hasError('required')"
+                    >
+                      Field is required
+                    </div>
+                    <div
+                      class="error-text mt-1"
                       *ngIf="
-                        (paymentForm.get('cardYear')?.invalid &&
-                          paymentForm.get('cardYear')?.dirty) ||
-                        paymentForm.get('cardYear')?.touched ||
-                        formSubmitted
+                        paymentForm.get('cardYear')?.hasError('invalidYear')
                       "
                     >
-                      <div
-                        class="error-text mt-1"
-                        *ngIf="
-                          paymentForm.get('cardYear')?.hasError('required')
-                        "
-                      >
-                        Field is required
-                      </div>
-                      <div
-                        class="error-text mt-1"
-                        *ngIf="
-                          paymentForm.get('cardYear')?.hasError('invalidYear')
-                        "
-                      >
-                        <span>Invalid field</span>
-                      </div>
+                      <span>Invalid field</span>
                     </div>
                   </div>
-                  <!--Cvv code  -->
-                  <div class="col-4">
-                    <label class="form-label"
-                      >CVV / CVC <span class="text-danger">*</span></label
-                    >
-                    <input
-                      type="text"
-                      class="form-control"
-                      placeholder="xxx"
-                      formControlName="cardCvv"
-                    />
+                </div>
+                <!--Cvv code  -->
+                <div class="col-3">
+                  <label class="form-label"
+                    >CVV / CVC <span class="text-danger">*</span></label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="xxx"
+                    formControlName="cardCvv"
+                  />
+                  <div
+                    *ngIf="
+                      (paymentForm.get('cardCvv')?.invalid &&
+                        paymentForm.get('cardCvv')?.dirty) ||
+                      paymentForm.get('cardCvv')?.touched ||
+                      formSubmitted
+                    "
+                  >
                     <div
+                      class="error-text mt-1"
+                      *ngIf="paymentForm.get('cardCvv')?.hasError('required')"
+                    >
+                      Field is required
+                    </div>
+                    <div
+                      class="error-text mt-1"
+                      *ngIf="paymentForm.get('cardCvv')?.hasError('invalidCvv')"
+                    >
+                      <span>Invalid field</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-3">
+                  <label class="form-label"
+                    >Funds <span class="text-danger">*</span></label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="xxxxx"
+                    formControlName="cardFunds"
+                  />
+                  <div
+                    *ngIf="
+                      (paymentForm.get('cardFunds')?.invalid &&
+                        paymentForm.get('cardFunds')?.dirty) ||
+                      paymentForm.get('cardFunds')?.touched ||
+                      formSubmitted
+                    "
+                  >
+                    <div
+                      class="error-text mt-1"
+                      *ngIf="paymentForm.get('cardFunds')?.hasError('required')"
+                    >
+                      Field is required
+                    </div>
+                    <div
+                      class="error-text mt-1"
                       *ngIf="
-                        (paymentForm.get('cardCvv')?.invalid &&
-                          paymentForm.get('cardCvv')?.dirty) ||
-                        paymentForm.get('cardCvv')?.touched ||
-                        formSubmitted
+                        paymentForm
+                          .get('cardFunds')
+                          ?.hasError('invalidCardFunds')
                       "
                     >
-                      <div
-                        class="error-text mt-1"
-                        *ngIf="paymentForm.get('cardCvv')?.hasError('required')"
-                      >
-                        Field is required
-                      </div>
-                      <div
-                        class="error-text mt-1"
-                        *ngIf="
-                          paymentForm.get('cardCvv')?.hasError('invalidCvv')
-                        "
-                      >
-                        <span>Invalid field</span>
-                      </div>
+                      <span>Invalid field</span>
                     </div>
                   </div>
-                  <!-- Card name -->
-                  <div class="col-12">
-                    <label class="form-label"
-                      >Name on Card <span class="text-danger">*</span></label
-                    >
-                    <input
-                      type="text"
-                      class="form-control"
-                      aria-label="name of card holder"
-                      placeholder="Enter name"
-                      formControlName="cardName"
-                    />
+                </div>
+                <!-- Card name -->
+                <div class="col-12">
+                  <label class="form-label"
+                    >Name on Card <span class="text-danger">*</span></label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    aria-label="name of card holder"
+                    placeholder="Enter name"
+                    formControlName="cardName"
+                  />
+                  <div
+                    *ngIf="
+                      (paymentForm.get('cardName')?.invalid &&
+                        paymentForm.get('cardName')?.dirty) ||
+                      paymentForm.get('cardName')?.touched ||
+                      formSubmitted
+                    "
+                  >
                     <div
-                      *ngIf="
-                        (paymentForm.get('cardName')?.invalid &&
-                          paymentForm.get('cardName')?.dirty) ||
-                        paymentForm.get('cardName')?.touched ||
-                        formSubmitted
-                      "
+                      class="error-text mt-1"
+                      *ngIf="paymentForm.get('cardName')?.hasError('required')"
                     >
-                      <div
-                        class="error-text mt-1"
-                        *ngIf="
-                          paymentForm.get('cardName')?.hasError('required')
-                        "
-                      >
-                        Field is required
-                      </div>
+                      Field is required
                     </div>
                   </div>
-                </form>
-                <!-- Form END -->
-              </div>
+                </div>
+                <div>
+                  <button
+                    *ngIf="!formSubmitted"
+                    class="btn btn-sm btn-primary-soft mb-0 ms-1"
+                    type="submit"
+                  >
+                    Save
+                  </button>
+
+                  <button
+                    class="btn btn-sm btn-primary-soft mb-0 ms-1"
+                    type="button"
+                  >
+                    Edit
+                  </button>
+                </div>
+              </form>
+              <!-- Form END -->
             </div>
           </div>
-          <!-- Credit or debit card END -->
         </div>
+        <!-- Credit or debit card END -->
       </div>
     </div>
   </div>

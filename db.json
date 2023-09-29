@@ -1922,13 +1922,7 @@
       "wishlist": [
         2
       ],
-      "payment": {
-        "cardNumber": "43534534534",
-        "cardYear": "3453",
-        "cardMonth": "43",
-        "cardCvv": "345",
-        "cardName": "dfgfdgdfgfd"
-      }
+      "wallet": 700
     },
     {
       "email": "admin3@test.com",
@@ -1938,40 +1932,19 @@
       "firstName": "Alexandru",
       "lastName": "Vioreanu",
       "description": "",
-      "education": "",
-      "payment": {
-        "cardNumber": "434343434",
-        "cardYear": "434",
-        "cardMonth": "343",
-        "cardCvv": "34343",
-        "cardName": "dsfgffdgfdgd"
-      }
+      "education": ""
     },
     {
       "email": "admin4@test.com",
       "password": "aaaaa",
       "image": "/assets/user1.jpg",
-      "id": 7,
-      "payment": {
-        "cardNumber": "1111111111111111",
-        "cardYear": "1996",
-        "cardMonth": "12",
-        "cardCvv": "133",
-        "cardName": "Vioreanu"
-      }
+      "id": 7
     },
     {
       "email": "admin5@test.com",
       "password": "aaaaa",
       "image": "/assets/user1.jpg",
       "id": 8,
-      "payment": {
-        "cardNumber": "1111111111111111",
-        "cardYear": "1996",
-        "cardMonth": "12",
-        "cardCvv": "123",
-        "cardName": "Ana"
-      },
       "firstName": "Ana",
       "lastName": "Maria",
       "description": "",
@@ -1986,7 +1959,16 @@
       "email": "user@test.com",
       "password": "aaaaa",
       "image": "/assets/user1.jpg",
-      "id": 9
+      "id": 9,
+      "payment": {
+        "cardNumber": "1111111111111111",
+        "cardYear": "1996",
+        "cardMonth": "12",
+        "cardCvv": "123",
+        "cardFunds": 9300,
+        "cardName": "Alex"
+      },
+      "wallet": 700
     },
     {
       "email": "user1@test.com",
@@ -2005,15 +1987,11 @@
       "password": "aaaaa",
       "image": "/assets/user1.jpg",
       "id": 12,
-      "address": "Iasi",
       "payment": {
-        "cardNumber": "1111111111111111",
-        "cardYear": "1996",
-        "cardMonth": "12",
-        "cardCvv": "133",
-        "cardName": "Alex Vioreanu"
+        "funds": 8000,
+        "cardFunds": -900
       },
-      "billingAddress": "Cluj"
+      "wallet": 900
     }
   ],
   "reviews": [

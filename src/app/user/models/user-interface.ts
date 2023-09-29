@@ -12,4 +12,5 @@ export interface User {
   wishlist: number[];
   payment: Payment;
   address: string;
+  wallet: number;
 }
