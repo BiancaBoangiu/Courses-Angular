@@ -279,7 +279,6 @@
                 </div>
                 <div>
                   <button
-                    *ngIf="!formSubmitted"
                     class="btn btn-sm btn-primary-soft mb-0 ms-1"
                     type="submit"
                   >
@@ -289,6 +288,7 @@
                   <button
                     class="btn btn-sm btn-primary-soft mb-0 ms-1"
                     type="button"
+                    (click)="editPayment()"
                   >
                     Edit
                   </button>

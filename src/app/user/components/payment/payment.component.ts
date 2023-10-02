@@ -9,6 +9,7 @@ import {
   ValidationErrors,
 } from '@angular/forms';
 import { Payment } from '../../models/payment-interface';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-payment',
@@ -21,11 +22,13 @@ export class PaymentComponent {
   formSubmitted: boolean = false;
   depositAmount: number = 0;
   walletValue!: number;
+  isFormEdited: boolean = false;
 
   constructor(
     private usersService: UsersService,
     private authService: AuthService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private toastr: ToastrService
   ) {
     this.paymentForm = this.fb.group({
       cardNumber: ['', [Validators.required, this.cardNumberLengthValidator]],
@@ -39,8 +42,15 @@ export class PaymentComponent {
 
   ngOnInit() {
     const paymentInfo = this.authService.getUserData()?.payment;
+    const walletValue = this.authService.getUserData()?.wallet;
     if (paymentInfo) {
       this.formSubmitted = true;
+      Object.keys(this.paymentForm.controls).forEach((key) => {
+        const control = this.paymentForm.controls[key];
+        control.disable();
+      });
+      this.walletValue = walletValue || 0;
+
       this.getPaymentInfo(paymentInfo);
     }
 
@@ -81,12 +91,20 @@ export class PaymentComponent {
             cardNameValue,
             userId
           )
-          .subscribe(() => {
+          .subscribe((user) => {
             this.formSubmitted = true;
+            this.authService.updateUser(user);
+            Object.keys(this.paymentForm.controls).forEach((key) => {
+              const control = this.paymentForm.controls[key];
+              control.disable();
+            });
+
             const paymentInfo = this.authService.getUserData()?.payment;
             if (paymentInfo) {
               this.getPaymentInfo(paymentInfo);
             }
+
+            this.toastr.success('Hello world!', 'Toastr fun!');
           });
       }
     } else {
@@ -177,7 +195,6 @@ export class PaymentComponent {
     const userId = this.authService.getUserData()?.id;
     const userAmount = this.authService.getUserData()?.wallet || 0;
     const cardFunds = this.authService.getUserData()?.payment.cardFunds || 0;
-    console.log(paymentInfo);
 
     if (paymentInfo) {
       if (userId) {
@@ -191,9 +208,21 @@ export class PaymentComponent {
           )
           .subscribe((user) => {
             this.authService.updateUser(user);
+            this.paymentForm.patchValue({
+              cardFunds: user.payment.cardFunds,
+            });
             this.walletValue = user.wallet;
+            this.toastr.success('Hello world!', 'Toastr fun!');
           });
       }
     }
+  }
+
+  editPayment() {
+    this.isFormEdited = true;
+    Object.keys(this.paymentForm.controls).forEach((key) => {
+      const control = this.paymentForm.controls[key];
+      control.enable();
+    });
   }
 }

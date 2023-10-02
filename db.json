@@ -1915,47 +1915,6 @@
   ],
   "users": [
     {
-      "email": "admin2@test.com",
-      "password": "aaaaa",
-      "image": "/assets/user1.jpg",
-      "id": 4,
-      "wishlist": [
-        2
-      ],
-      "wallet": 700
-    },
-    {
-      "email": "admin3@test.com",
-      "password": "aaaaa",
-      "image": "/assets/user5.jpg",
-      "id": 6,
-      "firstName": "Alexandru",
-      "lastName": "Vioreanu",
-      "description": "",
-      "education": ""
-    },
-    {
-      "email": "admin4@test.com",
-      "password": "aaaaa",
-      "image": "/assets/user1.jpg",
-      "id": 7
-    },
-    {
-      "email": "admin5@test.com",
-      "password": "aaaaa",
-      "image": "/assets/user1.jpg",
-      "id": 8,
-      "firstName": "Ana",
-      "lastName": "Maria",
-      "description": "",
-      "education": "",
-      "wishlist": [
-        1,
-        2,
-        3
-      ]
-    },
-    {
       "email": "user@test.com",
       "password": "aaaaa",
       "image": "/assets/user1.jpg",
@@ -1965,16 +1924,23 @@
         "cardYear": "1996",
         "cardMonth": "12",
         "cardCvv": "123",
-        "cardFunds": 9300,
-        "cardName": "Alex"
-      },
-      "wallet": 700
+        "cardFunds": "7000",
+        "cardName": "a"
+      }
     },
     {
       "email": "user1@test.com",
       "password": "aaaaa",
       "image": "/assets/user2.jpg",
-      "id": 10
+      "id": 10,
+      "payment": {
+        "cardNumber": "1111111111111111",
+        "cardYear": "1996",
+        "cardMonth": "11",
+        "cardCvv": "123",
+        "cardFunds": "8000",
+        "cardName": "b"
+      }
     },
     {
       "email": "user2@test.com",
@@ -1988,10 +1954,14 @@
       "image": "/assets/user1.jpg",
       "id": 12,
       "payment": {
-        "funds": 8000,
-        "cardFunds": -900
+        "cardNumber": "1111111111111112",
+        "cardYear": "1996",
+        "cardMonth": "12",
+        "cardCvv": "112",
+        "cardFunds": 6000,
+        "cardName": "Alex"
       },
-      "wallet": 900
+      "wallet": 2000
     }
   ],
   "reviews": [
