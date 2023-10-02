@@ -109,6 +109,7 @@ export class PaymentComponent {
       }
     } else {
       return;
+      console.log();
     }
   }
   monthValidator(control: AbstractControl): ValidationErrors | null {
