@@ -1958,10 +1958,10 @@
         "cardYear": "1998",
         "cardMonth": "12",
         "cardCvv": "123",
-        "cardFunds": 6600,
+        "cardFunds": 5500,
         "cardName": "A"
       },
-      "wallet": 400,
+      "wallet": 1500,
       "firstName": "Alex",
       "lastName": "Vioreanu",
       "description": "",
@@ -1969,7 +1969,7 @@
       "profileVisibility": true,
       "emailNotifications": false,
       "smsConfirmation": false,
-      "hideNotifications": true
+      "hideNotifications": false
     }
   ],
   "reviews": [

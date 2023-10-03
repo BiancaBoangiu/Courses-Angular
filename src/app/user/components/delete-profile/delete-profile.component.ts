@@ -23,7 +23,13 @@ export class DeleteProfileComponent {
       const userId = this.authService.getUserData()?.id as number;
       this.usersService.deleteUserAccount(userId).subscribe(() => {
         this.accountDeleted = true;
-        this.toastr.success('Accound deleted');
+        const userNotificationsStatus =
+          this.authService.getUserData()?.hideNotifications;
+        if (userNotificationsStatus) {
+          return;
+        } else {
+          this.toastr.success('Account deleted');
+        }
       });
     }
   }

@@ -126,9 +126,7 @@ export class UsersService {
     return this.http.patch<Auth>(usersURL, body);
   }
 
-  showToastrMessage(message: string, hideNotifications: boolean): void {
-    if (!hideNotifications) {
-      this.toastr.success(message);
-    }
+  showToastrMessage(message: string): void {
+    this.toastr.success(message);
   }
 }

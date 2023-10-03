@@ -104,7 +104,13 @@ export class PaymentComponent {
               this.getPaymentInfo(paymentInfo);
             }
 
-            this.toastr.success('Card saved');
+            const userNotificationsStatus =
+              this.authService.getUserData()?.hideNotifications;
+            if (userNotificationsStatus) {
+              return;
+            } else {
+              this.toastr.success('Card saved');
+            }
           });
       }
     } else {
@@ -174,7 +180,13 @@ export class PaymentComponent {
           userData.address = this.address;
         }
       });
-      this.toastr.success('Address saved');
+      const userNotificationsStatus =
+        this.authService.getUserData()?.hideNotifications;
+      if (userNotificationsStatus) {
+        return;
+      } else {
+        this.toastr.success('Address saved');
+      }
     } else {
       this.toastr.error("Address can't be saved");
     }
@@ -211,7 +223,14 @@ export class PaymentComponent {
             paymentInfo
           )
           .subscribe((user) => {
-            this.toastr.success(`You have deposited ${this.depositAmount} $`);
+            const userNotificationsStatus =
+              this.authService.getUserData()?.hideNotifications;
+            if (userNotificationsStatus) {
+              return;
+            } else {
+              this.toastr.success(`You have deposited ${this.depositAmount} $`);
+            }
+
             this.authService.updateUser(user);
             this.paymentForm.patchValue({
               cardFunds: user.payment.cardFunds,

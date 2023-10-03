@@ -62,7 +62,14 @@ export class EditProfileComponent {
         )
         .subscribe((user) => {
           this.user = user;
-          this.toastr.success('Profile information saved');
+          const userNotificationsStatus =
+            this.authService.getUserData()?.hideNotifications;
+          if (userNotificationsStatus) {
+            return;
+          } else {
+            this.toastr.success('Profile information saved');
+          }
+
           this.authService.updateUser(user);
         });
     }
@@ -74,7 +81,13 @@ export class EditProfileComponent {
         .updateNewPassword(this.newPassword, this.user.id)
         .subscribe((user) => {
           this.newPassword = '';
-          this.toastr.success('Password saved');
+          const userNotificationsStatus =
+            this.authService.getUserData()?.hideNotifications;
+          if (userNotificationsStatus) {
+            return;
+          } else {
+            this.toastr.success('Password saved');
+          }
         });
     } else {
       this.toastr.error("Password can't be saved");
@@ -99,10 +112,9 @@ export class EditProfileComponent {
         const userNotificationsStatus =
           this.authService.getUserData()?.hideNotifications;
         if (userNotificationsStatus) {
-          this.usersService.showToastrMessage(
-            'Profile picture saved',
-            userNotificationsStatus
-          );
+          return;
+        } else {
+          this.toastr.success('Profile picture saved');
         }
 
         this.imagesShown = false;
