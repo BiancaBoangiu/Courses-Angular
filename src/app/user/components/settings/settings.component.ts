@@ -19,6 +19,16 @@ export class SettingsComponent {
     private toastr: ToastrService
   ) {}
 
+  ngOnInit() {
+    const user = this.authService.getUserData();
+    if (user) {
+      this.profileVisibility = user.profileVisibility;
+      this.smsConfirmation = user.smsConfirmation;
+      this.emailNotifications = user.emailNotificaions;
+      this.hideNotifications = user.hideNotifications;
+    }
+  }
+
   saveSettings() {
     const userId = this.authService.getUserData()?.id;
     if (userId) {
@@ -33,6 +43,11 @@ export class SettingsComponent {
         .subscribe((user) => {
           this.authService.updateUser(user);
           this.toastr.success('Profile settings saved');
+
+          this.profileVisibility = user.profileVisibility;
+          this.smsConfirmation = user.smsConfirmation;
+          this.emailNotifications = user.emailNotificaions;
+          this.hideNotifications = user.hideNotifications;
         });
     }
   }

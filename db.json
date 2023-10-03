@@ -1946,7 +1946,15 @@
       "email": "user2@test.com",
       "password": "aaaaa",
       "image": "/assets/user1.jpg",
-      "id": 11
+      "id": 11,
+      "profileVisibility": true,
+      "emailNotifications": true,
+      "smsConfirmation": true,
+      "hideNotifications": true,
+      "firstName": "A",
+      "lastName": "A",
+      "description": "",
+      "education": ""
     },
     {
       "email": "admin@test.com",
@@ -1967,9 +1975,9 @@
       "description": "",
       "education": "",
       "profileVisibility": true,
-      "emailNotifications": false,
-      "smsConfirmation": false,
-      "hideNotifications": false
+      "emailNotifications": true,
+      "smsConfirmation": true,
+      "hideNotifications": true
     }
   ],
   "reviews": [
