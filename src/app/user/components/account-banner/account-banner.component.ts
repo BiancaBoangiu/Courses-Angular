@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { User } from '../../models/user-interface';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { UsersService } from '../../services/users.service';
 import { Subscription } from 'rxjs';

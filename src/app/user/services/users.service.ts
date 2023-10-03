@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { User } from '../models/user-interface';
 import { Observable, switchMap } from 'rxjs';
 import { Review } from 'src/app/courses/models/review.interface';
 import { Course } from 'src/app/courses/models/course.interface';
 import { Payment } from '../models/payment-interface';
+import { ToastrService } from 'ngx-toastr';
+import { Auth } from 'src/app/auth/models/auth.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UsersService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private toastr: ToastrService) {}
 
   updateUserInfo(
     firstName: string,
@@ -18,31 +19,31 @@ export class UsersService {
     description: string,
     education: string,
     id: number
-  ): Observable<User> {
+  ): Observable<Auth> {
     const userURL = `http://localhost:3000/users/${id}`;
     const body = { firstName, lastName, description, education };
-    return this.http.patch<User>(userURL, body);
+    return this.http.patch<Auth>(userURL, body);
   }
 
-  updateNewPassword(newPassword: string, userId: number): Observable<User> {
+  updateNewPassword(newPassword: string, userId: number): Observable<Auth> {
     const userURL = `http://localhost:3000/users/${userId}`;
     const body = { password: newPassword };
 
-    return this.http.patch<User>(userURL, body);
+    return this.http.patch<Auth>(userURL, body);
   }
   updateNewProfileImage(
     newProfileImage: string,
     userId: number
-  ): Observable<User> {
+  ): Observable<Auth> {
     const userURL = `http://localhost:3000/users/${userId}`;
     const body = { image: newProfileImage };
 
-    return this.http.patch<User>(userURL, body);
+    return this.http.patch<Auth>(userURL, body);
   }
 
-  deleteUserAccount(userId: number): Observable<User> {
+  deleteUserAccount(userId: number): Observable<Auth> {
     const userURL = `http://localhost:3000/users/${userId}`;
-    return this.http.delete<User>(userURL);
+    return this.http.delete<Auth>(userURL);
   }
 
   showUserReviews(userId: number): Observable<Review[]> {
@@ -58,7 +59,7 @@ export class UsersService {
     cardFunds: number,
     cardName: string,
     userId: number
-  ): Observable<User> {
+  ): Observable<Auth> {
     const usersURL = `http://localhost:3000/users/${userId}`;
     const payment = {
       cardNumber,
@@ -72,7 +73,7 @@ export class UsersService {
       payment: payment,
     };
 
-    return this.http.patch<User>(usersURL, body);
+    return this.http.patch<Auth>(usersURL, body);
   }
 
   saveAddress(address: string, userId: number): Observable<any> {
@@ -93,7 +94,7 @@ export class UsersService {
     previousAmount: number,
     funds: number,
     paymentInfo: Payment
-  ): Observable<User> {
+  ): Observable<Auth> {
     const usersURL = `http://localhost:3000/users/${userId}`;
 
     const newAmount = amount + previousAmount;
@@ -105,6 +106,29 @@ export class UsersService {
         cardFunds: newFunds,
       },
     };
-    return this.http.patch<User>(usersURL, body);
+    return this.http.patch<Auth>(usersURL, body);
+  }
+
+  saveSettings(
+    userId: number,
+    profileVisibility: boolean,
+    emailNotifications: boolean,
+    smsConfirmation: boolean,
+    hideNotifications: boolean
+  ): Observable<Auth> {
+    const usersURL = `http://localhost:3000/users/${userId}`;
+    const body = {
+      profileVisibility,
+      emailNotifications,
+      smsConfirmation,
+      hideNotifications,
+    };
+    return this.http.patch<Auth>(usersURL, body);
+  }
+
+  showToastrMessage(message: string, hideNotifications: boolean): void {
+    if (!hideNotifications) {
+      this.toastr.success(message);
+    }
   }
 }

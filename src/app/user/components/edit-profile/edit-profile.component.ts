@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { AuthService } from 'src/app/auth/services/auth.service';
-import { User } from '../../models/user-interface';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UsersService } from '../../services/users.service';
+import { ToastrService } from 'ngx-toastr';
+import { Auth } from 'src/app/auth/models/auth.interface';
 
 @Component({
   selector: 'app-edit-profile',
@@ -10,17 +11,18 @@ import { UsersService } from '../../services/users.service';
   styleUrls: ['./edit-profile.component.scss'],
 })
 export class EditProfileComponent {
-  user!: User;
+  user!: Auth;
   editForm!: FormGroup;
   newPassword: string = '';
-  passwordSaved: boolean = false;
   imagesShown: boolean = false;
   selectedImageSrc: string = '';
+  passwordShown: boolean = false;
 
   constructor(
     private authService: AuthService,
     private fb: FormBuilder,
-    private usersService: UsersService
+    private usersService: UsersService,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit() {
@@ -47,6 +49,7 @@ export class EditProfileComponent {
     const userId = this.authService.getUserData()?.id as number;
 
     if (this.editForm.invalid) {
+      this.toastr.error("Profile can't be saved");
       return;
     } else {
       this.usersService
@@ -59,6 +62,7 @@ export class EditProfileComponent {
         )
         .subscribe((user) => {
           this.user = user;
+          this.toastr.success('Profile information saved');
           this.authService.updateUser(user);
         });
     }
@@ -70,9 +74,10 @@ export class EditProfileComponent {
         .updateNewPassword(this.newPassword, this.user.id)
         .subscribe((user) => {
           this.newPassword = '';
-          this.passwordSaved = true;
+          this.toastr.success('Password saved');
         });
     } else {
+      this.toastr.error("Password can't be saved");
       return;
     }
   }
@@ -91,7 +96,20 @@ export class EditProfileComponent {
       .subscribe((user) => {
         this.user = user;
         this.authService.updateUser(user);
+        const userNotificationsStatus =
+          this.authService.getUserData()?.hideNotifications;
+        if (userNotificationsStatus) {
+          this.usersService.showToastrMessage(
+            'Profile picture saved',
+            userNotificationsStatus
+          );
+        }
+
         this.imagesShown = false;
       });
+  }
+
+  togglePasswordVisibility() {
+    this.passwordShown = !this.passwordShown;
   }
 }

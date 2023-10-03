@@ -104,12 +104,12 @@ export class PaymentComponent {
               this.getPaymentInfo(paymentInfo);
             }
 
-            this.toastr.success('Hello world!', 'Toastr fun!');
+            this.toastr.success('Card saved');
           });
       }
     } else {
+      this.toastr.error("Card information can't be saved");
       return;
-      console.log();
     }
   }
   monthValidator(control: AbstractControl): ValidationErrors | null {
@@ -174,6 +174,9 @@ export class PaymentComponent {
           userData.address = this.address;
         }
       });
+      this.toastr.success('Address saved');
+    } else {
+      this.toastr.error("Address can't be saved");
     }
   }
 
@@ -208,12 +211,12 @@ export class PaymentComponent {
             paymentInfo
           )
           .subscribe((user) => {
+            this.toastr.success(`You have deposited ${this.depositAmount} $`);
             this.authService.updateUser(user);
             this.paymentForm.patchValue({
               cardFunds: user.payment.cardFunds,
             });
             this.walletValue = user.wallet;
-            this.toastr.success('Hello world!', 'Toastr fun!');
           });
       }
     }

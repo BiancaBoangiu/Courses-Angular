@@ -13,4 +13,8 @@ export interface Auth {
   payment: Payment;
   address: string;
   wallet: number;
+  hideNotifications: boolean;
+  profileVisibility: boolean;
+  smsConfirmation: boolean;
+  emailNotificaions: boolean;
 }

@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ReviewsService } from '../../services/reviews.service';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { Review } from '../../models/review.interface';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-add-review',
@@ -16,7 +17,8 @@ export class AddReviewComponent {
 
   constructor(
     private reviewsService: ReviewsService,
-    private authService: AuthService
+    private authService: AuthService,
+    private toastr: ToastrService
   ) {}
 
   addReview() {
@@ -26,6 +28,7 @@ export class AddReviewComponent {
       .addReview(this.message, this.rating, userId, this.authService.courseId)
       .subscribe((response) => {
         this.onReviewAdded.emit(response);
+        this.toastr.success('Review added');
 
         this.message = '';
       });

@@ -10,7 +10,6 @@ import {
   of,
 } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { User } from 'src/app/user/models/user-interface';
 
 @Injectable({
   providedIn: 'root',
@@ -75,8 +74,8 @@ export class AuthService {
     return this.http.get<Auth[]>(usersURL);
   }
 
-  getUserById(id: number): Observable<User> {
+  getUserById(id: number): Observable<Auth> {
     const userURL = `http://localhost:3000/users/${id}`;
-    return this.http.get<User>(userURL);
+    return this.http.get<Auth>(userURL);
   }
 }

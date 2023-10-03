@@ -1,9 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Course } from '../../models/course.interface';
-import { ReviewsService } from '../../services/reviews.service';
 import { CoursesService } from '../../services/courses.service';
 import { AuthService } from 'src/app/auth/services/auth.service';
-import { User } from 'src/app/user/models/user-interface';
 
 @Component({
   selector: 'app-course-grid-card',

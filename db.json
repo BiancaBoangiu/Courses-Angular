@@ -144,7 +144,7 @@
         }
       ],
       "instructorId": 1,
-      "views": 962,
+      "views": 965,
       "rating": 4,
       "participants": [],
       "hasCertificate": true,
@@ -1925,7 +1925,7 @@
         "cardMonth": "12",
         "cardCvv": "123",
         "cardFunds": "7000",
-        "cardName": "a"
+        "cardName": "y"
       }
     },
     {
@@ -1954,14 +1954,22 @@
       "image": "/assets/user1.jpg",
       "id": 12,
       "payment": {
-        "cardNumber": "1111111111111112",
-        "cardYear": "1996",
+        "cardNumber": "1111111111111111",
+        "cardYear": "1998",
         "cardMonth": "12",
-        "cardCvv": "112",
-        "cardFunds": 6000,
-        "cardName": "Alex"
+        "cardCvv": "123",
+        "cardFunds": 6600,
+        "cardName": "A"
       },
-      "wallet": 2000
+      "wallet": 400,
+      "firstName": "Alex",
+      "lastName": "Vioreanu",
+      "description": "",
+      "education": "",
+      "profileVisibility": true,
+      "emailNotifications": false,
+      "smsConfirmation": false,
+      "hideNotifications": true
     }
   ],
   "reviews": [
@@ -1998,6 +2006,16 @@
       "dislikes": [],
       "userEmail": "admin@test.com",
       "id": 5
+    },
+    {
+      "userId": 12,
+      "rating": "4",
+      "message": "fdgfdgd",
+      "courseId": 1,
+      "likes": [],
+      "dislikes": [],
+      "userEmail": "admin@test.com",
+      "id": 6
     }
   ],
   "instructors": [

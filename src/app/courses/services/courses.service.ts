@@ -1,15 +1,8 @@
 import { Injectable } from '@angular/core';
-import {
-  HttpClient,
-  HttpHeaders,
-  HttpParams,
-  HttpRequest,
-} from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Course } from '../models/course.interface';
-import { InstructorsService } from 'src/app/instructors/services/instructors.service';
 import { Instructor } from 'src/app/instructors/models/instructor-interface';
-import { User } from 'src/app/user/models/user-interface';
 import { Auth } from 'src/app/auth/models/auth.interface';
 
 @Injectable({
