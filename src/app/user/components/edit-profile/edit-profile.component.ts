@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UsersService } from '../../services/users.service';
-import { ToastrService } from 'ngx-toastr';
 import { Auth } from 'src/app/auth/models/auth.interface';
+import { notifierService } from 'src/app/auth/services/notifier.service';
 
 @Component({
   selector: 'app-edit-profile',
@@ -22,7 +22,7 @@ export class EditProfileComponent {
     private authService: AuthService,
     private fb: FormBuilder,
     private usersService: UsersService,
-    private toastr: ToastrService
+    private notifierService: notifierService
   ) {}
 
   ngOnInit() {
@@ -49,7 +49,7 @@ export class EditProfileComponent {
     const userId = this.authService.getUserData()?.id as number;
 
     if (this.editForm.invalid) {
-      this.toastr.error("Profile can't be saved");
+      this.notifierService.showError("Profile can't be saved");
       return;
     } else {
       this.usersService
@@ -67,7 +67,7 @@ export class EditProfileComponent {
           if (userNotificationsStatus) {
             return;
           } else {
-            this.toastr.success('Profile information saved');
+            this.notifierService.showNotifications('Profile information saved');
           }
 
           this.authService.updateUser(user);
@@ -81,16 +81,10 @@ export class EditProfileComponent {
         .updateNewPassword(this.newPassword, this.user.id)
         .subscribe((user) => {
           this.newPassword = '';
-          const userNotificationsStatus =
-            this.authService.getUserData()?.hideNotifications;
-          if (userNotificationsStatus) {
-            return;
-          } else {
-            this.toastr.success('Password saved');
-          }
+          this.notifierService.showNotifications('New password saved');
         });
     } else {
-      this.toastr.error("Password can't be saved");
+      this.notifierService.showError("Password can't be saved");
       return;
     }
   }
@@ -108,14 +102,7 @@ export class EditProfileComponent {
       .updateNewProfileImage(this.selectedImageSrc, this.user.id)
       .subscribe((user) => {
         this.user = user;
-        this.authService.updateUser(user);
-        const userNotificationsStatus =
-          this.authService.getUserData()?.hideNotifications;
-        if (userNotificationsStatus) {
-          return;
-        } else {
-          this.toastr.success('Profile picture saved');
-        }
+        this.notifierService.showNotifications('Profile picture saved');
 
         this.imagesShown = false;
       });

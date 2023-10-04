@@ -2,8 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ReviewsService } from '../../services/reviews.service';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { Review } from '../../models/review.interface';
-import { ToastrService } from 'ngx-toastr';
-import { UsersService } from 'src/app/user/services/users.service';
+import { notifierService } from 'src/app/auth/services/notifier.service';
 
 @Component({
   selector: 'app-add-review',
@@ -19,26 +18,22 @@ export class AddReviewComponent {
   constructor(
     private reviewsService: ReviewsService,
     private authService: AuthService,
-    private toastr: ToastrService,
-    private usersService: UsersService
+    private notifierService: notifierService
   ) {}
 
   addReview() {
     const userId = this.authService.getUserData()?.id as number;
+    if (userId) {
+      this.reviewsService
+        .addReview(this.message, this.rating, userId, this.authService.courseId)
+        .subscribe((response) => {
+          this.onReviewAdded.emit(response);
+          this.notifierService.showNotifications('Review added');
 
-    this.reviewsService
-      .addReview(this.message, this.rating, userId, this.authService.courseId)
-      .subscribe((response) => {
-        this.onReviewAdded.emit(response);
-        const userNotificationsStatus =
-          this.authService.getUserData()?.hideNotifications;
-        if (userNotificationsStatus) {
-          return;
-        } else {
-          this.toastr.success('Review added');
-        }
-
-        this.message = '';
-      });
+          this.message = '';
+        });
+    } else {
+      this.notifierService.showError("Review can't be added");
+    }
   }
 }

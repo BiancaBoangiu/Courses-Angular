@@ -1,3 +1,4 @@
+import { notifierService } from 'src/app/auth/services/notifier.service';
 import { Component } from '@angular/core';
 import { UsersService } from '../../services/users.service';
 import { AuthService } from 'src/app/auth/services/auth.service';
@@ -9,7 +10,6 @@ import {
   ValidationErrors,
 } from '@angular/forms';
 import { Payment } from '../../models/payment-interface';
-import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-payment',
@@ -28,7 +28,7 @@ export class PaymentComponent {
     private usersService: UsersService,
     private authService: AuthService,
     private fb: FormBuilder,
-    private toastr: ToastrService
+    private notifierService: notifierService
   ) {
     this.paymentForm = this.fb.group({
       cardNumber: ['', [Validators.required, this.cardNumberLengthValidator]],
@@ -104,17 +104,11 @@ export class PaymentComponent {
               this.getPaymentInfo(paymentInfo);
             }
 
-            const userNotificationsStatus =
-              this.authService.getUserData()?.hideNotifications;
-            if (userNotificationsStatus) {
-              return;
-            } else {
-              this.toastr.success('Card saved');
-            }
+            this.notifierService.showNotifications('Card saved');
           });
       }
     } else {
-      this.toastr.error("Card information can't be saved");
+      this.notifierService.showError("Card information can't be saved");
       return;
     }
   }
@@ -180,15 +174,9 @@ export class PaymentComponent {
           userData.address = this.address;
         }
       });
-      const userNotificationsStatus =
-        this.authService.getUserData()?.hideNotifications;
-      if (userNotificationsStatus) {
-        return;
-      } else {
-        this.toastr.success('Address saved');
-      }
+      this.notifierService.showNotifications('Address saved');
     } else {
-      this.toastr.error("Address can't be saved");
+      this.notifierService.showError("Address can't be saved");
     }
   }
 
@@ -223,13 +211,9 @@ export class PaymentComponent {
             paymentInfo
           )
           .subscribe((user) => {
-            const userNotificationsStatus =
-              this.authService.getUserData()?.hideNotifications;
-            if (userNotificationsStatus) {
-              return;
-            } else {
-              this.toastr.success(`You have deposited ${this.depositAmount} $`);
-            }
+            this.notifierService.showNotifications(
+              `You have deposited ${this.depositAmount} $`
+            );
 
             this.authService.updateUser(user);
             this.paymentForm.patchValue({

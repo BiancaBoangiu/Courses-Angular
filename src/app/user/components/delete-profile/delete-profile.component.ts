@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { UsersService } from '../../services/users.service';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { ToastrService } from 'ngx-toastr';
+import { notifierService } from 'src/app/auth/services/notifier.service';
 
 @Component({
   selector: 'app-delete-profile',
@@ -15,7 +16,8 @@ export class DeleteProfileComponent {
   constructor(
     private usersService: UsersService,
     private authService: AuthService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private notifierService: notifierService
   ) {}
 
   deleteAccount() {
@@ -23,13 +25,7 @@ export class DeleteProfileComponent {
       const userId = this.authService.getUserData()?.id as number;
       this.usersService.deleteUserAccount(userId).subscribe(() => {
         this.accountDeleted = true;
-        const userNotificationsStatus =
-          this.authService.getUserData()?.hideNotifications;
-        if (userNotificationsStatus) {
-          return;
-        } else {
-          this.toastr.success('Account deleted');
-        }
+        this.notifierService.showNotifications('Account has been deleted');
       });
     }
   }
