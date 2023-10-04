@@ -144,7 +144,7 @@
         }
       ],
       "instructorId": 1,
-      "views": 965,
+      "views": 969,
       "rating": 4,
       "participants": [],
       "hasCertificate": true,
@@ -519,7 +519,10 @@
       "hasCertificate": false,
       "price": 550,
       "isPremium": true,
-      "wishlist": [4, 1]
+      "wishlist": [
+        4,
+        1
+      ]
     },
     {
       "id": 5,
@@ -619,7 +622,10 @@
       "hasCertificate": true,
       "price": 0,
       "isPremium": false,
-      "wishlist": [4, 1]
+      "wishlist": [
+        4,
+        1
+      ]
     },
     {
       "id": 6,
@@ -1956,14 +1962,14 @@
       "image": "/assets/user1.jpg",
       "id": 12,
       "payment": {
-        "cardNumber": "1111111111111112",
+        "cardNumber": "1111111111111111",
         "cardYear": "1998",
         "cardMonth": "12",
         "cardCvv": "123",
-        "cardFunds": -100,
-        "cardName": "A"
+        "cardFunds": 8300,
+        "cardName": "b"
       },
-      "wallet": 7100,
+      "wallet": 700,
       "firstName": "Alex1",
       "lastName": "Vioreanu",
       "description": "",
@@ -1976,44 +1982,14 @@
   ],
   "reviews": [
     {
-      "userId": 5,
-      "rating": "2",
-      "message": "reterterter",
-      "courseId": 4,
-      "likes": [],
-      "dislikes": [],
-      "userEmail": "admin@test.com",
-      "id": 2
-    },
-    {
-      "userId": 5,
-      "rating": "4",
-      "message": "dfgdfgfd",
-      "courseId": 1,
-      "likes": [],
-      "dislikes": [5],
-      "userEmail": "admin@test.com",
-      "id": 4
-    },
-    {
-      "userId": 5,
-      "rating": "4",
-      "message": "fdgdfgfd",
-      "courseId": 1,
-      "likes": [5],
-      "dislikes": [],
-      "userEmail": "admin@test.com",
-      "id": 5
-    },
-    {
       "userId": 12,
       "rating": "4",
-      "message": "fdgfdgd",
+      "message": "aaaa",
       "courseId": 1,
       "likes": [],
       "dislikes": [],
       "userEmail": "admin@test.com",
-      "id": 6
+      "id": 1
     }
   ],
   "instructors": [

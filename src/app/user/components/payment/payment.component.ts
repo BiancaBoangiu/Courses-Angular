@@ -72,6 +72,7 @@ export class PaymentComponent {
   }
 
   onSubmit() {
+    const walletValue = this.authService.getUserData()?.wallet;
     if (this.paymentForm.valid) {
       const userId = this.authService.getUserData()?.id as number;
       const cardNumberValue = this.paymentForm.get('cardNumber')?.value;
@@ -112,9 +113,26 @@ export class PaymentComponent {
       return;
     }
   }
+
+  deletePaymentInfo() {
+    Object.keys(this.paymentForm.controls).forEach((key) => {
+      console.log(key);
+      const control = this.paymentForm.controls[key];
+      control.enable();
+    });
+    this.paymentForm.reset();
+    this.walletValue = 0;
+    const userId = this.authService.getUserData()?.id as number;
+    this.usersService.updateWalletValue(0, userId).subscribe((user) => {
+      this.authService.updateUser(user);
+    });
+
+    this.formSubmitted = false;
+  }
+
   monthValidator(control: AbstractControl): ValidationErrors | null {
     const month = control.value;
-    if (month < 1 || month > 12) {
+    if (month && (month < 1 || month > 12)) {
       return { invalidMonth: true };
     } else {
       return null;
@@ -122,13 +140,9 @@ export class PaymentComponent {
   }
 
   yearValidator(control: AbstractControl): ValidationErrors | null {
-    const currentYear = new Date().getFullYear();
     const year = control.value;
 
-    if (
-      (year.length > 4 || year.length < 4) &&
-      (year > currentYear || year < currentYear)
-    ) {
+    if (year && (year.length > 4 || year > new Date().getFullYear())) {
       return { invalidYear: true };
     } else {
       return null;
@@ -137,7 +151,7 @@ export class PaymentComponent {
 
   cvvValidator(control: AbstractControl): ValidationErrors | null {
     const cvv = control.value;
-    if (!/^\d{3}$/.test(cvv)) {
+    if (cvv && !/^\d{3}$/.test(cvv)) {
       return { invalidCvv: true };
     } else {
       return null;
@@ -146,7 +160,7 @@ export class PaymentComponent {
 
   fundsValidator(control: AbstractControl): ValidationErrors | null {
     const cardFunds = control.value;
-    if (cardFunds > 10000) {
+    if (cardFunds && cardFunds > 10000) {
       return { invalidcardFunds: true };
     } else {
       return null;
@@ -156,7 +170,7 @@ export class PaymentComponent {
   cardNumberLengthValidator(control: AbstractControl): ValidationErrors | null {
     const cardNumber = control.value;
 
-    if ((cardNumber && cardNumber.length < 16) || cardNumber.length > 16) {
+    if (cardNumber && (cardNumber.length < 16 || cardNumber.length > 16)) {
       return { invalidCardNumberLength: true };
     } else {
       return null;
@@ -199,9 +213,10 @@ export class PaymentComponent {
     const userId = this.authService.getUserData()?.id;
     const userAmount = this.authService.getUserData()?.wallet || 0;
     const cardFunds = this.authService.getUserData()?.payment.cardFunds || 0;
+    const cardFundsAfterDeposit = cardFunds - +this.depositAmount;
 
     if (paymentInfo) {
-      if (userId) {
+      if (userId && cardFundsAfterDeposit >= 0) {
         this.usersService
           .depositMoney(
             userId,
@@ -221,15 +236,9 @@ export class PaymentComponent {
             });
             this.walletValue = user.wallet;
           });
+      } else {
+        this.notifierService.showError('Insuficient funds');
       }
     }
-  }
-
-  editPayment() {
-    this.isFormEdited = true;
-    Object.keys(this.paymentForm.controls).forEach((key) => {
-      const control = this.paymentForm.controls[key];
-      control.enable();
-    });
   }
 }

@@ -129,4 +129,12 @@ export class UsersService {
   showToastrMessage(message: string): void {
     this.toastr.success(message);
   }
+
+  updateWalletValue(wallet: number, userId: number): Observable<Auth> {
+    const usersURL = `http://localhost:3000/users/${userId}`;
+    const body = {
+      wallet,
+    };
+    return this.http.patch<Auth>(usersURL, body);
+  }
 }
