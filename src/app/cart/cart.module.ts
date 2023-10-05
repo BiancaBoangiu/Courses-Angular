@@ -5,6 +5,8 @@ import { CartProductComponent } from './components/cart-product/cart-product.com
 import { CartTotalComponent } from './components/cart-total/cart-total.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { CartRoutingModule } from './cart-routing.module';
+import { CheckoutDetailsComponent } from './components/checkout-details/checkout-details.component';
+import { CheckoutPaymentComponent } from './components/checkout-payment/checkout-payment.component';
 
 @NgModule({
   declarations: [
@@ -12,6 +14,8 @@ import { CartRoutingModule } from './cart-routing.module';
     CartProductComponent,
     CartTotalComponent,
     CheckoutComponent,
+    CheckoutDetailsComponent,
+    CheckoutPaymentComponent,
   ],
   imports: [CommonModule, CartRoutingModule],
 })
