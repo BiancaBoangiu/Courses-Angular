@@ -4,7 +4,7 @@ import { CartListComponent } from './components/cart-list/cart-list.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 
 const routes: Routes = [
-  { path: 'cart', component: CartListComponent },
+  { path: '', component: CartListComponent },
   { path: 'checkout', component: CheckoutComponent },
 ];
 
