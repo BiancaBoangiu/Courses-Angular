@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Course } from '../models/course.interface';
 import { Instructor } from 'src/app/instructors/models/instructor-interface';
 import { Auth } from 'src/app/auth/models/auth.interface';
+import { AuthService } from 'src/app/auth/services/auth.service';
 
 @Injectable({
   providedIn: 'root',
@@ -15,7 +16,7 @@ export class CoursesService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private authService: AuthService) {}
 
   getCourses(): Observable<Course[]> {
     return this.http.get<Course[]>(this.coursesURL);
@@ -82,7 +83,11 @@ export class CoursesService {
     return this.http.get<Instructor>(instructorURL);
   }
 
-  addToWishlist(courseId: number, userId: number, user: Auth): Observable<any> {
+  addToWishlist(
+    courseId: number,
+    userId: number,
+    user: Auth
+  ): Observable<Auth> {
     const userURL = `http://localhost:3000/users/${userId}`;
 
     const wishlistCourses = user.wishlist || [];
@@ -96,14 +101,14 @@ export class CoursesService {
 
     const wishlistData = { wishlist: wishlistCourses };
 
-    return this.http.patch<any>(userURL, wishlistData);
+    return this.http.patch<Auth>(userURL, wishlistData);
   }
 
   deleteFromWishlist(
     courseId: number,
     user: Auth,
     userId: number
-  ): Observable<any> {
+  ): Observable<Auth> {
     const userURL = `http://localhost:3000/users/${userId}`;
     const wishlistCourses = user.wishlist || [];
 
@@ -114,28 +119,36 @@ export class CoursesService {
 
     const wishlistData = { wishlist: wishlistCourses };
 
-    return this.http.patch<any>(userURL, wishlistData);
+    return this.http.patch<Auth>(userURL, wishlistData);
   }
 
-  addCourseToCart(
-    course: Course,
-    courseId: number,
-    userId: number
-  ): Observable<Auth> {
+  addCourseToCart(courseId: number, userId: number): Observable<Auth> {
     const usersURL = `http://localhost:3000/users/${userId}`;
+    const userData = this.authService.getUserData();
+    const cartCourses = userData?.cart || [];
 
-    const courses = course.cart || [];
-    console.log(courses);
+    if (cartCourses.includes(courseId)) {
+    } else {
+      cartCourses.push(courseId);
+    }
+
+    const body = { cart: cartCourses };
+
+    return this.http.patch<Auth>(usersURL, body);
+  }
+
+  deleteCourseFromCart(courseId: number, userId: number): Observable<Auth> {
+    const userURL = `http://localhost:3000/users/${userId}`;
+    const userData = this.authService.getUserData();
+    const courses = userData?.cart || [];
 
     if (courses.includes(courseId)) {
-      courses.push(courseId);
-    } else {
       const index = courses.indexOf(courseId);
       courses.splice(index, 1);
     }
-    console.log(courses);
-    const body = { cart: courses };
 
-    return this.http.patch<Auth>(usersURL, body);
+    const cartCourses = { cart: courses };
+
+    return this.http.patch<Auth>(userURL, cartCourses);
   }
 }

@@ -19,10 +19,12 @@
         <div class="card card-body p-4 shadow">
           <div class="border-0 rounded-3">
             <!-- Cart item -->
-            <tr class="row d-flex justify-content-between">
+            <div class="row d-flex justify-content-between">
               <!-- Course item -->
-              <app-cart-product></app-cart-product>
-            </tr>
+              <div *ngFor="let course of cartCourses">
+                <app-cart-product [course]="course"></app-cart-product>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -32,15 +34,12 @@
       <div class="col-lg-4">
         <!-- Card total START -->
         <div class="card card-body p-4 shadow">
-          <!-- Title -->
-          <h4 class="mb-3">Cart Total</h4>
-
-          <app-cart-total></app-cart-total>
+          <app-cart-total [cartTotal]="cartTotal"></app-cart-total>
         </div>
         <!-- Card total END -->
       </div>
       <!-- Right sidebar END -->
     </div>
-    <!-- Row END -->
   </div>
+  <!-- Row END -->
 </section>

@@ -144,7 +144,7 @@
         }
       ],
       "instructorId": 1,
-      "views": 982,
+      "views": 989,
       "rating": 4,
       "participants": [],
       "hasCertificate": true,
@@ -159,7 +159,7 @@
       "time": 10,
       "experience": "Intermediate",
       "instructorId": 2,
-      "views": 235,
+      "views": 236,
       "rating": 0,
       "participants": [],
       "hasCertificate": true,
@@ -410,7 +410,7 @@
         }
       ],
       "instructorId": 3,
-      "views": 145,
+      "views": 154,
       "rating": 0,
       "participants": [],
       "hasCertificate": true,
@@ -513,13 +513,16 @@
         }
       ],
       "instructorId": 4,
-      "views": 137,
+      "views": 142,
       "rating": 2,
       "participants": [],
       "hasCertificate": false,
       "price": 550,
       "isPremium": true,
-      "wishlist": [4, 1]
+      "wishlist": [
+        4,
+        1
+      ]
     },
     {
       "id": 5,
@@ -613,13 +616,16 @@
         }
       ],
       "instructorId": 5,
-      "views": 46,
+      "views": 47,
       "rating": 0,
       "participants": [],
       "hasCertificate": true,
       "price": 0,
       "isPremium": false,
-      "wishlist": [4, 1]
+      "wishlist": [
+        4,
+        1
+      ]
     },
     {
       "id": 6,
@@ -1351,7 +1357,7 @@
         }
       ],
       "instructorId": 2,
-      "views": 12,
+      "views": 13,
       "rating": 0,
       "participants": [],
       "hasCertificate": true,
@@ -1971,7 +1977,12 @@
       "profileVisibility": true,
       "emailNotifications": false,
       "smsConfirmation": false,
-      "hideNotifications": false
+      "hideNotifications": false,
+      "cart": [
+        1,
+        5,
+        12
+      ]
     }
   ],
   "reviews": [

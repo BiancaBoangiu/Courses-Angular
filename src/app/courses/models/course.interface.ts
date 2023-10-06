@@ -17,5 +17,4 @@ export interface Course {
   instructorId: number;
   curriculum: any;
   wishlist: number[];
-  cart: number[];
 }

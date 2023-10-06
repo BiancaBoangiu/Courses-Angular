@@ -104,9 +104,8 @@ export class CourseDetailsComponent {
     const userId = this.authService.getUserData()?.id;
     if (userId) {
       this.coursesService
-        .addCourseToCart(this.course, this.course.id, userId)
+        .addCourseToCart(this.course.id, userId)
         .subscribe((user) => {
-          console.log(user);
           this.authService.updateUser(user);
           this.notifierService.showNotifications('Course added to cart');
         });

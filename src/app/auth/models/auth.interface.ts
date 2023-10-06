@@ -17,4 +17,5 @@ export interface Auth {
   profileVisibility: boolean;
   smsConfirmation: boolean;
   emailNotificaions: boolean;
+  cart: number[];
 }
