@@ -32,4 +32,14 @@ export class CartListComponent {
       });
     }
   }
+
+  onDeleteCourse(deletedCourse: Course) {
+    this.cartCourses = this.cartCourses.filter(
+      (course) => course.id !== deletedCourse.id
+    );
+    this.cartTotal = this.cartCourses.reduce(
+      (total, course) => total + +course.price,
+      0
+    );
+  }
 }

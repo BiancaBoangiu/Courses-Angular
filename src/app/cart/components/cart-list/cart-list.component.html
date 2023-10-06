@@ -22,7 +22,10 @@
             <div class="row d-flex justify-content-between">
               <!-- Course item -->
               <div *ngFor="let course of cartCourses">
-                <app-cart-product [course]="course"></app-cart-product>
+                <app-cart-product
+                  [course]="course"
+                  (onDeleteCourse)="onDeleteCourse($event)"
+                ></app-cart-product>
               </div>
             </div>
           </div>
