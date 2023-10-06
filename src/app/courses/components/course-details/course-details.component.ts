@@ -6,6 +6,7 @@ import { CoursesService } from '../../services/courses.service';
 import { Course } from '../../models/course.interface';
 import { Review } from '../../models/review.interface';
 import { Instructor } from 'src/app/instructors/models/instructor-interface';
+import { notifierService } from 'src/app/auth/services/notifier.service';
 
 @Component({
   selector: 'app-course-detail',
@@ -27,7 +28,8 @@ export class CourseDetailsComponent {
     private route: ActivatedRoute,
     private coursesService: CoursesService,
     private authService: AuthService,
-    private reviewsService: ReviewsService
+    private reviewsService: ReviewsService,
+    private notifierService: notifierService
   ) {}
 
   ngOnInit(): void {
@@ -96,5 +98,20 @@ export class CourseDetailsComponent {
       this.threeStars +
       this.twoStars +
       this.oneStar;
+  }
+
+  addCourseToCart() {
+    const userId = this.authService.getUserData()?.id;
+    if (userId) {
+      this.coursesService
+        .addCourseToCart(this.course, this.course.id, userId)
+        .subscribe((user) => {
+          console.log(user);
+          this.authService.updateUser(user);
+          this.notifierService.showNotifications('Course added to cart');
+        });
+    } else {
+      this.notifierService.showError('You must be logged');
+    }
   }
 }

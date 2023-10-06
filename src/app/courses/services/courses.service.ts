@@ -116,4 +116,26 @@ export class CoursesService {
 
     return this.http.patch<any>(userURL, wishlistData);
   }
+
+  addCourseToCart(
+    course: Course,
+    courseId: number,
+    userId: number
+  ): Observable<Auth> {
+    const usersURL = `http://localhost:3000/users/${userId}`;
+
+    const courses = course.cart || [];
+    console.log(courses);
+
+    if (courses.includes(courseId)) {
+      courses.push(courseId);
+    } else {
+      const index = courses.indexOf(courseId);
+      courses.splice(index, 1);
+    }
+    console.log(courses);
+    const body = { cart: courses };
+
+    return this.http.patch<Auth>(usersURL, body);
+  }
 }

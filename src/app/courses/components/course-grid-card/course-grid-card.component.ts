@@ -22,13 +22,15 @@ export class CourseGridCardComponent {
   ) {}
 
   getUser() {
-    if (!this.authService.getUserData()) {
+    const userData = this.authService.getUserData();
+    if (!userData) {
       return;
+    } else {
+      if (userData.wishlist) {
+        this.addedToWishlist =
+          userData.wishlist.includes(this.course.id) || false;
+      }
     }
-
-    this.addedToWishlist =
-      this.authService.getUserData()?.wishlist.includes(this.course.id) ||
-      false;
   }
 
   addCourseToWishlist() {

@@ -144,7 +144,7 @@
         }
       ],
       "instructorId": 1,
-      "views": 970,
+      "views": 982,
       "rating": 4,
       "participants": [],
       "hasCertificate": true,
@@ -159,7 +159,7 @@
       "time": 10,
       "experience": "Intermediate",
       "instructorId": 2,
-      "views": 226,
+      "views": 235,
       "rating": 0,
       "participants": [],
       "hasCertificate": true,
@@ -410,7 +410,7 @@
         }
       ],
       "instructorId": 3,
-      "views": 137,
+      "views": 145,
       "rating": 0,
       "participants": [],
       "hasCertificate": true,
@@ -519,10 +519,7 @@
       "hasCertificate": false,
       "price": 550,
       "isPremium": true,
-      "wishlist": [
-        4,
-        1
-      ]
+      "wishlist": [4, 1]
     },
     {
       "id": 5,
@@ -622,10 +619,7 @@
       "hasCertificate": true,
       "price": 0,
       "isPremium": false,
-      "wishlist": [
-        4,
-        1
-      ]
+      "wishlist": [4, 1]
     },
     {
       "id": 6,
@@ -723,7 +717,7 @@
         }
       ],
       "instructorId": 6,
-      "views": 35,
+      "views": 42,
       "rating": 0,
       "participants": [],
       "hasCertificate": true,
@@ -929,7 +923,7 @@
         }
       ],
       "instructorId": 8,
-      "views": 16,
+      "views": 17,
       "rating": 0,
       "participants": [],
       "hasCertificate": true,
@@ -1250,7 +1244,7 @@
         }
       ],
       "instructorId": 1,
-      "views": 35,
+      "views": 42,
       "rating": 0,
       "participants": [],
       "hasCertificate": false,
