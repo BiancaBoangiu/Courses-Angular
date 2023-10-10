@@ -1,97 +1,116 @@
 <!-- Payment method START -->
-<div class="row g-3 mt-4">
-  <!-- Title -->
-  <h5 class="">Payment method</h5>
-  <div class="col-12">
-    <div class="accordion accordion-circle" id="accordioncircle">
-      <!-- Credit or debit card START -->
-      <div class="accordion-item mb-3">
-        <h6 class="accordion-header" id="heading-1">
-          <button
-            class="accordion-button rounded collapsed"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapse-1"
-            aria-expanded="true"
-            aria-controls="collapse-1"
+
+<div *ngIf="paymentInfo">
+  <form class="row g-3 mt-4">
+    <!-- Title -->
+    <h5 class="">Payment method</h5>
+    <div class="col-12">
+      <div class="accordion accordion-circle" id="accordioncircle">
+        <!-- Credit or debit card START -->
+        <div class="accordion-item mb-3">
+          <h6 class="accordion-header" id="heading-1">
+            <button
+              class="accordion-button rounded collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapse-1"
+              aria-expanded="true"
+              aria-controls="collapse-1"
+            >
+              Credit or Debit Card
+            </button>
+          </h6>
+          <div
+            id="collapse-1"
+            class="accordion-collapse collapse show"
+            aria-labelledby="heading-1"
+            data-bs-parent="#accordioncircle"
           >
-            Credit or Debit Card
-          </button>
-        </h6>
-        <div
-          id="collapse-1"
-          class="accordion-collapse collapse show"
-          aria-labelledby="heading-1"
-          data-bs-parent="#accordioncircle"
-        >
-          <!-- Accordion body -->
-          <div class="accordion-body">
-            <!-- Form START -->
-            <form class="row g-3">
-              <!-- Card number -->
-              <div class="col-12">
-                <label class="form-label"
-                  >Card Number <span class="text-danger">*</span></label
-                >
-                <div class="position-relative">
+            <!-- Accordion body -->
+            <div class="accordion-body">
+              <!-- Form START -->
+              <form class="row g-3">
+                <!-- Card number -->
+                <div class="col-12">
+                  <label class="form-label"
+                    >Card Number <span class="text-danger">*</span></label
+                  >
+                  <div class="position-relative">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="xxxx xxxx xxxx xxxx"
+                      [(ngModel)]="cardNumber"
+                      name="cardNumber"
+                    />
+                  </div>
+                </div>
+                <!-- Expiration Date -->
+                <div class="col-md-6">
+                  <label class="form-label"
+                    >Expiration date <span class="text-danger">*</span></label
+                  >
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      maxlength="2"
+                      placeholder="Month"
+                      [(ngModel)]="cardMonth"
+                      name="cardMonth"
+                    />
+                    <input
+                      type="text"
+                      class="form-control"
+                      maxlength="4"
+                      placeholder="Year"
+                      [(ngModel)]="cardYear"
+                      name="cardYear"
+                    />
+                  </div>
+                </div>
+                <!--Cvv code  -->
+                <div class="col-md-6">
+                  <label class="form-label"
+                    >CVV / CVC <span class="text-danger">*</span></label
+                  >
                   <input
                     type="text"
                     class="form-control"
-                    placeholder="xxxx xxxx xxxx xxxx"
+                    maxlength="3"
+                    placeholder="xxx"
+                    [(ngModel)]="cardCvv"
+                    name="cardCvv"
                   />
                 </div>
-              </div>
-              <!-- Expiration Date -->
-              <div class="col-md-6">
-                <label class="form-label"
-                  >Expiration date <span class="text-danger">*</span></label
-                >
-                <div class="input-group">
+                <!-- Card name -->
+                <div class="col-12">
+                  <label class="form-label"
+                    >Name on Card <span class="text-danger">*</span></label
+                  >
                   <input
                     type="text"
                     class="form-control"
-                    maxlength="2"
-                    placeholder="Month"
-                  />
-                  <input
-                    type="text"
-                    class="form-control"
-                    maxlength="4"
-                    placeholder="Year"
+                    aria-label="name of card holder"
+                    placeholder="Enter card holder name"
+                    [(ngModel)]="cardName"
+                    name="cardName"
                   />
                 </div>
-              </div>
-              <!--Cvv code  -->
-              <div class="col-md-6">
-                <label class="form-label"
-                  >CVV / CVC <span class="text-danger">*</span></label
-                >
-                <input
-                  type="text"
-                  class="form-control"
-                  maxlength="3"
-                  placeholder="xxx"
-                />
-              </div>
-              <!-- Card name -->
-              <div class="col-12">
-                <label class="form-label"
-                  >Name on Card <span class="text-danger">*</span></label
-                >
-                <input
-                  type="text"
-                  class="form-control"
-                  aria-label="name of card holder"
-                  placeholder="Enter card holder name"
-                />
-              </div>
-            </form>
-            <!-- Form END -->
+              </form>
+              <!-- Form END -->
+            </div>
           </div>
         </div>
+        <!-- Credit or debit card END -->
       </div>
-      <!-- Credit or debit card END -->
     </div>
-  </div>
+  </form>
+  <!-- Payment method END -->
 </div>
-<!-- Payment method END -->
+
+<div *ngIf="!paymentInfo">
+  <button class="btn btn-primary" routerLink="/user/payment">
+    Add payment method
+  </button>
+</div>

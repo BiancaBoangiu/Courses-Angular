@@ -43,6 +43,7 @@ export class PaymentComponent {
   ngOnInit() {
     const paymentInfo = this.authService.getUserData()?.payment;
     const walletValue = this.authService.getUserData()?.wallet;
+
     if (paymentInfo) {
       this.formSubmitted = true;
       Object.keys(this.paymentForm.controls).forEach((key) => {
@@ -116,7 +117,6 @@ export class PaymentComponent {
 
   deletePaymentInfo() {
     Object.keys(this.paymentForm.controls).forEach((key) => {
-      console.log(key);
       const control = this.paymentForm.controls[key];
       control.enable();
     });

@@ -1,7 +1,11 @@
 <!-- Title -->
 <h4 class="mb-4">Order Summary</h4>
-
-<app-order-product></app-order-product>
+<div *ngFor="let product of products">
+  <app-order-product
+    [product]="product"
+    (onDeleteCourse)="onDeleteCourse($event)"
+  ></app-order-product>
+</div>
 
 <hr />
 <!-- Divider -->
@@ -10,11 +14,11 @@
 <div class="list-group list-group-borderless mb-2">
   <div class="list-group-item px-0 d-flex justify-content-between">
     <span class="h5 mb-0">Total</span>
-    <span class="h5 mb-0">$480</span>
+    <span class="h5 mb-0">{{ cartTotal }} $</span>
   </div>
 </div>
 
 <!-- Button -->
 <div class="d-grid">
-  <a href="#" class="btn btn-lg btn-success">Place Order</a>
+  <a class="btn btn-lg btn-success" (click)="placeOrder()">Place Order</a>
 </div>

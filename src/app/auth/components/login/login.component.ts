@@ -39,7 +39,6 @@ export class LoginComponent {
         ) {
           this.authService.updateUser(instructorData);
         } else {
-          console.log('Password does not match.');
         }
 
         this.invalidAccount = true;

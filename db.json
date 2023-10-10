@@ -144,7 +144,7 @@
         }
       ],
       "instructorId": 1,
-      "views": 991,
+      "views": 994,
       "rating": 4,
       "participants": [],
       "hasCertificate": true,
@@ -159,7 +159,7 @@
       "time": 10,
       "experience": "Intermediate",
       "instructorId": 2,
-      "views": 238,
+      "views": 239,
       "rating": 0,
       "participants": [],
       "hasCertificate": true,
@@ -410,7 +410,7 @@
         }
       ],
       "instructorId": 3,
-      "views": 155,
+      "views": 156,
       "rating": 0,
       "participants": [],
       "hasCertificate": true,
@@ -513,7 +513,7 @@
         }
       ],
       "instructorId": 4,
-      "views": 142,
+      "views": 143,
       "rating": 2,
       "participants": [],
       "hasCertificate": false,
@@ -616,7 +616,7 @@
         }
       ],
       "instructorId": 5,
-      "views": 47,
+      "views": 48,
       "rating": 0,
       "participants": [],
       "hasCertificate": true,
@@ -822,7 +822,7 @@
         }
       ],
       "instructorId": 7,
-      "views": 14,
+      "views": 15,
       "rating": 0,
       "participants": [],
       "hasCertificate": false,
@@ -929,7 +929,7 @@
         }
       ],
       "instructorId": 8,
-      "views": 17,
+      "views": 18,
       "rating": 0,
       "participants": [],
       "hasCertificate": true,
@@ -1036,7 +1036,7 @@
         }
       ],
       "instructorId": 9,
-      "views": 10,
+      "views": 12,
       "rating": 0,
       "participants": [],
       "hasCertificate": true,
@@ -1250,7 +1250,7 @@
         }
       ],
       "instructorId": 1,
-      "views": 42,
+      "views": 43,
       "rating": 0,
       "participants": [],
       "hasCertificate": false,
@@ -1464,7 +1464,7 @@
         }
       ],
       "instructorId": 3,
-      "views": 4,
+      "views": 5,
       "rating": 0,
       "participants": [],
       "hasCertificate": true,
@@ -1553,7 +1553,7 @@
         }
       ],
       "instructorId": 4,
-      "views": 0,
+      "views": 1,
       "rating": 0,
       "participants": [],
       "hasCertificate": false,
@@ -1816,7 +1816,7 @@
         }
       ],
       "instructorId": 1,
-      "views": 5,
+      "views": 6,
       "rating": 0,
       "participants": [],
       "hasCertificate": true,
@@ -1905,7 +1905,7 @@
         }
       ],
       "instructorId": 2,
-      "views": 2,
+      "views": 4,
       "rating": 0,
       "participants": [],
       "hasCertificate": false,
@@ -1954,7 +1954,11 @@
       "firstName": "A",
       "lastName": "A",
       "description": "",
-      "education": ""
+      "education": "",
+      "cart": [
+        1,
+        5
+      ]
     },
     {
       "email": "admin@test.com",
@@ -1966,10 +1970,10 @@
         "cardYear": "1998",
         "cardMonth": "12",
         "cardCvv": "123",
-        "cardFunds": 8300,
+        "cardFunds": 3800,
         "cardName": "b"
       },
-      "wallet": 700,
+      "wallet": 360,
       "firstName": "Alex1",
       "lastName": "Vioreanu",
       "description": "",
@@ -1978,9 +1982,13 @@
       "emailNotifications": false,
       "smsConfirmation": false,
       "hideNotifications": false,
-      "cart": [
-        3
-      ]
+      "cart": [],
+      "name": "aaa",
+      "phoneNumber": "1111111111",
+      "country": "sdad",
+      "city": "asdasdasd",
+      "postalCode": "234",
+      "address": "dsgdfgfdgd"
     }
   ],
   "reviews": [
