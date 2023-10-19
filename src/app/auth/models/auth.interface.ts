@@ -18,4 +18,5 @@ export interface Auth {
   smsConfirmation: boolean;
   emailNotificaions: boolean;
   cart: number[];
+  personalDetails: any;
 }

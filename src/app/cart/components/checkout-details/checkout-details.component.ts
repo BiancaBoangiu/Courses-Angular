@@ -36,6 +36,21 @@ export class CheckoutDetailsComponent {
     });
   }
 
+  ngOnInit() {
+    const personalDetails = this.authService.getUserData()?.personalDetails;
+    this.getPersonalDetails(personalDetails);
+  }
+
+  getPersonalDetails(details: any) {
+    this.checkoutForm.patchValue({
+      name: details?.name,
+      phoneNumber: details?.phoneNumber,
+      country: details?.country,
+      city: details?.city,
+      postalCode: details?.postalCode,
+      address: details?.address,
+    });
+  }
   onSubmit() {
     this.formSubmitted = true;
     const nameValue = this.checkoutForm.get('name')?.value;

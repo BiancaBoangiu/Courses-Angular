@@ -29,7 +29,6 @@ export class OrderSummaryComponent {
 
   getCartCourses() {
     const userCart = this.authService.getUserData()?.cart;
-    console.log(userCart);
     if (userCart) {
       if (userCart.length > 0) {
         this.coursesService
@@ -58,23 +57,27 @@ export class OrderSummaryComponent {
   }
 
   placeOrder() {
-    const userId = this.authService.getUserData()?.id;
-    if (userId) {
-      const walletValue = this.authService.getUserData()?.wallet;
-      if (walletValue) {
-        const newWalletValue = +walletValue - +this.cartTotal;
-        if (newWalletValue > 0) {
-          this.products = [];
-          this.cartService
-            .updateWalletValueAndCart(userId, newWalletValue, this.products)
-            .subscribe((user) => {
-              this.authService.updateUser(user);
-              this.notifierService.showNotifications('Order placed');
-              console.log(user);
-              this.router.navigate(['/courses']);
-            });
-        } else {
-          this.notifierService.showError('Insuficient money');
+    const personalDetails = this.authService.getUserData()?.personalDetails;
+    if (!personalDetails) {
+      this.notifierService.showError('Personal details field invalid');
+    } else {
+      const userId = this.authService.getUserData()?.id;
+      if (userId) {
+        const walletValue = this.authService.getUserData()?.wallet;
+        if (walletValue) {
+          const newWalletValue = +walletValue - +this.cartTotal;
+          if (newWalletValue > 0) {
+            this.products = [];
+            this.cartService
+              .updateWalletValueAndCart(userId, newWalletValue, this.products)
+              .subscribe((user) => {
+                this.authService.updateUser(user);
+                this.notifierService.showNotifications('Order placed');
+                this.router.navigate(['/courses']);
+              });
+          } else {
+            this.notifierService.showError('Insuficient money');
+          }
         }
       }
     }

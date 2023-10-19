@@ -144,7 +144,7 @@
         }
       ],
       "instructorId": 1,
-      "views": 994,
+      "views": 996,
       "rating": 4,
       "participants": [],
       "hasCertificate": true,
@@ -159,7 +159,7 @@
       "time": 10,
       "experience": "Intermediate",
       "instructorId": 2,
-      "views": 239,
+      "views": 243,
       "rating": 0,
       "participants": [],
       "hasCertificate": true,
@@ -410,7 +410,7 @@
         }
       ],
       "instructorId": 3,
-      "views": 156,
+      "views": 158,
       "rating": 0,
       "participants": [],
       "hasCertificate": true,
@@ -616,7 +616,7 @@
         }
       ],
       "instructorId": 5,
-      "views": 48,
+      "views": 49,
       "rating": 0,
       "participants": [],
       "hasCertificate": true,
@@ -822,7 +822,7 @@
         }
       ],
       "instructorId": 7,
-      "views": 15,
+      "views": 17,
       "rating": 0,
       "participants": [],
       "hasCertificate": false,
@@ -929,7 +929,7 @@
         }
       ],
       "instructorId": 8,
-      "views": 18,
+      "views": 19,
       "rating": 0,
       "participants": [],
       "hasCertificate": true,
@@ -1357,7 +1357,7 @@
         }
       ],
       "instructorId": 2,
-      "views": 13,
+      "views": 14,
       "rating": 0,
       "participants": [],
       "hasCertificate": true,
@@ -1915,34 +1915,6 @@
   ],
   "users": [
     {
-      "email": "user@test.com",
-      "password": "aaaaa",
-      "image": "/assets/user1.jpg",
-      "id": 9,
-      "payment": {
-        "cardNumber": "1111111111111111",
-        "cardYear": "1996",
-        "cardMonth": "12",
-        "cardCvv": "123",
-        "cardFunds": "7000",
-        "cardName": "y"
-      }
-    },
-    {
-      "email": "user1@test.com",
-      "password": "aaaaa",
-      "image": "/assets/user2.jpg",
-      "id": 10,
-      "payment": {
-        "cardNumber": "1111111111111111",
-        "cardYear": "1996",
-        "cardMonth": "11",
-        "cardCvv": "123",
-        "cardFunds": "8000",
-        "cardName": "b"
-      }
-    },
-    {
       "email": "user2@test.com",
       "password": "aaaaa",
       "image": "/assets/user1.jpg",
@@ -1957,8 +1929,17 @@
       "education": "",
       "cart": [
         1,
-        5
-      ]
+        5,
+        2
+      ],
+      "personalDetails": {
+        "name": "sadasdasda",
+        "phoneNumber": "1111111111",
+        "country": "dsfdsf",
+        "city": "dsfsdfsd",
+        "postalCode": "111111",
+        "address": "fsdfsdfs"
+      }
     },
     {
       "email": "admin@test.com",
@@ -1970,10 +1951,10 @@
         "cardYear": "1998",
         "cardMonth": "12",
         "cardCvv": "123",
-        "cardFunds": 3800,
+        "cardFunds": 1600,
         "cardName": "b"
       },
-      "wallet": 360,
+      "wallet": 1130,
       "firstName": "Alex1",
       "lastName": "Vioreanu",
       "description": "",
@@ -1982,13 +1963,17 @@
       "emailNotifications": false,
       "smsConfirmation": false,
       "hideNotifications": false,
-      "cart": [],
-      "name": "aaa",
-      "phoneNumber": "1111111111",
-      "country": "sdad",
-      "city": "asdasdasd",
-      "postalCode": "234",
-      "address": "dsgdfgfdgd"
+      "cart": [
+        2
+      ],
+      "personalDetails": {
+        "name": "sadasdasdas",
+        "phoneNumber": "1111111111",
+        "country": "fdgfd",
+        "city": "dfgfdg",
+        "postalCode": "111111",
+        "address": "fdgfdgfdgdf"
+      }
     }
   ],
   "reviews": [

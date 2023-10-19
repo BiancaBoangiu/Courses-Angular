@@ -20,7 +20,7 @@ export class CartService {
     address: string
   ): Observable<Auth> {
     const userURL = `http://localhost:3000/users/${userId}`;
-    const body = {
+    const details = {
       name,
       phoneNumber,
       country,
@@ -28,6 +28,7 @@ export class CartService {
       postalCode,
       address,
     };
+    const body = { personalDetails: details };
     return this.http.patch<Auth>(userURL, body);
   }
 

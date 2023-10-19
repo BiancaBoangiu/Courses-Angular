@@ -23,7 +23,7 @@ export class CartListComponent {
   getCartCourses() {
     const userCart = this.authService.getUserData()?.cart;
     if (userCart) {
-      if (userCart.length > 1) {
+      if (userCart.length >= 1) {
         this.coursesService
           .getCoursesByIds(userCart)
           .subscribe((cartCourses) => {
