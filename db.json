@@ -144,7 +144,7 @@
         }
       ],
       "instructorId": 1,
-      "views": 996,
+      "views": 999,
       "rating": 4,
       "participants": [],
       "hasCertificate": true,
@@ -159,7 +159,7 @@
       "time": 10,
       "experience": "Intermediate",
       "instructorId": 2,
-      "views": 243,
+      "views": 264,
       "rating": 0,
       "participants": [],
       "hasCertificate": true,
@@ -410,7 +410,7 @@
         }
       ],
       "instructorId": 3,
-      "views": 158,
+      "views": 166,
       "rating": 0,
       "participants": [],
       "hasCertificate": true,
@@ -513,7 +513,7 @@
         }
       ],
       "instructorId": 4,
-      "views": 143,
+      "views": 149,
       "rating": 2,
       "participants": [],
       "hasCertificate": false,
@@ -723,7 +723,7 @@
         }
       ],
       "instructorId": 6,
-      "views": 42,
+      "views": 47,
       "rating": 0,
       "participants": [],
       "hasCertificate": true,
@@ -929,7 +929,7 @@
         }
       ],
       "instructorId": 8,
-      "views": 19,
+      "views": 22,
       "rating": 0,
       "participants": [],
       "hasCertificate": true,
@@ -1357,7 +1357,7 @@
         }
       ],
       "instructorId": 2,
-      "views": 14,
+      "views": 15,
       "rating": 0,
       "participants": [],
       "hasCertificate": true,
@@ -1951,10 +1951,10 @@
         "cardYear": "1998",
         "cardMonth": "12",
         "cardCvv": "123",
-        "cardFunds": 1600,
+        "cardFunds": 2000,
         "cardName": "b"
       },
-      "wallet": 1130,
+      "wallet": 3250,
       "firstName": "Alex1",
       "lastName": "Vioreanu",
       "description": "",
@@ -1963,9 +1963,7 @@
       "emailNotifications": false,
       "smsConfirmation": false,
       "hideNotifications": false,
-      "cart": [
-        2
-      ],
+      "cart": [],
       "personalDetails": {
         "name": "sadasdasdas",
         "phoneNumber": "1111111111",
@@ -1973,7 +1971,13 @@
         "city": "dfgfdg",
         "postalCode": "111111",
         "address": "fdgfdgfdgdf"
-      }
+      },
+      "purchasedCourses": [
+        1,
+        2,
+        3,
+        8
+      ]
     }
   ],
   "reviews": [

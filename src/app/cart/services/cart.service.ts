@@ -41,5 +41,19 @@ export class CartService {
     const body = { wallet, cart };
     return this.http.patch<Auth>(userURL, body);
   }
-  deleteCoursesFromCart(userId: number, courseId: number) {}
+
+  savePurchasedCourses(
+    purchasedCourses: number[],
+    cartCourses: number[],
+    userId: number
+  ): Observable<Auth> {
+    const userURL = `http://localhost:3000/users/${userId}`;
+
+    purchasedCourses.push(...cartCourses);
+
+    const body = {
+      purchasedCourses: purchasedCourses,
+    };
+    return this.http.patch<Auth>(userURL, body);
+  }
 }

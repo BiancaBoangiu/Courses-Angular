@@ -58,20 +58,35 @@ export class OrderSummaryComponent {
 
   placeOrder() {
     const personalDetails = this.authService.getUserData()?.personalDetails;
-    if (!personalDetails) {
-      this.notifierService.showError('Personal details field invalid');
+    const cardDetails = this.authService.getUserData()?.payment;
+    if (!personalDetails || !cardDetails) {
+      this.notifierService.showError('All fields must be completed');
     } else {
       const userId = this.authService.getUserData()?.id;
+      const cartCourses = this.authService.getUserData()?.cart || [];
+      console.log(cartCourses);
+
+      const purchasedCourses =
+        this.authService.getUserData()?.purchasedCourses || [];
+      console.log(this.authService.getUserData()?.purchasedCourses);
+
       if (userId) {
         const walletValue = this.authService.getUserData()?.wallet;
         if (walletValue) {
           const newWalletValue = +walletValue - +this.cartTotal;
           if (newWalletValue > 0) {
-            this.products = [];
             this.cartService
-              .updateWalletValueAndCart(userId, newWalletValue, this.products)
+              .savePurchasedCourses(purchasedCourses, cartCourses, userId)
               .subscribe((user) => {
                 this.authService.updateUser(user);
+              });
+
+            this.cartService
+              .updateWalletValueAndCart(userId, newWalletValue, [])
+              .subscribe((user) => {
+                this.authService.updateUser(user);
+                console.log(user);
+
                 this.notifierService.showNotifications('Order placed');
                 this.router.navigate(['/courses']);
               });
