@@ -28,8 +28,19 @@
 
 ![Alt text](./public/7.png)
 
+### Courses Page
+
 ![Alt text](./public/8.png)
+
+### Course Details Page
+
 ![Alt text](./public/9.png)
 ![Alt text](./public/10.png)
+
+### Edit Profile
+
 ![Alt text](./public/11.png)
+
+### Wishlist
+
 ![Alt text](./public/12.png)
