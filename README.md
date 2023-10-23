@@ -24,4 +24,4 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 ## Project screenshots
 
-![Alt text](src/public/1.png)
+![Alt text](./public/1.png)
