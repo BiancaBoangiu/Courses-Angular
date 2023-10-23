@@ -30,4 +30,4 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ![Alt text](./public/4.png)
 ![Alt text](./public/5.png)
 ![Alt text](./public/6.png)
-![Alt text](./public/8.png)
+![Alt text](./public/7.png)
