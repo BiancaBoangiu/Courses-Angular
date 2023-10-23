@@ -159,7 +159,7 @@
       "time": 10,
       "experience": "Intermediate",
       "instructorId": 2,
-      "views": 264,
+      "views": 265,
       "rating": 0,
       "participants": [],
       "hasCertificate": true,
@@ -723,7 +723,7 @@
         }
       ],
       "instructorId": 6,
-      "views": 47,
+      "views": 48,
       "rating": 0,
       "participants": [],
       "hasCertificate": true,
@@ -1963,7 +1963,10 @@
       "emailNotifications": false,
       "smsConfirmation": false,
       "hideNotifications": false,
-      "cart": [],
+      "cart": [
+        2,
+        6
+      ],
       "personalDetails": {
         "name": "sadasdasdas",
         "phoneNumber": "1111111111",
