@@ -144,7 +144,7 @@
         }
       ],
       "instructorId": 1,
-      "views": 999,
+      "views": 1000,
       "rating": 4,
       "participants": [],
       "hasCertificate": true,
@@ -1955,8 +1955,8 @@
         "cardName": "b"
       },
       "wallet": 3250,
-      "firstName": "Alex1",
-      "lastName": "Vioreanu",
+      "firstName": "Bianca",
+      "lastName": "Boangiu",
       "description": "",
       "education": "",
       "profileVisibility": true,
@@ -1980,6 +1980,10 @@
         2,
         3,
         8
+      ],
+      "wishlist": [
+        2,
+        7
       ]
     }
   ],

@@ -27,3 +27,9 @@
 ### Checkout Page
 
 ![Alt text](./public/7.png)
+
+![Alt text](./public/8.png)
+![Alt text](./public/9.png)
+![Alt text](./public/10.png)
+![Alt text](./public/11.png)
+![Alt text](./public/12.png)
