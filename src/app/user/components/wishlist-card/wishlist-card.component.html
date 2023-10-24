@@ -1,8 +1,8 @@
 <div *ngIf="course">
   <!-- Card item START -->
-  <div class="row">
+  <div class="row mb-2">
     <div class="col-12">
-      <div class="card shadow h-100">
+      <div class="card shadow h-90 mb-0">
         <!-- Image -->
         <img
           src="{{ course.image }}"
@@ -20,9 +20,10 @@
             ></a>
           </div>
           <!-- Title -->
-          <h5 class="card-title fw-normal">
-            <a [routerLink]="['/courses/', course.id]">{{ course.name }}</a>
-          </h5>
+          <h6 [routerLink]="['/courses/', course.id]" class="bolder text-dark">
+            {{ course.name }}
+          </h6>
+
           <p class="mb-2 text-truncate-2">
             {{ course.description | slice : 0 : 50 }} ...
           </p>

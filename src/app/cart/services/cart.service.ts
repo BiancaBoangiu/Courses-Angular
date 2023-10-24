@@ -10,7 +10,7 @@ import { Course } from 'src/app/courses/models/course.interface';
 export class CartService {
   constructor(private http: HttpClient) {}
 
-  savePersonalDetails(
+  saveBillingDetails(
     userId: number,
     name: string,
     phoneNumber: number,
@@ -28,7 +28,7 @@ export class CartService {
       postalCode,
       address,
     };
-    const body = { personalDetails: details };
+    const body = { billing: details };
     return this.http.patch<Auth>(userURL, body);
   }
 

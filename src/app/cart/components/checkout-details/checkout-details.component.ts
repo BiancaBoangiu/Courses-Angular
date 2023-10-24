@@ -66,7 +66,7 @@ export class CheckoutDetailsComponent {
       const userId = this.authService.getUserData()?.id;
       if (userId) {
         this.cartService
-          .savePersonalDetails(
+          .saveBillingDetails(
             userId,
             nameValue,
             phoneNumberValue,

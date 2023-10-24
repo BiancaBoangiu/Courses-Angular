@@ -144,7 +144,7 @@
         }
       ],
       "instructorId": 1,
-      "views": 1000,
+      "views": 1004,
       "rating": 4,
       "participants": [],
       "hasCertificate": true,
@@ -159,7 +159,7 @@
       "time": 10,
       "experience": "Intermediate",
       "instructorId": 2,
-      "views": 265,
+      "views": 267,
       "rating": 0,
       "participants": [],
       "hasCertificate": true,
@@ -1951,10 +1951,10 @@
         "cardYear": "1998",
         "cardMonth": "12",
         "cardCvv": "123",
-        "cardFunds": 2000,
+        "cardFunds": 1500,
         "cardName": "b"
       },
-      "wallet": 3250,
+      "wallet": 3100,
       "firstName": "Bianca",
       "lastName": "Boangiu",
       "description": "",
@@ -1963,10 +1963,7 @@
       "emailNotifications": false,
       "smsConfirmation": false,
       "hideNotifications": false,
-      "cart": [
-        2,
-        6
-      ],
+      "cart": [],
       "personalDetails": {
         "name": "sadasdasdas",
         "phoneNumber": "1111111111",
@@ -1979,11 +1976,16 @@
         1,
         2,
         3,
-        8
+        8,
+        6,
+        1,
+        2
       ],
       "wishlist": [
+        7,
+        1,
         2,
-        7
+        3
       ]
     }
   ],
@@ -1991,7 +1993,7 @@
     {
       "userId": 12,
       "rating": "4",
-      "message": "aaaa",
+      "message": "fhhfghgfh",
       "courseId": 1,
       "likes": [],
       "dislikes": [],
