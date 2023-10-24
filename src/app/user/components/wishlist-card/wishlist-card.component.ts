@@ -1,3 +1,4 @@
+import { notifierService } from 'src/app/auth/services/notifier.service';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { Course } from 'src/app/courses/models/course.interface';
@@ -14,7 +15,8 @@ export class WishlistCardComponent {
 
   constructor(
     private authService: AuthService,
-    private coursesService: CoursesService
+    private coursesService: CoursesService,
+    private notifierService: notifierService
   ) {}
 
   deleteCourseFromWishlist() {
@@ -27,6 +29,7 @@ export class WishlistCardComponent {
           .deleteFromWishlist(this.course.id, user, userId)
           .subscribe(() => {
             this.wishlistCoursesUpdated.emit(this.course.id);
+            this.notifierService.showError('Course removed from wishlist');
           });
       }
     }

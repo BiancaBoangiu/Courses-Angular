@@ -1,3 +1,4 @@
+import { notifierService } from 'src/app/auth/services/notifier.service';
 import { Component, Input } from '@angular/core';
 import { Course } from '../../models/course.interface';
 import { CoursesService } from '../../services/courses.service';
@@ -18,7 +19,8 @@ export class CourseGridCardComponent {
 
   constructor(
     private coursesService: CoursesService,
-    private authService: AuthService
+    private authService: AuthService,
+    private notifierService: notifierService
   ) {}
 
   getUser() {
@@ -42,6 +44,7 @@ export class CourseGridCardComponent {
           .addToWishlist(this.course.id, user.id, user)
           .subscribe(() => {
             this.addedToWishlist = !this.addedToWishlist;
+            this.notifierService.showNotifications('Course added to wishlist');
           });
       });
     }
@@ -56,6 +59,7 @@ export class CourseGridCardComponent {
           .deleteFromWishlist(this.course.id, user, user.id)
           .subscribe(() => {
             this.addedToWishlist = !this.addedToWishlist;
+            this.notifierService.showError('Course removed from wishlist');
           });
       });
     }
