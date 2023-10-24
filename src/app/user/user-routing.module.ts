@@ -5,10 +5,10 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { WishlistComponent } from './components/wishlist/wishlist.component';
 import { DeleteProfileComponent } from './components/delete-profile/delete-profile.component';
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
-import { UserCoursesComponent } from './components/user-courses/user-courses.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { SubscriptionsComponent } from './components/subscriptions/subscriptions.component';
+import { CoursesListComponent } from './components/courses-list/courses-list.component';
 
 const routes: Routes = [
   {
@@ -22,7 +22,7 @@ const routes: Routes = [
       { path: 'payment', component: PaymentComponent },
       { path: 'settings', component: SettingsComponent },
       { path: 'subscriptions', component: SubscriptionsComponent },
-      { path: 'user-courses', component: UserCoursesComponent },
+      { path: 'user-courses', component: CoursesListComponent },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     ],
   },

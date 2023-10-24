@@ -11,9 +11,10 @@ import { EditProfileComponent } from './components/edit-profile/edit-profile.com
 import { PaymentComponent } from './components/payment/payment.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { SubscriptionsComponent } from './components/subscriptions/subscriptions.component';
-import { UserCoursesComponent } from './components/user-courses/user-courses.component';
 import { WishlistComponent } from './components/wishlist/wishlist.component';
 import { WishlistCardComponent } from './components/wishlist-card/wishlist-card.component';
+import { CoursesListComponent } from './components/courses-list/courses-list.component';
+import { CourseDetailsComponent } from './components/course-details/course-details.component';
 
 @NgModule({
   declarations: [
@@ -26,9 +27,10 @@ import { WishlistCardComponent } from './components/wishlist-card/wishlist-card.
     PaymentComponent,
     SettingsComponent,
     SubscriptionsComponent,
-    UserCoursesComponent,
     WishlistComponent,
     WishlistCardComponent,
+    CoursesListComponent,
+    CourseDetailsComponent,
   ],
   imports: [CommonModule, UserRoutingModule, ReactiveFormsModule, FormsModule],
 })
