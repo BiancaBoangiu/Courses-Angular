@@ -14,7 +14,7 @@
 
 ### User Page
 
-![Alt text](./public/4.png)
+![Alt text](./public/i4.png)
 
 ### Instructors list
 
