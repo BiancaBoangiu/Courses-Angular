@@ -144,7 +144,7 @@
         }
       ],
       "instructorId": 1,
-      "views": 1049,
+      "views": 1060,
       "rating": 4,
       "participants": [],
       "hasCertificate": true,
@@ -159,7 +159,7 @@
       "time": 10,
       "experience": "Intermediate",
       "instructorId": 2,
-      "views": 344,
+      "views": 348,
       "rating": 3,
       "participants": [],
       "hasCertificate": true,
@@ -513,7 +513,7 @@
         }
       ],
       "instructorId": 4,
-      "views": 149,
+      "views": 150,
       "rating": 2,
       "participants": [],
       "hasCertificate": false,
@@ -1143,7 +1143,7 @@
         }
       ],
       "instructorId": 10,
-      "views": 12,
+      "views": 13,
       "rating": 0,
       "participants": [],
       "hasCertificate": true,
@@ -1963,7 +1963,9 @@
       "emailNotifications": false,
       "smsConfirmation": false,
       "hideNotifications": false,
-      "cart": [],
+      "cart": [
+        10
+      ],
       "personalDetails": {
         "name": "sadasdasdas",
         "phoneNumber": "1111111111",

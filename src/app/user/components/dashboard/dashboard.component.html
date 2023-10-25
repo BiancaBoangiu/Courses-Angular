@@ -17,7 +17,7 @@
             data-purecounter-delay="200"
             data-purecounter-duration="0"
           >
-            9
+            {{ totalCourses }}
           </h5>
         </div>
         <p class="mb-0 h6 fw-light">Total Courses</p>
@@ -74,4 +74,4 @@
   </div>
 </div>
 <!-- Counter boxes END -->
-<app-courses-list></app-courses-list>
+<app-courses-list (totalCourses)="showTotalCourses($event)"></app-courses-list>

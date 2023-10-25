@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { Course } from 'src/app/courses/models/course.interface';
 import { CoursesService } from 'src/app/courses/services/courses.service';
@@ -10,6 +10,8 @@ import { CoursesService } from 'src/app/courses/services/courses.service';
 })
 export class CoursesListComponent {
   courses!: Course[];
+
+  @Output() totalCourses = new EventEmitter<number>();
   constructor(
     private authService: AuthService,
     private coursesService: CoursesService
@@ -25,6 +27,7 @@ export class CoursesListComponent {
         .getCoursesByIds(purchasedCourses)
         .subscribe((courses) => {
           this.courses = courses;
+          this.totalCourses.emit(courses.length);
         });
     }
   }
