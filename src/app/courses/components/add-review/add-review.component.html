@@ -1,5 +1,5 @@
 <div class="mt-2">
-  <h5 class="mb-4 ps-4">Leave a Review</h5>
+  <h5 class="mb-3 ps-4 ms-2">Leave a Review</h5>
   <form class="row g-3 align-items-center justify-content-around">
     <!-- Rating -->
     <div class="col-11 bg-light-input">
@@ -31,10 +31,10 @@
     </div>
 
     <!-- Button -->
-    <div class="col-12 d-flex justify-content-center mt-2 mb-2">
+    <div class="col-12 d-flex justify-content-start mt-2 mb-2 ms-3">
       <button
         type="submit"
-        class="btn btn-primary m-0 text-center submit-button"
+        class="btn btn-primary m-0 text-center submit-button ms-4"
         (click)="addReview()"
         [disabled]="!message || !rating"
       >

@@ -15,6 +15,7 @@ import { notifierService } from 'src/app/auth/services/notifier.service';
 })
 export class CourseDetailsComponent {
   course!: Course;
+  isCoursePurchased!: boolean;
   instructor!: Instructor;
 
   fiveStars: number = 0;
@@ -41,6 +42,13 @@ export class CourseDetailsComponent {
     this.coursesService.getCourseById(id).subscribe((course) => {
       this.course = course;
       this.authService.courseId = course.id;
+      const userId = this.authService.getUserData()?.id;
+      const purchasedCourses = this.authService.getUserData()?.purchasedCourses;
+      if (userId) {
+        if (purchasedCourses?.includes(this.course.id)) {
+          this.isCoursePurchased = true;
+        }
+      }
       this.coursesService
         .getInstructorById(this.course.instructorId)
         .subscribe((instructor) => {
@@ -102,13 +110,19 @@ export class CourseDetailsComponent {
 
   addCourseToCart() {
     const userId = this.authService.getUserData()?.id;
+    const purchasedCourses = this.authService.getUserData()?.purchasedCourses;
     if (userId) {
-      this.coursesService
-        .addCourseToCart(this.course.id, userId)
-        .subscribe((user) => {
-          this.authService.updateUser(user);
-          this.notifierService.showNotifications('Course added to cart');
-        });
+      if (purchasedCourses?.includes(this.course.id)) {
+        this.isCoursePurchased = true;
+      } else {
+        this.coursesService
+          .addCourseToCart(this.course.id, userId)
+          .subscribe((user) => {
+            this.isCoursePurchased = false;
+            this.authService.updateUser(user);
+            this.notifierService.showNotifications('Course added to cart');
+          });
+      }
     } else {
       this.notifierService.showError('You must be logged');
     }
