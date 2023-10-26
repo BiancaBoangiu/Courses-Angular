@@ -113,16 +113,11 @@ export class CourseDetailsComponent {
 
   addCourseToCart() {
     const userId = this.authService.getUserData()?.id;
-    const purchasedCourses = this.authService.getUserData()?.purchasedCourses;
     if (userId) {
-      if (purchasedCourses?.includes(this.course.id)) {
-        this.isCoursePurchased = true;
-      } else {
-        this.cart.push(this.course.id);
-        this.cartService.updateCart(this.cart);
-        this.isCoursePurchased = false;
-        this.notifierService.showNotifications('Course added to cart');
-      }
+      this.cart.push(this.course.id);
+      this.cartService.updateCart(this.cart);
+      this.isCoursePurchased = true;
+      this.notifierService.showNotifications('Course added to cart');
     } else {
       this.notifierService.showError('You must be logged');
     }
