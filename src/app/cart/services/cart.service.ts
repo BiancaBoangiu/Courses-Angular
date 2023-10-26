@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable, filter, map } from 'rxjs';
 import { Auth } from 'src/app/auth/models/auth.interface';
 import { Course } from 'src/app/courses/models/course.interface';
 
@@ -8,7 +8,22 @@ import { Course } from 'src/app/courses/models/course.interface';
   providedIn: 'root',
 })
 export class CartService {
+  private cartSource: BehaviorSubject<number[] | null> = new BehaviorSubject<
+    number[] | null
+  >(null);
+  cart$: Observable<number[]> = this.cartSource.asObservable().pipe(
+    filter((value) => value !== null),
+    map((value) => value as number[])
+  );
   constructor(private http: HttpClient) {}
+
+  updateCart(data: number[]) {
+    this.cartSource.next(data);
+  }
+
+  getCart(): number[] | null {
+    return this.cartSource.getValue();
+  }
 
   saveBillingDetails(
     userId: number,
@@ -32,13 +47,9 @@ export class CartService {
     return this.http.patch<Auth>(userURL, body);
   }
 
-  updateWalletValueAndCart(
-    userId: number,
-    wallet: number,
-    cart: Course[]
-  ): Observable<Auth> {
+  updateWalletValue(userId: number, wallet: number): Observable<Auth> {
     const userURL = `http://localhost:3000/users/${userId}`;
-    const body = { wallet, cart };
+    const body = { wallet };
     return this.http.patch<Auth>(userURL, body);
   }
 

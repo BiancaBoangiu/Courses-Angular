@@ -28,7 +28,7 @@ export class OrderSummaryComponent {
   }
 
   getCartCourses() {
-    const userCart = this.authService.getUserData()?.cart;
+    const userCart = this.cartService.getCart();
     if (userCart) {
       if (userCart.length > 0) {
         this.coursesService
@@ -57,18 +57,16 @@ export class OrderSummaryComponent {
   }
 
   placeOrder() {
-    const personalDetails = this.authService.getUserData()?.personalDetails;
+    const billingAddress = this.authService.getUserData()?.billingAddress;
     const cardDetails = this.authService.getUserData()?.payment;
-    if (!personalDetails || !cardDetails) {
+    if (!billingAddress || !cardDetails) {
       this.notifierService.showError('All fields must be completed');
     } else {
       const userId = this.authService.getUserData()?.id;
-      const cartCourses = this.authService.getUserData()?.cart || [];
-      console.log(cartCourses);
+      const cartCourses = this.cartService.getCart() || [];
 
       const purchasedCourses =
         this.authService.getUserData()?.purchasedCourses || [];
-      console.log(this.authService.getUserData()?.purchasedCourses);
 
       if (userId) {
         const walletValue = this.authService.getUserData()?.wallet;
@@ -82,10 +80,10 @@ export class OrderSummaryComponent {
               });
 
             this.cartService
-              .updateWalletValueAndCart(userId, newWalletValue, [])
+              .updateWalletValue(userId, newWalletValue)
               .subscribe((user) => {
                 this.authService.updateUser(user);
-                console.log(user);
+                this.cartService.updateCart([]);
 
                 this.notifierService.showNotifications('Order placed');
                 this.router.navigate(['/courses']);

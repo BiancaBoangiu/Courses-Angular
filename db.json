@@ -159,7 +159,7 @@
       "time": 10,
       "experience": "Intermediate",
       "instructorId": 2,
-      "views": 348,
+      "views": 349,
       "rating": 3,
       "participants": [],
       "hasCertificate": true,
@@ -513,7 +513,7 @@
         }
       ],
       "instructorId": 4,
-      "views": 150,
+      "views": 152,
       "rating": 2,
       "participants": [],
       "hasCertificate": false,
@@ -1464,7 +1464,7 @@
         }
       ],
       "instructorId": 3,
-      "views": 5,
+      "views": 8,
       "rating": 0,
       "participants": [],
       "hasCertificate": true,
@@ -1553,7 +1553,7 @@
         }
       ],
       "instructorId": 4,
-      "views": 1,
+      "views": 2,
       "rating": 0,
       "participants": [],
       "hasCertificate": false,
@@ -1931,15 +1931,7 @@
         1,
         5,
         2
-      ],
-      "personalDetails": {
-        "name": "sadasdasda",
-        "phoneNumber": "1111111111",
-        "country": "dsfdsf",
-        "city": "dsfsdfsd",
-        "postalCode": "111111",
-        "address": "fsdfsdfs"
-      }
+      ]
     },
     {
       "email": "admin@test.com",
@@ -1954,7 +1946,7 @@
         "cardFunds": 1500,
         "cardName": "b"
       },
-      "wallet": 3100,
+      "wallet": 2310,
       "firstName": "Bianca",
       "lastName": "Boangiu",
       "description": "",
@@ -1963,29 +1955,20 @@
       "emailNotifications": false,
       "smsConfirmation": false,
       "hideNotifications": false,
-      "cart": [
-        10
-      ],
-      "personalDetails": {
-        "name": "sadasdasdas",
-        "phoneNumber": "1111111111",
-        "country": "fdgfd",
-        "city": "dfgfdg",
-        "postalCode": "111111",
-        "address": "fdgfdgfdgdf"
-      },
       "purchasedCourses": [
         1,
         2,
         3,
         8,
-        6
+        6,
+        14
       ],
       "wishlist": [
         7,
         3,
         5
-      ]
+      ],
+      "billingAddress": "aaaaaa"
     }
   ],
   "reviews": [

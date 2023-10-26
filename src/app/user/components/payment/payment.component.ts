@@ -55,7 +55,7 @@ export class PaymentComponent {
       this.getPaymentInfo(paymentInfo);
     }
 
-    const address = this.authService.getUserData()?.address;
+    const address = this.authService.getUserData()?.billingAddress;
     if (address) {
       this.address = address;
     }
@@ -185,7 +185,7 @@ export class PaymentComponent {
 
         const userData = this.authService.getUserData();
         if (userData) {
-          userData.address = this.address;
+          userData.billingAddress = this.address;
         }
       });
       this.notifierService.showNotifications('Address saved');
@@ -202,7 +202,7 @@ export class PaymentComponent {
 
         const userData = this.authService.getUserData();
         if (userData) {
-          userData.address = this.address;
+          userData.billingAddress = this.address;
         }
       });
     }

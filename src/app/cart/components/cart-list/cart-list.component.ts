@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { Course } from 'src/app/courses/models/course.interface';
 import { CoursesService } from 'src/app/courses/services/courses.service';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-cart-list',
@@ -13,7 +14,8 @@ export class CartListComponent {
   cartTotal!: number;
   constructor(
     private coursesService: CoursesService,
-    private authService: AuthService
+    private authService: AuthService,
+    private cartService: CartService
   ) {}
 
   ngOnInit() {
@@ -21,7 +23,7 @@ export class CartListComponent {
   }
 
   getCartCourses() {
-    const userCart = this.authService.getUserData()?.cart;
+    const userCart = this.cartService.getCart();
     if (userCart) {
       if (userCart.length >= 1) {
         this.coursesService

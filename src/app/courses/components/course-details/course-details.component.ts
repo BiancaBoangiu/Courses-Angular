@@ -7,6 +7,7 @@ import { Course } from '../../models/course.interface';
 import { Review } from '../../models/review.interface';
 import { Instructor } from 'src/app/instructors/models/instructor-interface';
 import { notifierService } from 'src/app/auth/services/notifier.service';
+import { CartService } from 'src/app/cart/services/cart.service';
 
 @Component({
   selector: 'app-course-detail',
@@ -14,6 +15,7 @@ import { notifierService } from 'src/app/auth/services/notifier.service';
   styleUrls: ['./course-details.component.scss'],
 })
 export class CourseDetailsComponent {
+  cart: number[] = [];
   course!: Course;
   isCoursePurchased!: boolean;
   instructor!: Instructor;
@@ -30,7 +32,8 @@ export class CourseDetailsComponent {
     private coursesService: CoursesService,
     private authService: AuthService,
     private reviewsService: ReviewsService,
-    private notifierService: notifierService
+    private notifierService: notifierService,
+    private cartService: CartService
   ) {}
 
   ngOnInit(): void {
@@ -115,13 +118,10 @@ export class CourseDetailsComponent {
       if (purchasedCourses?.includes(this.course.id)) {
         this.isCoursePurchased = true;
       } else {
-        this.coursesService
-          .addCourseToCart(this.course.id, userId)
-          .subscribe((user) => {
-            this.isCoursePurchased = false;
-            this.authService.updateUser(user);
-            this.notifierService.showNotifications('Course added to cart');
-          });
+        this.cart.push(this.course.id);
+        this.cartService.updateCart(this.cart);
+        this.isCoursePurchased = false;
+        this.notifierService.showNotifications('Course added to cart');
       }
     } else {
       this.notifierService.showError('You must be logged');

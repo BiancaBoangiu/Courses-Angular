@@ -12,13 +12,12 @@ export interface Auth {
   description: string;
   education: string;
   payment: Payment;
-  address: string;
+  billingAddress: string;
   wallet: number;
   hideNotifications: boolean;
   profileVisibility: boolean;
   smsConfirmation: boolean;
   emailNotificaions: boolean;
   cart: number[];
-  personalDetails: any;
   purchasedCourses: number[];
 }
