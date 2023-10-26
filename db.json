@@ -144,7 +144,7 @@
         }
       ],
       "instructorId": 1,
-      "views": 1060,
+      "views": 1061,
       "rating": 4,
       "participants": [],
       "hasCertificate": true,
@@ -159,7 +159,7 @@
       "time": 10,
       "experience": "Intermediate",
       "instructorId": 2,
-      "views": 349,
+      "views": 374,
       "rating": 3,
       "participants": [],
       "hasCertificate": true,
@@ -1036,7 +1036,7 @@
         }
       ],
       "instructorId": 9,
-      "views": 12,
+      "views": 13,
       "rating": 0,
       "participants": [],
       "hasCertificate": true,
@@ -1727,7 +1727,7 @@
         }
       ],
       "instructorId": 6,
-      "views": 0,
+      "views": 1,
       "rating": 0,
       "participants": [],
       "hasCertificate": false,
@@ -1946,7 +1946,7 @@
         "cardFunds": 1500,
         "cardName": "b"
       },
-      "wallet": 2310,
+      "wallet": 1810,
       "firstName": "Bianca",
       "lastName": "Boangiu",
       "description": "",
@@ -1961,7 +1961,9 @@
         3,
         8,
         6,
-        14
+        14,
+        16,
+        9
       ],
       "wishlist": [
         7,

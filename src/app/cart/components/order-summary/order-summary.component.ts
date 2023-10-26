@@ -86,7 +86,7 @@ export class OrderSummaryComponent {
                 this.cartService.updateCart([]);
 
                 this.notifierService.showNotifications('Order placed');
-                this.router.navigate(['/courses']);
+                this.router.navigate(['/cart/order-placed']);
               });
           } else {
             this.notifierService.showError('Insuficient money');

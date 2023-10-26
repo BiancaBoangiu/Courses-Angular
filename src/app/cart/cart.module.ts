@@ -10,6 +10,7 @@ import { OrderProductComponent } from './components/order-product/order-product.
 import { CartProductComponent } from './components/cart-product/cart-product.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CheckoutBillingDetailsComponent } from './components/checkout-billing-details/checkout-billing-details.component';
+import { OrderPlacedComponent } from './components/order-placed/order-placed.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { CheckoutBillingDetailsComponent } from './components/checkout-billing-d
     OrderSummaryComponent,
     OrderProductComponent,
     CheckoutBillingDetailsComponent,
+    OrderPlacedComponent,
   ],
   imports: [CommonModule, CartRoutingModule, FormsModule, ReactiveFormsModule],
 })
