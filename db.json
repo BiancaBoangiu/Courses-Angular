@@ -144,8 +144,8 @@
         }
       ],
       "instructorId": 1,
-      "views": 1061,
-      "rating": 4,
+      "views": 1070,
+      "rating": null,
       "participants": [],
       "hasCertificate": true,
       "price": 0,
@@ -159,7 +159,7 @@
       "time": 10,
       "experience": "Intermediate",
       "instructorId": 2,
-      "views": 374,
+      "views": 382,
       "rating": 3,
       "participants": [],
       "hasCertificate": true,
@@ -1642,7 +1642,7 @@
         }
       ],
       "instructorId": 5,
-      "views": 4,
+      "views": 5,
       "rating": 0,
       "participants": [],
       "hasCertificate": true,
@@ -1963,7 +1963,8 @@
         6,
         14,
         16,
-        9
+        9,
+        15
       ],
       "wishlist": [
         7,
@@ -1974,16 +1975,6 @@
     }
   ],
   "reviews": [
-    {
-      "userId": 12,
-      "rating": "4",
-      "message": "fhhfghgfh",
-      "courseId": 1,
-      "likes": [],
-      "dislikes": [],
-      "userEmail": "admin@test.com",
-      "id": 1
-    },
     {
       "userId": 12,
       "rating": "3",

@@ -8,6 +8,7 @@ import { Review } from '../../models/review.interface';
 import { Instructor } from 'src/app/instructors/models/instructor-interface';
 import { notifierService } from 'src/app/auth/services/notifier.service';
 import { CartService } from 'src/app/cart/services/cart.service';
+import { InstructorsService } from 'src/app/instructors/services/instructors.service';
 
 @Component({
   selector: 'app-course-detail',
@@ -19,6 +20,7 @@ export class CourseDetailsComponent {
   course!: Course;
   isCoursePurchased!: boolean;
   instructor!: Instructor;
+  numberOfCourses!: number;
 
   fiveStars: number = 0;
   fourStars: number = 0;
@@ -33,7 +35,8 @@ export class CourseDetailsComponent {
     private authService: AuthService,
     private reviewsService: ReviewsService,
     private notifierService: notifierService,
-    private cartService: CartService
+    private cartService: CartService,
+    private instructorsService: InstructorsService
   ) {}
 
   ngOnInit(): void {
@@ -56,6 +59,12 @@ export class CourseDetailsComponent {
         .getInstructorById(this.course.instructorId)
         .subscribe((instructor) => {
           this.instructor = instructor;
+          this.instructorsService
+            .getInstructorCourses(this.instructor.id)
+            .subscribe((courses) => {
+              this.numberOfCourses = courses.length;
+              console.log(this.numberOfCourses);
+            });
         });
 
       this.coursesService
