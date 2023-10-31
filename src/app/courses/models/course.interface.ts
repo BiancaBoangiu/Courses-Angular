@@ -17,4 +17,5 @@ export interface Course {
   instructorId: number;
   curriculum: any;
   wishlist: number[];
+  participants: number[];
 }

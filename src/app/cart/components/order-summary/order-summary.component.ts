@@ -64,12 +64,12 @@ export class OrderSummaryComponent {
     } else {
       const userId = this.authService.getUserData()?.id;
       const cartCourses = this.cartService.getCart() || [];
-
       const purchasedCourses =
         this.authService.getUserData()?.purchasedCourses || [];
 
       if (userId) {
-        const walletValue = this.authService.getUserData()?.wallet;
+        const walletValue = this.authService.getUserData()?.wallet || 0;
+        console.log(walletValue);
         if (walletValue) {
           const newWalletValue = +walletValue - +this.cartTotal;
           if (newWalletValue > 0) {
@@ -77,20 +77,31 @@ export class OrderSummaryComponent {
               .savePurchasedCourses(purchasedCourses, cartCourses, userId)
               .subscribe((user) => {
                 this.authService.updateUser(user);
-              });
-
-            this.cartService
-              .updateWalletValue(userId, newWalletValue)
-              .subscribe((user) => {
-                this.authService.updateUser(user);
-                this.cartService.updateCart([]);
-
-                this.notifierService.showNotifications('Order placed');
-                this.router.navigate(['/cart/order-placed']);
+                this.cartService
+                  .updateWalletValue(userId, newWalletValue)
+                  .subscribe((user) => {
+                    this.authService.updateUser(user);
+                    console.log(this.products);
+                    this.products.forEach((product) => {
+                      console.log(product);
+                      const participants = product.participants || [];
+                      this.cartService
+                        .addUserAsParticipant(user.id, product.id, participants)
+                        .subscribe(() => {
+                          this.cartService.updateCart([]);
+                          this.notifierService.showNotifications(
+                            'Order placed'
+                          );
+                          this.router.navigate(['/cart/order-placed']);
+                        });
+                    });
+                  });
               });
           } else {
             this.notifierService.showError('Insuficient money');
           }
+        } else {
+          this.notifierService.showError('Empty wallet');
         }
       }
     }

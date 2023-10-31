@@ -67,4 +67,16 @@ export class CartService {
     };
     return this.http.patch<Auth>(userURL, body);
   }
+
+  addUserAsParticipant(
+    userId: number,
+    courseId: number,
+    courseParticipants: number[]
+  ): Observable<Course> {
+    const courseURL = `http://localhost:3000/courses/${courseId}`;
+    const participants = courseParticipants || [];
+    courseParticipants.push(userId);
+    const body = { participants: participants };
+    return this.http.patch<Course>(courseURL, body);
+  }
 }

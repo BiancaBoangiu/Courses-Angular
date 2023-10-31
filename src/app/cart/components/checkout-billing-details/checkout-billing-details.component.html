@@ -1,4 +1,4 @@
-<div class="card bg-transparent rounded-3 mb-2 col-xl-9">
+<div *ngIf="billingAddress" class="card bg-transparent rounded-3 mb-2 col-xl-9">
   <div class="mb-2">
     <div class="mb-1">
       <input
@@ -9,9 +9,9 @@
       />
     </div>
   </div>
-  <div *ngIf="!billingAddress">
-    <button class="btn btn-primary" routerLink="/user/payment">
-      Add payment method
-    </button>
-  </div>
+</div>
+<div *ngIf="!billingAddress">
+  <button class="btn btn-primary" routerLink="/user/payment">
+    Add billing address
+  </button>
 </div>

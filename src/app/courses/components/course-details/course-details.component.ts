@@ -16,7 +16,6 @@ import { InstructorsService } from 'src/app/instructors/services/instructors.ser
   styleUrls: ['./course-details.component.scss'],
 })
 export class CourseDetailsComponent {
-  cart: number[] = [];
   course!: Course;
   isCoursePurchased!: boolean;
   instructor!: Instructor;
@@ -63,7 +62,6 @@ export class CourseDetailsComponent {
             .getInstructorCourses(this.instructor.id)
             .subscribe((courses) => {
               this.numberOfCourses = courses.length;
-              console.log(this.numberOfCourses);
             });
         });
 
@@ -122,11 +120,14 @@ export class CourseDetailsComponent {
 
   addCourseToCart() {
     const userId = this.authService.getUserData()?.id;
+    const cartCourses = this.cartService.getCart() || [];
     if (userId) {
-      this.cart.push(this.course.id);
-      this.cartService.updateCart(this.cart);
-      this.isCoursePurchased = true;
-      this.notifierService.showNotifications('Course added to cart');
+      if (cartCourses) {
+        cartCourses.push(this.course.id);
+        this.cartService.updateCart(cartCourses);
+        this.isCoursePurchased = true;
+        this.notifierService.showNotifications('Course added to cart');
+      }
     } else {
       this.notifierService.showError('You must be logged');
     }
