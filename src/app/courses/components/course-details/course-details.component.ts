@@ -20,6 +20,7 @@ export class CourseDetailsComponent {
   isCoursePurchased!: boolean;
   instructor!: Instructor;
   numberOfCourses!: number;
+  numberOfParticipants!: number;
 
   fiveStars: number = 0;
   fourStars: number = 0;
@@ -46,6 +47,7 @@ export class CourseDetailsComponent {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.coursesService.getCourseById(id).subscribe((course) => {
       this.course = course;
+      this.numberOfParticipants = course.participants.length;
       this.authService.courseId = course.id;
       const userId = this.authService.getUserData()?.id;
       const purchasedCourses = this.authService.getUserData()?.purchasedCourses;

@@ -69,7 +69,6 @@ export class OrderSummaryComponent {
 
       if (userId) {
         const walletValue = this.authService.getUserData()?.wallet || 0;
-        console.log(walletValue);
         if (walletValue) {
           const newWalletValue = +walletValue - +this.cartTotal;
           if (newWalletValue > 0) {
@@ -81,9 +80,8 @@ export class OrderSummaryComponent {
                   .updateWalletValue(userId, newWalletValue)
                   .subscribe((user) => {
                     this.authService.updateUser(user);
-                    console.log(this.products);
+
                     this.products.forEach((product) => {
-                      console.log(product);
                       const participants = product.participants || [];
                       this.cartService
                         .addUserAsParticipant(user.id, product.id, participants)
