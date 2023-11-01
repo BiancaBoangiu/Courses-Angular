@@ -5,6 +5,7 @@ import { Course } from '../models/course.interface';
 import { Instructor } from 'src/app/instructors/models/instructor-interface';
 import { Auth } from 'src/app/auth/models/auth.interface';
 import { AuthService } from 'src/app/auth/services/auth.service';
+import { Category } from '../models/category.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -76,6 +77,16 @@ export class CoursesService {
     const optionParts = option.split('_');
     const courses = `http://localhost:3000/courses?_sort=${optionParts[0]}&_order=${optionParts[1]}`;
     return this.http.get<Course[]>(courses);
+  }
+
+  getCoursesByCategory(categoryId: number): Observable<Course[]> {
+    const courses = `http://localhost:3000/courses?category=${categoryId}`;
+    return this.http.get<Course[]>(courses);
+  }
+
+  getCategories(): Observable<Category[]> {
+    const categoryURL = 'http://localhost:3000/courseCategory';
+    return this.http.get<Category[]>(categoryURL);
   }
 
   getInstructorById(id: number): Observable<Instructor> {

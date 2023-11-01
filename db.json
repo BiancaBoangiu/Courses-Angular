@@ -2113,10 +2113,10 @@
     }
   ],
   "courseCategory": [
-    { "name": "Programming", "id": 1 },
+    { "name": "Programming and Software Development", "id": 1 },
     { "name": "Web Development", "id": 2 },
-    { "name": "Mobile Development", "id": 3 },
-    { "name": "Data Science and ML", "id": 4 },
+    { "name": "Mobile App Development", "id": 3 },
+    { "name": "Data Science and Machine Learning", "id": 4 },
     { "name": "Cybersecurity", "id": 5 },
     { "name": "Cloud Computing", "id": 6 }
   ]

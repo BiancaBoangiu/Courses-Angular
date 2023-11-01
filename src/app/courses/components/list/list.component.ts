@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CoursesService } from '../../services/courses.service';
 import { Course } from '../../models/course.interface';
+import { Category } from '../../models/category.interface';
 
 @Component({
   selector: 'app-list',
@@ -10,12 +11,14 @@ import { Course } from '../../models/course.interface';
 export class ListComponent {
   experienceLevels = ['All', 'Beginner', 'Intermediate', 'Advanced'];
   priceLevel = ['All', 'Free', 'Premium'];
+  courseCategories!: Category[];
+  categoryId!: number;
   categories = [
     'All',
-    'Programming',
+    'Programming and Software Development',
     'Web Development',
-    'Mobile Development',
-    'Data Science and ML',
+    'Mobile DevelopmentMobile App Development',
+    'Data Science and Machine Learning',
     'Cybersecurity',
     'Cloud Computing',
   ];
@@ -66,11 +69,28 @@ export class ListComponent {
         this.courses = courses;
       });
     } else {
-      this.courseService
-        .getCoursesByExperience(category)
-        .subscribe((courses) => {
-          this.courses = courses;
-        });
+      this.courseService.getCategories().subscribe((categories) => {
+        const courseCategory = categories.filter(
+          (courseCategory) => courseCategory.name === category
+        );
+
+        this.categoryId = courseCategory[0].id;
+        this.courseService
+          .getCoursesByCategory(this.categoryId)
+          .subscribe((courses) => {
+            this.courses = courses;
+          });
+      });
     }
+  }
+
+  getCategoryId(categoryName: string) {
+    this.courseService.getCategories().subscribe((categories) => {
+      const category = categories.filter(
+        (category) => category.name === categoryName
+      );
+
+      return category[0].id;
+    });
   }
 }
