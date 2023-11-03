@@ -6,6 +6,7 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterInstructorComponent } from '../instructors/components/register-instructor/register-instructor.component';
+import { AuthGuard } from './services/auth.guard';
 
 @NgModule({
   declarations: [

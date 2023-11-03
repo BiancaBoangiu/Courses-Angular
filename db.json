@@ -145,7 +145,7 @@
         }
       ],
       "instructorId": 1,
-      "views": 1092,
+      "views": 1099,
       "rating": null,
       "participants": [],
       "hasCertificate": true,
@@ -161,7 +161,7 @@
       "category": 2,
       "experience": "Intermediate",
       "instructorId": 2,
-      "views": 386,
+      "views": 389,
       "rating": 3,
       "participants": [],
       "hasCertificate": true,
@@ -413,9 +413,11 @@
         }
       ],
       "instructorId": 3,
-      "views": 182,
+      "views": 183,
       "rating": 0,
-      "participants": [12],
+      "participants": [
+        12
+      ],
       "hasCertificate": true,
       "price": 400,
       "isPremium": true
@@ -519,11 +521,16 @@
       "instructorId": 4,
       "views": 158,
       "rating": 2,
-      "participants": [12],
+      "participants": [
+        12
+      ],
       "hasCertificate": false,
       "price": 550,
       "isPremium": true,
-      "wishlist": [4, 1]
+      "wishlist": [
+        4,
+        1
+      ]
     },
     {
       "id": 5,
@@ -620,11 +627,17 @@
       "instructorId": 5,
       "views": 59,
       "rating": 0,
-      "participants": [11, 12],
+      "participants": [
+        11,
+        12
+      ],
       "hasCertificate": true,
       "price": 0,
       "isPremium": false,
-      "wishlist": [4, 1]
+      "wishlist": [
+        4,
+        1
+      ]
     },
     {
       "id": 6,
@@ -823,9 +836,11 @@
         }
       ],
       "instructorId": 7,
-      "views": 18,
+      "views": 19,
       "rating": 0,
-      "participants": [],
+      "participants": [
+        12
+      ],
       "hasCertificate": false,
       "price": 500,
       "isPremium": true
@@ -1039,7 +1054,7 @@
         }
       ],
       "instructorId": 9,
-      "views": 21,
+      "views": 24,
       "rating": 0,
       "participants": [],
       "hasCertificate": true,
@@ -1255,7 +1270,7 @@
         }
       ],
       "instructorId": 1,
-      "views": 43,
+      "views": 45,
       "rating": 0,
       "participants": [],
       "hasCertificate": false,
@@ -1653,7 +1668,10 @@
       "instructorId": 5,
       "views": 19,
       "rating": 0,
-      "participants": [12, 11],
+      "participants": [
+        12,
+        11
+      ],
       "hasCertificate": true,
       "price": 0,
       "isPremium": false
@@ -1939,7 +1957,11 @@
       "lastName": "A",
       "description": "",
       "education": "",
-      "cart": [1, 5, 2],
+      "cart": [
+        1,
+        5,
+        2
+      ],
       "payment": {
         "cardNumber": "1111111111111111",
         "cardYear": "1996",
@@ -1950,7 +1972,10 @@
       },
       "billingAddress": "hfghfghfghgfh",
       "wallet": 400,
-      "purchasedCourses": [15, 5]
+      "purchasedCourses": [
+        15,
+        5
+      ]
     },
     {
       "email": "admin@test.com",
@@ -1962,10 +1987,10 @@
         "cardYear": "1998",
         "cardMonth": "12",
         "cardCvv": "123",
-        "cardFunds": 1500,
+        "cardFunds": 900,
         "cardName": "b"
       },
-      "wallet": 430,
+      "wallet": 530,
       "firstName": "Bianca",
       "lastName": "Boangiu",
       "description": "",
@@ -1974,8 +1999,22 @@
       "emailNotifications": false,
       "smsConfirmation": false,
       "hideNotifications": false,
-      "purchasedCourses": [1, 2, 3, 15, 4, 5],
-      "wishlist": [7, 3, 5]
+      "purchasedCourses": [
+        1,
+        2,
+        3,
+        15,
+        4,
+        5,
+        7
+      ],
+      "wishlist": [
+        7,
+        3,
+        5
+      ],
+      "billingAddress": "gfgdfgd",
+      "cart": []
     }
   ],
   "reviews": [
@@ -2112,12 +2151,30 @@
       "rating": 0
     }
   ],
-  "courseCategory": [
-    { "name": "Programming and Software Development", "id": 1 },
-    { "name": "Web Development", "id": 2 },
-    { "name": "Mobile App Development", "id": 3 },
-    { "name": "Data Science and Machine Learning", "id": 4 },
-    { "name": "Cybersecurity", "id": 5 },
-    { "name": "Cloud Computing", "id": 6 }
+  "categories": [
+    {
+      "name": "Programming and Software Development",
+      "id": 1
+    },
+    {
+      "name": "Web Development",
+      "id": 2
+    },
+    {
+      "name": "Mobile App Development",
+      "id": 3
+    },
+    {
+      "name": "Data Science and Machine Learning",
+      "id": 4
+    },
+    {
+      "name": "Cybersecurity",
+      "id": 5
+    },
+    {
+      "name": "Cloud Computing",
+      "id": 6
+    }
   ]
 }

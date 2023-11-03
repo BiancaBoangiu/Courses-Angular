@@ -85,7 +85,7 @@ export class CoursesService {
   }
 
   getCategories(): Observable<Category[]> {
-    const categoryURL = 'http://localhost:3000/courseCategory';
+    const categoryURL = 'http://localhost:3000/categories';
     return this.http.get<Category[]>(categoryURL);
   }
 

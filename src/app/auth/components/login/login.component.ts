@@ -11,6 +11,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class LoginComponent {
   loginForm: FormGroup;
   invalidAccount: boolean = false;
+  rememberMe: boolean = false;
+
+  private isAuthenticated = false;
 
   constructor(
     private authService: AuthService,
@@ -21,6 +24,10 @@ export class LoginComponent {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(5)]],
     });
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      this.isAuthenticated = true;
+    }
   }
 
   onSubmit() {
@@ -32,6 +39,8 @@ export class LoginComponent {
       .subscribe(([userData, instructorData]) => {
         if (userData && passwordValue === userData.password) {
           this.authService.updateUser(userData);
+          this.authService.login(userData.email, this.rememberMe);
+          this.authService.setAuthenticationStatus(true);
           this.router.navigate(['/']);
         } else if (
           instructorData &&

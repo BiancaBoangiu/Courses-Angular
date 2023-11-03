@@ -185,7 +185,11 @@ export class PaymentComponent {
 
         const userData = this.authService.getUserData();
         if (userData) {
-          userData.billingAddress = this.address;
+          //userData.billingAddress = this.address;
+          this.authService.updateUser({
+            ...userData,
+            billingAddress: this.address,
+          });
         }
       });
       this.notifierService.showNotifications('Address saved');

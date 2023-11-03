@@ -10,7 +10,9 @@ import { CartService } from '../../services/cart.service';
 })
 export class CheckoutBillingDetailsComponent {
   billingAddress!: string;
+
   constructor(private authService: AuthService) {}
+
   ngOnInit() {
     const address = this.authService.getUserData()?.billingAddress;
 

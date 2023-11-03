@@ -28,7 +28,14 @@ export class AuthService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
 
-  constructor(private http: HttpClient) {}
+  private isAuthenticated = false;
+
+  constructor(private http: HttpClient) {
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      this.setAuthenticationStatus(true);
+    }
+  }
 
   updateUser(data: Auth) {
     this.loggedUserSource.next(data);
@@ -77,5 +84,28 @@ export class AuthService {
   getUserById(id: number): Observable<Auth> {
     const userURL = `http://localhost:3000/users/${id}`;
     return this.http.get<Auth>(userURL);
+  }
+
+  login(userEmail: string, rememberMe: boolean): boolean {
+    this.isAuthenticated = true;
+
+    if (rememberMe) {
+      localStorage.setItem('user', JSON.stringify({ userEmail }));
+    }
+
+    return this.isAuthenticated;
+  }
+
+  logout(): void {
+    localStorage.removeItem('user');
+    this.isAuthenticated = false;
+  }
+
+  isAuthenticatedUser(): boolean {
+    return this.isAuthenticated;
+  }
+
+  setAuthenticationStatus(status: boolean) {
+    this.isAuthenticated = status;
   }
 }
