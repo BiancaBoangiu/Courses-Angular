@@ -33,7 +33,7 @@ export class AuthService {
   constructor(private http: HttpClient) {
     const storedUser = localStorage.getItem('user');
     if (storedUser) {
-      this.setAuthenticationStatus(true);
+      this.isAuthenticated = true;
     }
   }
 
@@ -103,9 +103,5 @@ export class AuthService {
 
   isAuthenticatedUser(): boolean {
     return this.isAuthenticated;
-  }
-
-  setAuthenticationStatus(status: boolean) {
-    this.isAuthenticated = status;
   }
 }

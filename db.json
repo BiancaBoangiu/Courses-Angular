@@ -145,7 +145,7 @@
         }
       ],
       "instructorId": 1,
-      "views": 1099,
+      "views": 1143,
       "rating": null,
       "participants": [],
       "hasCertificate": true,
@@ -161,7 +161,7 @@
       "category": 2,
       "experience": "Intermediate",
       "instructorId": 2,
-      "views": 389,
+      "views": 393,
       "rating": 3,
       "participants": [],
       "hasCertificate": true,
@@ -413,7 +413,7 @@
         }
       ],
       "instructorId": 3,
-      "views": 183,
+      "views": 190,
       "rating": 0,
       "participants": [
         12
@@ -519,7 +519,7 @@
         }
       ],
       "instructorId": 4,
-      "views": 158,
+      "views": 161,
       "rating": 2,
       "participants": [
         12
@@ -625,7 +625,7 @@
         }
       ],
       "instructorId": 5,
-      "views": 59,
+      "views": 63,
       "rating": 0,
       "participants": [
         11,
@@ -736,7 +736,7 @@
         }
       ],
       "instructorId": 6,
-      "views": 50,
+      "views": 51,
       "rating": 0,
       "participants": [],
       "hasCertificate": true,
@@ -1054,9 +1054,11 @@
         }
       ],
       "instructorId": 9,
-      "views": 24,
+      "views": 28,
       "rating": 0,
-      "participants": [],
+      "participants": [
+        12
+      ],
       "hasCertificate": true,
       "price": 0,
       "isPremium": false
@@ -1162,9 +1164,11 @@
         }
       ],
       "instructorId": 10,
-      "views": 13,
+      "views": 14,
       "rating": 0,
-      "participants": [],
+      "participants": [
+        12
+      ],
       "hasCertificate": true,
       "price": 300,
       "isPremium": true
@@ -1666,7 +1670,7 @@
         }
       ],
       "instructorId": 5,
-      "views": 19,
+      "views": 53,
       "rating": 0,
       "participants": [
         12,
@@ -1990,7 +1994,7 @@
         "cardFunds": 900,
         "cardName": "b"
       },
-      "wallet": 530,
+      "wallet": 230,
       "firstName": "Bianca",
       "lastName": "Boangiu",
       "description": "",
@@ -2000,20 +2004,13 @@
       "smsConfirmation": false,
       "hideNotifications": false,
       "purchasedCourses": [
-        1,
-        2,
-        3,
-        15,
-        4,
-        5,
-        7
+        1
       ],
       "wishlist": [
         7,
         3,
         5
       ],
-      "billingAddress": "gfgdfgd",
       "cart": []
     }
   ],

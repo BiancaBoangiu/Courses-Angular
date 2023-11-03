@@ -17,7 +17,8 @@ import { InstructorsService } from 'src/app/instructors/services/instructors.ser
 })
 export class CourseDetailsComponent {
   course!: Course;
-  isCoursePurchased!: boolean;
+  isCoursePurchased: boolean = false;
+  isCourseInCart: boolean = false;
   instructor!: Instructor;
   numberOfCourses!: number;
   numberOfParticipants!: number;
@@ -54,6 +55,15 @@ export class CourseDetailsComponent {
       if (userId) {
         if (purchasedCourses?.includes(this.course.id)) {
           this.isCoursePurchased = true;
+          this.isCourseInCart = false;
+        }
+      }
+
+      const cartCourses = this.cartService.getCart();
+      if (cartCourses) {
+        if (cartCourses?.includes(this.course.id)) {
+          this.isCourseInCart = true;
+          this.isCoursePurchased = false;
         }
       }
       this.coursesService
@@ -127,7 +137,7 @@ export class CourseDetailsComponent {
       if (cartCourses) {
         cartCourses.push(this.course.id);
         this.cartService.updateCart(cartCourses);
-        this.isCoursePurchased = true;
+        this.isCourseInCart = true;
         this.notifierService.showNotifications('Course added to cart');
       }
     } else {

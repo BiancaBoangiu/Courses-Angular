@@ -40,7 +40,7 @@ export class LoginComponent {
         if (userData && passwordValue === userData.password) {
           this.authService.updateUser(userData);
           this.authService.login(userData.email, this.rememberMe);
-          this.authService.setAuthenticationStatus(true);
+
           this.router.navigate(['/']);
         } else if (
           instructorData &&

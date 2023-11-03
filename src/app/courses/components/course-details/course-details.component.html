@@ -462,20 +462,32 @@
                   <!-- Info -->
 
                   <!-- Price and time -->
-                  <div class="d-flex justify-content-between">
-                    <h5 class="fw-bold mb-0 me-2">{{ course.name }}</h5>
-                    <h4 class="mb-0 me-2 text-bold">{{ course.price }} $</h4>
+                  <div class="row d-flex justify-content-between">
+                    <div class="col-8">
+                      <h5 class="fw-bold mb-0">{{ course.name }}</h5>
+                    </div>
+                    <div class="col-4">
+                      <h4 class="mb-0 me-2 text-bold">{{ course.price }} $</h4>
+                    </div>
                   </div>
 
                   <!-- Buttons -->
                   <div class="mt-3 d-sm-flex justify-content-sm-between">
                     <button
+                      *ngIf="!isCoursePurchased && !isCourseInCart"
                       class="btn btn-success mb-0 text-bold"
                       (click)="addCourseToCart()"
-                      [disabled]="isCoursePurchased"
                     >
                       Buy course
                     </button>
+                    <div *ngIf="isCoursePurchased">
+                      <i class="fa-solid fa-check purchased me-2 fw-bold"></i>
+                      <span class="purchased fw-bold">Purchased</span>
+                    </div>
+                    <div *ngIf="isCourseInCart">
+                      <i class="fa-solid fa-cart-shopping purchased me-2"></i>
+                      <span class="purchased course-cart fw-bold">In cart</span>
+                    </div>
                   </div>
                 </div>
               </div>

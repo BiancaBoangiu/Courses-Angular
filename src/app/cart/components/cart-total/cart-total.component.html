@@ -1,5 +1,5 @@
 <!-- Price and detail -->
-<div class="list-group list-group-borderless mb-2">
+<div class="list-group list-group-borderless mb-2" *ngIf="productsInCart">
   <li class="list-group-item px-0 d-flex justify-content-between">
     <span class="h5 mb-0">Total</span>
     <span class="h5 mb-0">{{ cartTotal }} $</span>
@@ -7,7 +7,7 @@
 </div>
 
 <!-- Button -->
-<div class="d-grid">
+<div class="d-grid" *ngIf="productsInCart">
   <a class="btn btn-lg btn-success" routerLink="/cart/checkout"
     >Proceed to Checkout</a
   >
