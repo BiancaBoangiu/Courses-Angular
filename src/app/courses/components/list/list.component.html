@@ -84,10 +84,14 @@
                   >
                     <button
                       class="btn btn-light"
-                      (click)="showCoursesByCategory(category)"
-                      [ngClass]="{ active: activeCategoryButton === category }"
+                      (click)="
+                        showCoursesByCategory(category.name, category.id)
+                      "
+                      [ngClass]="{
+                        active: activeCategoryButton === category.name
+                      }"
                     >
-                      {{ category }}
+                      {{ category.name }}
                     </button>
                   </li>
                 </ul>

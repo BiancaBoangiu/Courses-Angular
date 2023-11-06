@@ -13,15 +13,7 @@ export class ListComponent {
   priceLevel = ['All', 'Free', 'Premium'];
   courseCategories!: Category[];
   categoryId!: number;
-  categories = [
-    'All',
-    'Programming and Software Development',
-    'Web Development',
-    'Mobile DevelopmentMobile App Development',
-    'Data Science and Machine Learning',
-    'Cybersecurity',
-    'Cloud Computing',
-  ];
+  categories!: Category[];
   activeLevelButton: string = '';
   activePriceButton: string = '';
   activeCategoryButton: string = '';
@@ -35,6 +27,11 @@ export class ListComponent {
     this.courseService
       .getCourses()
       .subscribe((courses) => (this.courses = courses));
+
+    this.courseService.getCategories().subscribe((categories) => {
+      this.categories = categories;
+      console.log(categories[0]);
+    });
   }
 
   showCoursesByExperience(level: string) {
@@ -62,35 +59,18 @@ export class ListComponent {
     });
   }
 
-  showCoursesByCategory(category: string) {
+  showCoursesByCategory(category: string, categoryId: number) {
     this.activeCategoryButton = category;
     if (category === 'All') {
       this.courseService.getCourses().subscribe((courses) => {
         this.courses = courses;
       });
     } else {
-      this.courseService.getCategories().subscribe((categories) => {
-        const courseCategory = categories.filter(
-          (courseCategory) => courseCategory.name === category
-        );
-
-        this.categoryId = courseCategory[0].id;
-        this.courseService
-          .getCoursesByCategory(this.categoryId)
-          .subscribe((courses) => {
-            this.courses = courses;
-          });
-      });
+      this.courseService
+        .getCoursesByCategory(categoryId)
+        .subscribe((courses) => {
+          this.courses = courses;
+        });
     }
-  }
-
-  getCategoryId(categoryName: string) {
-    this.courseService.getCategories().subscribe((categories) => {
-      const category = categories.filter(
-        (category) => category.name === categoryName
-      );
-
-      return category[0].id;
-    });
   }
 }

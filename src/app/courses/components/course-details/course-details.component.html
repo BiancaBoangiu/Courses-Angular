@@ -474,19 +474,26 @@
                   <!-- Buttons -->
                   <div class="mt-3 d-sm-flex justify-content-sm-between">
                     <button
-                      *ngIf="!isCoursePurchased && !isCourseInCart"
+                      *ngIf="
+                        !isCoursePurchased && !isCourseInCart && userLogged
+                      "
                       class="btn btn-success mb-0 text-bold"
                       (click)="addCourseToCart()"
                     >
                       Buy course
                     </button>
-                    <div *ngIf="isCoursePurchased">
+                    <div *ngIf="isCoursePurchased && userLogged">
                       <i class="fa-solid fa-check purchased me-2 fw-bold"></i>
                       <span class="purchased fw-bold">Purchased</span>
                     </div>
-                    <div *ngIf="isCourseInCart">
+                    <div *ngIf="isCourseInCart && userLogged">
                       <i class="fa-solid fa-cart-shopping purchased me-2"></i>
                       <span class="purchased course-cart fw-bold">In cart</span>
+                    </div>
+                    <div *ngIf="!userLogged">
+                      <span class="not-logged course-cart"
+                        >You must be logged to buy this course</span
+                      >
                     </div>
                   </div>
                 </div>

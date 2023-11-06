@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -24,10 +24,6 @@ export class LoginComponent {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(5)]],
     });
-    const storedUser = localStorage.getItem('user');
-    if (storedUser) {
-      this.isAuthenticated = true;
-    }
   }
 
   onSubmit() {
@@ -39,7 +35,8 @@ export class LoginComponent {
       .subscribe(([userData, instructorData]) => {
         if (userData && passwordValue === userData.password) {
           this.authService.updateUser(userData);
-          this.authService.login(userData.email, this.rememberMe);
+
+          this.authService.login(userData, this.rememberMe);
 
           this.router.navigate(['/']);
         } else if (

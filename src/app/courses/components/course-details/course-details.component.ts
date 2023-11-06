@@ -22,6 +22,7 @@ export class CourseDetailsComponent {
   instructor!: Instructor;
   numberOfCourses!: number;
   numberOfParticipants!: number;
+  userLogged: boolean = false;
 
   fiveStars: number = 0;
   fourStars: number = 0;
@@ -53,6 +54,7 @@ export class CourseDetailsComponent {
       const userId = this.authService.getUserData()?.id;
       const purchasedCourses = this.authService.getUserData()?.purchasedCourses;
       if (userId) {
+        this.userLogged = true;
         if (purchasedCourses?.includes(this.course.id)) {
           this.isCoursePurchased = true;
           this.isCourseInCart = false;
@@ -134,14 +136,16 @@ export class CourseDetailsComponent {
     const userId = this.authService.getUserData()?.id;
     const cartCourses = this.cartService.getCart() || [];
     if (userId) {
+      this.userLogged = true;
       if (cartCourses) {
         cartCourses.push(this.course.id);
         this.cartService.updateCart(cartCourses);
         this.isCourseInCart = true;
+
         this.notifierService.showNotifications('Course added to cart');
       }
     } else {
-      this.notifierService.showError('You must be logged');
+      this.userLogged = false;
     }
   }
 }

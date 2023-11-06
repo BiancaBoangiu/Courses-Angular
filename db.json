@@ -6,7 +6,7 @@
       "image": "assets/graphic.jpg",
       "description": "Learn the basics of programming and coding",
       "time": 21.56,
-      "category": 1,
+      "categoryId": 1,
       "experience": "Beginner",
       "curriculum": [
         {
@@ -158,7 +158,7 @@
       "image": "assets/html.jpg",
       "description": "Master web development skills with HTML, CSS, and JavaScript.",
       "time": 10,
-      "category": 2,
+      "categoryId": 2,
       "experience": "Intermediate",
       "instructorId": 2,
       "views": 393,
@@ -302,7 +302,7 @@
       "image": "assets/figma.jpg",
       "description": "Dive into advanced data analysis and machine learning techniques.",
       "time": 12,
-      "category": 4,
+      "categoryId": 4,
       "experience": "Advanced",
       "curriculum": [
         {
@@ -415,9 +415,7 @@
       "instructorId": 3,
       "views": 190,
       "rating": 0,
-      "participants": [
-        12
-      ],
+      "participants": [12],
       "hasCertificate": true,
       "price": 400,
       "isPremium": true
@@ -428,7 +426,7 @@
       "image": "assets/graphic.jpg",
       "description": "Learn Python programming for data analysis and visualization.",
       "time": 8,
-      "category": 1,
+      "categoryId": 1,
       "experience": "Intermediate",
       "curriculum": [
         {
@@ -521,16 +519,11 @@
       "instructorId": 4,
       "views": 161,
       "rating": 2,
-      "participants": [
-        12
-      ],
+      "participants": [12],
       "hasCertificate": false,
       "price": 550,
       "isPremium": true,
-      "wishlist": [
-        4,
-        1
-      ]
+      "wishlist": [4, 1]
     },
     {
       "id": 5,
@@ -538,7 +531,7 @@
       "image": "assets/react.jpg",
       "description": "Create mobile apps for iOS and Android platforms.",
       "time": 10,
-      "category": 3,
+      "categoryId": 3,
       "experience": "Advanced",
       "curriculum": [
         {
@@ -627,17 +620,11 @@
       "instructorId": 5,
       "views": 63,
       "rating": 0,
-      "participants": [
-        11,
-        12
-      ],
+      "participants": [11, 12],
       "hasCertificate": true,
       "price": 0,
       "isPremium": false,
-      "wishlist": [
-        4,
-        1
-      ]
+      "wishlist": [4, 1]
     },
     {
       "id": 6,
@@ -645,7 +632,7 @@
       "image": "assets/graphic.jpg",
       "description": "Explore the fundamentals of AI and machine learning.",
       "time": 6,
-      "category": 1,
+      "categoryId": 1,
       "experience": "Beginner",
       "curriculum": [
         {
@@ -749,7 +736,7 @@
       "image": "assets/css.jpg",
       "description": "Become a full-stack web developer with front-end and back-end skills.",
       "time": 12,
-      "category": 2,
+      "categoryId": 2,
       "experience": "Intermediate",
       "curriculum": [
         {
@@ -838,9 +825,7 @@
       "instructorId": 7,
       "views": 19,
       "rating": 0,
-      "participants": [
-        12
-      ],
+      "participants": [12],
       "hasCertificate": false,
       "price": 500,
       "isPremium": true
@@ -851,7 +836,7 @@
       "image": "assets/invision.jpg",
       "description": "Learn how to secure computer systems and networks from cyber threats.",
       "time": 8,
-      "category": 5,
+      "categoryId": 5,
       "experience": "Advanced",
       "curriculum": [
         {
@@ -959,7 +944,7 @@
       "image": "assets/graphic.jpg",
       "description": "Master the basics of JavaScript programming language.",
       "time": 4,
-      "category": 1,
+      "categoryId": 1,
       "experience": "Beginner",
       "curriculum": [
         {
@@ -1056,9 +1041,7 @@
       "instructorId": 9,
       "views": 28,
       "rating": 0,
-      "participants": [
-        12
-      ],
+      "participants": [12],
       "hasCertificate": true,
       "price": 0,
       "isPremium": false
@@ -1069,7 +1052,7 @@
       "image": "assets/javascript.jpg",
       "description": "Learn how to create interactive data visualizations using D3.js.",
       "time": 6,
-      "category": 2,
+      "categoryId": 2,
       "experience": "Intermediate",
       "curriculum": [
         {
@@ -1166,9 +1149,7 @@
       "instructorId": 10,
       "views": 14,
       "rating": 0,
-      "participants": [
-        12
-      ],
+      "participants": [12],
       "hasCertificate": true,
       "price": 300,
       "isPremium": true
@@ -1179,7 +1160,7 @@
       "image": "assets/graphic.jpg",
       "description": "Build dynamic and responsive web applications with React.js.",
       "time": 8,
-      "category": 1,
+      "categoryId": 1,
       "experience": "Intermediate",
       "curriculum": [
         {
@@ -1287,7 +1268,7 @@
       "image": "assets/design.jpg",
       "description": "Create server-side applications with Node.js and Express.js.",
       "time": 6,
-      "category": 1,
+      "categoryId": 1,
       "experience": "Intermediate",
       "curriculum": [
         {
@@ -1395,7 +1376,7 @@
       "image": "assets/javascript.jpg",
       "description": "Explore various machine learning algorithms and their applications.",
       "time": 10,
-      "category": 4,
+      "categoryId": 4,
       "experience": "Advanced",
       "curriculum": [
         {
@@ -1503,7 +1484,7 @@
       "image": "assets/graphic.jpg",
       "description": "Learn how to build iOS apps using the Swift programming language.",
       "time": 8,
-      "category": 3,
+      "categoryId": 3,
       "experience": "Intermediate",
       "curriculum": [
         {
@@ -1593,7 +1574,7 @@
       "image": "assets/invision.jpg",
       "description": "Create Android apps using the Kotlin programming language.",
       "time": 8,
-      "category": 3,
+      "categoryId": 3,
       "experience": "Intermediate",
       "curriculum": [
         {
@@ -1672,10 +1653,7 @@
       "instructorId": 5,
       "views": 53,
       "rating": 0,
-      "participants": [
-        12,
-        11
-      ],
+      "participants": [12, 11],
       "hasCertificate": true,
       "price": 0,
       "isPremium": false
@@ -1686,7 +1664,7 @@
       "image": "assets/javascript.jpg",
       "description": "Understand the fundamentals of cloud computing and cloud services.",
       "time": 6,
-      "category": 6,
+      "categoryId": 6,
       "experience": "Beginner",
       "curriculum": [
         {
@@ -1772,7 +1750,7 @@
       "image": "assets/design.jpg",
       "description": "Utilize Python for various machine learning tasks and projects.",
       "time": 10,
-      "category": 1,
+      "categoryId": 1,
       "experience": "Intermediate",
       "curriculum": [
         {
@@ -1862,7 +1840,7 @@
       "image": "assets/graphic.jpg",
       "description": "Learn the basics of cybersecurity and common security threats.",
       "time": 4,
-      "category": 5,
+      "categoryId": 5,
       "experience": "Beginner",
       "curriculum": [
         {
@@ -1961,11 +1939,7 @@
       "lastName": "A",
       "description": "",
       "education": "",
-      "cart": [
-        1,
-        5,
-        2
-      ],
+      "cart": [1, 5, 2],
       "payment": {
         "cardNumber": "1111111111111111",
         "cardYear": "1996",
@@ -1976,10 +1950,7 @@
       },
       "billingAddress": "hfghfghfghgfh",
       "wallet": 400,
-      "purchasedCourses": [
-        15,
-        5
-      ]
+      "purchasedCourses": [15, 5]
     },
     {
       "email": "admin@test.com",
@@ -2003,14 +1974,8 @@
       "emailNotifications": false,
       "smsConfirmation": false,
       "hideNotifications": false,
-      "purchasedCourses": [
-        1
-      ],
-      "wishlist": [
-        7,
-        3,
-        5
-      ],
+      "purchasedCourses": [1],
+      "wishlist": [7, 3, 5],
       "cart": []
     }
   ],

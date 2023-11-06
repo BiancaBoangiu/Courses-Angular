@@ -31,9 +31,10 @@ export class AuthService {
   private isAuthenticated = false;
 
   constructor(private http: HttpClient) {
-    const storedUser = localStorage.getItem('user');
+    const storedUser = localStorage.getItem('loggedUser');
     if (storedUser) {
       this.isAuthenticated = true;
+      this.updateUser(JSON.parse(storedUser));
     }
   }
 
@@ -86,18 +87,16 @@ export class AuthService {
     return this.http.get<Auth>(userURL);
   }
 
-  login(userEmail: string, rememberMe: boolean): boolean {
+  login(userData: Auth, rememberMe: boolean): void {
     this.isAuthenticated = true;
 
     if (rememberMe) {
-      localStorage.setItem('user', JSON.stringify({ userEmail }));
+      localStorage.setItem('loggedUser', JSON.stringify(userData));
     }
-
-    return this.isAuthenticated;
   }
 
   logout(): void {
-    localStorage.removeItem('user');
+    localStorage.removeItem('loggedUser');
     this.isAuthenticated = false;
   }
 
