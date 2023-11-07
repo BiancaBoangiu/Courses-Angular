@@ -13,6 +13,7 @@ export class InstructorDetailsComponent {
   instructor!: Instructor;
   courses!: Course[];
   numberOfCourses!: number;
+  numberOfParticipants: number = 0;
 
   constructor(
     private instructorsService: InstructorsService,
@@ -28,6 +29,9 @@ export class InstructorDetailsComponent {
     this.instructorsService.getInstructorCourses(id).subscribe((courses) => {
       this.courses = courses;
       this.numberOfCourses = this.courses.length;
+      this.courses.forEach((course) => {
+        this.numberOfParticipants += +course.participants.length;
+      });
     });
   }
 }
