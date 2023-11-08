@@ -29,20 +29,17 @@ export class OrderSummaryComponent {
 
   getCartCourses() {
     const userCart = this.cartService.getCart();
-    if (userCart) {
-      if (userCart.length > 0) {
-        this.coursesService
-          .getCoursesByIds(userCart)
-          .subscribe((cartCourses) => {
-            this.products = cartCourses;
-            this.cartTotal = cartCourses.reduce(
-              (total, course) => total + +course.price,
-              0
-            );
-          });
-      } else {
-        this.products = [];
-      }
+
+    if (userCart.length > 0) {
+      this.coursesService.getCoursesByIds(userCart).subscribe((cartCourses) => {
+        this.products = cartCourses;
+        this.cartTotal = cartCourses.reduce(
+          (total, course) => total + +course.price,
+          0
+        );
+      });
+    } else {
+      this.products = [];
     }
   }
 
@@ -63,7 +60,7 @@ export class OrderSummaryComponent {
       this.notifierService.showError('All fields must be completed');
     } else {
       const userId = this.authService.getUserData()?.id;
-      const cartCourses = this.cartService.getCart() || [];
+      const cart = this.cartService.getCart();
       const purchasedCourses =
         this.authService.getUserData()?.purchasedCourses || [];
 
@@ -73,7 +70,7 @@ export class OrderSummaryComponent {
           const newWalletValue = +walletValue - +this.cartTotal;
           if (newWalletValue > 0) {
             this.cartService
-              .savePurchasedCourses(purchasedCourses, cartCourses, userId)
+              .savePurchasedCourses(purchasedCourses, cart, userId)
               .subscribe((user) => {
                 this.authService.updateUser(user);
                 this.cartService

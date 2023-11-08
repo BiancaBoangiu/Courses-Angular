@@ -87,11 +87,11 @@ export class AuthService {
     return this.http.get<Auth>(userURL);
   }
 
-  login(userData: Auth, rememberMe: boolean): void {
+  login(userId: number, rememberMe: boolean): void {
     this.isAuthenticated = true;
 
     if (rememberMe) {
-      localStorage.setItem('loggedUser', JSON.stringify(userData));
+      localStorage.setItem('loggedUser', JSON.stringify(userId));
     }
   }
 

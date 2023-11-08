@@ -8,21 +8,16 @@ import { Course } from 'src/app/courses/models/course.interface';
   providedIn: 'root',
 })
 export class CartService {
-  private cartSource: BehaviorSubject<number[] | null> = new BehaviorSubject<
-    number[] | null
-  >(null);
-  cart$: Observable<number[]> = this.cartSource.asObservable().pipe(
-    filter((value) => value !== null),
-    map((value) => value as number[])
-  );
+  cart$: BehaviorSubject<number[]> = new BehaviorSubject<number[]>([]);
+
   constructor(private http: HttpClient) {}
 
   updateCart(data: number[]) {
-    this.cartSource.next(data);
+    this.cart$.next(data);
   }
 
-  getCart(): number[] | null {
-    return this.cartSource.getValue();
+  getCart(): number[] {
+    return this.cart$.getValue();
   }
 
   saveBillingDetails(

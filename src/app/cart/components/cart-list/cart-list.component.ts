@@ -23,19 +23,16 @@ export class CartListComponent {
   }
 
   getCartCourses() {
-    const userCart = this.cartService.getCart();
-    if (userCart) {
-      if (userCart.length >= 1) {
-        this.coursesService
-          .getCoursesByIds(userCart)
-          .subscribe((cartCourses) => {
-            this.cartCourses = cartCourses;
-            this.cartTotal = this.cartCourses.reduce(
-              (total, course) => total + +course.price,
-              0
-            );
-          });
-      }
+    const cart = this.cartService.getCart();
+
+    if (cart.length >= 1) {
+      this.coursesService.getCoursesByIds(cart).subscribe((courses) => {
+        this.cartCourses = courses;
+        this.cartTotal = this.cartCourses.reduce(
+          (total, course) => total + +course.price,
+          0
+        );
+      });
     }
   }
 

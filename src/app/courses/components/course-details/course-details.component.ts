@@ -62,11 +62,10 @@ export class CourseDetailsComponent {
       }
 
       const cartCourses = this.cartService.getCart();
-      if (cartCourses) {
-        if (cartCourses?.includes(this.course.id)) {
-          this.isCourseInCart = true;
-          this.isCoursePurchased = false;
-        }
+
+      if (cartCourses.includes(this.course.id)) {
+        this.isCourseInCart = true;
+        this.isCoursePurchased = false;
       }
       this.coursesService
         .getInstructorById(this.course.instructorId)

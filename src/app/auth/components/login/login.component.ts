@@ -36,7 +36,7 @@ export class LoginComponent {
         if (userData && passwordValue === userData.password) {
           this.authService.updateUser(userData);
 
-          this.authService.login(userData, this.rememberMe);
+          this.authService.login(userData.id, this.rememberMe);
 
           this.router.navigate(['/']);
         } else if (

@@ -9,12 +9,14 @@ import { CartService } from '../../services/cart.service';
 })
 export class CartTotalComponent {
   @Input() cartTotal!: number;
+
   productsInCart: boolean = false;
 
   constructor(private cartService: CartService) {}
 
   ngOnInit() {
     const productsInCart = this.cartService.getCart();
+
     if (productsInCart && productsInCart.length > 0) {
       this.productsInCart = true;
     } else {
