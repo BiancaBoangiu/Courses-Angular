@@ -30,7 +30,6 @@ export class ListComponent {
 
     this.courseService.getCategories().subscribe((categories) => {
       this.categories = categories;
-      console.log(categories[0]);
     });
   }
 

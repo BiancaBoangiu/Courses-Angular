@@ -188,9 +188,10 @@ export class PaymentComponent {
           //userData.billingAddress = this.address;
           this.authService.updateUser({
             ...userData,
-            billingAddress: this.address,
+            billingAddress: user.address,
           });
         }
+        console.log(this.authService.getUserData());
       });
       this.notifierService.showNotifications('Address saved');
     } else {

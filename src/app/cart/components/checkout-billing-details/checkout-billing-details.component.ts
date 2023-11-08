@@ -15,6 +15,7 @@ export class CheckoutBillingDetailsComponent {
 
   ngOnInit() {
     const address = this.authService.getUserData()?.billingAddress;
+    console.log(this.authService.getUserData());
 
     if (address) {
       this.billingAddress = address;

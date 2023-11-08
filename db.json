@@ -145,7 +145,7 @@
         }
       ],
       "instructorId": 1,
-      "views": 1143,
+      "views": 1144,
       "rating": null,
       "participants": [],
       "hasCertificate": true,
@@ -161,7 +161,7 @@
       "categoryId": 2,
       "experience": "Intermediate",
       "instructorId": 2,
-      "views": 393,
+      "views": 397,
       "rating": 3,
       "participants": [],
       "hasCertificate": true,
@@ -413,7 +413,7 @@
         }
       ],
       "instructorId": 3,
-      "views": 190,
+      "views": 193,
       "rating": 0,
       "participants": [12],
       "hasCertificate": true,
@@ -1948,7 +1948,6 @@
         "cardFunds": 6600,
         "cardName": "fdhdfhfd"
       },
-      "billingAddress": "hfghfghfghgfh",
       "wallet": 400,
       "purchasedCourses": [15, 5]
     },
