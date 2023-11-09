@@ -94,25 +94,12 @@ export class CoursesService {
     return this.http.get<Instructor>(instructorURL);
   }
 
-  addToWishlist(
-    courseId: number,
-    userId: number,
-    user: Auth
-  ): Observable<Auth> {
+  updateWishlist(wishlist: number[], userId: number): Observable<Auth> {
     const userURL = `http://localhost:3000/users/${userId}`;
 
-    const wishlistCourses = user.wishlist || [];
+    const wishlistData = { wishlist: wishlist };
 
-    if (!wishlistCourses.includes(courseId)) {
-      wishlistCourses.push(courseId);
-    } else {
-      const index = wishlistCourses.indexOf(courseId);
-      wishlistCourses.splice(index, 1);
-    }
-
-    const wishlistData = { wishlist: wishlistCourses };
-
-    return this.http.patch<Auth>(userURL, wishlistData);
+    return this.http.patch<Auth>(userURL, wishlist);
   }
 
   deleteFromWishlist(

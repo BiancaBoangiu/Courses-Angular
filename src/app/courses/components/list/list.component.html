@@ -1,153 +1,162 @@
-<section class="bg-dark align-items-center d-flex">
-  <!-- Main banner background image -->
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <!-- Title -->
-        <h2 class="text-white text-center">Course List</h2>
+<div *ngIf="!isLoading">
+  <section class="bg-dark align-items-center d-flex">
+    <!-- Main banner background image -->
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <!-- Title -->
+          <h2 class="text-white text-center">Course List</h2>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+  <section class="pb-0 py-sm-5">
+    <div class="container">
+      <!-- Title and select START -->
+      <div class="row g-3 align-items-center mb-4">
+        <!-- Content -->
 
-<section class="pb-0 py-sm-5">
-  <div class="container">
-    <!-- Title and select START -->
-    <div class="row g-3 align-items-center mb-4">
-      <!-- Content -->
-
-      <!-- Select option -->
-      <div class="col-md-8">
-        <div class="row g-3 align-items-center justify-content-md-end me-auto">
-          <select
-            class="form-select"
-            [(ngModel)]="sortSelection"
-            (click)="sort(sortSelection)"
+        <!-- Select option -->
+        <div class="col-md-8">
+          <div
+            class="row g-3 align-items-center justify-content-md-end me-auto"
           >
-            <option value="" selected>Sort by</option>
-            <option value="rating_asc">Rating ascending</option>
+            <select
+              class="form-select"
+              [(ngModel)]="sortSelection"
+              (click)="sort(sortSelection)"
+            >
+              <option value="" selected>Sort by</option>
+              <option value="rating_asc">Rating ascending</option>
 
-            <option value="rating_desc">Rating descending</option>
-            <option value="price_asc">Price ascending</option>
-            <option value="price_desc">Price descending</option>
-            <option value="views_desc">Most popular</option>
-          </select>
+              <option value="rating_desc">Rating descending</option>
+              <option value="price_asc">Price ascending</option>
+              <option value="price_desc">Price descending</option>
+              <option value="views_desc">Most popular</option>
+            </select>
+          </div>
         </div>
       </div>
+      <!-- Title and select END -->
+
+      <div class="row">
+        <!-- Main content START -->
+        <div class="col-xl-9 col-xxl-8">
+          <!-- Course list START -->
+          <div class="row g-4">
+            <div class="col-12" *ngFor="let course of courses">
+              <app-course-grid-card [course]="course"></app-course-grid-card>
+            </div>
+          </div>
+        </div>
+        <!-- Main content END -->
+
+        <!-- Right sidebar START -->
+        <div class="col-lg-3 col-xxl-4">
+          <!-- Responsive offcanvas body START -->
+          <div
+            class="offcanvas-xl offcanvas-end"
+            tabindex="-1"
+            id="offcanvasSidebar"
+          >
+            <div class="offcanvas-header bg-light">
+              <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+                Advance Filter
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="offcanvas"
+                data-bs-target="#offcanvasSidebar"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="offcanvas-body p-3 p-xl-0">
+              <form>
+                <!-- Category START -->
+
+                <div class="card card-body shadow p-4 mb-4">
+                  <!-- Title -->
+                  <h4 class="mb-3">Category</h4>
+                  <ul class="list-inline mb-0">
+                    <!-- Price item -->
+                    <li
+                      *ngFor="let category of categories"
+                      class="list-inline-item mb-2"
+                    >
+                      <button
+                        class="btn btn-light"
+                        (click)="
+                          showCoursesByCategory(category.name, category.id)
+                        "
+                        [ngClass]="{
+                          active: activeCategoryButton === category.name
+                        }"
+                      >
+                        {{ category.name }}
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+                <!-- Category END -->
+
+                <!-- Price START -->
+                <div class="card card-body shadow p-4 mb-4">
+                  <!-- Title -->
+                  <h4 class="mb-3">Price Level</h4>
+                  <ul class="list-inline mb-0">
+                    <!-- Price item -->
+                    <li
+                      *ngFor="let price of priceLevel"
+                      class="list-inline-item mb-2"
+                    >
+                      <button
+                        class="btn btn-light"
+                        (click)="showCoursesByPrice(price)"
+                        [ngClass]="{ active: activePriceButton === price }"
+                      >
+                        {{ price }}
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+                <!-- Price END -->
+
+                <!-- Skill level START -->
+                <div class="card card-body shadow p-4 mb-4">
+                  <!-- Title -->
+                  <h4 class="mb-3">Skill level</h4>
+                  <ul class="list-inline">
+                    <li
+                      *ngFor="let level of experienceLevels"
+                      class="list-inline-item mb-2"
+                    >
+                      <button
+                        class="btn btn-light"
+                        (click)="showCoursesByExperience(level)"
+                        [ngClass]="{ active: activeLevelButton === level }"
+                      >
+                        {{ level }}
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+                <!-- Skill level END -->
+              </form>
+              <!-- Form End -->
+            </div>
+          </div>
+          <!-- Responsive offcanvas body END -->
+        </div>
+        <!-- Right sidebar END -->
+      </div>
+      <!-- Row END -->
     </div>
-    <!-- Title and select END -->
+  </section>
+</div>
 
-    <div class="row">
-      <!-- Main content START -->
-      <div class="col-xl-9 col-xxl-8">
-        <!-- Course list START -->
-        <div class="row g-4">
-          <div class="col-12" *ngFor="let course of courses">
-            <app-course-grid-card [course]="course"></app-course-grid-card>
-          </div>
-        </div>
-      </div>
-      <!-- Main content END -->
-
-      <!-- Right sidebar START -->
-      <div class="col-lg-3 col-xxl-4">
-        <!-- Responsive offcanvas body START -->
-        <div
-          class="offcanvas-xl offcanvas-end"
-          tabindex="-1"
-          id="offcanvasSidebar"
-        >
-          <div class="offcanvas-header bg-light">
-            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
-              Advance Filter
-            </h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="offcanvas"
-              data-bs-target="#offcanvasSidebar"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="offcanvas-body p-3 p-xl-0">
-            <form>
-              <!-- Category START -->
-
-              <div class="card card-body shadow p-4 mb-4">
-                <!-- Title -->
-                <h4 class="mb-3">Category</h4>
-                <ul class="list-inline mb-0">
-                  <!-- Price item -->
-                  <li
-                    *ngFor="let category of categories"
-                    class="list-inline-item mb-2"
-                  >
-                    <button
-                      class="btn btn-light"
-                      (click)="
-                        showCoursesByCategory(category.name, category.id)
-                      "
-                      [ngClass]="{
-                        active: activeCategoryButton === category.name
-                      }"
-                    >
-                      {{ category.name }}
-                    </button>
-                  </li>
-                </ul>
-              </div>
-              <!-- Category END -->
-
-              <!-- Price START -->
-              <div class="card card-body shadow p-4 mb-4">
-                <!-- Title -->
-                <h4 class="mb-3">Price Level</h4>
-                <ul class="list-inline mb-0">
-                  <!-- Price item -->
-                  <li
-                    *ngFor="let price of priceLevel"
-                    class="list-inline-item mb-2"
-                  >
-                    <button
-                      class="btn btn-light"
-                      (click)="showCoursesByPrice(price)"
-                      [ngClass]="{ active: activePriceButton === price }"
-                    >
-                      {{ price }}
-                    </button>
-                  </li>
-                </ul>
-              </div>
-              <!-- Price END -->
-
-              <!-- Skill level START -->
-              <div class="card card-body shadow p-4 mb-4">
-                <!-- Title -->
-                <h4 class="mb-3">Skill level</h4>
-                <ul class="list-inline">
-                  <li
-                    *ngFor="let level of experienceLevels"
-                    class="list-inline-item mb-2"
-                  >
-                    <button
-                      class="btn btn-light"
-                      (click)="showCoursesByExperience(level)"
-                      [ngClass]="{ active: activeLevelButton === level }"
-                    >
-                      {{ level }}
-                    </button>
-                  </li>
-                </ul>
-              </div>
-              <!-- Skill level END -->
-            </form>
-            <!-- Form End -->
-          </div>
-        </div>
-        <!-- Responsive offcanvas body END -->
-      </div>
-      <!-- Right sidebar END -->
-    </div>
-    <!-- Row END -->
+<div *ngIf="isLoading" class="text-center mt-2">
+  <div class="spinner-border" style="width: 3rem; height: 3rem" role="status">
+    <span class="sr-only">Loading...</span>
   </div>
-</section>
+</div>

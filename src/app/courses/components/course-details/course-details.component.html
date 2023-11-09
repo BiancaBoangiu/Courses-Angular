@@ -1,662 +1,686 @@
-<main *ngIf="course">
+<div *ngIf="isLoading" class="text-center mt-2">
+  <div class="spinner-border" style="width: 3rem; height: 3rem" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+</div>
+
+<section *ngIf="course">
   <!-- =======================
   Page intro START -->
-  <section class="bg-light py-0 py-sm-5">
-    <div class="container">
-      <div class="row py-5">
-        <div class="col-lg-8">
-          <!-- Badge -->
-          <h6
-            class="mb-3 font-base bg-primary text-white py-2 px-4 rounded-2 d-inline-block"
-          >
-            Digital Marketing
-          </h6>
-          <!-- Title -->
-          <h1>{{ course.name }}</h1>
-          <p>
-            {{ course.description }}
-          </p>
-          <!-- Content -->
-          <ul class="list-inline mb-0">
-            <li
-              class="list-inline-item h6 me-3 mb-1 mb-sm-0"
-              *ngIf="!course.rating"
+  <div *ngIf="!isLoading">
+    <section class="bg-light py-0 py-sm-5">
+      <div class="container">
+        <div class="row py-5">
+          <div class="col-lg-8">
+            <!-- Badge -->
+            <h6
+              class="mb-3 font-base bg-primary text-white py-2 px-4 rounded-2 d-inline-block"
             >
-              <i class="fas fa-star text-warning me-2"></i>0/5.0
-            </li>
-            <li
-              class="list-inline-item h6 me-3 mb-1 mb-sm-0"
-              *ngIf="course.rating"
-            >
-              <i class="fas fa-star text-warning me-2"></i
-              >{{ course.rating }}/5.0
-            </li>
-            <li class="list-inline-item h6 me-3 mb-1 mb-sm-0">
-              <i class="fas fa-user-graduate text-orange me-2"></i
-              >{{ numberOfParticipants }} Enrolled
-            </li>
-            <li class="list-inline-item h6 me-3 mb-1 mb-sm-0">
-              <i class="fas fa-signal text-success me-2"></i
-              >{{ course.experience }}
-            </li>
-            <li class="list-inline-item h6 me-3 mb-1 mb-sm-0">
-              <i class="fas fa-signal text-success me-2"></i
-              >{{ course.views }} Views
-            </li>
-          </ul>
+              Digital Marketing
+            </h6>
+            <!-- Title -->
+            <h1>{{ course.name }}</h1>
+            <p>
+              {{ course.description }}
+            </p>
+            <!-- Content -->
+            <ul class="list-inline mb-0">
+              <li
+                class="list-inline-item h6 me-3 mb-1 mb-sm-0"
+                *ngIf="!course.rating"
+              >
+                <i class="fas fa-star text-warning me-2"></i>0/5.0
+              </li>
+              <li
+                class="list-inline-item h6 me-3 mb-1 mb-sm-0"
+                *ngIf="course.rating"
+              >
+                <i class="fas fa-star text-warning me-2"></i
+                >{{ course.rating }}/5.0
+              </li>
+              <li class="list-inline-item h6 me-3 mb-1 mb-sm-0">
+                <i class="fas fa-user-graduate text-orange me-2"></i
+                >{{ numberOfParticipants }} Enrolled
+              </li>
+              <li class="list-inline-item h6 me-3 mb-1 mb-sm-0">
+                <i class="fas fa-signal text-success me-2"></i
+                >{{ course.experience }}
+              </li>
+              <li class="list-inline-item h6 me-3 mb-1 mb-sm-0">
+                <i class="fas fa-signal text-success me-2"></i
+                >{{ course.views }} Views
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+    <section class="pb-0 py-lg-5">
+      <div class="container">
+        <div class="row">
+          <!-- Main content START -->
+          <div class="col-lg-8">
+            <div class="card shadow rounded-2 p-0">
+              <!-- Tabs START -->
+              <div class="card-header border-bottom px-4 py-3">
+                <ul
+                  class="nav nav-pills nav-tabs-line py-0"
+                  id="course-pills-tab"
+                  role="tablist"
+                >
+                  <!-- Tab item -->
+                  <li class="nav-item me-2 me-sm-4" role="presentation">
+                    <button
+                      class="nav-link mb-2 mb-md-0"
+                      id="course-pills-tab-1"
+                      data-bs-toggle="pill"
+                      data-bs-target="#course-pills-1"
+                      type="button"
+                      role="tab"
+                      aria-controls="course-pills-1"
+                      aria-selected="false"
+                      tabindex="-1"
+                    >
+                      Overview
+                    </button>
+                  </li>
+                  <!-- Tab item -->
+                  <li class="nav-item me-2 me-sm-4" role="presentation">
+                    <button
+                      class="nav-link mb-2 mb-md-0 active"
+                      id="course-pills-tab-2"
+                      data-bs-toggle="pill"
+                      data-bs-target="#course-pills-2"
+                      type="button"
+                      role="tab"
+                      aria-controls="course-pills-2"
+                      aria-selected="true"
+                    >
+                      Curriculum
+                    </button>
+                  </li>
+                </ul>
+              </div>
+              <!-- Tabs END -->
+
+              <!-- Tab contents START -->
+              <div class="card-body p-4">
+                <div class="tab-content pt-2" id="course-pills-tabContent">
+                  <!-- Content START -->
+                  <div
+                    class="tab-pane fade"
+                    id="course-pills-1"
+                    role="tabpanel"
+                    aria-labelledby="course-pills-tab-1"
+                  >
+                    <!-- Course detail START -->
+                    <span class="mb-3">
+                      Welcome to the
+                      <h4>
+                        <strong> {{ course.name }}</strong>
+                      </h4>
+                    </span>
+                    <p>{{ course.description }}</p>
+
+                    <!-- List content -->
+                    <h5 class="mt-4">What you’ll learn</h5>
+                    <ul
+                      class="list-group list-group-borderless mb-3"
+                      *ngFor="let lecture of course.curriculum"
+                    >
+                      <li class="list-group-item h6 fw-light d-flex mb-0">
+                        <i class="fas fa-check-circle text-success me-2"></i
+                        >{{ lecture.chapterName }}
+                      </li>
+                    </ul>
+
+                    <!-- Course detail END -->
+                  </div>
+                  <div
+                    class="tab-pane fade"
+                    id="course-pills-2"
+                    role="tabpanel"
+                    aria-labelledby="course-pills-tab-2"
+                  >
+                    <div *ngFor="let lecture of course.curriculum">
+                      <app-curriculum [lecture]="lecture"></app-curriculum>
+                    </div>
+                  </div>
+                  <!-- Content END -->
+
+                  <!-- Content START -->
+                </div>
+              </div>
+              <!-- Tab contents END -->
+            </div>
+            <div class="card shadow rounded-2 mt-5">
+              <!-- Review START -->
+              <div class="row mb-4">
+                <h5 class="m-4">Our Student Reviews</h5>
+
+                <!-- Rating info -->
+                <div class="col-md-4 mb-3 mb-md-0">
+                  <div class="text-center">
+                    <!-- Info -->
+                    <h2 class="mb-0" *ngIf="course.rating">
+                      {{ course.rating }}/5
+                    </h2>
+                    <h2 class="mb-0" *ngIf="!course.rating">0/5</h2>
+                    <!-- Star -->
+                    <ul class="list-inline mb-0">
+                      <li class="list-inline-item me-0">
+                        <i class="fas fa-star text-warning"></i>
+                      </li>
+                      <li class="list-inline-item me-0">
+                        <i class="fas fa-star text-warning"></i>
+                      </li>
+                      <li class="list-inline-item me-0">
+                        <i class="fas fa-star text-warning"></i>
+                      </li>
+                      <li class="list-inline-item me-0">
+                        <i class="fas fa-star text-warning"></i>
+                      </li>
+                      <li class="list-inline-item me-0">
+                        <i class="fas fa-star-half-alt text-warning"></i>
+                      </li>
+                    </ul>
+                    <p class="mb-0">(Based on students' reviews)</p>
+                  </div>
+                </div>
+
+                <!-- Progress-bar and star -->
+                <div class="col-md-8">
+                  <div class="row align-items-center">
+                    <!-- Progress bar and Rating -->
+                    <div class="col-6 col-sm-8">
+                      <!-- Progress item -->
+                      <div
+                        class="progress progress-sm bg-warning bg-opacity-15"
+                      >
+                        <div
+                          *ngIf="total === 0"
+                          class="progress-bar bg-warning"
+                          role="progressbar"
+                          [style.width.%]="0"
+                          aria-valuenow="0"
+                          aria-valuemin="0"
+                          aria-valuemax="100"
+                        ></div>
+                        <div
+                          *ngIf="total !== 0"
+                          class="progress-bar bg-warning"
+                          role="progressbar"
+                          [style.width.%]="(fiveStars * 100) / total"
+                          aria-valuenow="(fiveStars * 100) / total"
+                          aria-valuemin="0"
+                          aria-valuemax="100"
+                        ></div>
+                      </div>
+                    </div>
+
+                    <div class="col-6 col-sm-4">
+                      <!-- Star item -->
+                      <ul class="list-inline mb-0">
+                        <span class="p-2">({{ fiveStars }})</span>
+                        <li class="list-inline-item me-0 small">
+                          <i class="fas fa-star text-warning"></i>
+                        </li>
+                        <li class="list-inline-item me-0 small">
+                          <i class="fas fa-star text-warning"></i>
+                        </li>
+                        <li class="list-inline-item me-0 small">
+                          <i class="fas fa-star text-warning"></i>
+                        </li>
+                        <li class="list-inline-item me-0 small">
+                          <i class="fas fa-star text-warning"></i>
+                        </li>
+                        <li class="list-inline-item me-0 small">
+                          <i class="fas fa-star text-warning"></i>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <!-- Progress bar and Rating -->
+                    <div class="col-6 col-sm-8">
+                      <!-- Progress item -->
+                      <div
+                        class="progress progress-sm bg-warning bg-opacity-15"
+                      >
+                        <div
+                          *ngIf="total === 0"
+                          class="progress-bar bg-warning"
+                          role="progressbar"
+                          [style.width.%]="(fourStars * 100) / total"
+                          aria-valuenow="(fourStars * 100) / total"
+                          aria-valuemin="0"
+                          aria-valuemax="100"
+                        ></div>
+                        <div
+                          *ngIf="total !== 0"
+                          class="progress-bar bg-warning"
+                          role="progressbar"
+                          [style.width.%]="(fourStars * 100) / total"
+                          aria-valuenow="(fourStars * 100) / total"
+                          aria-valuemin="0"
+                          aria-valuemax="100"
+                        ></div>
+                      </div>
+                    </div>
+
+                    <div class="col-6 col-sm-4">
+                      <!-- Star item -->
+                      <ul class="list-inline mb-0">
+                        <span class="p-2">({{ fourStars }})</span>
+                        <li class="list-inline-item me-0 small">
+                          <i class="fas fa-star text-warning"></i>
+                        </li>
+                        <li class="list-inline-item me-0 small">
+                          <i class="fas fa-star text-warning"></i>
+                        </li>
+                        <li class="list-inline-item me-0 small">
+                          <i class="fas fa-star text-warning"></i>
+                        </li>
+                        <li class="list-inline-item me-0 small">
+                          <i class="fas fa-star text-warning"></i>
+                        </li>
+                        <li class="list-inline-item me-0 small">
+                          <i class="far fa-star text-warning"></i>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <!-- Progress bar and Rating -->
+                    <div class="col-6 col-sm-8">
+                      <!-- Progress item -->
+                      <div
+                        class="progress progress-sm bg-warning bg-opacity-15"
+                      >
+                        <div
+                          *ngIf="total === 0"
+                          class="progress-bar bg-warning"
+                          role="progressbar"
+                          [style.width.%]="(threeStars * 100) / total"
+                          aria-valuenow="(threeStars * 100) / total"
+                          aria-valuemin="0"
+                          aria-valuemax="100"
+                        ></div>
+                        <div
+                          *ngIf="total !== 0"
+                          class="progress-bar bg-warning"
+                          role="progressbar"
+                          [style.width.%]="(threeStars * 100) / total"
+                          aria-valuenow="(threeStars * 100) / total"
+                          aria-valuemin="0"
+                          aria-valuemax="100"
+                        ></div>
+                      </div>
+                    </div>
+
+                    <div class="col-6 col-sm-4">
+                      <!-- Star item -->
+                      <ul class="list-inline mb-0">
+                        <span class="p-2">({{ threeStars }})</span>
+                        <li class="list-inline-item me-0 small">
+                          <i class="fas fa-star text-warning"></i>
+                        </li>
+
+                        <li class="list-inline-item me-0 small">
+                          <i class="fas fa-star text-warning"></i>
+                        </li>
+                        <li class="list-inline-item me-0 small">
+                          <i class="fas fa-star text-warning"></i>
+                        </li>
+                        <li class="list-inline-item me-0 small">
+                          <i class="far fa-star text-warning"></i>
+                        </li>
+                        <li class="list-inline-item me-0 small">
+                          <i class="far fa-star text-warning"></i>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <!-- Progress bar and Rating -->
+                    <div class="col-6 col-sm-8">
+                      <!-- Progress item -->
+                      <div
+                        class="progress progress-sm bg-warning bg-opacity-15"
+                      >
+                        <div
+                          *ngIf="total === 0"
+                          class="progress-bar bg-warning"
+                          role="progressbar"
+                          [style.width.%]="(twoStars * 100) / total"
+                          aria-valuenow="(twoStars * 100) / total"
+                          aria-valuemin="0"
+                          aria-valuemax="100"
+                        ></div>
+                        <div
+                          *ngIf="total !== 0"
+                          class="progress-bar bg-warning"
+                          role="progressbar"
+                          [style.width.%]="(twoStars * 100) / total"
+                          aria-valuenow="(twoStars * 100) / total"
+                          aria-valuemin="0"
+                          aria-valuemax="100"
+                        ></div>
+                      </div>
+                    </div>
+
+                    <div class="col-6 col-sm-4">
+                      <!-- Star item -->
+                      <ul class="list-inline mb-0">
+                        <span class="p-2">({{ twoStars }})</span>
+                        <li class="list-inline-item me-0 small">
+                          <i class="fas fa-star text-warning"></i>
+                        </li>
+                        <li class="list-inline-item me-0 small">
+                          <i class="fas fa-star text-warning"></i>
+                        </li>
+                        <li class="list-inline-item me-0 small">
+                          <i class="far fa-star text-warning"></i>
+                        </li>
+                        <li class="list-inline-item me-0 small">
+                          <i class="far fa-star text-warning"></i>
+                        </li>
+                        <li class="list-inline-item me-0 small">
+                          <i class="far fa-star text-warning"></i>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <!-- Progress bar and Rating -->
+                    <div class="col-6 col-sm-8">
+                      <!-- Progress item -->
+                      <div
+                        class="progress progress-sm bg-warning bg-opacity-15"
+                      >
+                        <div
+                          *ngIf="total === 0"
+                          class="progress-bar bg-warning"
+                          role="progressbar"
+                          [style.width.%]="0"
+                          aria-valuenow="0"
+                          aria-valuemin="0"
+                          aria-valuemax="100"
+                        ></div>
+                        <div
+                          *ngIf="total !== 0"
+                          class="progress-bar bg-warning"
+                          role="progressbar"
+                          [style.width.%]="(oneStar * 100) / total"
+                          aria-valuenow="(oneStar * 100) / total"
+                          aria-valuemin="0"
+                          aria-valuemax="100"
+                        ></div>
+                      </div>
+                    </div>
+
+                    <div class="col-6 col-sm-4">
+                      <!-- Star item -->
+                      <ul class="list-inline mb-0">
+                        <span class="p-2">({{ oneStar }})</span>
+                        <li class="list-inline-item me-0 small">
+                          <i class="fas fa-star text-warning"></i>
+                        </li>
+                        <li class="list-inline-item me-0 small">
+                          <i class="far fa-star text-warning"></i>
+                        </li>
+                        <li class="list-inline-item me-0 small">
+                          <i class="far fa-star text-warning"></i>
+                        </li>
+                        <li class="list-inline-item me-0 small">
+                          <i class="far fa-star text-warning"></i>
+                        </li>
+                        <li class="list-inline-item me-0 small">
+                          <i class="far fa-star text-warning"></i>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Student review START -->
+              <div class="row">
+                <!-- Review item START -->
+                <app-review-section
+                  (updateAverageRating)="showAverageRating($event)"
+                  (sendReviewsAfterDelete)="showReviewsRatings($event)"
+                  (sendReviewsAfterAdd)="showReviewsRatings($event)"
+                ></app-review-section>
+              </div>
+              <!-- Student review END -->
+
+              <!-- Review END -->
+            </div>
+          </div>
+          <!-- Main content END -->
+
+          <!-- Right sidebar START -->
+          <div class="col-lg-4 pt-5 pt-lg-0">
+            <div class="row mb-5 mb-lg-0">
+              <div class="col-md-6 col-lg-12">
+                <!-- Video START -->
+                <div class="card shadow p-2 mb-4 z-index-9">
+                  <div class="overflow-hidden rounded-3">
+                    <img
+                      src="{{ course.image }}"
+                      class="card-img"
+                      alt="course image"
+                    />
+                  </div>
+
+                  <!-- Card body -->
+                  <div class="card-body px-3">
+                    <!-- Info -->
+
+                    <!-- Price and time -->
+                    <div class="row d-flex justify-content-between">
+                      <div class="col-8">
+                        <h5 class="fw-bold mb-0">{{ course.name }}</h5>
+                      </div>
+                      <div class="col-4">
+                        <h4 class="mb-0 me-2 text-bold">
+                          {{ course.price }} $
+                        </h4>
+                      </div>
+                    </div>
+
+                    <!-- Buttons -->
+                    <div class="mt-3 d-sm-flex justify-content-sm-between">
+                      <button
+                        *ngIf="
+                          !isCoursePurchased && !isCourseInCart && userLogged
+                        "
+                        class="btn btn-success mb-0 text-bold"
+                        (click)="addCourseToCart()"
+                      >
+                        Buy course
+                      </button>
+                      <div *ngIf="isCoursePurchased && userLogged">
+                        <i class="fa-solid fa-check purchased me-2 fw-bold"></i>
+                        <span class="purchased fw-bold">Purchased</span>
+                      </div>
+                      <div *ngIf="isCourseInCart && userLogged">
+                        <i class="fa-solid fa-cart-shopping purchased me-2"></i>
+                        <span class="purchased course-cart fw-bold"
+                          >In cart</span
+                        >
+                      </div>
+                      <div *ngIf="!userLogged">
+                        <span class="not-logged course-cart"
+                          >You must be logged to buy this course</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Video END -->
+
+                <!-- Course info START -->
+                <div class="card card-body shadow p-4 mb-4">
+                  <!-- Title -->
+                  <h4 class="mb-3">This course includes</h4>
+                  <ul class="list-group list-group-borderless">
+                    <li
+                      class="list-group-item d-flex justify-content-between align-items-center"
+                    >
+                      <span class="h6 fw-light mb-0"
+                        ><i class="fas fa-fw fa-book-open text-primary"></i
+                        >Chapters</span
+                      >
+                      <span>{{ course.curriculum.length }}</span>
+                    </li>
+                    <li
+                      class="list-group-item d-flex justify-content-between align-items-center"
+                    >
+                      <span class="h6 fw-light mb-0"
+                        ><i class="fas fa-fw fa-clock text-primary"></i
+                        >Duration</span
+                      >
+                      <span>4h 50m</span>
+                    </li>
+                    <li
+                      class="list-group-item d-flex justify-content-between align-items-center"
+                    >
+                      <span class="h6 fw-light mb-0"
+                        ><i class="fas fa-fw fa-signal text-primary"></i
+                        >Skills</span
+                      >
+                      <span>{{ course.experience }}</span>
+                    </li>
+
+                    <li
+                      class="list-group-item d-flex justify-content-between align-items-center"
+                    >
+                      <span class="h6 fw-light mb-0"
+                        ><i class="fas fa-fw fa-medal text-primary"></i
+                        >Certificate</span
+                      >
+                      <span *ngIf="course.hasCertificate">Yes</span>
+                      <span *ngIf="!course.hasCertificate">No</span>
+                    </li>
+                  </ul>
+                </div>
+                <!-- Course info END -->
+                <div class="card card-body shadow" *ngIf="instructor">
+                  <div class="mb-2">
+                    <div class="row g-0 align-items-center">
+                      <div class="col-12">
+                        <!-- Image -->
+                        <img
+                          src="{{ instructor.image }}"
+                          class="instructor-image rounded-3"
+                          alt="instructor-image"
+                        />
+                      </div>
+                      <div class="col-12">
+                        <!-- Card body -->
+                        <div class="card-body px-3 py-2">
+                          <!-- Title -->
+                          <h3 class="card-title mb-1">{{ instructor.name }}</h3>
+                          <p class="mb-3">{{ instructor.skills }}</p>
+                          <!-- Social button -->
+                          <ul class="list-inline mb-3">
+                            <li class="list-inline-item me-3">
+                              <a class="fs-5 text-twitter"
+                                ><i class="fab fa-twitter-square"></i
+                              ></a>
+                            </li>
+                            <li class="list-inline-item me-3">
+                              <a class="fs-5 text-instagram"
+                                ><i class="fab fa-instagram-square"></i
+                              ></a>
+                            </li>
+                            <li class="list-inline-item me-3">
+                              <a class="fs-5 text-facebook"
+                                ><i class="fab fa-facebook-square"></i
+                              ></a>
+                            </li>
+                            <li class="list-inline-item me-3">
+                              <a class="fs-5 text-linkedin"
+                                ><i class="fab fa-linkedin"></i
+                              ></a>
+                            </li>
+                            <li class="list-inline-item">
+                              <a class="fs-5 text-youtube"
+                                ><i class="fab fa-youtube-square"></i
+                              ></a>
+                            </li>
+                          </ul>
+
+                          <!-- Info -->
+                          <ul class="list-inline mb-1">
+                            <li class="list-inline-item">
+                              <div class="d-flex align-items-center me-3">
+                                <span
+                                  class="icon-md bg-orange bg-opacity-10 text-orange rounded-circle"
+                                  ><i class="fas fa-user-graduate"></i
+                                ></span>
+                                <span class="h6 fw-light mb-0 ms-2">-</span>
+                              </div>
+                            </li>
+                            <li class="list-inline-item">
+                              <div class="d-flex align-items-center me-3 mb-2">
+                                <span
+                                  class="icon-md bg-warning bg-opacity-15 text-warning rounded-circle"
+                                  ><i class="fas fa-star"></i
+                                ></span>
+                                <span class="h6 fw-light mb-0 ms-2">{{
+                                  instructor.rating
+                                }}</span>
+                              </div>
+                            </li>
+                            <li class="list-inline-item">
+                              <div class="d-flex align-items-center me-3">
+                                <span
+                                  class="icon-md bg-danger bg-opacity-10 text-danger rounded-circle"
+                                  ><i class="fas fa-play"></i
+                                ></span>
+                                <span class="h6 fw-light mb-0 ms-2"
+                                  >{{ numberOfCourses }} Courses</span
+                                >
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Card END -->
+                  <!-- Instructor info -->
+                  <div class="col-12 px-4">
+                    <h5 class="mb-1">About Instructor</h5>
+                    <p class="mb-3">
+                      {{ instructor.description }}
+                    </p>
+
+                    <!-- Email address -->
+                    <div class="col-12">
+                      <ul class="list-group list-group-borderless mb-0">
+                        <li class="list-group-item pb-0">
+                          Mail:<a class="ms-2">{{ instructor.email }}</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Row End -->
+          </div>
+          <!-- Right sidebar END -->
+        </div>
+        <!-- Row END -->
+      </div>
+    </section>
+  </div>
+
   <!-- =======================
   Page intro END -->
 
   <!-- =======================
   Page content START -->
-  <section class="pb-0 py-lg-5">
-    <div class="container">
-      <div class="row">
-        <!-- Main content START -->
-        <div class="col-lg-8">
-          <div class="card shadow rounded-2 p-0">
-            <!-- Tabs START -->
-            <div class="card-header border-bottom px-4 py-3">
-              <ul
-                class="nav nav-pills nav-tabs-line py-0"
-                id="course-pills-tab"
-                role="tablist"
-              >
-                <!-- Tab item -->
-                <li class="nav-item me-2 me-sm-4" role="presentation">
-                  <button
-                    class="nav-link mb-2 mb-md-0"
-                    id="course-pills-tab-1"
-                    data-bs-toggle="pill"
-                    data-bs-target="#course-pills-1"
-                    type="button"
-                    role="tab"
-                    aria-controls="course-pills-1"
-                    aria-selected="false"
-                    tabindex="-1"
-                  >
-                    Overview
-                  </button>
-                </li>
-                <!-- Tab item -->
-                <li class="nav-item me-2 me-sm-4" role="presentation">
-                  <button
-                    class="nav-link mb-2 mb-md-0 active"
-                    id="course-pills-tab-2"
-                    data-bs-toggle="pill"
-                    data-bs-target="#course-pills-2"
-                    type="button"
-                    role="tab"
-                    aria-controls="course-pills-2"
-                    aria-selected="true"
-                  >
-                    Curriculum
-                  </button>
-                </li>
-              </ul>
-            </div>
-            <!-- Tabs END -->
 
-            <!-- Tab contents START -->
-            <div class="card-body p-4">
-              <div class="tab-content pt-2" id="course-pills-tabContent">
-                <!-- Content START -->
-                <div
-                  class="tab-pane fade"
-                  id="course-pills-1"
-                  role="tabpanel"
-                  aria-labelledby="course-pills-tab-1"
-                >
-                  <!-- Course detail START -->
-                  <span class="mb-3">
-                    Welcome to the
-                    <h4>
-                      <strong> {{ course.name }}</strong>
-                    </h4>
-                  </span>
-                  <p>{{ course.description }}</p>
-
-                  <!-- List content -->
-                  <h5 class="mt-4">What you’ll learn</h5>
-                  <ul
-                    class="list-group list-group-borderless mb-3"
-                    *ngFor="let lecture of course.curriculum"
-                  >
-                    <li class="list-group-item h6 fw-light d-flex mb-0">
-                      <i class="fas fa-check-circle text-success me-2"></i
-                      >{{ lecture.chapterName }}
-                    </li>
-                  </ul>
-
-                  <!-- Course detail END -->
-                </div>
-                <div
-                  class="tab-pane fade"
-                  id="course-pills-2"
-                  role="tabpanel"
-                  aria-labelledby="course-pills-tab-2"
-                >
-                  <div *ngFor="let lecture of course.curriculum">
-                    <app-curriculum [lecture]="lecture"></app-curriculum>
-                  </div>
-                </div>
-                <!-- Content END -->
-
-                <!-- Content START -->
-              </div>
-            </div>
-            <!-- Tab contents END -->
-          </div>
-          <div class="card shadow rounded-2 mt-5">
-            <!-- Review START -->
-            <div class="row mb-4">
-              <h5 class="m-4">Our Student Reviews</h5>
-
-              <!-- Rating info -->
-              <div class="col-md-4 mb-3 mb-md-0">
-                <div class="text-center">
-                  <!-- Info -->
-                  <h2 class="mb-0" *ngIf="course.rating">
-                    {{ course.rating }}/5
-                  </h2>
-                  <h2 class="mb-0" *ngIf="!course.rating">0/5</h2>
-                  <!-- Star -->
-                  <ul class="list-inline mb-0">
-                    <li class="list-inline-item me-0">
-                      <i class="fas fa-star text-warning"></i>
-                    </li>
-                    <li class="list-inline-item me-0">
-                      <i class="fas fa-star text-warning"></i>
-                    </li>
-                    <li class="list-inline-item me-0">
-                      <i class="fas fa-star text-warning"></i>
-                    </li>
-                    <li class="list-inline-item me-0">
-                      <i class="fas fa-star text-warning"></i>
-                    </li>
-                    <li class="list-inline-item me-0">
-                      <i class="fas fa-star-half-alt text-warning"></i>
-                    </li>
-                  </ul>
-                  <p class="mb-0">(Based on students' reviews)</p>
-                </div>
-              </div>
-
-              <!-- Progress-bar and star -->
-              <div class="col-md-8">
-                <div class="row align-items-center">
-                  <!-- Progress bar and Rating -->
-                  <div class="col-6 col-sm-8">
-                    <!-- Progress item -->
-                    <div class="progress progress-sm bg-warning bg-opacity-15">
-                      <div
-                        *ngIf="total === 0"
-                        class="progress-bar bg-warning"
-                        role="progressbar"
-                        [style.width.%]="0"
-                        aria-valuenow="0"
-                        aria-valuemin="0"
-                        aria-valuemax="100"
-                      ></div>
-                      <div
-                        *ngIf="total !== 0"
-                        class="progress-bar bg-warning"
-                        role="progressbar"
-                        [style.width.%]="(fiveStars * 100) / total"
-                        aria-valuenow="(fiveStars * 100) / total"
-                        aria-valuemin="0"
-                        aria-valuemax="100"
-                      ></div>
-                    </div>
-                  </div>
-
-                  <div class="col-6 col-sm-4">
-                    <!-- Star item -->
-                    <ul class="list-inline mb-0">
-                      <span class="p-2">({{ fiveStars }})</span>
-                      <li class="list-inline-item me-0 small">
-                        <i class="fas fa-star text-warning"></i>
-                      </li>
-                      <li class="list-inline-item me-0 small">
-                        <i class="fas fa-star text-warning"></i>
-                      </li>
-                      <li class="list-inline-item me-0 small">
-                        <i class="fas fa-star text-warning"></i>
-                      </li>
-                      <li class="list-inline-item me-0 small">
-                        <i class="fas fa-star text-warning"></i>
-                      </li>
-                      <li class="list-inline-item me-0 small">
-                        <i class="fas fa-star text-warning"></i>
-                      </li>
-                    </ul>
-                  </div>
-
-                  <!-- Progress bar and Rating -->
-                  <div class="col-6 col-sm-8">
-                    <!-- Progress item -->
-                    <div class="progress progress-sm bg-warning bg-opacity-15">
-                      <div
-                        *ngIf="total === 0"
-                        class="progress-bar bg-warning"
-                        role="progressbar"
-                        [style.width.%]="(fourStars * 100) / total"
-                        aria-valuenow="(fourStars * 100) / total"
-                        aria-valuemin="0"
-                        aria-valuemax="100"
-                      ></div>
-                      <div
-                        *ngIf="total !== 0"
-                        class="progress-bar bg-warning"
-                        role="progressbar"
-                        [style.width.%]="(fourStars * 100) / total"
-                        aria-valuenow="(fourStars * 100) / total"
-                        aria-valuemin="0"
-                        aria-valuemax="100"
-                      ></div>
-                    </div>
-                  </div>
-
-                  <div class="col-6 col-sm-4">
-                    <!-- Star item -->
-                    <ul class="list-inline mb-0">
-                      <span class="p-2">({{ fourStars }})</span>
-                      <li class="list-inline-item me-0 small">
-                        <i class="fas fa-star text-warning"></i>
-                      </li>
-                      <li class="list-inline-item me-0 small">
-                        <i class="fas fa-star text-warning"></i>
-                      </li>
-                      <li class="list-inline-item me-0 small">
-                        <i class="fas fa-star text-warning"></i>
-                      </li>
-                      <li class="list-inline-item me-0 small">
-                        <i class="fas fa-star text-warning"></i>
-                      </li>
-                      <li class="list-inline-item me-0 small">
-                        <i class="far fa-star text-warning"></i>
-                      </li>
-                    </ul>
-                  </div>
-
-                  <!-- Progress bar and Rating -->
-                  <div class="col-6 col-sm-8">
-                    <!-- Progress item -->
-                    <div class="progress progress-sm bg-warning bg-opacity-15">
-                      <div
-                        *ngIf="total === 0"
-                        class="progress-bar bg-warning"
-                        role="progressbar"
-                        [style.width.%]="(threeStars * 100) / total"
-                        aria-valuenow="(threeStars * 100) / total"
-                        aria-valuemin="0"
-                        aria-valuemax="100"
-                      ></div>
-                      <div
-                        *ngIf="total !== 0"
-                        class="progress-bar bg-warning"
-                        role="progressbar"
-                        [style.width.%]="(threeStars * 100) / total"
-                        aria-valuenow="(threeStars * 100) / total"
-                        aria-valuemin="0"
-                        aria-valuemax="100"
-                      ></div>
-                    </div>
-                  </div>
-
-                  <div class="col-6 col-sm-4">
-                    <!-- Star item -->
-                    <ul class="list-inline mb-0">
-                      <span class="p-2">({{ threeStars }})</span>
-                      <li class="list-inline-item me-0 small">
-                        <i class="fas fa-star text-warning"></i>
-                      </li>
-
-                      <li class="list-inline-item me-0 small">
-                        <i class="fas fa-star text-warning"></i>
-                      </li>
-                      <li class="list-inline-item me-0 small">
-                        <i class="fas fa-star text-warning"></i>
-                      </li>
-                      <li class="list-inline-item me-0 small">
-                        <i class="far fa-star text-warning"></i>
-                      </li>
-                      <li class="list-inline-item me-0 small">
-                        <i class="far fa-star text-warning"></i>
-                      </li>
-                    </ul>
-                  </div>
-
-                  <!-- Progress bar and Rating -->
-                  <div class="col-6 col-sm-8">
-                    <!-- Progress item -->
-                    <div class="progress progress-sm bg-warning bg-opacity-15">
-                      <div
-                        *ngIf="total === 0"
-                        class="progress-bar bg-warning"
-                        role="progressbar"
-                        [style.width.%]="(twoStars * 100) / total"
-                        aria-valuenow="(twoStars * 100) / total"
-                        aria-valuemin="0"
-                        aria-valuemax="100"
-                      ></div>
-                      <div
-                        *ngIf="total !== 0"
-                        class="progress-bar bg-warning"
-                        role="progressbar"
-                        [style.width.%]="(twoStars * 100) / total"
-                        aria-valuenow="(twoStars * 100) / total"
-                        aria-valuemin="0"
-                        aria-valuemax="100"
-                      ></div>
-                    </div>
-                  </div>
-
-                  <div class="col-6 col-sm-4">
-                    <!-- Star item -->
-                    <ul class="list-inline mb-0">
-                      <span class="p-2">({{ twoStars }})</span>
-                      <li class="list-inline-item me-0 small">
-                        <i class="fas fa-star text-warning"></i>
-                      </li>
-                      <li class="list-inline-item me-0 small">
-                        <i class="fas fa-star text-warning"></i>
-                      </li>
-                      <li class="list-inline-item me-0 small">
-                        <i class="far fa-star text-warning"></i>
-                      </li>
-                      <li class="list-inline-item me-0 small">
-                        <i class="far fa-star text-warning"></i>
-                      </li>
-                      <li class="list-inline-item me-0 small">
-                        <i class="far fa-star text-warning"></i>
-                      </li>
-                    </ul>
-                  </div>
-
-                  <!-- Progress bar and Rating -->
-                  <div class="col-6 col-sm-8">
-                    <!-- Progress item -->
-                    <div class="progress progress-sm bg-warning bg-opacity-15">
-                      <div
-                        *ngIf="total === 0"
-                        class="progress-bar bg-warning"
-                        role="progressbar"
-                        [style.width.%]="0"
-                        aria-valuenow="0"
-                        aria-valuemin="0"
-                        aria-valuemax="100"
-                      ></div>
-                      <div
-                        *ngIf="total !== 0"
-                        class="progress-bar bg-warning"
-                        role="progressbar"
-                        [style.width.%]="(oneStar * 100) / total"
-                        aria-valuenow="(oneStar * 100) / total"
-                        aria-valuemin="0"
-                        aria-valuemax="100"
-                      ></div>
-                    </div>
-                  </div>
-
-                  <div class="col-6 col-sm-4">
-                    <!-- Star item -->
-                    <ul class="list-inline mb-0">
-                      <span class="p-2">({{ oneStar }})</span>
-                      <li class="list-inline-item me-0 small">
-                        <i class="fas fa-star text-warning"></i>
-                      </li>
-                      <li class="list-inline-item me-0 small">
-                        <i class="far fa-star text-warning"></i>
-                      </li>
-                      <li class="list-inline-item me-0 small">
-                        <i class="far fa-star text-warning"></i>
-                      </li>
-                      <li class="list-inline-item me-0 small">
-                        <i class="far fa-star text-warning"></i>
-                      </li>
-                      <li class="list-inline-item me-0 small">
-                        <i class="far fa-star text-warning"></i>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- Student review START -->
-            <div class="row">
-              <!-- Review item START -->
-              <app-review-section
-                (updateAverageRating)="showAverageRating($event)"
-                (sendReviewsAfterDelete)="showReviewsRatings($event)"
-                (sendReviewsAfterAdd)="showReviewsRatings($event)"
-              ></app-review-section>
-            </div>
-            <!-- Student review END -->
-
-            <!-- Review END -->
-          </div>
-        </div>
-        <!-- Main content END -->
-
-        <!-- Right sidebar START -->
-        <div class="col-lg-4 pt-5 pt-lg-0">
-          <div class="row mb-5 mb-lg-0">
-            <div class="col-md-6 col-lg-12">
-              <!-- Video START -->
-              <div class="card shadow p-2 mb-4 z-index-9">
-                <div class="overflow-hidden rounded-3">
-                  <img
-                    src="{{ course.image }}"
-                    class="card-img"
-                    alt="course image"
-                  />
-                </div>
-
-                <!-- Card body -->
-                <div class="card-body px-3">
-                  <!-- Info -->
-
-                  <!-- Price and time -->
-                  <div class="row d-flex justify-content-between">
-                    <div class="col-8">
-                      <h5 class="fw-bold mb-0">{{ course.name }}</h5>
-                    </div>
-                    <div class="col-4">
-                      <h4 class="mb-0 me-2 text-bold">{{ course.price }} $</h4>
-                    </div>
-                  </div>
-
-                  <!-- Buttons -->
-                  <div class="mt-3 d-sm-flex justify-content-sm-between">
-                    <button
-                      *ngIf="
-                        !isCoursePurchased && !isCourseInCart && userLogged
-                      "
-                      class="btn btn-success mb-0 text-bold"
-                      (click)="addCourseToCart()"
-                    >
-                      Buy course
-                    </button>
-                    <div *ngIf="isCoursePurchased && userLogged">
-                      <i class="fa-solid fa-check purchased me-2 fw-bold"></i>
-                      <span class="purchased fw-bold">Purchased</span>
-                    </div>
-                    <div *ngIf="isCourseInCart && userLogged">
-                      <i class="fa-solid fa-cart-shopping purchased me-2"></i>
-                      <span class="purchased course-cart fw-bold">In cart</span>
-                    </div>
-                    <div *ngIf="!userLogged">
-                      <span class="not-logged course-cart"
-                        >You must be logged to buy this course</span
-                      >
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- Video END -->
-
-              <!-- Course info START -->
-              <div class="card card-body shadow p-4 mb-4">
-                <!-- Title -->
-                <h4 class="mb-3">This course includes</h4>
-                <ul class="list-group list-group-borderless">
-                  <li
-                    class="list-group-item d-flex justify-content-between align-items-center"
-                  >
-                    <span class="h6 fw-light mb-0"
-                      ><i class="fas fa-fw fa-book-open text-primary"></i
-                      >Chapters</span
-                    >
-                    <span>{{ course.curriculum.length }}</span>
-                  </li>
-                  <li
-                    class="list-group-item d-flex justify-content-between align-items-center"
-                  >
-                    <span class="h6 fw-light mb-0"
-                      ><i class="fas fa-fw fa-clock text-primary"></i
-                      >Duration</span
-                    >
-                    <span>4h 50m</span>
-                  </li>
-                  <li
-                    class="list-group-item d-flex justify-content-between align-items-center"
-                  >
-                    <span class="h6 fw-light mb-0"
-                      ><i class="fas fa-fw fa-signal text-primary"></i
-                      >Skills</span
-                    >
-                    <span>{{ course.experience }}</span>
-                  </li>
-
-                  <li
-                    class="list-group-item d-flex justify-content-between align-items-center"
-                  >
-                    <span class="h6 fw-light mb-0"
-                      ><i class="fas fa-fw fa-medal text-primary"></i
-                      >Certificate</span
-                    >
-                    <span *ngIf="course.hasCertificate">Yes</span>
-                    <span *ngIf="!course.hasCertificate">No</span>
-                  </li>
-                </ul>
-              </div>
-              <!-- Course info END -->
-              <div class="card card-body shadow" *ngIf="instructor">
-                <div class="mb-2">
-                  <div class="row g-0 align-items-center">
-                    <div class="col-12">
-                      <!-- Image -->
-                      <img
-                        src="{{ instructor.image }}"
-                        class="instructor-image rounded-3"
-                        alt="instructor-image"
-                      />
-                    </div>
-                    <div class="col-12">
-                      <!-- Card body -->
-                      <div class="card-body px-3 py-2">
-                        <!-- Title -->
-                        <h3 class="card-title mb-1">{{ instructor.name }}</h3>
-                        <p class="mb-3">{{ instructor.skills }}</p>
-                        <!-- Social button -->
-                        <ul class="list-inline mb-3">
-                          <li class="list-inline-item me-3">
-                            <a class="fs-5 text-twitter"
-                              ><i class="fab fa-twitter-square"></i
-                            ></a>
-                          </li>
-                          <li class="list-inline-item me-3">
-                            <a class="fs-5 text-instagram"
-                              ><i class="fab fa-instagram-square"></i
-                            ></a>
-                          </li>
-                          <li class="list-inline-item me-3">
-                            <a class="fs-5 text-facebook"
-                              ><i class="fab fa-facebook-square"></i
-                            ></a>
-                          </li>
-                          <li class="list-inline-item me-3">
-                            <a class="fs-5 text-linkedin"
-                              ><i class="fab fa-linkedin"></i
-                            ></a>
-                          </li>
-                          <li class="list-inline-item">
-                            <a class="fs-5 text-youtube"
-                              ><i class="fab fa-youtube-square"></i
-                            ></a>
-                          </li>
-                        </ul>
-
-                        <!-- Info -->
-                        <ul class="list-inline mb-1">
-                          <li class="list-inline-item">
-                            <div class="d-flex align-items-center me-3">
-                              <span
-                                class="icon-md bg-orange bg-opacity-10 text-orange rounded-circle"
-                                ><i class="fas fa-user-graduate"></i
-                              ></span>
-                              <span class="h6 fw-light mb-0 ms-2">-</span>
-                            </div>
-                          </li>
-                          <li class="list-inline-item">
-                            <div class="d-flex align-items-center me-3 mb-2">
-                              <span
-                                class="icon-md bg-warning bg-opacity-15 text-warning rounded-circle"
-                                ><i class="fas fa-star"></i
-                              ></span>
-                              <span class="h6 fw-light mb-0 ms-2">{{
-                                instructor.rating
-                              }}</span>
-                            </div>
-                          </li>
-                          <li class="list-inline-item">
-                            <div class="d-flex align-items-center me-3">
-                              <span
-                                class="icon-md bg-danger bg-opacity-10 text-danger rounded-circle"
-                                ><i class="fas fa-play"></i
-                              ></span>
-                              <span class="h6 fw-light mb-0 ms-2"
-                                >{{ numberOfCourses }} Courses</span
-                              >
-                            </div>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- Card END -->
-                <!-- Instructor info -->
-                <div class="col-12 px-4">
-                  <h5 class="mb-1">About Instructor</h5>
-                  <p class="mb-3">
-                    {{ instructor.description }}
-                  </p>
-
-                  <!-- Email address -->
-                  <div class="col-12">
-                    <ul class="list-group list-group-borderless mb-0">
-                      <li class="list-group-item pb-0">
-                        Mail:<a class="ms-2">{{ instructor.email }}</a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Row End -->
-        </div>
-        <!-- Right sidebar END -->
-      </div>
-      <!-- Row END -->
-    </div>
-  </section>
   <!-- =======================
   Page content END -->
 
@@ -665,4 +689,4 @@
 
   <!-- =======================
   Listed courses END -->
-</main>
+</section>

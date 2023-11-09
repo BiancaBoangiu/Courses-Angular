@@ -36,32 +36,41 @@ export class CourseGridCardComponent {
   }
 
   addCourseToWishlist() {
-    if (this.authService.getUserData()) {
-      const userId = this.authService.getUserData()?.id as number;
-
-      this.authService.getUserById(userId).subscribe((user) => {
-        this.coursesService
-          .addToWishlist(this.course.id, user.id, user)
-          .subscribe(() => {
-            this.addedToWishlist = !this.addedToWishlist;
-            this.notifierService.showNotifications('Course added to wishlist');
-          });
-      });
+    const user = this.authService.getUserData();
+    if (user) {
+      const wishlist = this.authService.getUserData()?.wishlist;
+      if (wishlist) {
+        if (!wishlist.includes(this.course.id)) {
+          wishlist.push(this.course.id);
+          this.addedToWishlist = true;
+          this.notifierService.showNotifications('Course added to wishlist');
+          const updatedUser = { ...user, wishlist: wishlist };
+          this.authService.updateUser(updatedUser);
+          this.coursesService.updateWishlist(wishlist, user.id);
+        } else {
+          const newWishlist = [];
+          newWishlist.push(user.id);
+          this.coursesService.updateWishlist(newWishlist, user.id);
+          this.addedToWishlist = true;
+          this.notifierService.showNotifications('Course added to wishlist');
+        }
+      }
     }
   }
 
   deleteCourseFromWishlist() {
-    if (this.authService.getUserData()) {
-      const userId = this.authService.getUserData()?.id as number;
-
-      this.authService.getUserById(userId).subscribe((user) => {
-        this.coursesService
-          .deleteFromWishlist(this.course.id, user, user.id)
-          .subscribe(() => {
-            this.addedToWishlist = !this.addedToWishlist;
-            this.notifierService.showError('Course removed from wishlist');
-          });
-      });
+    const user = this.authService.getUserData();
+    if (user) {
+      const wishlist = this.authService.getUserData()?.wishlist;
+      if (wishlist?.includes(user.id)) {
+        const index = wishlist.indexOf(this.course.id);
+        wishlist.splice(index, 1);
+        this.addedToWishlist = false;
+        this.notifierService.showNotifications('Course added to wishlist');
+        const updatedUser = { ...user, wishlist: wishlist };
+        this.authService.updateUser(updatedUser);
+        this.coursesService.updateWishlist(wishlist, user.id);
+      }
     }
   }
 }

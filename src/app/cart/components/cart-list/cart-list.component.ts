@@ -12,9 +12,10 @@ import { CartService } from '../../services/cart.service';
 export class CartListComponent {
   cartCourses!: Course[];
   cartTotal!: number;
+  isLoading!: boolean;
+
   constructor(
     private coursesService: CoursesService,
-    private authService: AuthService,
     private cartService: CartService
   ) {}
 
@@ -26,7 +27,9 @@ export class CartListComponent {
     const cart = this.cartService.getCart();
 
     if (cart.length >= 1) {
+      this.isLoading = true;
       this.coursesService.getCoursesByIds(cart).subscribe((courses) => {
+        this.isLoading = false;
         this.cartCourses = courses;
         this.cartTotal = this.cartCourses.reduce(
           (total, course) => total + +course.price,

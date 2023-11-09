@@ -22,6 +22,7 @@ export class WishlistComponent {
 
   getWishlist() {
     const wishlist = this.authService.getUserData()?.wishlist;
+    console.log(wishlist);
 
     if (wishlist) {
       this.coursesService

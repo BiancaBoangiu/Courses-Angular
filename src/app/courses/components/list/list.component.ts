@@ -18,15 +18,18 @@ export class ListComponent {
   activePriceButton: string = '';
   activeCategoryButton: string = '';
   courses: Course[] = [];
+  isLoading!: boolean;
 
   sortSelection = '';
 
   constructor(private courseService: CoursesService) {}
 
   ngOnInit() {
-    this.courseService
-      .getCourses()
-      .subscribe((courses) => (this.courses = courses));
+    this.isLoading = true;
+    this.courseService.getCourses().subscribe((courses) => {
+      this.courses = courses;
+      this.isLoading = false;
+    });
 
     this.courseService.getCategories().subscribe((categories) => {
       this.categories = categories;

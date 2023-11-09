@@ -23,6 +23,7 @@ export class CourseDetailsComponent {
   numberOfCourses!: number;
   numberOfParticipants!: number;
   userLogged: boolean = false;
+  isLoading!: boolean;
 
   fiveStars: number = 0;
   fourStars: number = 0;
@@ -46,13 +47,17 @@ export class CourseDetailsComponent {
   }
 
   getCourse(): void {
+    this.isLoading = true;
     const id = Number(this.route.snapshot.paramMap.get('id'));
+    console.log(this.isLoading);
     this.coursesService.getCourseById(id).subscribe((course) => {
+      this.isLoading = false;
       this.course = course;
       this.numberOfParticipants = course.participants.length;
       this.authService.courseId = course.id;
       const userId = this.authService.getUserData()?.id;
       const purchasedCourses = this.authService.getUserData()?.purchasedCourses;
+      console.log(this.isLoading);
       if (userId) {
         this.userLogged = true;
         if (purchasedCourses?.includes(this.course.id)) {
