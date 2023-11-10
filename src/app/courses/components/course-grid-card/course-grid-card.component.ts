@@ -47,13 +47,13 @@ export class CourseGridCardComponent {
           const updatedUser = { ...user, wishlist: wishlist };
           this.authService.updateUser(updatedUser);
           this.coursesService.updateWishlist(wishlist, user.id);
-        } else {
-          const newWishlist = [];
-          newWishlist.push(user.id);
-          this.coursesService.updateWishlist(newWishlist, user.id);
-          this.addedToWishlist = true;
-          this.notifierService.showNotifications('Course added to wishlist');
         }
+      } else {
+        const newWishlist = [];
+        newWishlist.push(user.id);
+        this.coursesService.updateWishlist(newWishlist, user.id);
+        this.addedToWishlist = true;
+        this.notifierService.showNotifications('Course added to wishlist');
       }
     }
   }
