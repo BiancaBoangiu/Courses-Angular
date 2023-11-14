@@ -16,7 +16,7 @@ export class EditProfileComponent {
   newPassword: string = '';
   imagesShown: boolean = false;
   selectedImageSrc: string = '';
-  passwordShown: boolean = false;
+  isPasswordShown: boolean = false;
 
   constructor(
     private authService: AuthService,
@@ -89,6 +89,10 @@ export class EditProfileComponent {
     }
   }
 
+  showPassword() {
+    this.isPasswordShown = !this.isPasswordShown;
+  }
+
   showImageOptions() {
     this.imagesShown = true;
   }
@@ -106,9 +110,5 @@ export class EditProfileComponent {
 
         this.imagesShown = false;
       });
-  }
-
-  togglePasswordVisibility() {
-    this.passwordShown = !this.passwordShown;
   }
 }

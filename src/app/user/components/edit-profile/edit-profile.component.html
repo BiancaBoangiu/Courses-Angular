@@ -161,21 +161,15 @@
               <label class="form-label"> Enter new password</label>
               <div class="input-group">
                 <input
-                  *ngIf="!passwordShown"
                   class="form-control"
-                  type="password"
+                  [type]="isPasswordShown ? 'text' : 'password'"
                   [(ngModel)]="newPassword"
                 />
-                <input
-                  *ngIf="passwordShown"
-                  class="form-control"
-                  type="text"
-                  [(ngModel)]="newPassword"
-                />
+
                 <span class="input-group-text p-0 bg-transparent">
                   <i
                     class="far fa-eye cursor-pointer p-2 w-40px"
-                    (click)="togglePasswordVisibility()"
+                    (click)="showPassword()"
                   ></i>
                 </span>
               </div>
