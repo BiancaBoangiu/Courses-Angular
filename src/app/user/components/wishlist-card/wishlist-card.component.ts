@@ -22,12 +22,15 @@ export class WishlistCardComponent {
   deleteCourseFromWishlist() {
     if (this.authService.getUserData()) {
       const user = this.authService.getUserData();
-      const userId = this.authService.getUserData()?.id as number;
+      const wishlist = this.authService.getUserData()?.wishlist;
 
-      if (user) {
+      if (wishlist && user) {
+        const index = wishlist.indexOf(this.course.id);
+        wishlist.splice(index, 1);
         this.coursesService
-          .deleteFromWishlist(this.course.id, user, userId)
-          .subscribe(() => {
+          .updateWishlist(wishlist, user.id)
+          .subscribe((user) => {
+            this.authService.updateUser(user);
             this.wishlistCoursesUpdated.emit(this.course.id);
             this.notifierService.showError('Course removed from wishlist');
           });

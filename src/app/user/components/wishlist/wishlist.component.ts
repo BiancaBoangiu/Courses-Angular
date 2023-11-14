@@ -22,11 +22,11 @@ export class WishlistComponent {
 
   getWishlist() {
     const wishlist = this.authService.getUserData()?.wishlist;
-
-    if (wishlist) {
+    if (wishlist && wishlist.length >= 1) {
       this.coursesService
         .getCoursesByIds(wishlist)
         .subscribe((wishlistCourses) => {
+          console.log(wishlistCourses);
           this.wishlistCourses = wishlistCourses;
         });
     }

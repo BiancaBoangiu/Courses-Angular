@@ -97,27 +97,9 @@ export class CoursesService {
   updateWishlist(wishlist: number[], userId: number): Observable<Auth> {
     const userURL = `http://localhost:3000/users/${userId}`;
 
-    const wishlistData = { wishlist: wishlist };
+    const body = { wishlist: wishlist };
 
-    return this.http.patch<Auth>(userURL, wishlist);
-  }
-
-  deleteFromWishlist(
-    courseId: number,
-    user: Auth,
-    userId: number
-  ): Observable<Auth> {
-    const userURL = `http://localhost:3000/users/${userId}`;
-    const wishlistCourses = user.wishlist || [];
-
-    if (wishlistCourses.includes(courseId)) {
-      const index = wishlistCourses.indexOf(courseId);
-      wishlistCourses.splice(index, 1);
-    }
-
-    const wishlistData = { wishlist: wishlistCourses };
-
-    return this.http.patch<Auth>(userURL, wishlistData);
+    return this.http.patch<Auth>(userURL, body);
   }
 
   addCourseToCart(courseId: number, userId: number): Observable<Auth> {

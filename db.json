@@ -1997,8 +1997,11 @@
         1,
         2
       ],
-      "wishlist": [],
-      "billingAddress": "fdgdfgdfgfd"
+      "billingAddress": "fdgdfgdfgfd",
+      "wishlist": [
+        2,
+        10
+      ]
     }
   ],
   "reviews": [

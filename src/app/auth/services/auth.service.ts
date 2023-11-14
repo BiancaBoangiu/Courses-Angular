@@ -34,7 +34,9 @@ export class AuthService {
     const storedUser = localStorage.getItem('loggedUser');
     if (storedUser) {
       this.isAuthenticated = true;
-      this.updateUser(JSON.parse(storedUser));
+      this.getUserById(+storedUser).subscribe((user) => {
+        this.updateUser(user);
+      });
     }
   }
 

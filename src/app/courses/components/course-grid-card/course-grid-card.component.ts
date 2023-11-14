@@ -1,8 +1,9 @@
 import { notifierService } from 'src/app/auth/services/notifier.service';
 import { Component, Input } from '@angular/core';
 import { Course } from '../../models/course.interface';
-import { CoursesService } from '../../services/courses.service';
 import { AuthService } from 'src/app/auth/services/auth.service';
+import { CoursesService } from '../../services/courses.service';
+import { Auth } from 'src/app/auth/models/auth.interface';
 
 @Component({
   selector: 'app-course-grid-card',
@@ -25,51 +26,34 @@ export class CourseGridCardComponent {
 
   getUser() {
     const userData = this.authService.getUserData();
-    if (!userData) {
-      return;
+
+    if (userData?.wishlist.includes(this.course.id)) {
+      this.addedToWishlist = true;
     } else {
-      if (userData.wishlist) {
-        this.addedToWishlist =
-          userData.wishlist.includes(this.course.id) || false;
-      }
+      this.addedToWishlist = false;
     }
   }
 
-  addCourseToWishlist() {
+  updateWishlist() {
     const user = this.authService.getUserData();
     if (user) {
-      const wishlist = this.authService.getUserData()?.wishlist;
-      if (wishlist) {
-        if (!wishlist.includes(this.course.id)) {
-          wishlist.push(this.course.id);
-          this.addedToWishlist = true;
-          this.notifierService.showNotifications('Course added to wishlist');
-          const updatedUser = { ...user, wishlist: wishlist };
-          this.authService.updateUser(updatedUser);
-          this.coursesService.updateWishlist(wishlist, user.id);
-        }
-      } else {
-        const newWishlist = [];
-        newWishlist.push(user.id);
-        this.coursesService.updateWishlist(newWishlist, user.id);
+      const wishlist = this.authService.getUserData()?.wishlist || [];
+
+      if (!wishlist.includes(this.course.id)) {
+        wishlist.push(this.course.id);
         this.addedToWishlist = true;
         this.notifierService.showNotifications('Course added to wishlist');
-      }
-    }
-  }
-
-  deleteCourseFromWishlist() {
-    const user = this.authService.getUserData();
-    if (user) {
-      const wishlist = this.authService.getUserData()?.wishlist;
-      if (wishlist?.includes(user.id)) {
+        const updatedUser: Auth = { ...user, wishlist: wishlist };
+        this.coursesService.updateWishlist(wishlist, user.id).subscribe();
+        this.authService.updateUser(updatedUser);
+      } else {
         const index = wishlist.indexOf(this.course.id);
         wishlist.splice(index, 1);
         this.addedToWishlist = false;
-        this.notifierService.showNotifications('Course added to wishlist');
-        const updatedUser = { ...user, wishlist: wishlist };
+        this.notifierService.showError('Course removed from wishlist');
+        const updatedUser: Auth = { ...user, wishlist: wishlist };
+        this.coursesService.updateWishlist(wishlist, user.id).subscribe();
         this.authService.updateUser(updatedUser);
-        this.coursesService.updateWishlist(wishlist, user.id);
       }
     }
   }
