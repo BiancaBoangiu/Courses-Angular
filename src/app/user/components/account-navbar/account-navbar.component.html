@@ -68,8 +68,11 @@
           routerLinkActive="active"
           ><i class="bi bi-trash fa-fw me-2"></i>Delete Profile</a
         > -->
-        <a class="list-group-item text-danger bg-danger-soft-hover"
-          ><i class="fas fa-sign-out-alt fa-fw me-2"></i>Sign Out</a
+        <a
+          class="list-group-item text-danger bg-danger-soft-hover cursor-pointer"
+          (click)="signOut()"
+          ><i class="fas fa-sign-out-alt fa-fw me-2 cursor-pointer"></i>Sign
+          Out</a
         >
       </div>
     </div>

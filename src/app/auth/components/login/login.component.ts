@@ -11,9 +11,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class LoginComponent {
   loginForm: FormGroup;
   invalidAccount: boolean = false;
-  rememberMe: boolean = false;
-
-  private isAuthenticated = false;
 
   constructor(
     private authService: AuthService,
@@ -23,10 +20,13 @@ export class LoginComponent {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(5)]],
+      rememberMe: [false],
     });
   }
 
   onSubmit() {
+    const rememberMe = this.loginForm.get('rememberMe')?.value;
+
     const emailValue = this.loginForm.get('email')?.value;
     const passwordValue = this.loginForm.get('password')?.value;
 
@@ -36,7 +36,7 @@ export class LoginComponent {
         if (userData && passwordValue === userData.password) {
           this.authService.updateUser(userData);
 
-          this.authService.login(userData.id, this.rememberMe);
+          this.authService.login(userData.id, rememberMe);
 
           this.router.navigate(['/']);
         } else if (

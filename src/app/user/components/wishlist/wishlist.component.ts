@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { filter } from 'rxjs/operators';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { Course } from 'src/app/courses/models/course.interface';
 import { CoursesService } from 'src/app/courses/services/courses.service';
@@ -21,15 +22,20 @@ export class WishlistComponent {
   }
 
   getWishlist() {
-    // this.authService.loggedUser$
-    // if (wishlist && wishlist.length >= 1) {
-    //   this.coursesService
-    //     .getCoursesByIds(wishlist)
-    //     .subscribe((wishlistCourses) => {
-    //       console.log(wishlistCourses);
-    //       this.wishlistCourses = wishlistCourses;
-    //     });
-    // }
+    this.authService.loggedUser$
+      .pipe(filter((value) => value !== null))
+      .subscribe((user) => {
+        if (user) {
+          if (user.wishlist && user.wishlist.length >= 1) {
+            this.coursesService
+              .getCoursesByIds(user.wishlist)
+              .subscribe((wishlistCourses) => {
+                console.log(wishlistCourses);
+                this.wishlistCourses = wishlistCourses;
+              });
+          }
+        }
+      });
   }
 
   showUpdatedCourses(courseId: number) {

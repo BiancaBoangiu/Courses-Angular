@@ -49,7 +49,6 @@ export class CourseDetailsComponent {
   getCourse(): void {
     this.isLoading = true;
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    console.log(this.isLoading);
     this.coursesService.getCourseById(id).subscribe((course) => {
       this.isLoading = false;
       this.course = course;
@@ -57,7 +56,6 @@ export class CourseDetailsComponent {
       this.authService.courseId = course.id;
       const userId = this.authService.getUserData()?.id;
       const purchasedCourses = this.authService.getUserData()?.purchasedCourses;
-      console.log(this.isLoading);
       if (userId) {
         this.userLogged = true;
         if (purchasedCourses?.includes(this.course.id)) {
