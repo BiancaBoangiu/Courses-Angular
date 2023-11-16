@@ -145,7 +145,7 @@
         }
       ],
       "instructorId": 1,
-      "views": 1155,
+      "views": 1158,
       "rating": null,
       "participants": [],
       "hasCertificate": true,
@@ -2000,7 +2000,8 @@
       "billingAddress": "fdgdfgdfgfd",
       "wishlist": [
         2,
-        10
+        1,
+        3
       ]
     }
   ],

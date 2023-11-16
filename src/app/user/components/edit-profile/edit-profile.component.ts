@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UsersService } from '../../services/users.service';
 import { Auth } from 'src/app/auth/models/auth.interface';
 import { notifierService } from 'src/app/auth/services/notifier.service';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-edit-profile',
@@ -30,15 +31,17 @@ export class EditProfileComponent {
   }
 
   getUser() {
-    this.authService.loggedUser$.subscribe((user) => {
-      this.user = user;
-      this.editForm = this.fb.group({
-        firstName: [this.user.firstName || '', Validators.required],
-        lastName: [this.user.lastName || '', Validators.required],
-        description: [this.user.description || ''],
-        education: [this.user.education || ''],
+    this.authService.loggedUser$
+      .pipe(filter((value) => value !== null))
+      .subscribe((user) => {
+        this.user = user as Auth;
+        this.editForm = this.fb.group({
+          firstName: [this.user.firstName || '', Validators.required],
+          lastName: [this.user.lastName || '', Validators.required],
+          description: [this.user.description || ''],
+          education: [this.user.education || ''],
+        });
       });
-    });
   }
 
   onSubmit(): void {

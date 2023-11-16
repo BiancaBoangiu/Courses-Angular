@@ -15,11 +15,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root',
 })
 export class AuthService {
-  private loggedUserSource: BehaviorSubject<Auth | null> =
-    new BehaviorSubject<Auth | null>(null);
-  loggedUser$: Observable<Auth> = this.loggedUserSource.asObservable().pipe(
-    filter((value) => value !== null),
-    map((value) => value as Auth)
+  loggedUser$: BehaviorSubject<Auth | null> = new BehaviorSubject<Auth | null>(
+    null
   );
 
   courseId!: number;
@@ -41,11 +38,11 @@ export class AuthService {
   }
 
   updateUser(data: Auth) {
-    this.loggedUserSource.next(data);
+    this.loggedUser$.next(data);
   }
 
   getUserData(): Auth | null {
-    return this.loggedUserSource.getValue();
+    return this.loggedUser$.getValue();
   }
 
   registerUser(
