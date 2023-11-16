@@ -80,7 +80,7 @@ export class CoursesService {
   }
 
   getCoursesByCategory(categoryId: number): Observable<Course[]> {
-    const courses = `http://localhost:3000/courses?category=${categoryId}`;
+    const courses = `http://localhost:3000/courses?categoryId=${categoryId}`;
     return this.http.get<Course[]>(courses);
   }
 

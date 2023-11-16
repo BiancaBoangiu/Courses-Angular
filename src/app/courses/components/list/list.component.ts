@@ -18,17 +18,19 @@ export class ListComponent {
   activePriceButton: string = '';
   activeCategoryButton: string = '';
   courses: Course[] = [];
-  isLoading!: boolean;
+  areCoursesLoading!: boolean;
+  areCategoriesLoading!: boolean;
 
   sortSelection = '';
 
   constructor(private courseService: CoursesService) {}
 
   ngOnInit() {
-    this.isLoading = true;
+    this.areCoursesLoading = true;
+
     this.courseService.getCourses().subscribe((courses) => {
       this.courses = courses;
-      this.isLoading = false;
+      this.areCoursesLoading = false;
     });
 
     this.courseService.getCategories().subscribe((categories) => {
@@ -62,17 +64,12 @@ export class ListComponent {
   }
 
   showCoursesByCategory(category: string, categoryId: number) {
+    this.areCategoriesLoading = true;
     this.activeCategoryButton = category;
-    if (category === 'All') {
-      this.courseService.getCourses().subscribe((courses) => {
-        this.courses = courses;
-      });
-    } else {
-      this.courseService
-        .getCoursesByCategory(categoryId)
-        .subscribe((courses) => {
-          this.courses = courses;
-        });
-    }
+
+    this.courseService.getCoursesByCategory(categoryId).subscribe((courses) => {
+      this.courses = courses;
+      this.areCategoriesLoading = false;
+    });
   }
 }

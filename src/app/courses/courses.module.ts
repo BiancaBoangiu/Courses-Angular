@@ -10,6 +10,7 @@ import { ReviewSectionComponent } from './components/review-section/review-secti
 import { AddReviewComponent } from './components/add-review/add-review.component';
 import { ReviewComponent } from './components/review/review.component';
 import { CurriculumComponent } from '../curriculum/curriculum.component';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,11 @@ import { CurriculumComponent } from '../curriculum/curriculum.component';
     ReviewComponent,
     CurriculumComponent,
   ],
-  imports: [CommonModule, CoursesRoutingModule, FormsModule],
+  imports: [
+    CommonModule,
+    CoursesRoutingModule,
+    FormsModule,
+    NgxSkeletonLoaderModule,
+  ],
 })
 export class CoursesModule {}

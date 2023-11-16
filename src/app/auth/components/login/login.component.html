@@ -116,6 +116,15 @@
               <div *ngIf="invalidAccount" class="error-text">
                 <span>Account invalid</span>
               </div>
+              <div class="mb-2">
+                <span class="me-1">Remember Me</span>
+                <input
+                  type="checkbox"
+                  id="rememberMe"
+                  name="rememberMe"
+                  [(ngModel)]="rememberMe"
+                />
+              </div>
 
               <!-- Button -->
               <div class="align-items-center mt-0">
@@ -126,16 +135,7 @@
                 </div>
               </div>
             </form>
-            <div>
-              <span class="me-1">Remember Me</span>
-              <input
-                type="checkbox"
-                id="rememberMe"
-                name="rememberMe"
-                class="mt-4"
-                [(ngModel)]="rememberMe"
-              />
-            </div>
+
             <!-- Form END -->
 
             <!-- Social buttons and divider -->
