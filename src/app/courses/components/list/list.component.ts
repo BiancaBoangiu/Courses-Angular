@@ -27,10 +27,12 @@ export class ListComponent {
 
   ngOnInit() {
     this.areCoursesLoading = true;
+    this.areCategoriesLoading = true;
 
     this.courseService.getCourses().subscribe((courses) => {
       this.courses = courses;
       this.areCoursesLoading = false;
+      this.areCategoriesLoading = false;
     });
 
     this.courseService.getCategories().subscribe((categories) => {
@@ -64,12 +66,12 @@ export class ListComponent {
   }
 
   showCoursesByCategory(category: string, categoryId: number) {
-    this.areCategoriesLoading = true;
+    this.areCoursesLoading = true;
     this.activeCategoryButton = category;
 
     this.courseService.getCoursesByCategory(categoryId).subscribe((courses) => {
       this.courses = courses;
-      this.areCategoriesLoading = false;
+      this.areCoursesLoading = false;
     });
   }
 }

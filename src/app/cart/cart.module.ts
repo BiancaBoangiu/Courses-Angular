@@ -11,6 +11,7 @@ import { CartProductComponent } from './components/cart-product/cart-product.com
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CheckoutBillingDetailsComponent } from './components/checkout-billing-details/checkout-billing-details.component';
 import { OrderPlacedComponent } from './components/order-placed/order-placed.component';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,12 @@ import { OrderPlacedComponent } from './components/order-placed/order-placed.com
     CheckoutBillingDetailsComponent,
     OrderPlacedComponent,
   ],
-  imports: [CommonModule, CartRoutingModule, FormsModule, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    CartRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgxSkeletonLoaderModule,
+  ],
 })
 export class CartModule {}

@@ -9,7 +9,6 @@ import { PaymentComponent } from './components/payment/payment.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { SubscriptionsComponent } from './components/subscriptions/subscriptions.component';
 import { CoursesListComponent } from './components/courses-list/courses-list.component';
-import { AuthGuard } from '../auth/services/auth.guard';
 
 const routes: Routes = [
   {

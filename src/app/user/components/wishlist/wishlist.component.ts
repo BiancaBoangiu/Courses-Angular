@@ -30,7 +30,6 @@ export class WishlistComponent {
             this.coursesService
               .getCoursesByIds(user.wishlist)
               .subscribe((wishlistCourses) => {
-                console.log(wishlistCourses);
                 this.wishlistCourses = wishlistCourses;
               });
           }

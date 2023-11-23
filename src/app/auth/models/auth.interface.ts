@@ -1,4 +1,3 @@
-import { Course } from 'src/app/courses/models/course.interface';
 import { Payment } from 'src/app/user/models/payment-interface';
 
 export interface Auth {

@@ -3,12 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { MainComponent } from './main/components/main/main.component';
 import { AuthGuard } from './auth/services/auth.guard';
+import { UserGuard } from './auth/services/user.guard';
 
 const routes: Routes = [
   { path: '', component: MainComponent, pathMatch: 'full' },
   {
     path: 'user',
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuard, UserGuard],
     loadChildren: () => import('./user/user.module').then((m) => m.UserModule),
   },
   {
@@ -30,7 +31,7 @@ const routes: Routes = [
   },
   {
     path: 'cart',
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuard, UserGuard],
     loadChildren: () => import('./cart/cart.module').then((m) => m.CartModule),
   },
   { path: '**', component: NotFoundComponent },
