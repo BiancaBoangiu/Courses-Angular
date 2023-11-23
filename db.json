@@ -145,7 +145,7 @@
         }
       ],
       "instructorId": 1,
-      "views": 1161,
+      "views": 1162,
       "rating": null,
       "participants": [],
       "hasCertificate": true,
@@ -161,11 +161,9 @@
       "categoryId": 2,
       "experience": "Intermediate",
       "instructorId": 2,
-      "views": 407,
+      "views": 409,
       "rating": 3,
-      "participants": [
-        12
-      ],
+      "participants": [12],
       "hasCertificate": true,
       "price": 200,
       "isPremium": true,
@@ -417,9 +415,7 @@
       "instructorId": 3,
       "views": 195,
       "rating": 0,
-      "participants": [
-        12
-      ],
+      "participants": [12],
       "hasCertificate": true,
       "price": 400,
       "isPremium": true
@@ -523,9 +519,7 @@
       "instructorId": 4,
       "views": 164,
       "rating": 2,
-      "participants": [
-        12
-      ],
+      "participants": [12],
       "hasCertificate": false,
       "price": 550,
       "isPremium": true,
@@ -624,12 +618,9 @@
         }
       ],
       "instructorId": 5,
-      "views": 67,
+      "views": 68,
       "rating": 0,
-      "participants": [
-        11,
-        12
-      ],
+      "participants": [11, 12],
       "hasCertificate": true,
       "price": 0,
       "isPremium": false,
@@ -732,7 +723,7 @@
         }
       ],
       "instructorId": 6,
-      "views": 54,
+      "views": 55,
       "rating": 0,
       "participants": [],
       "hasCertificate": true,
@@ -832,11 +823,9 @@
         }
       ],
       "instructorId": 7,
-      "views": 20,
+      "views": 21,
       "rating": 0,
-      "participants": [
-        12
-      ],
+      "participants": [12],
       "hasCertificate": false,
       "price": 500,
       "isPremium": true
@@ -1052,9 +1041,7 @@
       "instructorId": 9,
       "views": 29,
       "rating": 0,
-      "participants": [
-        12
-      ],
+      "participants": [12],
       "hasCertificate": true,
       "price": 0,
       "isPremium": false
@@ -1162,9 +1149,7 @@
       "instructorId": 10,
       "views": 15,
       "rating": 0,
-      "participants": [
-        12
-      ],
+      "participants": [12],
       "hasCertificate": true,
       "price": 300,
       "isPremium": true
@@ -1668,10 +1653,7 @@
       "instructorId": 5,
       "views": 53,
       "rating": 0,
-      "participants": [
-        12,
-        11
-      ],
+      "participants": [12, 11],
       "hasCertificate": true,
       "price": 0,
       "isPremium": false
@@ -1966,14 +1948,12 @@
         "cardName": "fdhdfhfd"
       },
       "wallet": 400,
-      "purchasedCourses": [
-        15,
-        5
-      ]
+      "purchasedCourses": [15, 5]
     },
     {
       "email": "admin@test.com",
       "password": "aaaaa",
+      "userType": 0,
       "image": "/assets/user1.jpg",
       "id": 12,
       "payment": {
@@ -1981,41 +1961,18 @@
         "cardYear": "1998",
         "cardMonth": "12",
         "cardCvv": "123",
-        "cardFunds": 900,
-        "cardName": "b"
+        "cardFunds": "8000",
+        "cardName": "A"
       },
-      "wallet": 30,
-      "firstName": "Bianca",
-      "lastName": "Vvvv",
+      "billingAddress": "b",
+      "firstName": "A",
+      "lastName": "B",
       "description": "",
       "education": "",
-      "profileVisibility": true,
-      "emailNotifications": false,
-      "smsConfirmation": false,
-      "hideNotifications": false,
-      "purchasedCourses": [
-        1,
-        2
-      ],
-      "billingAddress": "fdgdfgdfgfd",
-      "wishlist": [
-        3,
-        7
-      ]
+      "wishlist": [1, 3, 4]
     }
   ],
-  "reviews": [
-    {
-      "userId": 12,
-      "rating": "3",
-      "message": "rtreterter",
-      "courseId": 2,
-      "likes": [],
-      "dislikes": [],
-      "userEmail": "admin@test.com",
-      "id": 2
-    }
-  ],
+  "reviews": [],
   "instructors": [
     {
       "id": 1,

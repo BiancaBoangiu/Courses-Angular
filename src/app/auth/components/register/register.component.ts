@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { catchError, throwError } from 'rxjs';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -17,7 +17,6 @@ export class RegisterComponent {
 
   constructor(
     private authService: AuthService,
-    private instructorsService: InstructorsService,
     private router: Router,
     private fb: FormBuilder
   ) {
@@ -26,7 +25,6 @@ export class RegisterComponent {
         email: ['', [Validators.required, Validators.email]],
         password: ['', [Validators.required, Validators.minLength(5)]],
         confirmedPassword: ['', Validators.required],
-        userType: ['', Validators.required],
         selectedImage: ['', Validators.required],
       },
       { validator: this.passwordsMatchValidator }
@@ -48,8 +46,8 @@ export class RegisterComponent {
     this.formSubmitted = true;
     const emailValue = this.registerForm.get('email')?.value;
     const passwordValue = this.registerForm.get('password')?.value;
-    const userType = this.registerForm.get('userType')?.value;
     const selectedImageValue = this.registerForm.get('selectedImage')?.value;
+    const userType = 0;
 
     if (this.registerForm.invalid) {
       return;
@@ -59,26 +57,24 @@ export class RegisterComponent {
         if (response.length > 0) {
           this.emailAlreadyUsed = true;
         } else {
-          if (userType === 'student') {
-            this.authService
-              .registerUser(emailValue, passwordValue, selectedImageValue)
-              .pipe(
-                catchError((error) => {
-                  console.error(error);
-                  alert('Error: ' + error.message);
-                  return throwError(error);
-                })
-              )
-              .subscribe((response) => {
-                this.authService.updateUser(response);
-                this.router.navigate(['/']);
-              });
-          }
-          if (userType === 'instructor') {
-            this.instructorsService.instructorEmail = emailValue;
-            this.instructorsService.instructorPassword = passwordValue;
-            this.router.navigate(['/auth/register-instructor-auth']);
-          }
+          this.authService
+            .registerUser(
+              emailValue,
+              passwordValue,
+              userType,
+              selectedImageValue
+            )
+            .pipe(
+              catchError((error) => {
+                console.error(error);
+                alert('Error: ' + error.message);
+                return throwError(error);
+              })
+            )
+            .subscribe((response) => {
+              this.authService.updateUser(response);
+              this.router.navigate(['/']);
+            });
         }
       });
     }

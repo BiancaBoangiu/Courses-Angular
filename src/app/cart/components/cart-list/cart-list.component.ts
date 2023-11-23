@@ -13,6 +13,7 @@ export class CartListComponent {
   cartCourses!: Course[];
   cartTotal!: number;
   isLoading!: boolean;
+  isCartEmpty!: boolean;
 
   constructor(
     private coursesService: CoursesService,
@@ -30,12 +31,15 @@ export class CartListComponent {
       this.isLoading = true;
       this.coursesService.getCoursesByIds(cart).subscribe((courses) => {
         this.isLoading = false;
+        this.isCartEmpty = false;
         this.cartCourses = courses;
         this.cartTotal = this.cartCourses.reduce(
           (total, course) => total + +course.price,
           0
         );
       });
+    } else {
+      this.isCartEmpty = true;
     }
   }
 
@@ -43,6 +47,9 @@ export class CartListComponent {
     this.cartCourses = this.cartCourses.filter(
       (course) => course.id !== deletedCourse.id
     );
+    if (this.cartCourses.length < 1) {
+      this.isCartEmpty = true;
+    }
     this.cartTotal = this.cartCourses.reduce(
       (total, course) => total + +course.price,
       0

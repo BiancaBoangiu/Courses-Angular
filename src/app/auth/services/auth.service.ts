@@ -47,12 +47,14 @@ export class AuthService {
   registerUser(
     email: string,
     password: string,
-    image: 'string'
+    userType: number,
+    image: string
   ): Observable<Auth> {
     const usersURL = 'http://localhost:3000/users';
     const body = {
       email,
       password,
+      userType,
       image,
     };
 

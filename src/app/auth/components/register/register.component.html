@@ -186,18 +186,7 @@
                   Passwords do not match.
                 </div>
               </div>
-              <div>
-                <p>Select an option</p>
-                <select
-                  class="form-select"
-                  aria-label="Default select example"
-                  formControlName="userType"
-                >
-                  <option value="" selected>Choose a type:</option>
-                  <option value="instructor">Instructor</option>
-                  <option value="student">Student</option>
-                </select>
-              </div>
+
               <div
                 *ngIf="
                   (registerForm.get('userType')?.invalid &&
@@ -214,7 +203,7 @@
                 </div>
               </div>
 
-              <div *ngIf="registerForm.get('userType')?.value === 'student'">
+              <div>
                 <div class="pt-2">
                   <select id="selectedImage" formControlName="selectedImage">
                     <option value="">Select an image</option>
@@ -222,6 +211,16 @@
                     <option value="/assets/user2.jpg">Female image</option>
                   </select>
                 </div>
+              </div>
+
+              <div class="mt-4 text-center">
+                <span
+                  >Want to become an instructor?<a
+                    routerLink="/instructors/register-instructor"
+                  >
+                    Register here</a
+                  ></span
+                >
               </div>
 
               <!-- Button -->

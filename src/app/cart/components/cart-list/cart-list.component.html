@@ -13,11 +13,11 @@
 
 <div *ngIf="isLoading" class="row g-4">
   <div class="text-center mt-2">
-    <ngx-skeleton-loader count="5" appearance="line"></ngx-skeleton-loader>
+    <ngx-skeleton-loader count="6" appearance="line"></ngx-skeleton-loader>
   </div>
 </div>
 
-<section class="pt-5" *ngIf="!isLoading">
+<div class="pt-5" *ngIf="!isLoading && !isCartEmpty">
   <div class="container">
     <div class="row g-4 g-sm-5">
       <!-- Main content START -->
@@ -51,4 +51,14 @@
     </div>
   </div>
   <!-- Row END -->
-</section>
+</div>
+<div *ngIf="isCartEmpty">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <img src="assets/cart.jpg" class="empty-cart" alt="empty cart" />
+        <h4 class="text-cart mb-3">Empty cart</h4>
+      </div>
+    </div>
+  </div>
+</div>
