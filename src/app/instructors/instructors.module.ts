@@ -5,6 +5,10 @@ import { InstructorsSectionComponent } from './components/instructors-section/in
 import { InstructorsListComponent } from './components/instructors-list/instructors-list.component';
 import { InstructorDetailsComponent } from './components/instructor-details/instructor-details.component';
 import { InstructorListCardComponent } from './components/instructor-list-card/instructor-list-card.component';
+import { CreateCourseComponent } from './components/create-course/create-course.component';
+import { MatStepperModule } from '@angular/material/stepper';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatTabsModule } from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -12,7 +16,14 @@ import { InstructorListCardComponent } from './components/instructor-list-card/i
     InstructorsListComponent,
     InstructorDetailsComponent,
     InstructorListCardComponent,
+    CreateCourseComponent,
   ],
-  imports: [CommonModule, InstructorsRoutingModule],
+  imports: [
+    CommonModule,
+    InstructorsRoutingModule,
+    MatStepperModule,
+    ReactiveFormsModule,
+    MatTabsModule,
+  ],
 })
 export class InstructorsModule {}
