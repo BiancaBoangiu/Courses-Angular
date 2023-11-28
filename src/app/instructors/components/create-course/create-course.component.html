@@ -1,112 +1,16 @@
 <mat-tab-group>
   <mat-tab label="1">
-    <div class="bs-stepper-content p-4">
-      <form>
+    <div class="p-4">
+      <div>
         <!-- Step 1 content START -->
-        <div>
-          <!-- Title -->
-          <h4>Course details</h4>
 
-          <hr />
-          <!-- Divider -->
+        <!-- Basic information START -->
+        <app-course-details></app-course-details>
 
-          <!-- Basic information START -->
-          <div class="row g-4">
-            <!-- Course title -->
-            <div class="col-12">
-              <label class="form-label fw-bold">Title</label>
-              <input
-                class="form-control"
-                type="text"
-                placeholder="Enter course title"
-              />
-            </div>
+        <!-- Basic information START -->
 
-            <!-- Short description -->
-            <div class="col-12">
-              <label class="form-label fw-bold">Description</label>
-              <textarea
-                class="form-control"
-                rows="4"
-                placeholder="Enter short description"
-              ></textarea>
-            </div>
-
-            <!-- Course category -->
-            <div class="col-md-6">
-              <label class="form-label fw-bold">Category</label>
-              <select class="form-select" aria-label="Default select example">
-                <option selected value="1">
-                  Programming and Software Development
-                </option>
-                <option value="2">Web Development</option>
-                <option value="3">Mobile App Development</option>
-                <option value="4">Data Science and Machine Learning</option>
-                <option value="5">Cybersecurity</option>
-                <option value="6">Cloud Computing</option>
-              </select>
-            </div>
-
-            <!-- Course level -->
-            <div class="col-md-6">
-              <label class="form-label fw-bold">Level</label>
-
-              <select class="form-select" aria-label="Default select example">
-                <option selected>Beginner</option>
-                <option value="1">Intermediate</option>
-                <option value="2">Advanced</option>
-              </select>
-            </div>
-
-            <!-- Course time -->
-            <div class="col-md-6">
-              <label class="form-label fw-bold">Time</label>
-              <input
-                class="form-control"
-                type="text"
-                placeholder="Enter course time"
-              />
-            </div>
-
-            <!-- Total lecture -->
-            <div class="col-md-6">
-              <label class="form-label fw-bold">Lecture</label>
-              <input
-                class="form-control"
-                type="text"
-                placeholder="Enter total lecture"
-              />
-            </div>
-            <div class="col-md-6">
-              <label class="form-label fw-bold">Premium</label>
-              <select class="form-select" aria-label="Default select example">
-                <option selected>Yes</option>
-                <option value="1">No</option>
-              </select>
-            </div>
-
-            <div class="col-md-6">
-              <label class="form-label fw-bold">Certificate</label>
-              <select class="form-select" aria-label="Default select example">
-                <option selected>Yes</option>
-                <option value="1">No</option>
-              </select>
-            </div>
-
-            <!-- Course price -->
-            <div class="col-md-6">
-              <label class="form-label fw-bold">Price</label>
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Enter course price"
-              />
-            </div>
-          </div>
-          <!-- Basic information START -->
-        </div>
         <!-- Step 1 content END -->
-      </form>
+      </div>
     </div>
   </mat-tab>
   <mat-tab label="2">
@@ -116,7 +20,7 @@
       <h4>Course media</h4>
 
       <p class="fw-bold">Select an image</p>
-      <div class="row px-3">
+      <div class="row d-flex justify-content-center px-3">
         <div class="col-2 mb-2 px-0">
           <img class="media-photo" src="/assets/css.jpg" />
         </div>

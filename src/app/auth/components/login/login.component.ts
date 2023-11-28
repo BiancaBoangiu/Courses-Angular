@@ -26,7 +26,6 @@ export class LoginComponent {
 
   onSubmit() {
     const rememberMe = this.loginForm.get('rememberMe')?.value;
-
     const emailValue = this.loginForm.get('email')?.value;
     const passwordValue = this.loginForm.get('password')?.value;
 

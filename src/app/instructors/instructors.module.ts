@@ -9,6 +9,7 @@ import { CreateCourseComponent } from './components/create-course/create-course.
 import { MatStepperModule } from '@angular/material/stepper';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatTabsModule } from '@angular/material/tabs';
+import { CourseDetailsComponent } from './components/course-details/course-details.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { MatTabsModule } from '@angular/material/tabs';
     InstructorDetailsComponent,
     InstructorListCardComponent,
     CreateCourseComponent,
+    CourseDetailsComponent,
   ],
   imports: [
     CommonModule,
