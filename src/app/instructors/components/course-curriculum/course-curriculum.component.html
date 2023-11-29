@@ -1,6 +1,6 @@
 <div class="p-4">
   <!-- Title -->
-  <h4 class="ps-3">Curriculum</h4>
+  <h4>Curriculum</h4>
 
   <hr />
   <!-- Divider -->
@@ -8,13 +8,8 @@
   <div class="row">
     <!-- Add lecture Modal button -->
     <div class="d-sm-flex justify-content-sm-between align-items-center mb-3">
-      <h5 class="mb-2 mb-sm-0 ps-3">Add Lecture</h5>
-      <a
-        href="#"
-        class="btn btn-sm btn-primary-soft mb-0"
-        data-bs-toggle="modal"
-        data-bs-target="#addLecture"
-        (click)="addLecture()"
+      <h5 class="mb-2 mb-sm-0">Add Chapter</h5>
+      <a class="btn btn-primary-soft mb-0" (click)="addLecture()"
         ><i class="bi bi-plus-circle me-2"></i>Add Chapter</a
       >
     </div>
@@ -23,7 +18,11 @@
         class="form-control mb-3"
         type="text"
         placeholder="Enter chapter name"
+        [(ngModel)]="chapterName"
       />
+      <div class="text-end">
+        <button type="button" class="btn btn-primary-soft">Save</button>
+      </div>
     </div>
 
     <!-- Edit lecture START -->

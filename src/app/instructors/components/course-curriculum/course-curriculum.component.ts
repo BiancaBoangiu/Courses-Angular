@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 export class CourseCurriculumComponent {
   isChapterInputShown: boolean = false;
+  chapterName!: string;
 
   addLecture() {
     this.isChapterInputShown = !this.isChapterInputShown;

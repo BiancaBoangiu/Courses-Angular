@@ -7,7 +7,7 @@ import { InstructorDetailsComponent } from './components/instructor-details/inst
 import { InstructorListCardComponent } from './components/instructor-list-card/instructor-list-card.component';
 import { CreateCourseComponent } from './components/create-course/create-course.component';
 import { MatStepperModule } from '@angular/material/stepper';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatTabsModule } from '@angular/material/tabs';
 import { CourseDetailsComponent } from './components/course-details/course-details.component';
 import { CourseMediaComponent } from './components/course-media/course-media.component';
@@ -30,6 +30,7 @@ import { CourseCurriculumComponent } from './components/course-curriculum/course
     MatStepperModule,
     ReactiveFormsModule,
     MatTabsModule,
+    FormsModule,
   ],
 })
 export class InstructorsModule {}
