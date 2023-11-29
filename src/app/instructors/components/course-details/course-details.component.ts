@@ -8,6 +8,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class CourseDetailsComponent {
   courseForm!: FormGroup;
+  formSubmitted!: boolean;
 
   constructor(private fb: FormBuilder) {
     this.courseForm = this.fb.group({
@@ -24,6 +25,7 @@ export class CourseDetailsComponent {
   }
 
   onSubmit() {
+    this.formSubmitted = true;
     const title = this.courseForm.get('title')?.value;
     const description = this.courseForm.get('description')?.value;
     const category = this.courseForm.get('category')?.value;
@@ -33,17 +35,5 @@ export class CourseDetailsComponent {
     const premium = this.courseForm.get('premium')?.value;
     const certificate = this.courseForm.get('certificate')?.value;
     const price = this.courseForm.get('price')?.value;
-
-    console.log(
-      title,
-      description,
-      category,
-      level,
-      lecture,
-      time,
-      premium,
-      certificate,
-      price
-    );
   }
 }

@@ -12,6 +12,22 @@
         formControlName="title"
       />
     </div>
+    <div
+      *ngIf="
+        (courseForm.get('title')?.invalid &&
+          (courseForm.get('title')?.dirty ||
+            courseForm.get('title')?.touched)) ||
+        formSubmitted
+      "
+      class="mt-2"
+    >
+      <div
+        *ngIf="courseForm.get('title')?.errors?.['required']"
+        class="error-text"
+      >
+        <span>This field is required</span>
+      </div>
+    </div>
 
     <!-- Short description -->
     <div class="col-12">
@@ -22,6 +38,22 @@
         placeholder="Enter short description"
         formControlName="description"
       ></textarea>
+    </div>
+    <div
+      *ngIf="
+        (courseForm.get('description')?.invalid &&
+          (courseForm.get('description')?.dirty ||
+            courseForm.get('description')?.touched)) ||
+        formSubmitted
+      "
+      class="mt-2"
+    >
+      <div
+        *ngIf="courseForm.get('description')?.errors?.['required']"
+        class="error-text"
+      >
+        <span>This field is required</span>
+      </div>
     </div>
 
     <!-- Course category -->
@@ -39,6 +71,22 @@
         <option value="5">Cybersecurity</option>
         <option value="6">Cloud Computing</option>
       </select>
+      <div
+        *ngIf="
+          (courseForm.get('category')?.invalid &&
+            (courseForm.get('category')?.dirty ||
+              courseForm.get('category')?.touched)) ||
+          formSubmitted
+        "
+        class="mt-2"
+      >
+        <div
+          *ngIf="courseForm.get('category')?.errors?.['required']"
+          class="error-text"
+        >
+          <span>This field is required</span>
+        </div>
+      </div>
     </div>
 
     <!-- Course level -->
@@ -54,6 +102,22 @@
         <option value="intermediate">Intermediate</option>
         <option value="advanced">Advanced</option>
       </select>
+      <div
+        *ngIf="
+          (courseForm.get('level')?.invalid &&
+            (courseForm.get('level')?.dirty ||
+              courseForm.get('level')?.touched)) ||
+          formSubmitted
+        "
+        class="mt-2"
+      >
+        <div
+          *ngIf="courseForm.get('level')?.errors?.['required']"
+          class="error-text"
+        >
+          <span>This field is required</span>
+        </div>
+      </div>
     </div>
 
     <!-- Course time -->
@@ -65,6 +129,22 @@
         placeholder="Enter course time"
         formControlName="time"
       />
+      <div
+        *ngIf="
+          (courseForm.get('time')?.invalid &&
+            (courseForm.get('time')?.dirty ||
+              courseForm.get('time')?.touched)) ||
+          formSubmitted
+        "
+        class="mt-2"
+      >
+        <div
+          *ngIf="courseForm.get('time')?.errors?.['required']"
+          class="error-text"
+        >
+          <span>This field is required</span>
+        </div>
+      </div>
     </div>
 
     <!-- Total lecture -->
@@ -76,7 +156,24 @@
         placeholder="Enter total lecture"
         formControlName="lecture"
       />
+      <div
+        *ngIf="
+          (courseForm.get('lecture')?.invalid &&
+            (courseForm.get('lecture')?.dirty ||
+              courseForm.get('lecture')?.touched)) ||
+          formSubmitted
+        "
+        class="mt-2"
+      >
+        <div
+          *ngIf="courseForm.get('lecture')?.errors?.['required']"
+          class="error-text"
+        >
+          <span>This field is required</span>
+        </div>
+      </div>
     </div>
+
     <div class="col-6">
       <label class="form-label fw-bold ps-1">Premium</label>
       <select
@@ -87,6 +184,22 @@
         <option value="yes">Yes</option>
         <option value="no">No</option>
       </select>
+      <div
+        *ngIf="
+          (courseForm.get('premium')?.invalid &&
+            (courseForm.get('premium')?.dirty ||
+              courseForm.get('premium')?.touched)) ||
+          formSubmitted
+        "
+        class="mt-2"
+      >
+        <div
+          *ngIf="courseForm.get('premium')?.errors?.['required']"
+          class="error-text"
+        >
+          <span>This field is required</span>
+        </div>
+      </div>
     </div>
 
     <div class="col-6">
@@ -99,6 +212,22 @@
         <option value="yes">Yes</option>
         <option value="no">No</option>
       </select>
+      <div
+        *ngIf="
+          (courseForm.get('certificate')?.invalid &&
+            (courseForm.get('certificate')?.dirty ||
+              courseForm.get('certificate')?.touched)) ||
+          formSubmitted
+        "
+        class="mt-2"
+      >
+        <div
+          *ngIf="courseForm.get('certificate')?.errors?.['required']"
+          class="error-text"
+        >
+          <span>This field is required</span>
+        </div>
+      </div>
     </div>
 
     <!-- Course price -->
@@ -111,9 +240,25 @@
         formControlName="price"
       />
     </div>
+
+    <div
+      *ngIf="
+        (courseForm.get('price')?.invalid &&
+          (courseForm.get('price')?.dirty ||
+            courseForm.get('price')?.touched)) ||
+        formSubmitted
+      "
+      class="mt-2"
+    >
+      <div
+        *ngIf="courseForm.get('price')?.errors?.['required']"
+        class="error-text"
+      >
+        <span>This field is required</span>
+      </div>
+    </div>
   </div>
   <div class="col-12 d-flex justify-content-end">
-    <button type="button" class="btn btn-secondary">Next</button>
+    <button type="submit" class="btn btn-secondary">Next</button>
   </div>
-  <button type="submit"></button>
 </form>

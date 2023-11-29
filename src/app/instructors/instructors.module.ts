@@ -10,6 +10,8 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatTabsModule } from '@angular/material/tabs';
 import { CourseDetailsComponent } from './components/course-details/course-details.component';
+import { CourseMediaComponent } from './components/course-media/course-media.component';
+import { CourseCurriculumComponent } from './components/course-curriculum/course-curriculum.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { CourseDetailsComponent } from './components/course-details/course-detai
     InstructorListCardComponent,
     CreateCourseComponent,
     CourseDetailsComponent,
+    CourseMediaComponent,
+    CourseCurriculumComponent,
   ],
   imports: [
     CommonModule,
