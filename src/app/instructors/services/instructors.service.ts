@@ -10,10 +10,13 @@ import { Course } from 'src/app/courses/models/course.interface';
 export class InstructorsService {
   instructorEmail!: string;
   instructorPassword!: string;
+  course!: Course;
   private instructorsURL = 'http://localhost:3000/instructors';
+
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
+
   constructor(private http: HttpClient) {}
 
   getInstructors(): Observable<Instructor[]> {

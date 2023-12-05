@@ -6,12 +6,15 @@ import { InstructorsListComponent } from './components/instructors-list/instruct
 import { InstructorDetailsComponent } from './components/instructor-details/instructor-details.component';
 import { InstructorListCardComponent } from './components/instructor-list-card/instructor-list-card.component';
 import { CreateCourseComponent } from './components/create-course/create-course.component';
-import { MatStepperModule } from '@angular/material/stepper';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatTabsModule } from '@angular/material/tabs';
 import { CourseDetailsComponent } from './components/course-details/course-details.component';
 import { CourseMediaComponent } from './components/course-media/course-media.component';
 import { CourseCurriculumComponent } from './components/course-curriculum/course-curriculum.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -31,6 +34,10 @@ import { CourseCurriculumComponent } from './components/course-curriculum/course
     ReactiveFormsModule,
     MatTabsModule,
     FormsModule,
+    MatButtonModule,
+    MatStepperModule,
+    MatFormFieldModule,
+    MatInputModule,
   ],
 })
 export class InstructorsModule {}
