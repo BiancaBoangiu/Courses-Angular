@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { InstructorsService } from '../../services/instructors.service';
+import { MatStepper } from '@angular/material/stepper';
 
 @Component({
   selector: 'app-course-details',
@@ -10,7 +12,11 @@ export class CourseDetailsComponent {
   courseForm!: FormGroup;
   formSubmitted!: boolean;
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private instructorsService: InstructorsService,
+    private stepper: MatStepper
+  ) {
     this.courseForm = this.fb.group({
       title: ['', Validators.required],
       description: ['', Validators.required],
@@ -24,7 +30,7 @@ export class CourseDetailsComponent {
     });
   }
 
-  onSubmit() {
+  saveCourseDetails() {
     this.formSubmitted = true;
     const title = this.courseForm.get('title')?.value;
     const description = this.courseForm.get('description')?.value;
@@ -35,5 +41,24 @@ export class CourseDetailsComponent {
     const premium = this.courseForm.get('premium')?.value;
     const certificate = this.courseForm.get('certificate')?.value;
     const price = this.courseForm.get('price')?.value;
+
+    const courseDetails = {
+      title: title,
+      description: description,
+      category: category,
+      level: level,
+      time: time,
+      lecture: lecture,
+      premium: premium,
+      certificate: certificate,
+      price: price,
+    };
+
+    if (this.courseForm.valid) {
+      this.instructorsService.courseDetails = courseDetails;
+      this.stepper.next();
+    } else {
+      return;
+    }
   }
 }

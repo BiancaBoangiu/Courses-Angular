@@ -10,7 +10,11 @@ import { Course } from 'src/app/courses/models/course.interface';
 export class InstructorsService {
   instructorEmail!: string;
   instructorPassword!: string;
-  course!: Course;
+  courseDetails!: any;
+  courseMedia!: string;
+  courseChapters!: string[];
+  courseTopics!: any;
+
   private instructorsURL = 'http://localhost:3000/instructors';
 
   httpOptions = {

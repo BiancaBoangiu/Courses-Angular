@@ -1,7 +1,7 @@
 <section class="px-3 py-2">
-  <form [formGroup]="courseForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="courseForm" (ngSubmit)="saveCourseDetails()">
     <!-- Title -->
-    <h1 class="mb-3">Course details</h1>
+    <h2 class="mb-3">Course details</h2>
     <div class="row g-4">
       <!-- Course title -->
       <div class="col-12">
@@ -260,7 +260,9 @@
       </div>
     </div>
     <div class="text-end">
-      <button class="btn btn-secondary" matStepperNext>Next</button>
+      <button class="btn btn-secondary" (click)="saveCourseDetails()">
+        Next
+      </button>
     </div>
   </form>
 </section>

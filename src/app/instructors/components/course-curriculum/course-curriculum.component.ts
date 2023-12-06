@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { InstructorsService } from '../../services/instructors.service';
 
 @Component({
   selector: 'app-course-curriculum',
@@ -8,8 +9,17 @@ import { Component } from '@angular/core';
 export class CourseCurriculumComponent {
   isChapterInputShown: boolean = false;
   chapterName!: string;
+  chapters: string[] = [];
+
+  constructor(private instructorsService: InstructorsService) {}
 
   addLecture() {
     this.isChapterInputShown = !this.isChapterInputShown;
+  }
+
+  saveChapter() {
+    console.log(this.chapterName);
+    this.chapters.push(this.chapterName);
+    this.instructorsService.courseChapters = this.chapters;
   }
 }
