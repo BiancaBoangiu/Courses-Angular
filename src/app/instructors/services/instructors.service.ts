@@ -12,8 +12,8 @@ export class InstructorsService {
   instructorPassword!: string;
   courseDetails!: any;
   courseMedia!: string;
-  courseChapters!: string[];
   courseTopics!: any;
+  chapters: { chapterName: string; topics: string[] }[] = [];
 
   private instructorsURL = 'http://localhost:3000/instructors';
 
@@ -65,5 +65,13 @@ export class InstructorsService {
   verifyUser(loginEmail: string): Observable<Instructor[]> {
     const instructorURL = `http://localhost:3000/instructors?email=${loginEmail}`;
     return this.http.get<Instructor[]>(instructorURL);
+  }
+
+  addChapter(chapterName: string) {
+    this.chapters.push({ chapterName, topics: [] });
+  }
+
+  addTopicToChapter(chapterIndex: number, topicName: string) {
+    this.chapters[chapterIndex].topics.push(topicName);
   }
 }

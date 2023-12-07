@@ -8,10 +8,16 @@ import { InstructorsService } from '../../services/instructors.service';
 })
 export class CourseCurriculumComponent {
   isChapterInputShown: boolean = false;
-  chapterName!: string;
-  chapters: string[] = [];
+  isTopicInputShown: boolean = false;
+  chapterName: string = '';
+  topicName: string = '';
+  chapters!: { chapterName: string; topics: string[] }[];
 
   constructor(private instructorsService: InstructorsService) {}
+
+  ngOnInit() {
+    this.chapters = this.instructorsService.chapters;
+  }
 
   addLecture() {
     this.isChapterInputShown = !this.isChapterInputShown;
@@ -19,7 +25,15 @@ export class CourseCurriculumComponent {
 
   saveChapter() {
     console.log(this.chapterName);
-    this.chapters.push(this.chapterName);
-    this.instructorsService.courseChapters = this.chapters;
+    this.instructorsService.addChapter(this.chapterName);
+  }
+
+  showTopicInput() {
+    this.isTopicInputShown = !this.isTopicInputShown;
+  }
+
+  addTopic(chapterIndex: number) {
+    const topicName = this.topicName;
+    this.instructorsService.addTopicToChapter(chapterIndex, topicName);
   }
 }

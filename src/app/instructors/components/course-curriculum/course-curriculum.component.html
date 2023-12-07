@@ -32,45 +32,78 @@
     </div>
 
     <!-- Edit lecture START -->
-    <div *ngFor="let chapter of chapters">
-      <div
-        class="accordion accordion-icon accordion-bg-light"
-        id="accordionExample2"
-      >
-        <!-- Item START -->
+    <div *ngIf="chapters">
+      <div *ngFor="let chapter of chapters; let i = index">
+        <!-- Display chapters -->
         <div class="accordion-item mb-3">
-          <h6 class="accordion-header font-base" id="heading-2">
+          <h6 class="accordion-header font-base" id="heading-{{ i }}">
             <button
               class="accordion-button fw-bold rounded d-inline-block collapsed d-block pe-5"
               type="button"
               data-bs-toggle="collapse"
-              data-bs-target="#collapse-2"
+              [attr.data-bs-target]="'#collapse-' + i"
               aria-expanded="false"
-              aria-controls="collapse-2"
+              [attr.aria-controls]="'collapse-' + i"
             >
-              {{ chapter }}
+              {{ chapter.chapterName }}
             </button>
           </h6>
 
           <div
-            id="collapse-2"
+            [attr.id]="'collapse-' + i"
             class="accordion-collapse collapse"
-            aria-labelledby="heading-2"
+            [attr.aria-labelledby]="'heading-' + i"
             data-bs-parent="#accordionExample2"
           >
             <div class="accordion-body mt-3">
+              <div class="position-relative">
+                <a
+                  href="#"
+                  class="btn btn-danger-soft btn-round btn-sm mb-0 stretched-link position-static"
+                  ><i class="fas fa-play"></i
+                ></a>
+                <span class="ms-2 mb-0 h6 fw-light">Introduction</span>
+              </div>
+              <!-- Edit and cancel button -->
+              <div>
+                <a
+                  href="#"
+                  class="btn btn-sm btn-success-soft btn-round me-1 mb-1 mb-md-0"
+                  ><i class="far fa-fw fa-edit"></i
+                ></a>
+                <button class="btn btn-sm btn-danger-soft btn-round mb-0">
+                  <i class="fas fa-fw fa-times"></i>
+                </button>
+              </div>
+
               <!-- Add topic -->
-              <a
-                class="btn btn-sm btn-dark mb-0"
-                data-bs-toggle="modal"
-                data-bs-target="#addTopic"
-              >
+              <a class="btn btn-sm btn-dark mb-0" (click)="showTopicInput()">
                 <i class="bi bi-plus-circle me-2"></i>Add topic
               </a>
+              <div *ngIf="isTopicInputShown">
+                <input
+                  class="form-control mb-1"
+                  type="text"
+                  placeholder="Enter topic name"
+                  [(ngModel)]="topicName"
+                />
+                <div class="text-end">
+                  <button
+                    type="button"
+                    class="btn btn-primary-soft"
+                    (click)="addTopic(i)"
+                  >
+                    Save
+                  </button>
+                </div>
+              </div>
+              <!-- Display topics -->
+              <ul *ngIf="chapter.topics.length > 0">
+                <li *ngFor="let topic of chapter.topics">{{ topic }}</li>
+              </ul>
             </div>
           </div>
         </div>
-        <!-- Item END -->
       </div>
     </div>
 
@@ -80,4 +113,69 @@
     </div>
     <!-- Edit lecture END -->
   </div>
+</div>
+
+<div class="accordion accordion-icon accordion-bg-light" id="accordionExample2">
+  <!-- Item START -->
+  <div class="accordion-item mb-3">
+    <h6 class="accordion-header font-base" id="heading-1">
+      <button
+        class="accordion-button fw-bold rounded d-inline-block collapsed d-block pe-5"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#collapse-1"
+        aria-expanded="false"
+        aria-controls="collapse-1"
+      >
+        Introduction of Digital Marketing
+      </button>
+    </h6>
+
+    <div
+      id="collapse-1"
+      class="accordion-collapse collapse show"
+      aria-labelledby="heading-1"
+      data-bs-parent="#accordionExample2"
+    >
+      <!-- Topic START -->
+      <div class="accordion-body mt-3">
+        <!-- Video item START -->
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="position-relative">
+            <a
+              href="#"
+              class="btn btn-danger-soft btn-round btn-sm mb-0 stretched-link position-static"
+              ><i class="fas fa-play"></i
+            ></a>
+            <span class="ms-2 mb-0 h6 fw-light">Introduction</span>
+          </div>
+          <!-- Edit and cancel button -->
+          <div>
+            <a
+              href="#"
+              class="btn btn-sm btn-success-soft btn-round me-1 mb-1 mb-md-0"
+              ><i class="far fa-fw fa-edit"></i
+            ></a>
+            <button class="btn btn-sm btn-danger-soft btn-round mb-0">
+              <i class="fas fa-fw fa-times"></i>
+            </button>
+          </div>
+        </div>
+        <!-- Divider -->
+        <hr />
+        <!-- Video item END -->
+
+        <!-- Add topic -->
+        <a
+          href="#"
+          class="btn btn-sm btn-dark mb-0"
+          data-bs-toggle="modal"
+          data-bs-target="#addTopic"
+          ><i class="bi bi-plus-circle me-2"></i>Add topic</a
+        >
+      </div>
+      <!-- Topic END -->
+    </div>
+  </div>
+  <!-- Item END -->
 </div>
