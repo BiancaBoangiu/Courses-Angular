@@ -24,16 +24,17 @@ export class CourseCurriculumComponent {
   }
 
   saveChapter() {
-    console.log(this.chapterName);
     this.instructorsService.addChapter(this.chapterName);
+    this.chapterName = '';
   }
 
   showTopicInput() {
     this.isTopicInputShown = !this.isTopicInputShown;
   }
 
-  addTopic(chapterIndex: number) {
+  saveTopic(chapterIndex: number) {
     const topicName = this.topicName;
     this.instructorsService.addTopicToChapter(chapterIndex, topicName);
+    this.topicName = '';
   }
 }
