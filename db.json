@@ -163,7 +163,9 @@
       "instructorId": 2,
       "views": 409,
       "rating": 3,
-      "participants": [12],
+      "participants": [
+        12
+      ],
       "hasCertificate": true,
       "price": 200,
       "isPremium": true,
@@ -415,7 +417,9 @@
       "instructorId": 3,
       "views": 195,
       "rating": 0,
-      "participants": [12],
+      "participants": [
+        12
+      ],
       "hasCertificate": true,
       "price": 400,
       "isPremium": true
@@ -519,7 +523,9 @@
       "instructorId": 4,
       "views": 164,
       "rating": 2,
-      "participants": [12],
+      "participants": [
+        12
+      ],
       "hasCertificate": false,
       "price": 550,
       "isPremium": true,
@@ -620,7 +626,10 @@
       "instructorId": 5,
       "views": 68,
       "rating": 0,
-      "participants": [11, 12],
+      "participants": [
+        11,
+        12
+      ],
       "hasCertificate": true,
       "price": 0,
       "isPremium": false,
@@ -825,7 +834,9 @@
       "instructorId": 7,
       "views": 21,
       "rating": 0,
-      "participants": [12],
+      "participants": [
+        12
+      ],
       "hasCertificate": false,
       "price": 500,
       "isPremium": true
@@ -1041,7 +1052,9 @@
       "instructorId": 9,
       "views": 29,
       "rating": 0,
-      "participants": [12],
+      "participants": [
+        12
+      ],
       "hasCertificate": true,
       "price": 0,
       "isPremium": false
@@ -1149,7 +1162,9 @@
       "instructorId": 10,
       "views": 15,
       "rating": 0,
-      "participants": [12],
+      "participants": [
+        12
+      ],
       "hasCertificate": true,
       "price": 300,
       "isPremium": true
@@ -1653,7 +1668,10 @@
       "instructorId": 5,
       "views": 53,
       "rating": 0,
-      "participants": [12, 11],
+      "participants": [
+        12,
+        11
+      ],
       "hasCertificate": true,
       "price": 0,
       "isPremium": false
@@ -1923,6 +1941,89 @@
       "hasCertificate": false,
       "price": 430,
       "isPremium": true
+    },
+    {
+      "curriculum": [
+        {
+          "chapterName": "gfhhg",
+          "topics": [
+            "hghg",
+            "hfghg"
+          ]
+        },
+        {
+          "chapterName": "hghghg",
+          "topics": []
+        }
+      ],
+      "image": "/assets/invision.jpg",
+      "description": "fdsfds",
+      "title": "fsfdfsd",
+      "category": "2",
+      "level": "intermediate",
+      "time": "fssfdfds",
+      "lecture": "fsfdsfds",
+      "premium": "no",
+      "certificate": "yes",
+      "price": "fdfsdfdfd",
+      "id": 19
+    },
+    {
+      "curriculum": [
+        {
+          "chapterName": "gfhghhghg",
+          "topics": [
+            "ghfhhf",
+            "ghhggf"
+          ]
+        },
+        {
+          "chapterName": "gfhghhghg",
+          "topics": [
+            "gffhg",
+            "ghghff"
+          ]
+        }
+      ],
+      "image": "/assets/react.jpg",
+      "description": "fdgfg",
+      "title": "dfg",
+      "category": "2",
+      "level": "intermediate",
+      "time": "dfgfd",
+      "lecture": "gfdgfd",
+      "premium": "yes",
+      "certificate": "no",
+      "price": "fdgdfgdfgfd",
+      "id": 20
+    },
+    {
+      "curriculum": [
+        {
+          "chapterName": "gfdggfgf",
+          "topics": [
+            "ggf",
+            "gdgggdf"
+          ]
+        },
+        {
+          "chapterName": "gfgfgfgdf",
+          "topics": [
+            "gfgfggfd"
+          ]
+        }
+      ],
+      "image": "/assets/react.jpg",
+      "description": "gfgfd",
+      "title": "ggg",
+      "category": "3",
+      "level": "intermediate",
+      "time": "gfgdf",
+      "lecture": "gfdgdf",
+      "premium": "yes",
+      "certificate": "yes",
+      "price": "fdgfdgfd",
+      "id": 21
     }
   ],
   "users": [
@@ -1948,7 +2049,10 @@
         "cardName": "fdhdfhfd"
       },
       "wallet": 400,
-      "purchasedCourses": [15, 5]
+      "purchasedCourses": [
+        15,
+        5
+      ]
     },
     {
       "email": "admin@test.com",
@@ -1969,7 +2073,11 @@
       "lastName": "B",
       "description": "",
       "education": "",
-      "wishlist": [1, 3, 4]
+      "wishlist": [
+        1,
+        3,
+        4
+      ]
     }
   ],
   "reviews": [],

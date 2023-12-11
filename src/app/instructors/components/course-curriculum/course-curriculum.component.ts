@@ -1,3 +1,4 @@
+import { Curriculum } from './../../models/curriculum-interface';
 import { Component } from '@angular/core';
 import { InstructorsService } from '../../services/instructors.service';
 
@@ -11,12 +12,15 @@ export class CourseCurriculumComponent {
   isTopicInputShown: boolean = false;
   chapterName: string = '';
   topicName: string = '';
-  chapters!: { chapterName: string; topics: string[] }[];
+  courseDetails!: any;
+  courseMedia!: string;
+  selectedChapterIndex!: number;
+  curriculum!: Curriculum[];
 
   constructor(private instructorsService: InstructorsService) {}
 
   ngOnInit() {
-    this.chapters = this.instructorsService.chapters;
+    this.curriculum = this.instructorsService.chapters;
   }
 
   addLecture() {
@@ -28,7 +32,8 @@ export class CourseCurriculumComponent {
     this.chapterName = '';
   }
 
-  showTopicInput() {
+  showTopicInput(chapterIndex: number) {
+    this.selectedChapterIndex = chapterIndex;
     this.isTopicInputShown = !this.isTopicInputShown;
   }
 
@@ -36,5 +41,15 @@ export class CourseCurriculumComponent {
     const topicName = this.topicName;
     this.instructorsService.addTopicToChapter(chapterIndex, topicName);
     this.topicName = '';
+  }
+
+  saveCourse() {
+    this.courseDetails = this.instructorsService.courseDetails;
+    this.courseMedia = this.instructorsService.courseMedia;
+    if (this.courseDetails && this.courseMedia && this.curriculum) {
+      this.instructorsService
+        .saveCourse(this.courseDetails, this.courseMedia, this.curriculum)
+        .subscribe();
+    }
   }
 }

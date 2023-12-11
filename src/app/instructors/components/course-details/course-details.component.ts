@@ -37,7 +37,6 @@ export class CourseDetailsComponent {
     const category = this.courseForm.get('category')?.value;
     const level = this.courseForm.get('level')?.value;
     const time = this.courseForm.get('time')?.value;
-    const lecture = this.courseForm.get('lecture')?.value;
     const premium = this.courseForm.get('premium')?.value;
     const certificate = this.courseForm.get('certificate')?.value;
     const price = this.courseForm.get('price')?.value;
@@ -48,7 +47,6 @@ export class CourseDetailsComponent {
       category: category,
       level: level,
       time: time,
-      lecture: lecture,
       premium: premium,
       certificate: certificate,
       price: price,

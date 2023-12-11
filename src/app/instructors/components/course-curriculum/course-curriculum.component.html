@@ -32,8 +32,8 @@
     </div>
 
     <!-- Edit lecture START -->
-    <div *ngIf="chapters">
-      <div *ngFor="let chapter of chapters; let i = index">
+    <div *ngIf="curriculum">
+      <div *ngFor="let chapter of curriculum; let i = index">
         <!-- Display chapters -->
         <div
           class="accordion accordion-icon accordion-bg-light"
@@ -93,13 +93,13 @@
                 <div class="text-end">
                   <button
                     class="btn btn-sm btn-dark my-3"
-                    (click)="showTopicInput()"
+                    (click)="showTopicInput(i)"
                   >
                     Add topic
                   </button>
                 </div>
 
-                <div *ngIf="isTopicInputShown">
+                <div *ngIf="selectedChapterIndex == i && isTopicInputShown">
                   <input
                     class="form-control mb-1"
                     type="text"
@@ -127,7 +127,9 @@
 
     <div class="text-end">
       <button matStepperPrevious class="btn btn-secondary me-2">Back</button>
-      <button type="button" class="btn btn-secondary">Save</button>
+      <button type="button" class="btn btn-secondary" (click)="saveCourse()">
+        Save
+      </button>
     </div>
     <!-- Edit lecture END -->
   </div>

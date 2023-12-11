@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { Instructor } from '../models/instructor-interface';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Course } from 'src/app/courses/models/course.interface';
+import { Curriculum } from '../models/curriculum-interface';
 
 @Injectable({
   providedIn: 'root',
@@ -73,5 +74,29 @@ export class InstructorsService {
 
   addTopicToChapter(chapterIndex: number, topicName: string) {
     this.chapters[chapterIndex].topics.push(topicName);
+  }
+
+  saveCourse(
+    courseDetails: any,
+    courseMedia: string,
+    courseCurriculum: Curriculum[]
+  ): Observable<Course> {
+    console.log(courseCurriculum);
+    const coursesURL = 'http://localhost:3000/courses';
+
+    const body = {
+      curriculum: courseCurriculum,
+      image: courseMedia,
+      description: courseDetails.description,
+      title: courseDetails.title,
+      category: courseDetails.category,
+      level: courseDetails.level,
+      time: courseDetails.time,
+      premium: courseDetails.premium,
+      certificate: courseDetails.certificate,
+      price: courseDetails.price,
+    };
+
+    return this.http.post<Course>(coursesURL, body);
   }
 }
