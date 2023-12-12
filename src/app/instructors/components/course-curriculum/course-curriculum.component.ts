@@ -1,8 +1,6 @@
 import { Curriculum } from './../../models/curriculum-interface';
 import { Component } from '@angular/core';
 import { InstructorsService } from '../../services/instructors.service';
-import { Chapter } from '../../models/chapter-interface';
-
 @Component({
   selector: 'app-course-curriculum',
   templateUrl: './course-curriculum.component.html',

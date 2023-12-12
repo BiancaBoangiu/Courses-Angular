@@ -4,7 +4,6 @@ import { Instructor } from '../models/instructor-interface';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Course } from 'src/app/courses/models/course.interface';
 import { Curriculum } from '../models/curriculum-interface';
-import { Chapter } from '../models/chapter-interface';
 import { Topic } from '../models/topic-interface';
 
 @Injectable({
