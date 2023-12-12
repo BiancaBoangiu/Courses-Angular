@@ -23,7 +23,6 @@ export class CourseDetailsComponent {
       category: ['', Validators.required],
       level: ['', Validators.required],
       time: ['', Validators.required],
-      lecture: ['', Validators.required],
       premium: ['', Validators.required],
       certificate: ['', Validators.required],
       price: ['', Validators.required],
@@ -51,6 +50,8 @@ export class CourseDetailsComponent {
       certificate: certificate,
       price: price,
     };
+
+    console.log(courseDetails);
 
     if (this.courseForm.valid) {
       this.instructorsService.courseDetails = courseDetails;

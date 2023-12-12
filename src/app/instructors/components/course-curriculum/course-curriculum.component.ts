@@ -1,6 +1,7 @@
 import { Curriculum } from './../../models/curriculum-interface';
 import { Component } from '@angular/core';
 import { InstructorsService } from '../../services/instructors.service';
+import { Chapter } from '../../models/chapter-interface';
 
 @Component({
   selector: 'app-course-curriculum',
@@ -10,11 +11,17 @@ import { InstructorsService } from '../../services/instructors.service';
 export class CourseCurriculumComponent {
   isChapterInputShown: boolean = false;
   isTopicInputShown: boolean = false;
+
   chapterName: string = '';
   topicName: string = '';
+
   courseDetails!: any;
   courseMedia!: string;
+
+  chapterIndex: number = 0;
+  topicIndex: number = 0;
   selectedChapterIndex!: number;
+
   curriculum!: Curriculum[];
 
   constructor(private instructorsService: InstructorsService) {}
@@ -28,8 +35,10 @@ export class CourseCurriculumComponent {
   }
 
   saveChapter() {
-    this.instructorsService.addChapter(this.chapterName);
+    this.instructorsService.addChapter(this.chapterName, this.chapterIndex);
+    this.chapterIndex++;
     this.chapterName = '';
+    console.log(this.curriculum);
   }
 
   showTopicInput(chapterIndex: number) {
@@ -39,13 +48,19 @@ export class CourseCurriculumComponent {
 
   saveTopic(chapterIndex: number) {
     const topicName = this.topicName;
-    this.instructorsService.addTopicToChapter(chapterIndex, topicName);
+    this.instructorsService.addTopicToChapter(
+      chapterIndex,
+      topicName,
+      this.topicIndex
+    );
+    this.topicIndex++;
     this.topicName = '';
   }
 
   saveCourse() {
     this.courseDetails = this.instructorsService.courseDetails;
     this.courseMedia = this.instructorsService.courseMedia;
+    console.log(this.courseDetails, this.courseMedia, this.curriculum);
     if (this.courseDetails && this.courseMedia && this.curriculum) {
       this.instructorsService
         .saveCourse(this.courseDetails, this.courseMedia, this.curriculum)

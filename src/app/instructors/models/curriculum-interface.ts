@@ -1,4 +1,7 @@
+import { Topic } from './topic-interface';
+
 export interface Curriculum {
   chapterName: string;
-  topics: string[];
+  topics: Topic[];
+  id: number;
 }

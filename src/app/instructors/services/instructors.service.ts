@@ -4,6 +4,8 @@ import { Instructor } from '../models/instructor-interface';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Course } from 'src/app/courses/models/course.interface';
 import { Curriculum } from '../models/curriculum-interface';
+import { Chapter } from '../models/chapter-interface';
+import { Topic } from '../models/topic-interface';
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +16,7 @@ export class InstructorsService {
   courseDetails!: any;
   courseMedia!: string;
   courseTopics!: any;
-  chapters: { chapterName: string; topics: string[] }[] = [];
+  chapters: Curriculum[] = [];
 
   private instructorsURL = 'http://localhost:3000/instructors';
 
@@ -68,12 +70,15 @@ export class InstructorsService {
     return this.http.get<Instructor[]>(instructorURL);
   }
 
-  addChapter(chapterName: string) {
-    this.chapters.push({ chapterName, topics: [] });
+  addChapter(chapterName: string, id: number) {
+    const chapter: Curriculum = { chapterName, id, topics: [] };
+    this.chapters.push(chapter);
+    console.log(this.chapters);
   }
 
-  addTopicToChapter(chapterIndex: number, topicName: string) {
-    this.chapters[chapterIndex].topics.push(topicName);
+  addTopicToChapter(chapterIndex: number, topicName: string, id: number) {
+    const topic: Topic = { topicName, id };
+    this.chapters[chapterIndex].topics.push(topic);
   }
 
   saveCourse(
@@ -81,7 +86,6 @@ export class InstructorsService {
     courseMedia: string,
     courseCurriculum: Curriculum[]
   ): Observable<Course> {
-    console.log(courseCurriculum);
     const coursesURL = 'http://localhost:3000/courses';
 
     const body = {

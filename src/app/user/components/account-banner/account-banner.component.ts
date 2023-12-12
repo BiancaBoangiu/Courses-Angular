@@ -29,9 +29,7 @@ export class AccountBannerComponent {
       .subscribe((user) => {
         this.user = user as Auth;
         this.usersService.showUserReviews(this.user.id).subscribe((reviews) => {
-          console.log(reviews);
           this.userReviewsNumber = reviews.length;
-          console.log(this.userReviewsNumber);
         });
       });
   }

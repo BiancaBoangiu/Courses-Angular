@@ -2024,6 +2024,66 @@
       "certificate": "yes",
       "price": "fdgfdgfd",
       "id": 21
+    },
+    {
+      "curriculum": [
+        {
+          "chapterName": "ggdf",
+          "id": 0,
+          "topics": [
+            {
+              "topicName": "aaa",
+              "id": 0
+            },
+            {
+              "topicName": "bbb",
+              "id": 1
+            },
+            {
+              "topicName": "cccc",
+              "id": 2
+            }
+          ]
+        },
+        {
+          "chapterName": "hjhjgh",
+          "id": 1,
+          "topics": [
+            {
+              "topicName": "yyy",
+              "id": 3
+            },
+            {
+              "topicName": "zzzzz",
+              "id": 4
+            }
+          ]
+        },
+        {
+          "chapterName": "cvxcvxxcvxz",
+          "id": 2,
+          "topics": [
+            {
+              "topicName": "uyyuyu",
+              "id": 5
+            },
+            {
+              "topicName": "gfhgf",
+              "id": 6
+            }
+          ]
+        }
+      ],
+      "image": "/assets/design.jpg",
+      "description": "ggdgfd",
+      "title": "gdgf",
+      "category": "3",
+      "level": "intermediate",
+      "time": 1212132,
+      "premium": "yes",
+      "certificate": "no",
+      "price": 12132312,
+      "id": 22
     }
   ],
   "users": [
