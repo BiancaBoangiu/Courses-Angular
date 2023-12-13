@@ -1,6 +1,6 @@
 import { Topic } from './topic-interface';
 
-export interface Curriculum {
+export interface Chapter {
   chapterName: string;
   topics: Topic[];
   id: number;

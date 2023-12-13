@@ -1,4 +1,4 @@
-import { Curriculum } from './../../models/curriculum-interface';
+import { Chapter } from '../../models/chapter-interface';
 import { Component } from '@angular/core';
 import { InstructorsService } from '../../services/instructors.service';
 @Component({
@@ -9,6 +9,7 @@ import { InstructorsService } from '../../services/instructors.service';
 export class CourseCurriculumComponent {
   isChapterInputShown: boolean = false;
   isTopicInputShown: boolean = false;
+  isTopicEdited: boolean = false;
 
   chapterName: string = '';
   topicName: string = '';
@@ -18,9 +19,10 @@ export class CourseCurriculumComponent {
 
   chapterIndex: number = 0;
   topicIndex: number = 0;
+  newTopicIndex!: number;
   selectedChapterIndex!: number;
 
-  curriculum!: Curriculum[];
+  curriculum!: Chapter[];
 
   constructor(private instructorsService: InstructorsService) {}
 
@@ -36,7 +38,6 @@ export class CourseCurriculumComponent {
     this.instructorsService.addChapter(this.chapterName, this.chapterIndex);
     this.chapterIndex++;
     this.chapterName = '';
-    console.log(this.curriculum);
   }
 
   showTopicInput(chapterIndex: number) {
@@ -46,23 +47,43 @@ export class CourseCurriculumComponent {
 
   saveTopic(chapterIndex: number) {
     const topicName = this.topicName;
-    this.instructorsService.addTopicToChapter(
-      chapterIndex,
-      topicName,
-      this.topicIndex
-    );
-    this.topicIndex++;
-    this.topicName = '';
+    if (this.isTopicEdited == true) {
+      this.curriculum[chapterIndex].topics[this.newTopicIndex].topicName =
+        topicName;
+      this.topicName = '';
+      this.isTopicEdited = false;
+    } else {
+      this.instructorsService.addTopicToChapter(
+        chapterIndex,
+        topicName,
+        this.topicIndex
+      );
+      this.topicIndex++;
+      this.topicName = '';
+    }
   }
 
   saveCourse() {
     this.courseDetails = this.instructorsService.courseDetails;
     this.courseMedia = this.instructorsService.courseMedia;
-    console.log(this.courseDetails, this.courseMedia, this.curriculum);
     if (this.courseDetails && this.courseMedia && this.curriculum) {
       this.instructorsService
         .saveCourse(this.courseDetails, this.courseMedia, this.curriculum)
         .subscribe();
     }
+  }
+
+  deleteTopic(chapterIndex: number, topicIndex: number) {
+    if (this.curriculum[chapterIndex].topics) {
+      this.curriculum[chapterIndex].topics.splice(topicIndex, 1);
+      console.log(this.curriculum);
+    }
+  }
+
+  editTopic(topicName: string, topicIndex: number) {
+    this.isTopicInputShown = true;
+    this.isTopicEdited = true;
+    this.topicName = topicName;
+    this.newTopicIndex = topicIndex;
   }
 }
