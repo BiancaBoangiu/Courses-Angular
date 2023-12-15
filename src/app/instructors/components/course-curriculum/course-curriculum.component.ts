@@ -10,6 +10,7 @@ export class CourseCurriculumComponent {
   isChapterInputShown: boolean = false;
   isTopicInputShown: boolean = false;
   isTopicEdited: boolean = false;
+  isEditTopicInputShown: boolean = false;
 
   chapterName: string = '';
   topicName: string = '';
@@ -37,6 +38,7 @@ export class CourseCurriculumComponent {
   saveChapter() {
     this.instructorsService.addChapter(this.chapterName, this.chapterIndex);
     this.chapterIndex++;
+    this.isChapterInputShown = false;
     this.chapterName = '';
   }
 
@@ -47,20 +49,15 @@ export class CourseCurriculumComponent {
 
   saveTopic(chapterIndex: number) {
     const topicName = this.topicName;
-    if (this.isTopicEdited == true) {
-      this.curriculum[chapterIndex].topics[this.newTopicIndex].topicName =
-        topicName;
-      this.topicName = '';
-      this.isTopicEdited = false;
-    } else {
-      this.instructorsService.addTopicToChapter(
-        chapterIndex,
-        topicName,
-        this.topicIndex
-      );
-      this.topicIndex++;
-      this.topicName = '';
-    }
+
+    this.instructorsService.addTopicToChapter(
+      chapterIndex,
+      topicName,
+      this.topicIndex
+    );
+    this.topicIndex++;
+    this.topicName = '';
+    this.isTopicInputShown = false;
   }
 
   saveCourse() {
@@ -81,7 +78,7 @@ export class CourseCurriculumComponent {
   }
 
   editTopic(topicName: string, topicIndex: number) {
-    this.isTopicInputShown = true;
+    this.isEditTopicInputShown = true;
     this.isTopicEdited = true;
     this.topicName = topicName;
     this.newTopicIndex = topicIndex;

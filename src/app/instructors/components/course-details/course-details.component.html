@@ -1,4 +1,4 @@
-<section class="px-3 py-2">
+<div class="card px-3 py-2">
   <form [formGroup]="courseForm" (ngSubmit)="saveCourseDetails()">
     <!-- Title -->
     <h2 class="mb-3">Course details</h2>
@@ -65,6 +65,7 @@
           aria-label="Default select example"
           formControlName="category"
         >
+          <option value="">Choose category</option>
           <option value="1">Programming and Software Development</option>
           <option value="2">Web Development</option>
           <option value="3">Mobile App Development</option>
@@ -99,6 +100,7 @@
           aria-label="Default select example"
           formControlName="level"
         >
+          <option value="">Choose level</option>
           <option value="beginner">Beginner</option>
           <option value="intermediate">Intermediate</option>
           <option value="advanced">Advanced</option>
@@ -155,6 +157,7 @@
           aria-label="Default select example"
           formControlName="premium"
         >
+          <option value="">Choose option</option>
           <option value="yes">Yes</option>
           <option value="no">No</option>
         </select>
@@ -183,6 +186,7 @@
           aria-label="Default select example"
           formControlName="certificate"
         >
+          <option value="">Choose option</option>
           <option value="yes">Yes</option>
           <option value="no">No</option>
         </select>
@@ -232,9 +236,14 @@
       </div>
     </div>
     <div class="text-end">
-      <button class="btn btn-secondary" (click)="saveCourseDetails()">
+      <button
+        class="btn btn-primary mt-2"
+        matStepperNext
+        (click)="saveCourseDetails()"
+        [disabled]="courseForm.invalid"
+      >
         Next
       </button>
     </div>
   </form>
-</section>
+</div>

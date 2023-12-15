@@ -51,11 +51,9 @@ export class CourseDetailsComponent {
       price: price,
     };
 
-    console.log(courseDetails);
-
     if (this.courseForm.valid) {
       this.instructorsService.courseDetails = courseDetails;
-      this.stepper.next();
+      // this.stepper.next();
     } else {
       return;
     }

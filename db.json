@@ -2084,6 +2084,56 @@
       "certificate": "no",
       "price": 12132312,
       "id": 22
+    },
+    {
+      "curriculum": [
+        {
+          "chapterName": "ertertretretre",
+          "id": 0,
+          "topics": [
+            {
+              "topicName": "drgdfgfdgd",
+              "id": 0
+            },
+            {
+              "topicName": "fdgdfgfdg",
+              "id": 1
+            },
+            {
+              "topicName": "fdgdfgdfgdf",
+              "id": 2
+            }
+          ]
+        },
+        {
+          "chapterName": "dfhgdfgdfgdfgfd",
+          "id": 1,
+          "topics": [
+            {
+              "topicName": "ghfghfghfg",
+              "id": 3
+            },
+            {
+              "topicName": "ghgfhfgh",
+              "id": 4
+            },
+            {
+              "topicName": "gfhgfhfg",
+              "id": 5
+            }
+          ]
+        }
+      ],
+      "image": "/assets/figma.jpg",
+      "description": "ggdfgfd",
+      "title": "dfgdfgfd",
+      "category": "3",
+      "level": "intermediate",
+      "time": 32423432,
+      "premium": "yes",
+      "certificate": "yes",
+      "price": 312324324,
+      "id": 23
     }
   ],
   "users": [

@@ -1,23 +1,30 @@
-<div class="p-4">
-  <!-- Title -->
-  <h2>Course media</h2>
+<div class="card">
+  <div class="p-4">
+    <!-- Title -->
+    <h2>Course media</h2>
 
-  <p class="fw-bold">Select an image</p>
-  <div class="row d-flex justify-content-center px-3">
-    <div *ngFor="let image of imageList" class="col-2 mb-2 pe-1">
-      <img
-        class="media-photo"
-        [src]="image"
-        (click)="onImageClick(image)"
-        [class.border]="selectedImage === image"
-        [class.border-3]="selectedImage === image"
-      />
+    <p class="fw-bold">Select an image</p>
+    <div class="row d-flex justify-content-center px-3">
+      <div *ngFor="let image of imageList" class="col-2 mb-2 pe-1">
+        <img
+          class="media-photo"
+          [src]="image"
+          (click)="onImageClick(image)"
+          [class.highlight]="selectedImage === image"
+        />
+      </div>
     </div>
-  </div>
-  <div class="text-end">
-    <button class="btn btn-secondary me-2" matStepperPrevious>Back</button>
-    <button class="btn btn-secondary" matStepperNext>Next</button>
-  </div>
+    <div class="d-flex justify-content-between">
+      <button class="btn btn-primary me-2" matStepperPrevious>Back</button>
+      <button
+        class="btn btn-primary"
+        matStepperNext
+        [disabled]="!selectedImage"
+      >
+        Next
+      </button>
+    </div>
 
-  <!-- Divider -->
+    <!-- Divider -->
+  </div>
 </div>

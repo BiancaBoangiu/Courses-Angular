@@ -1,18 +1,20 @@
-<mat-stepper [linear]="isLinear" #stepper>
-  <mat-step>
-    <form [formGroup]="firstFormGroup">
-      <ng-template matStepLabel>Fill course details</ng-template>
+<div class="container my-5">
+  <mat-stepper [linear]="isLinear" #stepper class="mb-3">
+    <mat-step>
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>Fill course details</ng-template>
 
-      <app-course-details [formGroup]="firstFormGroup"></app-course-details>
-    </form>
-  </mat-step>
-  <mat-step label="Choose media image">
-    <form [formGroup]="secondFormGroup">
-      <app-course-media></app-course-media>
-    </form>
-  </mat-step>
-  <mat-step>
-    <ng-template matStepLabel>Done</ng-template>
-    <app-course-curriculum></app-course-curriculum>
-  </mat-step>
-</mat-stepper>
+        <app-course-details [formGroup]="firstFormGroup"></app-course-details>
+      </form>
+    </mat-step>
+    <mat-step label="Choose media image">
+      <form [formGroup]="secondFormGroup">
+        <app-course-media></app-course-media>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Curriculum</ng-template>
+      <app-course-curriculum></app-course-curriculum>
+    </mat-step>
+  </mat-stepper>
+</div>
