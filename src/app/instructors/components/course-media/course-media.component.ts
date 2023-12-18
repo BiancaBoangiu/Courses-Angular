@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { InstructorsService } from '../../services/instructors.service';
+import { CreateCourseService } from '../../services/create-course.service';
 
 @Component({
   selector: 'app-course-media',
@@ -9,7 +9,7 @@ import { InstructorsService } from '../../services/instructors.service';
 export class CourseMediaComponent {
   selectedImage!: string;
 
-  constructor(private instructorsService: InstructorsService) {}
+  constructor(private createCourseService: CreateCourseService) {}
 
   imageList = [
     '/assets/css.jpg',
@@ -24,6 +24,6 @@ export class CourseMediaComponent {
 
   onImageClick(image: string) {
     this.selectedImage = image;
-    this.instructorsService.courseMedia = image;
+    this.createCourseService.courseMedia = image;
   }
 }
