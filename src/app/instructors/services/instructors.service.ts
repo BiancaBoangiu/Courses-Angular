@@ -3,8 +3,6 @@ import { Observable } from 'rxjs';
 import { Instructor } from '../models/instructor-interface';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Course } from 'src/app/courses/models/course.interface';
-import { Chapter } from '../models/chapter-interface';
-import { Topic } from '../models/topic-interface';
 
 @Injectable({
   providedIn: 'root',
@@ -12,10 +10,6 @@ import { Topic } from '../models/topic-interface';
 export class InstructorsService {
   instructorEmail!: string;
   instructorPassword!: string;
-  courseDetails!: any;
-  courseMedia!: string;
-  courseTopics!: any;
-  chapters: Chapter[] = [];
 
   private instructorsURL = 'http://localhost:3000/instructors';
 
@@ -67,38 +61,5 @@ export class InstructorsService {
   verifyUser(loginEmail: string): Observable<Instructor[]> {
     const instructorURL = `http://localhost:3000/instructors?email=${loginEmail}`;
     return this.http.get<Instructor[]>(instructorURL);
-  }
-
-  addChapter(chapterName: string, id: number) {
-    const chapter: Chapter = { chapterName, id, topics: [] };
-    this.chapters.push(chapter);
-  }
-
-  addTopicToChapter(chapterIndex: number, topicName: string, id: number) {
-    const topic: Topic = { topicName, id };
-    this.chapters[chapterIndex].topics.push(topic);
-  }
-
-  saveCourse(
-    courseDetails: any,
-    courseMedia: string,
-    courseCurriculum: Chapter[]
-  ): Observable<Course> {
-    const coursesURL = 'http://localhost:3000/courses';
-
-    const body = {
-      curriculum: courseCurriculum,
-      image: courseMedia,
-      description: courseDetails.description,
-      title: courseDetails.title,
-      category: courseDetails.category,
-      level: courseDetails.level,
-      time: courseDetails.time,
-      premium: courseDetails.premium,
-      certificate: courseDetails.certificate,
-      price: courseDetails.price,
-    };
-
-    return this.http.post<Course>(coursesURL, body);
   }
 }

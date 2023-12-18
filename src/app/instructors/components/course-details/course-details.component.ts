@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { InstructorsService } from '../../services/instructors.service';
-import { MatStepper } from '@angular/material/stepper';
+import { CreateCourseService } from '../../services/create-course.service';
 
 @Component({
   selector: 'app-course-details',
@@ -14,8 +13,7 @@ export class CourseDetailsComponent {
 
   constructor(
     private fb: FormBuilder,
-    private instructorsService: InstructorsService,
-    private stepper: MatStepper
+    private createCouseService: CreateCourseService
   ) {
     this.courseForm = this.fb.group({
       title: ['', Validators.required],
@@ -52,8 +50,7 @@ export class CourseDetailsComponent {
     };
 
     if (this.courseForm.valid) {
-      this.instructorsService.courseDetails = courseDetails;
-      // this.stepper.next();
+      this.createCouseService.courseDetails = courseDetails;
     } else {
       return;
     }

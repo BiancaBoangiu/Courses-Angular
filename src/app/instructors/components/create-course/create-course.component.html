@@ -1,13 +1,17 @@
 <div class="container my-5">
   <mat-stepper [linear]="isLinear" #stepper class="mb-3">
-    <mat-step>
+    <mat-step [completed]="firstFormGroup.valid">
       <form [formGroup]="firstFormGroup">
         <ng-template matStepLabel>Fill course details</ng-template>
 
         <app-course-details [formGroup]="firstFormGroup"></app-course-details>
       </form>
     </mat-step>
-    <mat-step label="Choose media image">
+    <mat-step
+      label="Choose media image"
+      [completed]="secondFormGroup.valid"
+      [attr.disabled]="!firstFormGroup.valid"
+    >
       <form [formGroup]="secondFormGroup">
         <app-course-media></app-course-media>
       </form>

@@ -1,6 +1,7 @@
 import { Chapter } from '../../models/chapter-interface';
 import { Component } from '@angular/core';
 import { InstructorsService } from '../../services/instructors.service';
+import { CreateCourseService } from '../../services/create-course.service';
 @Component({
   selector: 'app-course-curriculum',
   templateUrl: './course-curriculum.component.html',
@@ -9,11 +10,11 @@ import { InstructorsService } from '../../services/instructors.service';
 export class CourseCurriculumComponent {
   isChapterInputShown: boolean = false;
   isTopicInputShown: boolean = false;
-  isTopicEdited: boolean = false;
   isEditTopicInputShown: boolean = false;
 
   chapterName: string = '';
   topicName: string = '';
+  editedTopicName!: string;
 
   courseDetails!: any;
   courseMedia!: string;
@@ -22,13 +23,14 @@ export class CourseCurriculumComponent {
   topicIndex: number = 0;
   newTopicIndex!: number;
   selectedChapterIndex!: number;
+  selectedTopicIndex!: number;
 
   curriculum!: Chapter[];
 
-  constructor(private instructorsService: InstructorsService) {}
+  constructor(private createCourseService: CreateCourseService) {}
 
   ngOnInit() {
-    this.curriculum = this.instructorsService.chapters;
+    this.curriculum = this.createCourseService.chapters;
   }
 
   addLecture() {
@@ -36,7 +38,7 @@ export class CourseCurriculumComponent {
   }
 
   saveChapter() {
-    this.instructorsService.addChapter(this.chapterName, this.chapterIndex);
+    this.createCourseService.addChapter(this.chapterName, this.chapterIndex);
     this.chapterIndex++;
     this.isChapterInputShown = false;
     this.chapterName = '';
@@ -50,7 +52,7 @@ export class CourseCurriculumComponent {
   saveTopic(chapterIndex: number) {
     const topicName = this.topicName;
 
-    this.instructorsService.addTopicToChapter(
+    this.createCourseService.addTopicToChapter(
       chapterIndex,
       topicName,
       this.topicIndex
@@ -61,10 +63,10 @@ export class CourseCurriculumComponent {
   }
 
   saveCourse() {
-    this.courseDetails = this.instructorsService.courseDetails;
-    this.courseMedia = this.instructorsService.courseMedia;
+    this.courseDetails = this.createCourseService.courseDetails;
+    this.courseMedia = this.createCourseService.courseMedia;
     if (this.courseDetails && this.courseMedia && this.curriculum) {
-      this.instructorsService
+      this.createCourseService
         .saveCourse(this.courseDetails, this.courseMedia, this.curriculum)
         .subscribe();
     }
@@ -79,8 +81,21 @@ export class CourseCurriculumComponent {
 
   editTopic(topicName: string, topicIndex: number) {
     this.isEditTopicInputShown = true;
-    this.isTopicEdited = true;
-    this.topicName = topicName;
+    this.selectedTopicIndex = topicIndex;
+    this.editedTopicName = topicName;
     this.newTopicIndex = topicIndex;
+  }
+
+  saveEditedTopic(chapterIndex: number, topicIndex: number) {
+    const topicName = this.editedTopicName;
+    this.curriculum[chapterIndex].topics[topicIndex].topicName = topicName;
+
+    // this.createCourseService.addTopicToChapter(
+    //   chapterIndex,
+    //   topicName,
+    //   this.topicIndex
+    // );
+    this.editedTopicName = '';
+    this.isEditTopicInputShown = false;
   }
 }
