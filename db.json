@@ -145,7 +145,7 @@
         }
       ],
       "instructorId": 1,
-      "views": 1162,
+      "views": 1171,
       "rating": null,
       "participants": [],
       "hasCertificate": true,
@@ -161,7 +161,7 @@
       "categoryId": 2,
       "experience": "Intermediate",
       "instructorId": 2,
-      "views": 409,
+      "views": 410,
       "rating": 3,
       "participants": [
         12
@@ -1378,7 +1378,7 @@
         }
       ],
       "instructorId": 2,
-      "views": 16,
+      "views": 17,
       "rating": 0,
       "participants": [],
       "hasCertificate": true,
@@ -1576,7 +1576,7 @@
         }
       ],
       "instructorId": 4,
-      "views": 3,
+      "views": 4,
       "rating": 0,
       "participants": [],
       "hasCertificate": false,
@@ -1755,7 +1755,7 @@
         }
       ],
       "instructorId": 6,
-      "views": 1,
+      "views": 2,
       "rating": 0,
       "participants": [],
       "hasCertificate": false,
@@ -1945,61 +1945,6 @@
     {
       "curriculum": [
         {
-          "chapterName": "gfhhg",
-          "topics": [
-            "hghg",
-            "hfghg"
-          ]
-        },
-        {
-          "chapterName": "hghghg",
-          "topics": []
-        }
-      ],
-      "image": "/assets/invision.jpg",
-      "description": "fdsfds",
-      "title": "fsfdfsd",
-      "category": "2",
-      "level": "intermediate",
-      "time": "fssfdfds",
-      "lecture": "fsfdsfds",
-      "premium": "no",
-      "certificate": "yes",
-      "price": "fdfsdfdfd",
-      "id": 19
-    },
-    {
-      "curriculum": [
-        {
-          "chapterName": "gfhghhghg",
-          "topics": [
-            "ghfhhf",
-            "ghhggf"
-          ]
-        },
-        {
-          "chapterName": "gfhghhghg",
-          "topics": [
-            "gffhg",
-            "ghghff"
-          ]
-        }
-      ],
-      "image": "/assets/react.jpg",
-      "description": "fdgfg",
-      "title": "dfg",
-      "category": "2",
-      "level": "intermediate",
-      "time": "dfgfd",
-      "lecture": "gfdgfd",
-      "premium": "yes",
-      "certificate": "no",
-      "price": "fdgdfgdfgfd",
-      "id": 20
-    },
-    {
-      "curriculum": [
-        {
           "chapterName": "gfdggfgf",
           "topics": [
             "ggf",
@@ -2015,9 +1960,9 @@
       ],
       "image": "/assets/react.jpg",
       "description": "gfgfd",
-      "title": "ggg",
+      "name": "ggg",
       "category": "3",
-      "level": "intermediate",
+      "experience": "intermediate",
       "time": "gfgdf",
       "lecture": "gfdgdf",
       "premium": "yes",
@@ -2076,9 +2021,9 @@
       ],
       "image": "/assets/design.jpg",
       "description": "ggdgfd",
-      "title": "gdgf",
+      "name": "gdgf",
       "category": "3",
-      "level": "intermediate",
+      "experience": "intermediate",
       "time": 1212132,
       "premium": "yes",
       "certificate": "no",
@@ -2126,14 +2071,52 @@
       ],
       "image": "/assets/figma.jpg",
       "description": "ggdfgfd",
-      "title": "dfgdfgfd",
+      "name": "dfgdfgfd",
       "category": "3",
-      "level": "intermediate",
+      "experience": "intermediate",
       "time": 32423432,
       "premium": "yes",
       "certificate": "yes",
       "price": 312324324,
       "id": 23
+    },
+    {
+      "curriculum": [
+        {
+          "chapterName": "fdgdfgdfgdf",
+          "id": 0,
+          "topics": [
+            {
+              "topicName": "232423432432",
+              "id": 0
+            },
+            {
+              "topicName": "dfgdfgfdgfdgd",
+              "id": 1
+            }
+          ]
+        },
+        {
+          "chapterName": "fdgdfgdfgdfg",
+          "id": 1,
+          "topics": [
+            {
+              "topicName": "fdgdfgdfgfd",
+              "id": 2
+            }
+          ]
+        }
+      ],
+      "image": "/assets/figma.jpg",
+      "description": "gfhgfhgf",
+      "name": "gfhgfhfg",
+      "category": "3",
+      "experience": "intermediate",
+      "time": 324,
+      "premium": "yes",
+      "certificate": "yes",
+      "price": 324,
+      "id": 24
     }
   ],
   "users": [

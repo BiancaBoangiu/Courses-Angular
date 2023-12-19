@@ -1,7 +1,9 @@
 import { Chapter } from '../../models/chapter-interface';
 import { Component } from '@angular/core';
-import { InstructorsService } from '../../services/instructors.service';
 import { CreateCourseService } from '../../services/create-course.service';
+import { courseDetails } from '../../models/course-details-interface';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-course-curriculum',
   templateUrl: './course-curriculum.component.html',
@@ -16,7 +18,7 @@ export class CourseCurriculumComponent {
   topicName: string = '';
   editedTopicName!: string;
 
-  courseDetails!: any;
+  courseDetails!: courseDetails;
   courseMedia!: string;
 
   chapterIndex: number = 0;
@@ -27,7 +29,10 @@ export class CourseCurriculumComponent {
 
   curriculum!: Chapter[];
 
-  constructor(private createCourseService: CreateCourseService) {}
+  constructor(
+    private createCourseService: CreateCourseService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.curriculum = this.createCourseService.chapters;
@@ -63,19 +68,21 @@ export class CourseCurriculumComponent {
   }
 
   saveCourse() {
-    this.courseDetails = this.createCourseService.courseDetails;
-    this.courseMedia = this.createCourseService.courseMedia;
+    this.courseDetails = this.createCourseService.getCourseDetails();
+    this.courseMedia = this.createCourseService.getCourseMedia();
     if (this.courseDetails && this.courseMedia && this.curriculum) {
       this.createCourseService
         .saveCourse(this.courseDetails, this.courseMedia, this.curriculum)
-        .subscribe();
+        .subscribe(() => {
+          this.router.navigate(['/cart/order-placed']);
+        });
     }
   }
 
   deleteTopic(chapterIndex: number, topicIndex: number) {
     if (this.curriculum[chapterIndex].topics) {
       this.curriculum[chapterIndex].topics.splice(topicIndex, 1);
-      console.log(this.curriculum);
+      this.createCourseService.courseCurriculum$.next(this.curriculum);
     }
   }
 
@@ -89,12 +96,8 @@ export class CourseCurriculumComponent {
   saveEditedTopic(chapterIndex: number, topicIndex: number) {
     const topicName = this.editedTopicName;
     this.curriculum[chapterIndex].topics[topicIndex].topicName = topicName;
+    this.createCourseService.courseCurriculum$.next(this.curriculum);
 
-    // this.createCourseService.addTopicToChapter(
-    //   chapterIndex,
-    //   topicName,
-    //   this.topicIndex
-    // );
     this.editedTopicName = '';
     this.isEditTopicInputShown = false;
   }

@@ -29,20 +29,20 @@ export class CourseDetailsComponent {
 
   saveCourseDetails() {
     this.formSubmitted = true;
-    const title = this.courseForm.get('title')?.value;
-    const description = this.courseForm.get('description')?.value;
-    const category = this.courseForm.get('category')?.value;
-    const level = this.courseForm.get('level')?.value;
-    const time = this.courseForm.get('time')?.value;
-    const premium = this.courseForm.get('premium')?.value;
-    const certificate = this.courseForm.get('certificate')?.value;
-    const price = this.courseForm.get('price')?.value;
+    const title: string = this.courseForm.get('title')?.value;
+    const description: string = this.courseForm.get('description')?.value;
+    const category: string = this.courseForm.get('category')?.value;
+    const level: string = this.courseForm.get('level')?.value;
+    const time: number = this.courseForm.get('time')?.value;
+    const premium: string = this.courseForm.get('premium')?.value;
+    const certificate: string = this.courseForm.get('certificate')?.value;
+    const price: number = this.courseForm.get('price')?.value;
 
     const courseDetails = {
-      title: title,
+      name: title,
       description: description,
       category: category,
-      level: level,
+      experience: level,
       time: time,
       premium: premium,
       certificate: certificate,
@@ -50,7 +50,7 @@ export class CourseDetailsComponent {
     };
 
     if (this.courseForm.valid) {
-      this.createCouseService.courseDetails = courseDetails;
+      this.createCouseService.courseDetails$.next(courseDetails);
     } else {
       return;
     }

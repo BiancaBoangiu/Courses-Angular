@@ -24,6 +24,6 @@ export class CourseMediaComponent {
 
   onImageClick(image: string) {
     this.selectedImage = image;
-    this.createCourseService.courseMedia = image;
+    this.createCourseService.courseMedia$.next(image);
   }
 }
