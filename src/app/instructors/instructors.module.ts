@@ -16,10 +16,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatButtonModule } from '@angular/material/button';
 import { CourseSavedComponent } from './components/course-saved/course-saved.component';
-import { ChapterComponent } from './components/chapter/chapter.component';
-import { TopicComponent } from './components/topic/topic.component';
-import { CourseTopicComponent } from './components/course-topic/course-topic.component';
 import { CourseChapterComponent } from './components/course-chapter/course-chapter.component';
+import { CourseTopicComponent } from './components/course-topic/course-topic.component';
 
 @NgModule({
   declarations: [
@@ -32,10 +30,8 @@ import { CourseChapterComponent } from './components/course-chapter/course-chapt
     CourseMediaComponent,
     CourseCurriculumComponent,
     CourseSavedComponent,
-    ChapterComponent,
-    TopicComponent,
-    CourseTopicComponent,
     CourseChapterComponent,
+    CourseTopicComponent,
   ],
   imports: [
     CommonModule,

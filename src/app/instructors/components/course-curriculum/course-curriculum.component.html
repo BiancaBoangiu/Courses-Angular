@@ -21,8 +21,26 @@
           <!-- Display chapters -->
           <app-course-chapter
             [chapter]="chapter"
-            [index]="i"
+            [i]="i"
+            [chapterName]="chapterName"
           ></app-course-chapter>
+        </div>
+      </div>
+      <div *ngIf="isChapterInputShown">
+        <input
+          class="form-control mb-1"
+          type="text"
+          placeholder="Enter chapter name"
+          [(ngModel)]="chapterName"
+        />
+        <div class="text-end">
+          <button
+            type="button"
+            class="btn btn-primary-soft"
+            (click)="saveChapter()"
+          >
+            Save
+          </button>
         </div>
       </div>
 
