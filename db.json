@@ -2117,6 +2117,86 @@
       "certificate": "yes",
       "price": 324,
       "id": 24
+    },
+    {
+      "curriculum": [
+        {
+          "chapterName": "dfgdfgfd",
+          "id": 0,
+          "topics": [
+            {
+              "topicName": "gfhgfhfghgf",
+              "id": 1
+            },
+            {
+              "topicName": "gjghjgh",
+              "id": 2
+            }
+          ]
+        },
+        {
+          "chapterName": "43534534534534",
+          "id": 1,
+          "topics": [
+            {
+              "topicName": "5645",
+              "id": 0
+            },
+            {
+              "topicName": "54645654",
+              "id": 1
+            }
+          ]
+        }
+      ],
+      "image": "/assets/html.jpg",
+      "description": "34324",
+      "name": "23423",
+      "category": "2",
+      "experience": "intermediate",
+      "time": 23423432,
+      "premium": "yes",
+      "certificate": "yes",
+      "price": 32423432,
+      "id": 25
+    },
+    {
+      "curriculum": [
+        {
+          "chapterName": "fdgdfgfd",
+          "id": 0,
+          "topics": [
+            {
+              "topicName": "hgfhgfhgf",
+              "id": 0
+            }
+          ]
+        },
+        {
+          "chapterName": "fdhghfghfg",
+          "id": 1,
+          "topics": [
+            {
+              "topicName": "gfhgfhgf",
+              "id": 0
+            },
+            {
+              "topicName": "ghfghgf",
+              "id": 1
+            }
+          ]
+        }
+      ],
+      "image": "/assets/figma.jpg",
+      "description": "dsffsdfds",
+      "name": "dffds",
+      "category": "3",
+      "experience": "intermediate",
+      "time": 3132,
+      "premium": "yes",
+      "certificate": "yes",
+      "price": 21312,
+      "id": 26
     }
   ],
   "users": [

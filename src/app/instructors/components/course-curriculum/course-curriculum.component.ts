@@ -44,7 +44,7 @@ export class CourseCurriculumComponent {
       this.createCourseService
         .saveCourse(this.courseDetails, this.courseMedia, this.curriculum)
         .subscribe(() => {
-          this.router.navigate(['/cart/order-placed']);
+          this.router.navigate(['/instructors/course-saved']);
         });
     }
   }
