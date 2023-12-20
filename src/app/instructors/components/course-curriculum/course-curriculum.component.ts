@@ -15,6 +15,7 @@ export class CourseCurriculumComponent {
   courseMedia!: string;
   isChapterInputShown: boolean = false;
   chapterName: string = '';
+  chapterIndex: number = 0;
 
   constructor(
     private createCourseService: CreateCourseService,
@@ -25,9 +26,17 @@ export class CourseCurriculumComponent {
     this.curriculum = this.createCourseService.chapters;
   }
 
-  addLecture() {
+  showChapterInput() {
     this.isChapterInputShown = !this.isChapterInputShown;
   }
+
+  saveChapter() {
+    this.createCourseService.addChapter(this.chapterName, this.chapterIndex);
+    this.chapterIndex++;
+    this.isChapterInputShown = false;
+    this.chapterName = '';
+  }
+
   saveCourse() {
     this.courseDetails = this.createCourseService.getCourseDetails();
     this.courseMedia = this.createCourseService.getCourseMedia();

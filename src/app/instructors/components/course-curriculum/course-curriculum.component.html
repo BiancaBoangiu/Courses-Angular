@@ -10,7 +10,7 @@
       <!-- Add lecture Modal button -->
       <div class="d-sm-flex justify-content-sm-between align-items-center mb-3">
         <h3 class="mb-2 mb-sm-0">Add Chapter</h3>
-        <a class="btn btn-primary-soft mb-0" (click)="addLecture()"
+        <a class="btn btn-primary-soft mb-0" (click)="showChapterInput()"
           ><i class="bi bi-plus-circle me-2"></i>Add Chapter</a
         >
       </div>
@@ -19,13 +19,10 @@
       <div *ngIf="curriculum">
         <div *ngFor="let chapter of curriculum; let i = index">
           <!-- Display chapters -->
-          <app-course-chapter
-            [chapter]="chapter"
-            [i]="i"
-            [chapterName]="chapterName"
-          ></app-course-chapter>
+          <app-course-chapter [chapter]="chapter" [i]="i"></app-course-chapter>
         </div>
       </div>
+
       <div *ngIf="isChapterInputShown">
         <input
           class="form-control mb-1"
