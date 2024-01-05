@@ -23,7 +23,11 @@ export class CourseCurriculumComponent {
   ) {}
 
   ngOnInit() {
-    this.curriculum = this.createCourseService.chapters;
+    this.createCourseService.courseCurriculum$.subscribe((curriculum) => {
+      if (curriculum) {
+        this.curriculum = curriculum;
+      }
+    });
   }
 
   showChapterInput() {

@@ -19,7 +19,10 @@
       <div *ngIf="curriculum">
         <div *ngFor="let chapter of curriculum; let i = index">
           <!-- Display chapters -->
-          <app-course-chapter [chapter]="chapter" [i]="i"></app-course-chapter>
+          <app-course-chapter
+            [chapter]="chapter"
+            [chapterIndex]="i"
+          ></app-course-chapter>
         </div>
       </div>
 

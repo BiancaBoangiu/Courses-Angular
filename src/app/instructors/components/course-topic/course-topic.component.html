@@ -4,20 +4,22 @@
       ><i class="fa-solid fa-play"></i
     ></span>
     <span
-      *ngIf="!isEditTopicInputShown || selectedTopicIndex !== j"
+      *ngIf="!isEditTopicInputShown || selectedTopicIndex !== topicIndex"
       class="ms-2 mb-0 h6 fw-light"
     >
       {{ topic.topicName }}
     </span>
 
-    <span *ngIf="selectedTopicIndex == j && isEditTopicInputShown">
+    <span *ngIf="selectedTopicIndex == topicIndex && isEditTopicInputShown">
       <input
         class="form-control mb-1 edit-topic"
         type="text"
         placeholder="Enter topic name"
         [(ngModel)]="editedTopicName"
       />
-      <a class="btn btn-primary-soft mb-0 ms-2" (click)="saveEditedTopic(i, j)"
+      <a
+        class="btn btn-primary-soft mb-0 ms-2"
+        (click)="saveEditedTopic(topicIndex)"
         ><i class="bi bi-plus-circle me-2"></i>Save</a
       >
     </span>
@@ -26,12 +28,12 @@
   <div>
     <a
       class="btn btn-sm btn-success-soft btn-round me-1 mb-1 mb-md-0"
-      (click)="editTopic(topic.topicName, j)"
+      (click)="editTopic(topic.topicName, topicIndex)"
       ><i class="far fa-fw fa-edit"></i
     ></a>
     <button
       class="btn btn-sm btn-danger-soft btn-round mb-0"
-      (click)="deleteTopic(i, j)"
+      (click)="deleteTopic(topicIndex)"
     >
       <i class="fas fa-fw fa-times"></i>
     </button>

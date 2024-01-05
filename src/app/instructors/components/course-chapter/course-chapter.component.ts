@@ -9,7 +9,7 @@ import { CreateCourseService } from '../../services/create-course.service';
 })
 export class CourseChapterComponent {
   @Input() chapter!: Chapter;
-  @Input() i!: number;
+  @Input() chapterIndex!: number;
   @Input() isChapterInputShown!: boolean;
 
   selectedChapterIndex!: number;

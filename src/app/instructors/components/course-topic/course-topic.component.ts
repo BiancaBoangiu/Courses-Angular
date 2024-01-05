@@ -1,8 +1,8 @@
 import { Component, Input } from '@angular/core';
-import { Chapter } from '../../models/chapter-interface';
 import { CreateCourseService } from '../../services/create-course.service';
 import { Router } from '@angular/router';
 import { Topic } from '../../models/topic-interface';
+import { Chapter } from '../../models/chapter-interface';
 
 @Component({
   selector: 'app-course-topic',
@@ -16,25 +16,16 @@ export class CourseTopicComponent {
   editedTopicName!: string;
 
   newTopicIndex!: number;
-  curriculum!: Chapter[];
 
   @Input() topic!: Topic;
-  @Input() j!: number;
-  @Input() i!: number;
+  @Input() topicIndex!: number;
+  @Input() chapter!: Chapter;
 
-  constructor(
-    private createCourseService: CreateCourseService,
-    private router: Router
-  ) {}
+  constructor(private createCourseService: CreateCourseService) {}
 
-  ngOnInit() {
-    this.curriculum = this.createCourseService.chapters;
-  }
-
-  deleteTopic(chapterIndex: number, topicIndex: number) {
-    if (this.curriculum[chapterIndex].topics) {
-      this.curriculum[chapterIndex].topics.splice(topicIndex, 1);
-      this.createCourseService.courseCurriculum$.next(this.curriculum);
+  deleteTopic(topicIndex: number) {
+    if (this.chapter.topics) {
+      this.chapter.topics.splice(topicIndex, 1);
     }
   }
 
@@ -45,11 +36,10 @@ export class CourseTopicComponent {
     this.newTopicIndex = topicIndex;
   }
 
-  saveEditedTopic(chapterIndex: number, topicIndex: number) {
+  saveEditedTopic(topicIndex: number) {
     const topicName = this.editedTopicName;
-    this.curriculum[chapterIndex].topics[topicIndex].topicName = topicName;
-    this.createCourseService.courseCurriculum$.next(this.curriculum);
 
+    this.chapter.topics[topicIndex].topicName = topicName;
     this.editedTopicName = '';
     this.isEditTopicInputShown = false;
   }

@@ -1,37 +1,37 @@
 <div
   class="accordion accordion-icon accordion-bg-light"
-  id="accordionExample{{ i }}"
+  id="accordionExample{{ chapterIndex }}"
 >
   <!-- Item START -->
   <div class="accordion-item mb-3">
-    <h6 class="accordion-header font-base" id="heading-{{ i }}">
+    <h6 class="accordion-header font-base" id="heading-{{ chapterIndex }}">
       <button
         class="accordion-button fw-bold rounded d-inline-block collapsed d-block pe-5"
         type="button"
         data-bs-toggle="collapse"
-        [attr.data-bs-target]="'#collapse-' + i"
+        [attr.data-bs-target]="'#collapse-' + chapterIndex"
         aria-expanded="false"
-        [attr.aria-controls]="'collapse-' + i"
+        [attr.aria-controls]="'collapse-' + chapterIndex"
       >
         {{ chapter.chapterName }}
       </button>
     </h6>
 
     <div
-      [id]="'collapse-' + i"
+      [id]="'collapse-' + chapterIndex"
       class="accordion-collapse collapse show"
-      [attr.aria-labelledby]="'heading-' + i"
-      [attr.data-bs-parent]="'#accordionExample' + i"
+      [attr.aria-labelledby]="'heading-' + chapterIndex"
+      [attr.data-bs-parent]="'#accordionExample' + chapterIndex"
     >
       <!-- Topic START -->
       <div class="accordion-body">
         <!-- Video item START -->
         <div *ngIf="chapter.topics">
-          <div *ngFor="let topic of chapter.topics; let j = index">
+          <div *ngFor="let topic of chapter.topics; let topicIndex = index">
             <app-course-topic
+              [chapter]="chapter"
               [topic]="topic"
-              [j]="j"
-              [i]="i"
+              [topicIndex]="topicIndex"
             ></app-course-topic>
 
             <!-- Add topic -->
@@ -40,12 +40,15 @@
           <!-- Edit and cancel button -->
         </div>
         <div class="text-end">
-          <button class="btn btn-sm btn-dark mt-1" (click)="showTopicInput(i)">
+          <button
+            class="btn btn-sm btn-dark mt-1"
+            (click)="showTopicInput(chapterIndex)"
+          >
             Add topic
           </button>
         </div>
 
-        <div *ngIf="selectedChapterIndex == i && isTopicInputShown">
+        <div *ngIf="selectedChapterIndex == chapterIndex && isTopicInputShown">
           <input
             class="form-control mb-1"
             type="text"
@@ -56,7 +59,7 @@
             <button
               type="button"
               class="btn btn-primary-soft"
-              (click)="saveTopic(i)"
+              (click)="saveTopic(chapterIndex)"
             >
               Save
             </button>
