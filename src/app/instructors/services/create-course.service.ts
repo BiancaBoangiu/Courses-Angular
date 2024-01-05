@@ -4,7 +4,7 @@ import { Course } from 'src/app/courses/models/course.interface';
 import { Topic } from '../models/topic-interface';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Chapter } from '../models/chapter-interface';
-import { courseDetails } from '../models/course-details-interface';
+import { CourseDetails } from '../models/course-details-interface';
 
 @Injectable({
   providedIn: 'root',
@@ -12,8 +12,8 @@ import { courseDetails } from '../models/course-details-interface';
 export class CreateCourseService {
   chapters: Chapter[] = [];
 
-  courseDetails$: BehaviorSubject<courseDetails | null> =
-    new BehaviorSubject<courseDetails | null>(null);
+  courseDetails$: BehaviorSubject<CourseDetails | null> =
+    new BehaviorSubject<CourseDetails | null>(null);
   courseMedia$: BehaviorSubject<string | null> = new BehaviorSubject<
     string | null
   >(null);
@@ -23,8 +23,8 @@ export class CreateCourseService {
 
   constructor(private http: HttpClient) {}
 
-  getCourseDetails(): courseDetails {
-    return this.courseDetails$.getValue() as courseDetails;
+  getCourseDetails(): CourseDetails {
+    return this.courseDetails$.getValue() as CourseDetails;
   }
 
   getCourseMedia(): string {
@@ -48,7 +48,7 @@ export class CreateCourseService {
   }
 
   saveCourse(
-    courseDetails: courseDetails,
+    courseDetails: CourseDetails,
     courseMedia: string,
     courseCurriculum: Chapter[]
   ): Observable<Course> {

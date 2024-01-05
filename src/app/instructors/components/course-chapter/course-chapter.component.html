@@ -1,4 +1,7 @@
-<div class="accordion accordion-icon accordion-bg-light" id="accordionExample2">
+<div
+  class="accordion accordion-icon accordion-bg-light"
+  id="accordionExample{{ i }}"
+>
   <!-- Item START -->
   <div class="accordion-item mb-3">
     <h6 class="accordion-header font-base" id="heading-{{ i }}">
@@ -18,7 +21,7 @@
       [id]="'collapse-' + i"
       class="accordion-collapse collapse show"
       [attr.aria-labelledby]="'heading-' + i"
-      data-bs-parent="#accordionExample2"
+      [attr.data-bs-parent]="'#accordionExample' + i"
     >
       <!-- Topic START -->
       <div class="accordion-body">

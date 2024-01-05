@@ -1,7 +1,7 @@
 import { Chapter } from '../../models/chapter-interface';
 import { Component } from '@angular/core';
 import { CreateCourseService } from '../../services/create-course.service';
-import { courseDetails } from '../../models/course-details-interface';
+import { CourseDetails } from '../../models/course-details-interface';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class CourseCurriculumComponent {
   curriculum!: Chapter[];
-  courseDetails!: courseDetails;
+  courseDetails!: CourseDetails;
   courseMedia!: string;
   isChapterInputShown: boolean = false;
   chapterName: string = '';
