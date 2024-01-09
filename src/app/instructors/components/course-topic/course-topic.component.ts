@@ -1,6 +1,5 @@
+import { CreateCourseService } from './../../services/create-course.service';
 import { Component, Input } from '@angular/core';
-import { CreateCourseService } from '../../services/create-course.service';
-import { Router } from '@angular/router';
 import { Topic } from '../../models/topic-interface';
 import { Chapter } from '../../models/chapter-interface';
 
@@ -23,10 +22,11 @@ export class CourseTopicComponent {
 
   constructor(private createCourseService: CreateCourseService) {}
 
-  deleteTopic(topicIndex: number) {
-    if (this.chapter.topics) {
-      this.chapter.topics.splice(topicIndex, 1);
-    }
+  deleteTopic() {
+    this.createCourseService.removeTopicFromChapter(
+      this.chapter.id,
+      this.topicIndex
+    );
   }
 
   editTopic(topicName: string, topicIndex: number) {
@@ -39,7 +39,11 @@ export class CourseTopicComponent {
   saveEditedTopic(topicIndex: number) {
     const topicName = this.editedTopicName;
 
-    this.chapter.topics[topicIndex].topicName = topicName;
+    this.createCourseService.saveEditedTopic(
+      topicName,
+      this.chapter.id,
+      topicIndex
+    );
     this.editedTopicName = '';
     this.isEditTopicInputShown = false;
   }

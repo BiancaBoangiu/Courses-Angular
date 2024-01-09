@@ -2197,6 +2197,44 @@
       "certificate": "yes",
       "price": 21312,
       "id": 26
+    },
+    {
+      "curriculum": [
+        {
+          "chapterName": "aaaaa",
+          "id": 0,
+          "topics": [
+            {
+              "topicName": "1",
+              "id": 0
+            },
+            {
+              "topicName": "2",
+              "id": 1
+            }
+          ]
+        },
+        {
+          "chapterName": "gffhfhgfhgf",
+          "id": 1,
+          "topics": [
+            {
+              "topicName": "3",
+              "id": 0
+            }
+          ]
+        }
+      ],
+      "image": "/assets/figma.jpg",
+      "description": "fgfdgf",
+      "name": "fgfdgdf",
+      "category": "4",
+      "experience": "beginner",
+      "time": 12,
+      "premium": "yes",
+      "certificate": "yes",
+      "price": 2312,
+      "id": 27
     }
   ],
   "users": [

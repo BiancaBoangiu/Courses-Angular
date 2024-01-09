@@ -47,6 +47,22 @@ export class CreateCourseService {
     this.courseCurriculum$.next(this.chapters);
   }
 
+  removeTopicFromChapter(chapterIndex: number, topicIndex: number) {
+    const chapter = this.chapters[chapterIndex];
+    if (chapter && chapter.topics) {
+      chapter.topics.splice(topicIndex, 1);
+      this.courseCurriculum$.next(this.chapters);
+    }
+  }
+
+  saveEditedTopic(topicName: string, chapterIndex: number, topicIndex: number) {
+    const chapter = this.chapters[chapterIndex];
+    if (chapter && chapter.topics) {
+      chapter.topics[topicIndex].topicName = topicName;
+      this.courseCurriculum$.next(this.chapters);
+    }
+  }
+
   saveCourse(
     courseDetails: CourseDetails,
     courseMedia: string,
