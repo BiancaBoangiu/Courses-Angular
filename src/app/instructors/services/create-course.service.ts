@@ -10,16 +10,14 @@ import { CourseDetails } from '../models/course-details-interface';
   providedIn: 'root',
 })
 export class CreateCourseService {
-  chapters: Chapter[] = [];
-
   courseDetails$: BehaviorSubject<CourseDetails | null> =
     new BehaviorSubject<CourseDetails | null>(null);
   courseMedia$: BehaviorSubject<string | null> = new BehaviorSubject<
     string | null
   >(null);
-  courseCurriculum$: BehaviorSubject<Chapter[] | null> = new BehaviorSubject<
-    Chapter[] | null
-  >(null);
+  courseCurriculum$: BehaviorSubject<Chapter[]> = new BehaviorSubject<
+    Chapter[]
+  >([]);
 
   constructor(private http: HttpClient) {}
 
@@ -37,29 +35,33 @@ export class CreateCourseService {
 
   addChapter(chapterName: string, id: number) {
     const chapter: Chapter = { chapterName, id, topics: [] };
-    this.chapters.push(chapter);
-    this.courseCurriculum$.next(this.chapters);
+    const chapters = this.courseCurriculum$.getValue() as Chapter[];
+    chapters.push(chapter);
+    this.courseCurriculum$.next(chapters);
   }
 
   addTopicToChapter(chapterIndex: number, topicName: string, id: number) {
     const topic: Topic = { topicName, id };
-    this.chapters[chapterIndex].topics.push(topic);
-    this.courseCurriculum$.next(this.chapters);
+    const chapters = this.courseCurriculum$.getValue() as Chapter[];
+    chapters[chapterIndex].topics.push(topic);
+    this.courseCurriculum$.next(chapters);
   }
 
   removeTopicFromChapter(chapterIndex: number, topicIndex: number) {
-    const chapter = this.chapters[chapterIndex];
+    const chapters = this.courseCurriculum$.getValue() as Chapter[];
+    const chapter = chapters[chapterIndex];
     if (chapter && chapter.topics) {
       chapter.topics.splice(topicIndex, 1);
-      this.courseCurriculum$.next(this.chapters);
+      this.courseCurriculum$.next(chapters);
     }
   }
 
   saveEditedTopic(topicName: string, chapterIndex: number, topicIndex: number) {
-    const chapter = this.chapters[chapterIndex];
+    const chapters = this.courseCurriculum$.getValue() as Chapter[];
+    const chapter = chapters[chapterIndex];
     if (chapter && chapter.topics) {
       chapter.topics[topicIndex].topicName = topicName;
-      this.courseCurriculum$.next(this.chapters);
+      this.courseCurriculum$.next(chapters);
     }
   }
 
