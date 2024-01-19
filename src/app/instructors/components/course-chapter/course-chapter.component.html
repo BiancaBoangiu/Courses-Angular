@@ -33,8 +33,6 @@
               [topic]="topic"
               [topicIndex]="topicIndex"
             ></app-course-topic>
-
-            <!-- Add topic -->
           </div>
 
           <!-- Edit and cancel button -->
@@ -50,20 +48,19 @@
 
         <div *ngIf="selectedChapterIndex == chapterIndex && isTopicInputShown">
           <input
-            class="form-control mb-1"
+            class="form-control mb-1 topic-input"
             type="text"
             placeholder="Enter topic name"
             [(ngModel)]="topicName"
           />
-          <div class="text-end">
-            <button
-              type="button"
-              class="btn btn-primary-soft"
-              (click)="saveTopic(chapterIndex)"
-            >
-              Save
-            </button>
-          </div>
+
+          <button
+            type="button"
+            class="btn btn-dark ms-2"
+            (click)="saveTopic(chapterIndex)"
+          >
+            Save
+          </button>
         </div>
       </div>
       <!-- Topic END -->

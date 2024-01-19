@@ -16,7 +16,7 @@
         <app-course-media></app-course-media>
       </form>
     </mat-step>
-    <mat-step>
+    <mat-step [completed]="firstFormGroup.valid && secondFormGroup.valid">
       <ng-template matStepLabel>Curriculum</ng-template>
       <app-course-curriculum></app-course-curriculum>
     </mat-step>

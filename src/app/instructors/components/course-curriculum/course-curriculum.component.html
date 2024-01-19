@@ -1,7 +1,7 @@
-<div class="card">
+<div class="card-curriculum mx-0">
   <div class="p-1">
     <!-- Title -->
-    <h2>Curriculum</h2>
+    <h4>Curriculum</h4>
 
     <hr />
     <!-- Divider -->
@@ -9,8 +9,8 @@
     <div class="row">
       <!-- Add lecture Modal button -->
       <div class="d-sm-flex justify-content-sm-between align-items-center mb-3">
-        <h3 class="mb-2 mb-sm-0">Add Chapter</h3>
-        <a class="btn btn-primary-soft mb-0" (click)="showChapterInput()"
+        <h5 class="mb-2 mb-sm-0">Add Chapter</h5>
+        <a class="btn btn-dark mb-0" (click)="showChapterInput()"
           ><i class="bi bi-plus-circle me-2"></i>Add Chapter</a
         >
       </div>
@@ -26,27 +26,24 @@
         </div>
       </div>
 
-      <div *ngIf="isChapterInputShown">
+      <div *ngIf="isChapterInputShown" class="mb-2">
         <input
-          class="form-control mb-1"
+          class="form-control mb-1 chapter-input"
           type="text"
           placeholder="Enter chapter name"
           [(ngModel)]="chapterName"
         />
-        <div class="text-end">
-          <button
-            type="button"
-            class="btn btn-primary-soft"
-            (click)="saveChapter()"
-          >
-            Save
-          </button>
-        </div>
+
+        <button type="button" class="btn btn-dark ms-2" (click)="saveChapter()">
+          Save
+        </button>
       </div>
 
       <div class="text-end">
-        <button matStepperPrevious class="btn btn-primary me-2">Back</button>
-        <button type="button" class="btn btn-primary" (click)="saveCourse()">
+        <button matStepperPrevious class="btn btn-outline-warning me-2">
+          Back
+        </button>
+        <button type="button" class="btn btn-warning" (click)="saveCourse()">
           Save
         </button>
       </div>

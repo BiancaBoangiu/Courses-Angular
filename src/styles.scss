@@ -22288,6 +22288,39 @@ html[dir=rtl] .choices__input {
     height: 80px;
 }
 
+.mat-step-icon.mat-step-icon-state-number.mat-step-icon{
+  padding:25px;
+  background-color: var(--bs-warning);
+  margin-bottom:20px;
+}
+
+mat-step-header{
+  display:flex;
+  flex-direction: column;
+  color:#000;
+  font-weight: bold;
+  font-size:17px;
+
+ 
+}
+
+.mat-horizontal-stepper-header-container{
+  border: 1px solid var(--bs-gray-400);
+  border-bottom:0;
+  padding:15px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;;
+  background-color:var(--bs-gray-200) ;
+
+}
+
+.mat-horizontal-stepper-wrapper .mat-horizontal-content-container{
+  padding:0;
+}
+
+
+
+
 
 
 /*User CSS*/
@@ -22295,3 +22328,4 @@ html[dir=rtl] .choices__input {
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+

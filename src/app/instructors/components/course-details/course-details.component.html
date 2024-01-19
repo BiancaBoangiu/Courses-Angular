@@ -1,11 +1,12 @@
-<div class="card py-2">
+<div class="card-details py-3 mx-0">
   <form [formGroup]="courseForm" (ngSubmit)="saveCourseDetails()">
     <!-- Title -->
-    <h2 class="mb-3">Course details</h2>
+    <h4 class="my-3">Course details</h4>
+    <hr />
     <div class="row g-4">
       <!-- Course title -->
       <div class="col-12">
-        <label class="form-label fw-bold ps-1">Title</label>
+        <label class="form-label ps-1">Title</label>
         <input
           class="form-control"
           type="text"
@@ -32,7 +33,7 @@
 
       <!-- Short description -->
       <div class="col-12">
-        <label class="form-label fw-bold ps-1">Description</label>
+        <label class="form-label ps-1">Description</label>
         <textarea
           class="form-control"
           rows="4"
@@ -59,7 +60,7 @@
 
       <!-- Course category -->
       <div class="col-6">
-        <label class="form-label fw-bold ps-1">Category</label>
+        <label class="form-label ps-1">Category</label>
         <select
           class="form-select"
           aria-label="Default select example"
@@ -93,7 +94,7 @@
 
       <!-- Course level -->
       <div class="col-6">
-        <label class="form-label fw-bold ps-1">Level</label>
+        <label class="form-label ps-1">Level</label>
 
         <select
           class="form-select"
@@ -125,7 +126,7 @@
 
       <!-- Course time -->
       <div class="col-6">
-        <label class="form-label fw-bold ps-1">Time</label>
+        <label class="form-label ps-1">Time</label>
         <input
           class="form-control"
           type="number"
@@ -151,7 +152,7 @@
       </div>
 
       <div class="col-6">
-        <label class="form-label fw-bold ps-1">Premium</label>
+        <label class="form-label ps-1">Premium</label>
         <select
           class="form-select"
           aria-label="Default select example"
@@ -180,7 +181,7 @@
       </div>
 
       <div class="col-6">
-        <label class="form-label fw-bold ps-1">Certificate</label>
+        <label class="form-label ps-1">Certificate</label>
         <select
           class="form-select"
           aria-label="Default select example"
@@ -210,7 +211,7 @@
 
       <!-- Course price -->
       <div class="col-6">
-        <label class="form-label fw-bold ps-1">Price</label>
+        <label class="form-label ps-1">Price</label>
         <input
           type="number"
           class="form-control"
@@ -237,7 +238,7 @@
     </div>
     <div class="text-end">
       <button
-        class="btn btn-primary mt-2"
+        class="btn btn-warning mt-2"
         matStepperNext
         (click)="saveCourseDetails()"
         [disabled]="courseForm.invalid"
