@@ -205,10 +205,14 @@
 
               <div>
                 <div class="pt-2">
-                  <select id="selectedImage" formControlName="selectedImage">
-                    <option value="">Select an image</option>
-                    <option value="/assets/user1.jpg">Male image</option>
-                    <option value="/assets/user2.jpg">Female image</option>
+                  <select
+                    id="selectedImage"
+                    formControlName="selectedImage"
+                    class="select-image"
+                  >
+                    <option value="">Select an image *</option>
+                    <option value="/assets/user1.jpg">Male user</option>
+                    <option value="/assets/user2.jpg">Female user</option>
                   </select>
                 </div>
               </div>
@@ -226,7 +230,7 @@
               <!-- Button -->
               <div class="align-items-center mt-4">
                 <div class="d-grid">
-                  <button class="btn btn-primary mb-0" type="submit">
+                  <button class="btn btn-warning mb-0" type="submit">
                     Sign Up
                   </button>
                 </div>
