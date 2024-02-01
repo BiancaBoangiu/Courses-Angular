@@ -1,17 +1,15 @@
 <app-account-banner></app-account-banner>
 
-<section class="pt-2">
-  <div class="container">
-    <div class="row">
-      <div class="col-xl-3">
-        <app-account-navbar></app-account-navbar>
-      </div>
-
-      <!-- Main content START -->
-      <div class="col-xl-9">
-        <router-outlet></router-outlet>
-      </div>
-      <!-- Row END -->
+<section class="container-fluid m-3 p-0">
+  <div class="row justify-content-center">
+    <div class="col-3">
+      <app-account-navbar></app-account-navbar>
     </div>
+
+    <!-- Main content START -->
+    <div class="col-8">
+      <router-outlet></router-outlet>
+    </div>
+    <!-- Row END -->
   </div>
 </section>
