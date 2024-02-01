@@ -1,5 +1,5 @@
 <div *ngIf="user">
-  <div class="col-xl-9">
+  <div class="col-11">
     <!-- Edit profile START -->
     <div class="card bg-transparent border rounded-3">
       <!-- Card header -->
@@ -8,7 +8,7 @@
       </div>
       <!-- Profile picture -->
       <div class="col-12 justify-content-center align-items-center m-3">
-        <p class="form-label">Profile picture</p>
+        <h5 class="form-label mb-3">Profile picture</h5>
         <div class="d-flex align-items-center">
           <!-- Avatar place holder -->
           <span class="avatar avatar-xl me-3">
@@ -22,7 +22,7 @@
 
           <!-- Upload button -->
           <button
-            class="btn btn-primary-soft mb-0"
+            class="btn btn-warning-soft mb-0"
             (click)="saveNewProfileImage()"
           >
             Change
@@ -75,20 +75,25 @@
         <form class="row g-4" [formGroup]="editForm" (ngSubmit)="onSubmit()">
           <!-- Full name -->
           <div class="col-12">
-            <label class="form-label">Full name</label>
-            <div class="input-group">
-              <input
-                type="text"
-                class="form-control"
-                placeholder="First name"
-                formControlName="firstName"
-              />
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Last name"
-                formControlName="lastName"
-              />
+            <div class="input-group row justify-content-between g-3">
+              <div class="col-6">
+                <p>First Name</p>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="First name"
+                  formControlName="firstName"
+                />
+              </div>
+              <div class="col-6">
+                <p>Last Name</p>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Last name"
+                  formControlName="lastName"
+                />
+              </div>
             </div>
             <div
               *ngIf="
@@ -134,7 +139,7 @@
 
           <!-- Save button -->
           <div class="d-sm-flex justify-content-center">
-            <button type="submit" class="btn btn-primary mb-0">
+            <button type="submit" class="btn btn-warning mb-0">
               Save changes
             </button>
           </div>
@@ -159,33 +164,36 @@
             <!-- New password -->
             <div class="mb-3">
               <label class="form-label"> Enter new password</label>
-              <div class="input-group">
-                <input
-                  class="form-control"
-                  [type]="isPasswordShown ? 'text' : 'password'"
-                  [(ngModel)]="newPassword"
-                />
+              <div class="row">
+                <div class="col-9">
+                  <div class="input-group">
+                    <input
+                      class="form-control"
+                      [type]="isPasswordShown ? 'text' : 'password'"
+                      [(ngModel)]="newPassword"
+                    />
 
-                <span class="input-group-text p-0 bg-transparent">
-                  <i
-                    class="far fa-eye cursor-pointer p-2 w-40px"
-                    (click)="showPassword()"
-                  ></i>
-                </span>
+                    <span class="input-group-text p-0 bg-transparent">
+                      <i
+                        class="far fa-eye cursor-pointer p-2 w-40px"
+                        (click)="showPassword()"
+                      ></i>
+                    </span>
+                  </div>
+                  <div class="rounded mt-1" id="psw-strength"></div>
+                </div>
+                <div class="col-3">
+                  <!-- Button -->
+
+                  <button
+                    type="button"
+                    class="btn btn-warning mb-0"
+                    (click)="saveNewPassword()"
+                  >
+                    Change password
+                  </button>
+                </div>
               </div>
-              <div class="rounded mt-1" id="psw-strength"></div>
-            </div>
-            <!-- Confirm password -->
-
-            <!-- Button -->
-            <div class="d-flex justify-content-center mt-2">
-              <button
-                type="button"
-                class="btn btn-primary mb-0"
-                (click)="saveNewPassword()"
-              >
-                Change password
-              </button>
             </div>
           </div>
           <!-- Card body END -->

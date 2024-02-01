@@ -105,13 +105,18 @@ export class EditProfileComponent {
   }
 
   saveNewProfileImage() {
-    this.usersService
-      .updateNewProfileImage(this.selectedImageSrc, this.user.id)
-      .subscribe((user) => {
-        this.user = user;
-        this.notifierService.showNotifications('Profile picture saved');
+    if (this.selectedImageSrc) {
+      this.usersService
+        .updateNewProfileImage(this.selectedImageSrc, this.user.id)
+        .subscribe((user) => {
+          this.user = user;
+          this.authService.updateUser(user);
+          this.notifierService.showNotifications('Profile picture saved');
 
-        this.imagesShown = false;
-      });
+          this.imagesShown = false;
+        });
+    } else {
+      this.notifierService.showError('You should select a profile picture');
+    }
   }
 }

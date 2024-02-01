@@ -2269,7 +2269,7 @@
       "email": "admin@test.com",
       "password": "aaaaa",
       "userType": 0,
-      "image": "/assets/user1.jpg",
+      "image": "/assets/user5.jpg",
       "id": 12,
       "payment": {
         "cardNumber": "1111111111111111",
