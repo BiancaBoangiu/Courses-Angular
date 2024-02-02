@@ -1,295 +1,301 @@
-<div class="card bg-white border rounded-3 mb-4">
-  <!-- Card header START -->
-  <div
-    class="card-header bg-white d-sm-flex justify-content-sm-between align-items-center border-bottom"
-  >
-    <h3 class="mb-2 mb-sm-0">Payment methods</h3>
-  </div>
-  <!-- Card header END -->
-
-  <div>
-    <!-- Form START -->
-    <form
-      class="row text-start g-3"
-      [formGroup]="paymentForm"
-      (ngSubmit)="onSubmit()"
+<div class="bg-dark p-5 rounded">
+  <div class="card bg-white rounded-3 mb-4">
+    <!-- Card header START -->
+    <div
+      class="card-header bg-white d-sm-flex justify-content-sm-between align-items-center border-bottom"
     >
-      <!-- Card number -->
-      <div class="col-11 p-4 m-0">
-        <label class="form-label py-2"
-          >Card Number <span class="text-danger">*</span></label
-        >
-        <div class="position-relative">
-          <input
-            type="text"
-            class="form-control"
-            placeholder="xxxx xxxx xxxx xxxx"
-            formControlName="cardNumber"
-          />
-        </div>
-        <div
-          *ngIf="
-            (paymentForm.get('cardNumber')?.invalid &&
-              paymentForm.get('cardNumber')?.dirty) ||
-            paymentForm.get('cardNumber')?.touched ||
-            formSubmitted
-          "
-        >
-          <div
-            class="error-text mt-1"
-            *ngIf="paymentForm.get('cardNumber')?.hasError('required')"
+      <h3 class="mb-2 mb-sm-0">Payment methods</h3>
+    </div>
+    <!-- Card header END -->
+
+    <div>
+      <!-- Form START -->
+      <form
+        class="row text-start g-3"
+        [formGroup]="paymentForm"
+        (ngSubmit)="onSubmit()"
+      >
+        <!-- Card number -->
+        <div class="col-11 p-4 m-0">
+          <label class="form-label py-2"
+            >Card Number <span class="text-danger">*</span></label
           >
-            Field is required
+          <div class="position-relative">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="xxxx xxxx xxxx xxxx"
+              formControlName="cardNumber"
+            />
           </div>
           <div
-            class="error-text mt-1"
             *ngIf="
-              paymentForm.get('cardNumber')?.hasError('invalidCardNumberLength')
+              (paymentForm.get('cardNumber')?.invalid &&
+                paymentForm.get('cardNumber')?.dirty) ||
+              paymentForm.get('cardNumber')?.touched ||
+              formSubmitted
             "
           >
-            <span>Invalid field</span>
+            <div
+              class="error-text mt-1"
+              *ngIf="paymentForm.get('cardNumber')?.hasError('required')"
+            >
+              Field is required
+            </div>
+            <div
+              class="error-text mt-1"
+              *ngIf="
+                paymentForm
+                  .get('cardNumber')
+                  ?.hasError('invalidCardNumberLength')
+              "
+            >
+              <span>Invalid field</span>
+            </div>
           </div>
         </div>
-      </div>
-      <!-- Expiration Date -->
-      <div class="col-3 px-4 py-2 m-0">
-        <label class="form-label pb-2"
-          >Expiration date <span class="text-danger">*</span></label
-        >
-        <div class="input-group">
+        <!-- Expiration Date -->
+        <div class="col-3 px-4 py-2 m-0">
+          <label class="form-label pb-2"
+            >Expiration date <span class="text-danger">*</span></label
+          >
+          <div class="input-group">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Month"
+              formControlName="cardMonth"
+            />
+          </div>
+          <div
+            *ngIf="
+              (paymentForm.get('cardMonth')?.invalid &&
+                paymentForm.get('cardMonth')?.dirty) ||
+              paymentForm.get('cardMonth')?.touched ||
+              formSubmitted
+            "
+          >
+            <div
+              class="error-text mt-1"
+              *ngIf="paymentForm.get('cardMonth')?.hasError('required')"
+            >
+              Field is required
+            </div>
+            <div
+              class="error-text mt-1"
+              *ngIf="paymentForm.get('cardMonth')?.hasError('invalidMonth')"
+            >
+              <span>Invalid field</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-3 px-4 py-2 m-0">
+          <label class="form-label mb-4 pb-2"></label>
+          <div class="input-group">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Year"
+              formControlName="cardYear"
+            />
+          </div>
+
+          <div
+            *ngIf="
+              (paymentForm.get('cardYear')?.invalid &&
+                paymentForm.get('cardYear')?.dirty) ||
+              paymentForm.get('cardYear')?.touched ||
+              formSubmitted
+            "
+          >
+            <div
+              class="error-text mt-1"
+              *ngIf="paymentForm.get('cardYear')?.hasError('required')"
+            >
+              Field is required
+            </div>
+            <div
+              class="error-text mt-1"
+              *ngIf="paymentForm.get('cardYear')?.hasError('invalidYear')"
+            >
+              <span>Invalid field</span>
+            </div>
+          </div>
+        </div>
+        <!--Cvv code  -->
+        <div class="col-3 px-4 py-2 m-0">
+          <label class="form-label ps-3 pb-2"
+            >CVV / CVC <span class="text-danger">*</span></label
+          >
           <input
             type="text"
             class="form-control"
-            placeholder="Month"
-            formControlName="cardMonth"
+            placeholder="xxx"
+            formControlName="cardCvv"
           />
-        </div>
-        <div
-          *ngIf="
-            (paymentForm.get('cardMonth')?.invalid &&
-              paymentForm.get('cardMonth')?.dirty) ||
-            paymentForm.get('cardMonth')?.touched ||
-            formSubmitted
-          "
-        >
           <div
-            class="error-text mt-1"
-            *ngIf="paymentForm.get('cardMonth')?.hasError('required')"
+            *ngIf="
+              (paymentForm.get('cardCvv')?.invalid &&
+                paymentForm.get('cardCvv')?.dirty) ||
+              paymentForm.get('cardCvv')?.touched ||
+              formSubmitted
+            "
           >
-            Field is required
-          </div>
-          <div
-            class="error-text mt-1"
-            *ngIf="paymentForm.get('cardMonth')?.hasError('invalidMonth')"
-          >
-            <span>Invalid field</span>
+            <div
+              class="error-text mt-1"
+              *ngIf="paymentForm.get('cardCvv')?.hasError('required')"
+            >
+              Field is required
+            </div>
+            <div
+              class="error-text mt-1"
+              *ngIf="paymentForm.get('cardCvv')?.hasError('invalidCvv')"
+            >
+              <span>Invalid field</span>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col-3 px-4 py-2 m-0">
-        <label class="form-label mb-4 pb-2"></label>
-        <div class="input-group">
+        <div class="col-2 px-4 py-2 m-0">
+          <label class="form-label ps-3 pb-2"
+            >Funds <span class="text-danger">*</span></label
+          >
           <input
             type="text"
             class="form-control"
-            placeholder="Year"
-            formControlName="cardYear"
+            placeholder="xxxxx"
+            formControlName="cardFunds"
+          />
+          <div
+            *ngIf="
+              (paymentForm.get('cardFunds')?.invalid &&
+                paymentForm.get('cardFunds')?.dirty) ||
+              paymentForm.get('cardFunds')?.touched ||
+              formSubmitted
+            "
+          >
+            <div
+              class="error-text mt-1"
+              *ngIf="paymentForm.get('cardFunds')?.hasError('required')"
+            >
+              Field is required
+            </div>
+            <div
+              class="error-text mt-1"
+              *ngIf="paymentForm.get('cardFunds')?.hasError('invalidCardFunds')"
+            >
+              <span>Invalid field</span>
+            </div>
+          </div>
+        </div>
+        <!-- Card name -->
+        <div class="col-11 px-4 py-2 m-0">
+          <label class="form-label pb-2"
+            >Name on Card <span class="text-danger">*</span></label
+          >
+          <input
+            type="text"
+            class="form-control"
+            aria-label="name of card holder"
+            placeholder="Enter name"
+            formControlName="cardName"
+          />
+          <div
+            *ngIf="
+              (paymentForm.get('cardName')?.invalid &&
+                paymentForm.get('cardName')?.dirty) ||
+              paymentForm.get('cardName')?.touched ||
+              formSubmitted
+            "
+          >
+            <div
+              class="error-text mt-1"
+              *ngIf="paymentForm.get('cardName')?.hasError('required')"
+            >
+              Field is required
+            </div>
+          </div>
+        </div>
+        <div class="text-end mt-1" *ngIf="!formSubmitted">
+          <button
+            class="btn btn-sm btn-primary-soft mb-0 ms-3 px-4 py-2"
+            type="submit"
+          >
+            Save
+          </button>
+        </div>
+        <div *ngIf="formSubmitted" class="py-2 px-4">
+          <button
+            class="btn btn-sm btn-dark mb-2 ms-1"
+            (click)="deletePaymentInfo()"
+          >
+            Delete
+          </button>
+        </div>
+      </form>
+      <!-- Form END -->
+    </div>
+
+    <div
+      class="row border-top deposit-section py-3 m-0 justify-content-between"
+    >
+      <div class="col-7 ps-4 d-flex justify-content-between">
+        <div class="col-8">
+          <input
+            type="text"
+            class="form-control me-0"
+            placeholder="xxxxx"
+            [(ngModel)]="depositAmount"
           />
         </div>
 
-        <div
-          *ngIf="
-            (paymentForm.get('cardYear')?.invalid &&
-              paymentForm.get('cardYear')?.dirty) ||
-            paymentForm.get('cardYear')?.touched ||
-            formSubmitted
-          "
-        >
-          <div
-            class="error-text mt-1"
-            *ngIf="paymentForm.get('cardYear')?.hasError('required')"
+        <div class="col-4">
+          <button
+            class="btn btn-sm btn-dark mb-0 ms-3"
+            type="button"
+            (click)="depositMoney()"
           >
-            Field is required
-          </div>
-          <div
-            class="error-text mt-1"
-            *ngIf="paymentForm.get('cardYear')?.hasError('invalidYear')"
-          >
-            <span>Invalid field</span>
-          </div>
+            Deposit
+          </button>
         </div>
-      </div>
-      <!--Cvv code  -->
-      <div class="col-3 px-4 py-2 m-0">
-        <label class="form-label ps-3 pb-2"
-          >CVV / CVC <span class="text-danger">*</span></label
-        >
-        <input
-          type="text"
-          class="form-control"
-          placeholder="xxx"
-          formControlName="cardCvv"
-        />
-        <div
-          *ngIf="
-            (paymentForm.get('cardCvv')?.invalid &&
-              paymentForm.get('cardCvv')?.dirty) ||
-            paymentForm.get('cardCvv')?.touched ||
-            formSubmitted
-          "
-        >
-          <div
-            class="error-text mt-1"
-            *ngIf="paymentForm.get('cardCvv')?.hasError('required')"
-          >
-            Field is required
-          </div>
-          <div
-            class="error-text mt-1"
-            *ngIf="paymentForm.get('cardCvv')?.hasError('invalidCvv')"
-          >
-            <span>Invalid field</span>
-          </div>
-        </div>
-      </div>
-      <div class="col-2 px-4 py-2 m-0">
-        <label class="form-label ps-3 pb-2"
-          >Funds <span class="text-danger">*</span></label
-        >
-        <input
-          type="text"
-          class="form-control"
-          placeholder="xxxxx"
-          formControlName="cardFunds"
-        />
-        <div
-          *ngIf="
-            (paymentForm.get('cardFunds')?.invalid &&
-              paymentForm.get('cardFunds')?.dirty) ||
-            paymentForm.get('cardFunds')?.touched ||
-            formSubmitted
-          "
-        >
-          <div
-            class="error-text mt-1"
-            *ngIf="paymentForm.get('cardFunds')?.hasError('required')"
-          >
-            Field is required
-          </div>
-          <div
-            class="error-text mt-1"
-            *ngIf="paymentForm.get('cardFunds')?.hasError('invalidCardFunds')"
-          >
-            <span>Invalid field</span>
-          </div>
-        </div>
-      </div>
-      <!-- Card name -->
-      <div class="col-11 px-4 py-2 m-0">
-        <label class="form-label pb-2"
-          >Name on Card <span class="text-danger">*</span></label
-        >
-        <input
-          type="text"
-          class="form-control"
-          aria-label="name of card holder"
-          placeholder="Enter name"
-          formControlName="cardName"
-        />
-        <div
-          *ngIf="
-            (paymentForm.get('cardName')?.invalid &&
-              paymentForm.get('cardName')?.dirty) ||
-            paymentForm.get('cardName')?.touched ||
-            formSubmitted
-          "
-        >
-          <div
-            class="error-text mt-1"
-            *ngIf="paymentForm.get('cardName')?.hasError('required')"
-          >
-            Field is required
-          </div>
-        </div>
-      </div>
-      <div class="text-end mt-1" *ngIf="!formSubmitted">
-        <button
-          class="btn btn-sm btn-primary-soft mb-0 ms-3 px-4 py-2"
-          type="submit"
-        >
-          Save
-        </button>
-      </div>
-      <div *ngIf="formSubmitted" class="py-2 px-4">
-        <button
-          class="btn btn-sm btn-dark mb-2 ms-1"
-          (click)="deletePaymentInfo()"
-        >
-          Delete
-        </button>
-      </div>
-    </form>
-    <!-- Form END -->
-  </div>
-
-  <div class="row border-top deposit-section py-3 m-0 justify-content-between">
-    <div class="col-7 ps-4 d-flex justify-content-between">
-      <div class="col-8">
-        <input
-          type="text"
-          class="form-control me-0"
-          placeholder="xxxxx"
-          [(ngModel)]="depositAmount"
-        />
       </div>
 
-      <div class="col-4">
-        <button
-          class="btn btn-sm btn-dark mb-0 ms-3"
-          type="button"
-          (click)="depositMoney()"
-        >
-          Deposit
-        </button>
+      <div class="col-3 align-self-center wallet" *ngIf="walletValue">
+        <i class="fa-solid fa-wallet me-2" style="color: #000000"></i>
+        <p>Wallet:{{ walletValue }} $</p>
       </div>
-    </div>
-
-    <div class="col-3 align-self-center wallet" *ngIf="walletValue">
-      <i class="fa-solid fa-wallet me-2" style="color: #000000"></i>
-      <p>Wallet:{{ walletValue }} $</p>
-    </div>
-    <div class="col-3 align-self-center wallet" *ngIf="!walletValue">
-      <i class="fa-solid fa-wallet me-2" style="color: #000000"></i>
-      <p>Wallet: 0 $</p>
+      <div class="col-3 align-self-center wallet" *ngIf="!walletValue">
+        <i class="fa-solid fa-wallet me-2" style="color: #000000"></i>
+        <p>Wallet: 0 $</p>
+      </div>
     </div>
   </div>
-</div>
 
-<!-- Billing address START -->
-<div class="card bg-white border rounded-3 mb-4">
-  <!-- Card header START -->
+  <!-- Billing address START -->
+  <div class="card bg-white rounded-3 mb-4">
+    <!-- Card header START -->
 
-  <h3 class="mb-2 mb-sm-0 p-3">Billing address</h3>
+    <h3 class="mb-2 mb-sm-0 p-3">Billing address</h3>
 
-  <div class="p-3">
-    <div class="mb-2">
+    <div class="p-3">
       <div class="mb-2">
-        <input
-          type="text"
-          placeholder="Address"
-          [(ngModel)]="address"
-          class="form-control"
-        />
-      </div>
+        <div class="mb-2">
+          <input
+            type="text"
+            placeholder="Address"
+            [(ngModel)]="address"
+            class="form-control"
+          />
+        </div>
 
-      <!-- Button -->
-      <div class="d-flex justify-content-end">
-        <a class="btn btn-sm btn-dark mb-0 me-2" (click)="saveAddress()"
-          >Save</a
-        >
-        <a class="btn btn-sm btn-dark mb-0" (click)="deleteAddress()">
-          Delete
-        </a>
+        <!-- Button -->
+        <div class="d-flex justify-content-end">
+          <a class="btn btn-sm btn-dark mb-0 me-2" (click)="saveAddress()"
+            >Save</a
+          >
+          <a class="btn btn-sm btn-dark mb-0" (click)="deleteAddress()">
+            Delete
+          </a>
+        </div>
       </div>
     </div>
   </div>
