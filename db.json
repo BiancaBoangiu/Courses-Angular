@@ -145,9 +145,11 @@
         }
       ],
       "instructorId": 1,
-      "views": 1176,
+      "views": 1179,
       "rating": null,
-      "participants": [],
+      "participants": [
+        12
+      ],
       "hasCertificate": true,
       "price": 0,
       "isPremium": false
@@ -161,7 +163,7 @@
       "categoryId": 2,
       "experience": "Intermediate",
       "instructorId": 2,
-      "views": 410,
+      "views": 412,
       "rating": 3,
       "participants": [
         12
@@ -2276,7 +2278,7 @@
         "cardYear": "1998",
         "cardMonth": "12",
         "cardCvv": "123",
-        "cardFunds": "8000",
+        "cardFunds": 2000,
         "cardName": "A"
       },
       "billingAddress": "b",
@@ -2288,6 +2290,10 @@
         1,
         3,
         4
+      ],
+      "wallet": 6000,
+      "purchasedCourses": [
+        1
       ]
     }
   ],
