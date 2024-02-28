@@ -59,13 +59,24 @@
       <div class="ms-4">
         <div class="d-flex">
           <h5
+            *ngIf="numberOfCertificates > 0"
             class="purecounter mb-0 fw-bold"
             data-purecounter-start="0"
             data-purecounter-end="8"
             data-purecounter-delay="300"
             data-purecounter-duration="0"
           >
-            8
+            {{ numberOfCertificates }}
+          </h5>
+          <h5
+            *ngIf="numberOfCertificates == 0"
+            class="purecounter mb-0 fw-bold"
+            data-purecounter-start="0"
+            data-purecounter-end="8"
+            data-purecounter-delay="300"
+            data-purecounter-duration="0"
+          >
+            {{ numberOfCertificates }}
           </h5>
         </div>
         <p class="mb-0 h6 fw-light">Achieved Certificates</p>

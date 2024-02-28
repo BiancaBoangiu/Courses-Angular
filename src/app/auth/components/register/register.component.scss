@@ -9,5 +9,12 @@
 .select-image{
   padding:10px;
   border-radius:5px;
+  background-color: rgb(245, 247, 249);
+  border: 0;
+}
+
+.select-image:focus{
+  outline:0;
+  border:0;
 }
 

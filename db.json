@@ -146,10 +146,8 @@
       ],
       "instructorId": 1,
       "views": 1179,
-      "rating": null,
-      "participants": [
-        12
-      ],
+      "rating": 0,
+      "participants": [12],
       "hasCertificate": true,
       "price": 0,
       "isPremium": false
@@ -165,9 +163,7 @@
       "instructorId": 2,
       "views": 412,
       "rating": 3,
-      "participants": [
-        12
-      ],
+      "participants": [12],
       "hasCertificate": true,
       "price": 200,
       "isPremium": true,
@@ -419,9 +415,7 @@
       "instructorId": 3,
       "views": 195,
       "rating": 0,
-      "participants": [
-        12
-      ],
+      "participants": [12],
       "hasCertificate": true,
       "price": 400,
       "isPremium": true
@@ -523,11 +517,9 @@
         }
       ],
       "instructorId": 4,
-      "views": 164,
+      "views": 165,
       "rating": 2,
-      "participants": [
-        12
-      ],
+      "participants": [12],
       "hasCertificate": false,
       "price": 550,
       "isPremium": true,
@@ -628,10 +620,7 @@
       "instructorId": 5,
       "views": 68,
       "rating": 0,
-      "participants": [
-        11,
-        12
-      ],
+      "participants": [11, 12],
       "hasCertificate": true,
       "price": 0,
       "isPremium": false,
@@ -834,11 +823,9 @@
         }
       ],
       "instructorId": 7,
-      "views": 24,
+      "views": 25,
       "rating": 0,
-      "participants": [
-        12
-      ],
+      "participants": [12],
       "hasCertificate": false,
       "price": 500,
       "isPremium": true
@@ -1054,9 +1041,7 @@
       "instructorId": 9,
       "views": 29,
       "rating": 0,
-      "participants": [
-        12
-      ],
+      "participants": [12],
       "hasCertificate": true,
       "price": 0,
       "isPremium": false
@@ -1164,9 +1149,7 @@
       "instructorId": 10,
       "views": 15,
       "rating": 0,
-      "participants": [
-        12
-      ],
+      "participants": [12],
       "hasCertificate": true,
       "price": 300,
       "isPremium": true
@@ -1578,7 +1561,7 @@
         }
       ],
       "instructorId": 4,
-      "views": 4,
+      "views": 5,
       "rating": 0,
       "participants": [],
       "hasCertificate": false,
@@ -1670,10 +1653,7 @@
       "instructorId": 5,
       "views": 53,
       "rating": 0,
-      "participants": [
-        12,
-        11
-      ],
+      "participants": [12, 11],
       "hasCertificate": true,
       "price": 0,
       "isPremium": false
@@ -1847,9 +1827,9 @@
         }
       ],
       "instructorId": 1,
-      "views": 8,
+      "views": 9,
       "rating": 0,
-      "participants": [],
+      "participants": [12],
       "hasCertificate": true,
       "price": 520,
       "isPremium": true
@@ -1937,7 +1917,7 @@
         }
       ],
       "instructorId": 2,
-      "views": 4,
+      "views": 5,
       "rating": 0,
       "participants": [],
       "hasCertificate": false,
@@ -1948,16 +1928,11 @@
       "curriculum": [
         {
           "chapterName": "gfdggfgf",
-          "topics": [
-            "ggf",
-            "gdgggdf"
-          ]
+          "topics": ["ggf", "gdgggdf"]
         },
         {
           "chapterName": "gfgfgfgdf",
-          "topics": [
-            "gfgfggfd"
-          ]
+          "topics": ["gfgfggfd"]
         }
       ],
       "image": "/assets/react.jpg",
@@ -2262,10 +2237,7 @@
         "cardName": "fdhdfhfd"
       },
       "wallet": 400,
-      "purchasedCourses": [
-        15,
-        5
-      ]
+      "purchasedCourses": [15, 5]
     },
     {
       "email": "admin@test.com",
@@ -2286,15 +2258,9 @@
       "lastName": "B",
       "description": "",
       "education": "",
-      "wishlist": [
-        1,
-        3,
-        4
-      ],
-      "wallet": 6000,
-      "purchasedCourses": [
-        1
-      ]
+      "wishlist": [1, 3, 4],
+      "wallet": 5480,
+      "purchasedCourses": [1, 17]
     }
   ],
   "reviews": [],
